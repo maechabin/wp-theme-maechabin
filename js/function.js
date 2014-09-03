@@ -1,6 +1,8 @@
 var maechabin_ui = (function () {
 
+  var timer = null;
   var w = $(window);
+  var header_bar = $("#header_bar");
 
   // Smooth Scroll
   function smoothScroll(position, speed) {
@@ -14,7 +16,7 @@ var maechabin_ui = (function () {
 
       var speed = 400;
       var href = $(this).attr("href");
-      var target = $(href == "#" || href == "" ? "html" : href);
+      var target = $(href === "#" || href === "" ? "html" : href);
       var position = target.offset().top;
       smoothScroll(position, speed);
       return false;
@@ -26,9 +28,7 @@ var maechabin_ui = (function () {
   // ヘッダーバーをクリックした時
   function clickHeaderBar() {
 
-    var headerBar = $("#header_bar");
-
-    headerBar.on("click", function (e) {
+    header_bar.on("click", function (e) {
 
       var element = $(e.target).attr("id");
 
@@ -76,46 +76,58 @@ var maechabin_ui = (function () {
 
   }
 
-  // サイトバー固定
-  function fixSidebar() {
+  // スクロール位置によってヘッダーバーに影を付ける
+  function makeShadowHeaderBar() {
 
-    var contentHeight = $("#content_border").height();
-    var sidebarHeight = $("#sidebar").height();
-    var wscrollTop = w.scrollTop();
-    var headerBar = $("#header_bar");
-
-    w.on("scroll", function() {
+      w.on("scroll", function () {
 
       if (w.scrollTop() > 0) {
-        headerBar.css({"box-shadow": "0 1px 3px #000", "transition": "box-shadow .4s linear"});  
+        header_bar.css({
+          "box-shadow": "0 1px 3px #000",
+          "transition": "box-shadow .4s linear"
+        });  
       } else {
-        headerBar.css("box-shadow", "none");   
+        header_bar.css({
+          "box-shadow": "none"
+        });
       }
 
     });
 
-    if (sidebarHeight < contentHeight) {
+  }
 
-      $("#sidebar").css("height", contentHeight);
+  // サイドバー固定
+  function fixSidebar() {
 
-      var sidebarSub = $("#sidebar_sub");
-      var sidebarScrollStop = 36 + $("#sidebar_sub").height() + 36 + 24 - w.height();
-      var sidebarScrollStart = 36 + $("#content_border").height() + 24 - w.height();
+    var wscrollTop = w.scrollTop();
+
+    // .hight()
+    var headerbar_height = header_bar.height();
+    var content_height = $("#content_border").height();
+    var sidebar_height = $("#sidebar").height();
+
+    if (sidebar_height < content_height) {
+
+      $("#sidebar").css("height", content_height);
+
+      var sidebar_sub = $("#sidebar_sub");
+      var sidebar_scroll_stop = headerbar_height + $("#sidebar_sub").height() + 56 + 24 - w.height();
+      var sidebar_scroll_start = headerbar_height + content_height + 24 - w.height();
 
       w.on("scroll", function () {
 
-        if (sidebarScrollStop < w.scrollTop() && w.scrollTop() < sidebarScrollStart) {
-          sidebarSub.css({"position": "fixed", "bottom": "24px"});
-        } else if (w.scrollTop() >= sidebarScrollStart) {
-          sidebarSub.css({"position": "absolute", "bottom": "0"});
+        if (sidebar_scroll_stop < w.scrollTop() && w.scrollTop() < sidebar_scroll_start) {
+          sidebar_sub.css({"position": "fixed", "bottom": "24px"});
+        } else if (w.scrollTop() >= sidebar_scroll_start) {
+          sidebar_sub.css({"position": "absolute", "bottom": "0"});
         } else {
-          sidebarSub.css("position", "static");
+          sidebar_sub.css("position", "static");
         }
 
       });
 
     } else {
-      $("#content").css("height", sidebarHeight);
+      $("#content").css("height", sidebar_height);
     }
 
   }
@@ -143,10 +155,20 @@ var maechabin_ui = (function () {
 
   }
 
+  function startFunc() {
+
+    clearTimeout(timer);
+
+    timer = setTimeout(function () {
+      widthEnd();
+    }, 200);
+
+  } 
+
   function resizeBrowser() {
 
       w.on("resize", function () {
-        widthEnd();
+        startFunc();
       });
 
   }
@@ -158,6 +180,7 @@ var maechabin_ui = (function () {
       goTop();
       clickHeaderBar();
       clickTopPost();
+      makeShadowHeaderBar();
       fixSidebar();
       widthEnd();
       resizeBrowser();
@@ -168,7 +191,7 @@ var maechabin_ui = (function () {
 
 })();
 
-maechabin_ui.init();
+window.onload = maechabin_ui.init();
 
 
 // ▼jquery.pageswitch.js▼

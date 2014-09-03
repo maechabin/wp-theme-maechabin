@@ -81,13 +81,13 @@ while(have_posts()):the_post();
 <img width="1" height="1" src="//www13.moba8.net/0.jpg?a8mat=2BU3YH+AFOJHU+3NY+6HMHT&guid=on" alt="">
 -->
 </div>
-
+<!--
 <div>
 <a href="//px.moba8.net/svt/ejp?a8mat=2BU3YH+AFOJHU+3NY+6IWSH&amp;guid=on">
 <img width="300" height="250" alt="スマホ・アフィリエイトのMoba8.net（モバハチネット）" src="http://www28.moba8.net/svt/bgt?aid=140812937631&amp;wid=001&amp;eno=01&amp;mid=m00000000475001096000&amp;mc=1"></a>
 <img width="1" height="1" src="http://www15.moba8.net/0.jpg?a8mat=2BU3YH+AFOJHU+3NY+6IWSH&amp;guid=on" alt="">
 </div>
-
+-->
 </aside>
 
 </article>

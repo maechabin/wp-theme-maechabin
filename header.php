@@ -40,8 +40,8 @@ if ($paged >= 2 || $page >= 2)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
   ga('create', 'UA-16293533-1', 'auto');
-  ga('require', 'displayfeatures');
   ga('send', 'pageview');
+  ga('require', 'displayfeatures');
   ga('require', 'linkid', 'linkid.js');
   
 </script>

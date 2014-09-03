@@ -4,15 +4,17 @@ remove_action('wp_head','index_rel_link');
 
 
 #動的サイドバーを必要としていることをプラグインに伝える
-if(function_exists('register_sidebar')) {
+if (function_exists('register_sidebar')) {
 
   register_sidebar(
+
     array(
-      'before_widget'=>'',
-      'after_widget'=>'',
-      'before_title'=>'<div class="title">',
-      'after_title'=>'</div>',
+      'before_widget' => '',
+      'after_widget' => '',
+      'before_title' => '<div class="title">',
+      'after_title' => '</div>',
     )
+
   );
 
 }
@@ -23,7 +25,7 @@ function widget_mytheme_search() {
 ?>
   <div class="search_box">
   <form role="search" method="get" id="searchform" action="<?php bloginfo('url') ?>" >
-  <input type="text" value="" name="s" id="s" /><button type="submit" id="searchsubmit"><span class="hidden_elem">検索</span></button>
+  <input type="text" value="" name="s" id="s" placeholder="ブログ検索"><button type="submit" id="searchsubmit"><span class="hidden_elem">検索</span></button>
   </form>
   </div>
 <?php
@@ -146,11 +148,13 @@ if(!function_exists('chabin_comment')) :
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
-function chabin_comment($comment,$args,$depth){
-$GLOBALS['comment']=$comment;
-switch($comment->comment_type):
-case '':
+function chabin_comment($comment,$args,$depth) {
+
+  $GLOBALS['comment']=$comment;
+  switch($comment->comment_type):
+  case '':
 ?>
+
 <li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
 <article id="comment-<?php comment_ID(); ?>">
@@ -167,69 +171,74 @@ case '':
 <?php printf( __('%s'),sprintf('<span class="comment_author_name">%s</span>',get_comment_author_link())); ?>　
 <?php
 /* translators: 1: date, 2: time */
-printf( __('<time>%1$s %2$s</time>'),get_comment_date(),get_comment_time()); ?>
-　<?php comment_reply_link(array_merge($args, array('depth'=>$depth,'max_depth'=>$args['max_depth']))); ?>
-　<?php edit_comment_link(__('(編集)'),' '); ?>
+printf( __('<time>%1$s %2$s</time>'),get_comment_date(),get_comment_time());
+?>
+
+<?php comment_reply_link(array_merge($args, array('depth'=>$depth,'max_depth'=>$args['max_depth']))); ?>
+<?php edit_comment_link(__('(編集)'),' '); ?>
+
 </p>
 </div><!-- .comment_article -->
 </article><!-- #comment-## -->
 
 <?php
-break;
-case 'pingback':
-case 'trackback':
+  break;
+
+  case 'pingback':
+  case 'trackback':
 ?>
+
 <li class="pingback">
 <p>ピンバック: <?php comment_author_link(); ?></p>
 <p class="comment_meta">
 <?php printf( __('<time>%1$s %2$s</time>'),get_comment_date(),get_comment_time()); ?>　<?php edit_comment_link(__('(編集)'),' '); ?>
 </p>
+
 <?php
-break;
-endswitch;
+  break;
+  endswitch;
+
 }
 endif;
 
 
 
-
-
-
 function comment_form_mae( $args = array(), $post_id = null ) {
-global $user_identity, $id;
+  global $user_identity, $id;
 
-if ( null === $post_id )
-$post_id = $id;
-else
-$id = $post_id;
+  if ( null === $post_id )
+    $post_id = $id;
+  else
+    $id = $post_id;
 
-$commenter = wp_get_current_commenter();
+  $commenter = wp_get_current_commenter();
 
-$req = get_option( 'require_name_email' );
-$aria_req = ( $req ? " aria-required='true'" : '' );
-$fields =  array(
-'author' => '<li class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . '</label> ' . ( $req ? '（ <span class="required">必須</span> ）' : '' ) .
-'<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></li>',
-'email'  => '<li class="comment-form-email"><label for="email">' . __( 'Email' ) . '</label> ' . ( $req ? '（ <span class="required">必須</span> ）　※公開されません' : '' ) .
-'<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></li>',
-'url'    => '<li class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label>' .
-'<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></li>',
-);
+  $req = get_option( 'require_name_email' );
+  $aria_req = ( $req ? " aria-required='true'" : '' );
 
-$required_text = sprintf( ' ' . __('Required fields are marked %s'), '<span class="required">*</span>' );
-$defaults = array(
-'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
-'comment_field'        => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="6" aria-required="true"></textarea></p>',
-'must_log_in'          => '<p class="must-log-in">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
-'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
-'id_form'              => 'commentform',
-'id_submit'            => 'submit',
-'title_reply'          => __( 'Leave a Reply' ),
-'title_reply_to'       => __( 'Leave a Reply to %s' ),
-'cancel_reply_link'    => __( 'Cancel reply' ),
-);
+  $fields =  array(
+    'author' => '<li class="comment-form-author">' . '<label for="author">' . __( 'Name' ) . '</label> ' . ( $req ? '（ <span class="required">必須</span> ）' : '' ) .
+    '<input id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></li>',
+    'email'  => '<li class="comment-form-email"><label for="email">' . __( 'Email' ) . '</label> ' . ( $req ? '（ <span class="required">必須</span> ）　※公開されません' : '' ) .
+    '<input id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></li>',
+    'url'    => '<li class="comment-form-url"><label for="url">' . __( 'Website' ) . '</label>' .
+    '<input id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></li>',
+  );
 
-$args = wp_parse_args( $args, apply_filters( 'comment_form_defaults', $defaults ) );
+  $required_text = sprintf( ' ' . __('Required fields are marked %s'), '<span class="required">*</span>' );
+  $defaults = array(
+    'fields'               => apply_filters( 'comment_form_default_fields', $fields ),
+    'comment_field'        => '<p class="comment-form-comment"><textarea id="comment" name="comment" cols="45" rows="6" aria-required="true"></textarea></p>',
+    'must_log_in'          => '<p class="must-log-in">' .  sprintf( __( 'You must be <a href="%s">logged in</a> to post a comment.' ), wp_login_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
+    'logged_in_as'         => '<p class="logged-in-as">' . sprintf( __( 'Logged in as <a href="%1$s">%2$s</a>. <a href="%3$s" title="Log out of this account">Log out?</a>' ), admin_url( 'profile.php' ), $user_identity, wp_logout_url( apply_filters( 'the_permalink', get_permalink( $post_id ) ) ) ) . '</p>',
+    'id_form'              => 'commentform',
+    'id_submit'            => 'submit',
+    'title_reply'          => __( 'Leave a Reply' ),
+    'title_reply_to'       => __( 'Leave a Reply to %s' ),
+    'cancel_reply_link'    => __( 'Cancel reply' ),
+  );
+
+  $args = wp_parse_args( $args, apply_filters( 'comment_form_defaults', $defaults ) );
 ?>
 		
 <?php if ( comments_open() ) : ?>

@@ -30,7 +30,7 @@ input,
 iframe {
     margin: 0;
     padding: 0;
-    vertical-align: middle;
+    vertical-align: middle !important;
     border: 0;
 }
 ul,
@@ -54,10 +54,6 @@ section, nav, article, aside, hgroup, header, footer, figure, figcaption {
 
 select {
     cursor: pointer;
-}
-*html body,
-*+html body {
-    overflow-y: auto;
 }
 body {
 /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
@@ -85,21 +81,20 @@ a > i {
 #header_bar {
     width: 100%;
     background-color: #000;
-    background: linear-gradient(#222 50%, #000 50%, #000);
     background: -webkit-linear-gradient(#222 50%, #000 50%, #000);
-    line-height: 36px;
+    background: linear-gradient(#222 50%, #000 50%, #000);
+    line-height: 56px;
+    height: 56px;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 3;
     opacity: .9;
-    filter: alpha(opacity=90);
-    -ms-filter: 'alpha(opacity=90)';
     zoom: 1;
 }
 #header_bar_inner {
     position: relative;
-    line-height: 36px;
+    line-height: 56px;
     width: 1020px;
     margin: 0 auto;
     overflow: hidden;
@@ -107,8 +102,8 @@ a > i {
 }
 #blog_title {
     position: absolute;
-    left: 27px;
-    font-size: 18px;
+    left: 32px;
+    font-size: 20px;
     z-index: 30;
 }
 #blog_title a {
@@ -116,7 +111,7 @@ a > i {
     text-decoration: none;
     font-weight: normal;
     display: block;
-    line-height: 36px;
+    line-height: 56px;
 }
 #blog_title a:hover {
     color: #fff !important;
@@ -135,7 +130,7 @@ a > i {
 }
 #s {
     background-color: #fff;
-    width: 250px;
+    width: 240px;
     height: 20px;
     padding: 0 6px;
     border-radius: 2px 0 0 2px;
@@ -153,25 +148,24 @@ a > i {
     border-radius: 0 2px 2px 0;
 }
 .rss {
-    line-height: 36px;
-    height: 36px;
+    line-height: 48px;
     text-align: right;
     position: absolute;
     top: 0;
-    right: 36px;
+    right: 40px;
 }
 .rss img {
     position: relative;
     top: -4px;
 }
 .rss a i {
-    line-height: 36px;
-    font-size: 18px;
+    line-height: 56px;
+    font-size: 20px;
     color: #fff;
 }
 #blog_header {
     position: fixed;
-    top: 36px;
+    top: 56px;
     left: 0;
     height: 114px;
     z-index: 0;
@@ -187,12 +181,12 @@ a > i {
 #content_border {
     z-index: 2;
     position: relative;
-    top: 36px;
+    top: 56px;
     background-color: #fff;
     clear: both;
     overflow: hidden;
     min-width: 990px;
-    margin: 0 18px 134px;
+    margin: 0 18px 154px;
     border-radius: 0 0 2px 2px;
 }
 #content {
@@ -829,7 +823,7 @@ textarea {
 #sidebar ul,
 #sidebar select,
 #sidebar table {
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 .tagcloud {
     width: 300px;
