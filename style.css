@@ -201,7 +201,7 @@ a > i {
     width: 654px;
 }
 #entry_sub {
-  margin-bottom: 18px;
+    margin-bottom: 18px;
 }
 /* ▲content▲ */
 
@@ -323,11 +323,15 @@ article header {
     background-color: #f0f0f0;
 }
 .social-button {
-    padding: 4px;
+    overflow: hidden;
     text-align: center;
-    margin-top: 18px;
+    margin: 16px auto 0;
+    width: 360px;
+    height: 64px;
 }
 .social-button > li {
+    float: left;
+    margin-right: 4px;
     display: inline-block;
 }
 .social-button iframe {

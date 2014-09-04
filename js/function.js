@@ -81,7 +81,7 @@ var maechabin_ui = (function () {
 
       w.on("scroll", function () {
 
-      if (w.scrollTop() > 0) {
+      if ($(this).scrollTop() > 0) {
         header_bar.css({
           "box-shadow": "0 1px 3px #000",
           "transition": "box-shadow .4s linear"
@@ -99,8 +99,6 @@ var maechabin_ui = (function () {
   // サイドバー固定
   function fixSidebar() {
 
-    var wscrollTop = w.scrollTop();
-
     // .hight()
     var headerbar_height = header_bar.height();
     var content_height = $("#content_border").height();
@@ -111,12 +109,12 @@ var maechabin_ui = (function () {
       $("#sidebar").css("height", content_height);
 
       var sidebar_sub = $("#sidebar_sub");
-      var sidebar_scroll_stop = headerbar_height + $("#sidebar_sub").height() + 56 + 24 - w.height();
+      var sidebar_scroll_stop = headerbar_height + $("#sidebar_sub").height() + 24 - w.height();
       var sidebar_scroll_start = headerbar_height + content_height + 24 - w.height();
 
       w.on("scroll", function () {
 
-        if (sidebar_scroll_stop < w.scrollTop() && w.scrollTop() < sidebar_scroll_start) {
+        if (sidebar_scroll_stop < $(this).scrollTop() && $(this).scrollTop() < sidebar_scroll_start) {
           sidebar_sub.css({"position": "fixed", "bottom": "24px"});
         } else if (w.scrollTop() >= sidebar_scroll_start) {
           sidebar_sub.css({"position": "absolute", "bottom": "0"});
