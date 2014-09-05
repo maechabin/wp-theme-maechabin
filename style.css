@@ -133,7 +133,7 @@ a > i {
     width: 240px;
     height: 20px;
     padding: 0 6px;
-    border-radius: 2px 0 0 2px;
+    border-radius: 1px 0 0 1px;
     letter-spacing: 1px;
     vertical-align: middle;
 }
@@ -145,7 +145,7 @@ a > i {
     background-image: url(image/search.png);
     vertical-align: middle;
     background-repeat: no-repeat;
-    border-radius: 0 2px 2px 0;
+    border-radius: 0 1px 1px 0;
 }
 .rss {
     line-height: 48px;
@@ -186,7 +186,7 @@ a > i {
     clear: both;
     overflow: hidden;
     min-width: 990px;
-    margin: 0 18px 154px;
+    margin: 0 16px 154px;
     border-radius: 0 0 2px 2px;
 }
 #content {
@@ -201,7 +201,7 @@ a > i {
     width: 654px;
 }
 #entry_sub {
-    margin-bottom: 18px;
+    margin-bottom: 0;
 }
 /* ▲content▲ */
 
@@ -245,28 +245,29 @@ a > i {
     color: #888;
 }
 .post {
-    margin: 9px 9px 0;
+    margin: 8px 8px 0;
     background-color: #fff;
     clear: both;
-    border: 1px solid #f2f2f2;
-    border-radius: 2px;
-    -webkit-transition: all .6s ease-in-out;
-    -moz-transition: all .6s ease-in-out;
-    -ms-transition: all .6s ease-in-out;
-    -o-transition: all .6s ease-in-out;
+    border: 1px solid #f3f3f3;
+    border-radius: 1px;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
 }
 .post:nth-child(odd) {
-    background-color: #f2f2f2;
+    background-color: #f3f3f3;
 }
 .post-box:hover {
     cursor: pointer;
     background-color: #E9F0FA;
-    border: 1px solid #3160aa;
+/*  border: 1px solid #3160aa; */
+    border: 1px solid #E9F0FA;
 }
 .post-title {
     font-size: 20px;
     line-height: 1.4;
-    margin: 9px 18px;
+    margin: 8px 16px;
 }
 .post-title a {
     color: #000;
@@ -274,35 +275,36 @@ a > i {
 }
 .postmetadata-ul {
     border-top: 1px solid #e7e7e7;
-    padding: 9px 18px;
+    padding: 8px 16px;
     margin-bottom: 0 !important;
 }
 .wp-pagenavi {
-    margin: 36px auto;
+    margin: 40px auto;
     text-align: center;
-    font-size: 16px;
+    font-size: 20px;
 }
 .wp-pagenavi a,
 .current {
     color: #007B6E;
     border: 1px solid #e7e7e7;
-    padding: 9px 18px;
+    padding: 16px 24px;
     margin-left: 4px;
-    border-radius: 2px;
+    border-radius: 1px;
     text-decoration: none;
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -ms-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
 }
 .wp-pagenavi a:hover {
     color: #333;
+    border: 1px solid #f3f3f3;
     background-color: #f3f3f3;
 }
 .current {
     color: #fff;
-    background-color: #007b6e;
-    border: 1px solid #007b6e;
+    background-color: #16a085;
+    border: 1px solid #16a085;
     font-weight: bold;
 }
 .postmetadata li img {
@@ -318,8 +320,8 @@ a > i {
 
 /* ▼article▼ */
 article header {
-    padding: 18px;
-    margin-bottom: 10px;
+    padding: 16px;
+    margin-bottom: 8px;
     background-color: #f0f0f0;
 }
 .social-button {
@@ -338,9 +340,18 @@ article header {
     vertical-align: baseline;
 }
 .entry {
-  border-top: 6px solid #777;
-  padding-top: 18px;
-  margin: 4px 18px 0;
+  border-top: 6px solid #555;
+  padding-top: 16px;
+  margin: 8px 16px 0;
+}
+.intro {
+    padding: 0 16px 16px;
+    border-bottom: 6px solid #555;
+}
+.intro p {
+    font-family: serif;
+    font-size: 16px;
+    line-height: 2 !important;
 }
 .entry-title {
     color: #333;
@@ -380,18 +391,10 @@ figure {
 .entry p {
     line-height: 2.2 !important;
 }
-.intro {
-    padding: 0 9px 18px;
-    border-bottom: 6px solid #777;
-}
-.intro p {
-    font-family: serif;
-    font-size: 16px;
-    line-height: 2 !important;
-}
+
 .google-adsense {
     text-align: center;
-    margin-bottom: 36px;
+    margin-bottom: 32px;
 }
 #linkpages {
     text-align: center;
@@ -588,7 +591,7 @@ pre {
 /* ▽次のページへ　前のページへ▽ */
 #nav-below {
     overflow: hidden;
-    margin: 0 0 36px;
+    margin: 16px 0 40px;
     font-size: 1.2em;
     background-color: #f7f7f7;
     padding: 9px 18px;
