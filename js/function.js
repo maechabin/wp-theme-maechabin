@@ -64,14 +64,18 @@ var maechabin_ui = (function () {
         }
       );
 
-      $this.onclick = function (e) {
+      $this.on("click", function (e) {
+
         var element = e.target.nodeName;
+
         if (element === "SECTION" || element === "H1" || element === "UL") {
           var link = this.getElementsByTagName("a")[0];
           var href = link.getAttribute("href");
           window.location.assign(href);
         }
-      }
+
+      });
+
     });
 
   }
@@ -124,8 +128,6 @@ var maechabin_ui = (function () {
 
       });
 
-    } else {
-      $("#content").css("height", sidebar_height);
     }
 
   }
