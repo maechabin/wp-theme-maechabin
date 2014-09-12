@@ -27,6 +27,13 @@
 <a href="http://maechabin.tumblr.com" target="_blank">mae's works</a>。私の写真公開用ブログです。写真が趣味で日々撮った写真をアップしています。使用しているTumblrも全力でカスタマイズ中！
 </p>
 
+<?php if(!is_home()): ?>
+<div class="twitter-timeline-area">
+<a class="twitter-timeline" href="https://twitter.com/maechabin" data-widget-id="510042758585651200">@maechabin からのツイート</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+</div>
+<?php endif; ?>
+
 <nav>
 <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar() ): ?>
 <?php endif; ?>
@@ -44,8 +51,7 @@
 </div>
 
 <div style="margin-bottom:18px;">
-<? php
-/*
+
 <!--    
 <a href="http://px.a8.net/svt/ejp?a8mat=1U7TPO+6EESNU+D8Y+C3BAP" target="_blank">
 <img width="300" height="300" alt="" src="http://www26.a8.net/svt/bgt?aid=111219756387&amp;wid=002&amp;eno=01&amp;mid=s00000001717002031000&amp;mc=1" alt="さくらのVPS" /></a>
@@ -62,8 +68,6 @@ var adstir_vars = {
 </script>
 <script src="http://js.ad-stir.com/js/adstir.js?20130527"></script>
 
-*/
-?>
 <div>スポンサードリンク</div>
 <script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mae's blog（サイドバー下） -->

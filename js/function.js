@@ -83,13 +83,13 @@ var maechabin_ui = (function () {
   // スクロール位置によってヘッダーバーに影を付ける
   function makeShadowHeaderBar() {
 
-      w.on("scroll", function () {
+    w.on("scroll", function () {
 
       if ($(this).scrollTop() > 0) {
         header_bar.css({
           "box-shadow": "0 1px 3px #000",
           "transition": "box-shadow .4s linear"
-        });  
+        });
       } else {
         header_bar.css({
           "box-shadow": "none"

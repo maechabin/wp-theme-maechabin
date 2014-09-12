@@ -819,6 +819,9 @@ textarea {
     border-radius: 2px;
     background-color: #5D94BF;
 }
+.twitter-timeline-area {
+    height: 600px;
+}
 .author-name {
     font-size: 14px;
     margin-bottom: 0 !important;
