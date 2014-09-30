@@ -66,20 +66,15 @@ while(have_posts()):the_post();
 <div class="google-adsense">
 <p class="bottom_0" style="text-align:center;font-size:12px;color:#888;">スポンサードリンク</p>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- mae's blog（記事下） -->
+<!-- mae’s blog（記事下） -->
 <ins class="adsbygoogle"
-     style="display:inline-block;width:300px;height:250px"
+     style="display:inline-block;width:336px;height:280px"
      data-ad-client="ca-pub-6331923403728737"
-     data-ad-slot="2145849577"></ins>
+     data-ad-slot="4144613456"></ins>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
-<!--
-<a href="//px.moba8.net/svt/ejp?a8mat=2BU3YH+AFOJHU+3NY+6HMHT&amp;guid=on">
-<img width="300" height="250" alt="スマホアフィリエイトのMoba8.net（モバハチネット）" src="//www20.moba8.net/svt/bgt?aid=140812937631&amp;wid=001&amp;eno=01&amp;mid=m00000000475001090000&amp;mc=1"></a>
-<img width="1" height="1" src="//www13.moba8.net/0.jpg?a8mat=2BU3YH+AFOJHU+3NY+6HMHT&guid=on" alt="">
--->
 </div>
 <!--
 <div>
