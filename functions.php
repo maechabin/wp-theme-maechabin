@@ -25,7 +25,7 @@ function widget_mytheme_search() {
 ?>
   <div class="search_box">
   <form role="search" method="get" id="searchform" action="<?php bloginfo('url') ?>" >
-  <input type="text" value="" name="s" id="s" placeholder="ブログ検索"><button type="submit" id="searchsubmit"><span class="hidden_elem">検索</span></button>
+  <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="ブログ検索"><button type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
   </form>
   </div>
 <?php

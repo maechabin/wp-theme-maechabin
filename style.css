@@ -117,35 +117,25 @@ a > i {
     color: #fff !important;
     text-shadow: 0px 0px 20px #fff;
 }
-
-
-#header_bar_inner nav {
-
-}
-.menu {
-
-}
-#blog_search {
-
-}
 #s {
+    font-size: 14px;
     background-color: #fff;
-    width: 240px;
-    height: 20px;
+    width: 280px;
+    height: 30px;
     padding: 0 6px;
-    border-radius: 1px 0 0 1px;
+    border-radius: 2px 0 0 2px;
     letter-spacing: 1px;
     vertical-align: middle;
 }
 #searchsubmit {
+    background-color: #f0f0f0;
+    font-size: 16px;
     cursor: pointer;
-    width: 20px;
-    height: 20px;
-    border:  0;
-    background-image: url(image/search.png);
+    width: 30px;
+    height: 30px;
+    border: 0;
     vertical-align: middle;
-    background-repeat: no-repeat;
-    border-radius: 0 1px 1px 0;
+    border-radius: 0 2px 2px 0;
 }
 .rss {
     line-height: 48px;
@@ -246,26 +236,23 @@ a > i {
 }
 .post {
     margin: 8px 8px 0;
-    background-color: #fff;
+    background-color: #f3f3f3;
     clear: both;
-    border: 1px solid #f3f3f3;
-    border-radius: 1px;
-    -webkit-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
+    border: 1px solid #999;
+    border-radius: 2px;
+    transition: all .3s ease-in-out;
+    box-shadow: 0 1px 1px #eee;
 }
 .post:nth-child(odd) {
-    background-color: #f3f3f3;
+
 }
 .post-box:hover {
     cursor: pointer;
     background-color: #E9F0FA;
-/*  border: 1px solid #3160aa; */
     border: 1px solid #E9F0FA;
 }
 .post-title {
-    font-size: 20px;
+    font-size: 24px;
     line-height: 1.4;
     margin: 8px 16px;
 }
@@ -274,7 +261,7 @@ a > i {
     text-decoration: none !important;
 }
 .postmetadata-ul {
-    border-top: 1px solid #e7e7e7;
+    border-top: 1px dotted #aaa;
     padding: 8px 16px;
     margin-bottom: 0 !important;
 }
@@ -291,10 +278,7 @@ a > i {
     margin-left: 4px;
     border-radius: 1px;
     text-decoration: none;
-    -webkit-transition: all .4s ease-in-out;
-    -moz-transition: all .4s ease-in-out;
-    -ms-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
+    transition: all .3s ease-in-out;
 }
 .wp-pagenavi a:hover {
     color: #333;
@@ -356,9 +340,8 @@ article header {
 .entry-title {
     color: #333;
     margin-bottom: 4px;
-    font-size: 32px;
+    font-size: 34px;
     line-height: 1.4;
-    font-weight: bold;
 }
 .entry-meta {
     overflow: hidden;
@@ -382,7 +365,7 @@ article header {
 .entry ol,
 figure {
     clear: both;
-    font-size: 15px;
+    font-size: 16px;
     text-align: justify;
     text-justify: inter-ideograph;
     margin-bottom: 27px;
