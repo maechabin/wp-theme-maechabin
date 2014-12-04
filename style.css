@@ -235,6 +235,7 @@ a > i {
     color: #888;
 }
 .post {
+    position: relative;
     margin: 8px 8px 0;
     background-color: #f3f3f3;
     clear: both;
@@ -297,6 +298,22 @@ a > i {
 .comments_number a {
     font-weight: bold;
     color: #007B6E;
+}
+
+.cb-iine {
+    position: absolute;
+    right: 8px;
+    bottom: 4px;
+}
+.cb-iine li {
+    width: 56px;
+    color: #999;
+    display: inline-block;
+    font-size: 14px;
+}
+.cb-iine li span {
+    font-weight:bold;
+    margin: 0 8px 0 4px;
 }
 /* ▲indexページ▲ */
 

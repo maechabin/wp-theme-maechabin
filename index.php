@@ -23,6 +23,11 @@ while(have_posts()):the_post();
 <li class="postmetadata-li"><a href="http://b.hatena.ne.jp/entry/<?php the_permalink(); ?>" target="_blank"><img src="http://b.hatena.ne.jp/entry/image/<?php the_permalink(); ?>" alt="" /></a></li>
 <li class="postmetadata-li"><?php edit_post_link('編集'); ?></li>
 </ul>
+<ul class="cb-iine" title="<?php the_permalink(); ?>">
+<!--<li class="cb-hb"><i class="fa fa-bold"></i>!<span></span></li>-->
+<li class="cb-tw"><i class="fa fa-twitter"></i><span></span></li>
+<li class="cb-fb"><i class="fa fa-facebook"></i><span></span></li>
+</ul>
 </section>
 <!-- ▲section▲ -->
 
