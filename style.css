@@ -300,18 +300,18 @@ a > i {
     color: #007B6E;
 }
 
-.cb-iine {
+.cb-share {
     position: absolute;
     right: 8px;
     bottom: 4px;
 }
-.cb-iine li {
+.cb-share li {
     width: 56px;
     color: #999;
     display: inline-block;
     font-size: 14px;
 }
-.cb-iine li span {
+.cb-share li span {
     font-weight:bold;
     margin: 0 8px 0 4px;
 }
