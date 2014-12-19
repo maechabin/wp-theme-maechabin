@@ -311,8 +311,13 @@ a > i {
     display: inline-block;
     font-size: 14px;
 }
+.cb-share a,
+.cb-share i {
+    vertical-align: baseline;
+    color: #999;
+    text-decoration: none;
+}
 .cb-share li span {
-    font-weight:bold;
     margin: 0 8px 0 4px;
 }
 /* ▲indexページ▲ */

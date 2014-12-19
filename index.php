@@ -25,8 +25,8 @@ while(have_posts()):the_post();
 </ul>
 <ul class="cb-share" title="<?php the_permalink(); ?>">
 <!--<li class="cb-hb"><i class="fa fa-bold"></i>!<span></span></li>-->
-<li class="cb-tw"><i class="fa fa-twitter"></i><span></span></li>
-<li class="cb-fb"><i class="fa fa-facebook"></i><span></span></li>
+<li class="cb-tw"><a href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinさんから" target="_blank"><i class="fa fa-twitter"></i><span></span></a></li>
+<li class="cb-fb"><a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>', 'new', 'width=500,height=300');return false;"><i class="fa fa-facebook"></i><span></span></a></li>
 </ul>
 </section>
 <!-- ▲section▲ -->
@@ -46,9 +46,9 @@ wp_pagenavi();
 
 <script src="/wp-content/themes/chabin/js/jquery.cbsharecount.min.js"></script>
 <script>
-$(document).ready(function () {
+//$(document).ready(function () {
 	$(".cb-share").cbShareCount();
-});
+//});
 </script>
 </div><!-- #entry_sub -->
 </div><!-- #entry -->
