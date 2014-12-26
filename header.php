@@ -23,6 +23,7 @@ if ($paged >= 2 || $page >= 2)
 <meta http-equiv="default-style" content="<?php bloginfo('stylesheet_url'); ?>">
 <meta name="description" content="都内のIT企業でWebディレクターをやってます。HTML5、CSS3、JavaScript,jQueryなどのWeb技術に関する話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
 <meta name="keywords" content="JavaScript, jQuery, HTML5, wordpress, apple, ドメイン, ピアノ">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
 <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" media="all">
@@ -32,7 +33,7 @@ if ($paged >= 2 || $page >= 2)
 <link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
 <?php wp_head(); ?>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -56,12 +57,8 @@ if ($paged >= 2 || $page >= 2)
 
 <h1 id="blog_title"><a href="<?php echo(get_option('home')); ?>"><i class="fa fa-arrow-circle-left" style="color:#fff;"></i><?php bloginfo('name'); ?></a></h1>
 
-<nav>
-<ul class="menu">
-<li id="blog_search"><?php widget_mytheme_search(); ?></li>
-<!--<li id="blog_profile"><a href="/about"><i class="icon-user"></i> プロフィール</a></li>-->
-</ul>
-</nav>
+<div id="blog_search"><?php widget_mytheme_search(); ?></div>
+<!--<div id="blog_profile"><a href="/about"><i class="icon-user"></i> プロフィール</a></div>-->
 
 <div class="rss">
 <a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><img id="feedlyFollow" src="//s3.feedly.com/img/follows/feedly-follow-rectangle-volume-medium_2x.png" alt="follow us in feedly" width="71" height="28"></a>
