@@ -3,6 +3,7 @@ var maechabin_ui = (function () {
   var timer = null;
   var w = $(window);
   var header_bar = $("#header_bar");
+  var sidebar_height = $("#sidebar").height();
 
   // Smooth Scroll
   function smoothScroll(position, speed) {
@@ -18,6 +19,7 @@ var maechabin_ui = (function () {
       var href = $(this).attr("href");
       var target = $(href === "#" || href === "" ? "html" : href);
       var position = target.offset().top;
+
       smoothScroll(position, speed);
       return false;
 
@@ -103,27 +105,37 @@ var maechabin_ui = (function () {
   // サイドバー固定
   function fixSidebar() {
 
-    // .hight()
     var headerbar_height = header_bar.height();
     var content_height = $("#content_border").height();
     var sidebar_height = $("#sidebar").height();
 
     if (sidebar_height < content_height) {
 
-      $("#sidebar").css("height", content_height);
-
+      var sidebar = $("#sidebar");
       var sidebar_sub = $("#sidebar_sub");
-      var sidebar_scroll_stop = headerbar_height + $("#sidebar_sub").height() + 24 - w.height();
+      var sidebar_scroll_stop = headerbar_height + sidebar_sub.height() + 24 - w.height();
       var sidebar_scroll_start = headerbar_height + content_height + 24 - w.height();
+
+      sidebar.css("height", content_height + "px");
 
       w.on("scroll", function () {
 
-        if (sidebar_scroll_stop < $(this).scrollTop() && $(this).scrollTop() < sidebar_scroll_start) {
-          sidebar_sub.css({"position": "fixed", "bottom": "24px"});
-        } else if (w.scrollTop() >= sidebar_scroll_start) {
-          sidebar_sub.css({"position": "absolute", "bottom": "0"});
-        } else {
-          sidebar_sub.css("position", "static");
+        if (window.matchMedia("(min-width: 1024px)").matches) {
+
+          if (sidebar_scroll_stop < $(this).scrollTop() && $(this).scrollTop() < sidebar_scroll_start) {
+
+            sidebar_sub.css({"position": "fixed", "bottom": "24px"});
+
+          } else if (w.scrollTop() >= sidebar_scroll_start) {
+
+            sidebar_sub.css({"position": "absolute", "bottom": "0"});
+
+          } else {
+
+            sidebar_sub.css("position", "static");
+
+          }
+
         }
 
       });
@@ -132,24 +144,44 @@ var maechabin_ui = (function () {
 
   }
 
-  function widthEnd() {
-      
+  function resizeWidth() {
+
+    var content = $("#content");
     var content_width = $("#content_border").width();
+    var entry = $("#entry");
+    var sidebar = $("#sidebar");
+    var margin_width = 0;
 
     if (content_width > 990) {
 
-      // console.log(content_width);
-
-      var end_width = (content_width - 990) / 2;
-
-      var content = $("#content");
+      margin_width = (content_width - 990) / 2;
       content.css("width", content_width + "px");
 
-      var sidebar = $("#sidebar");
-      sidebar.css("padding-right", end_width + "px");
-          
-      var entry = $("#entry");
-      entry.css("margin-left", end_width + "px");
+    }
+
+      sidebar.css("padding-right", margin_width + "px");
+      entry.css("margin-left", margin_width + "px");
+
+  }
+
+  function resizeSidebarHeight() {
+
+    var sidebar = $("#sidebar");
+    var sidebar_height = sidebar.height();
+    var sidebar_sub_height = $("#sidebar_sub").height();
+    var content_height = $("#content_border").height();
+
+    if (sidebar_height < content_height) {
+
+      if (window.matchMedia("(max-width: 1024px)").matches) {
+
+        sidebar.css("height", sidebar_sub_height + "px");
+
+      } else {
+
+        sidebar.css("height", content_height + "px");
+
+      }
 
     }
 
@@ -160,12 +192,15 @@ var maechabin_ui = (function () {
     clearTimeout(timer);
 
     timer = setTimeout(function () {
-      widthEnd();
+
+      resizeWidth();
+      resizeSidebarHeight();
+
     }, 200);
 
-  } 
+  }
 
-  function resizeBrowser() {
+  function checkBrowserSize() {
 
       w.on("resize", function () {
         startFunc();
@@ -182,8 +217,9 @@ var maechabin_ui = (function () {
       clickTopPost();
       makeShadowHeaderBar();
       fixSidebar();
-      widthEnd();
-      resizeBrowser();
+      resizeSidebarHeight();
+      resizeWidth();
+      checkBrowserSize();
 
     }
 
