@@ -102,7 +102,7 @@ a > i {
 }
 #blog_title {
     position: absolute;
-    left: 32px;
+    left: 16px;
     font-size: 20px;
     z-index: 30;
 }
@@ -147,7 +147,7 @@ a > i {
     text-align: right;
     position: absolute;
     top: 0;
-    right: 40px;
+    right: 16px;
 }
 .rss img {
     position: relative;
@@ -208,7 +208,7 @@ a > i {
     overflow: hidden;
 }
 .postmetadata {
-    margin-bottom: 14px;
+    margin-bottom: 16px;
 }
 .postmetadata-li,
 .comments li {
@@ -339,7 +339,7 @@ article header {
     overflow: hidden;
     text-align: center;
     margin: 16px auto 0;
-    width: 360px;
+    width: 350px;
     height: 64px;
 }
 .social-button > li {
@@ -410,7 +410,9 @@ figure {
     text-align: center;
     font-size: 14px;
 }
-
+article .postmetadata {
+    margin-left: 16px;
+}
 
 /* ▽記事の装飾▽ */
 .entry-h2 {
@@ -926,24 +928,6 @@ address {
 }
 /* ▲#footer▲ */
 
-<<<<<<< HEAD
-/*
-@media screen and (max-width: 1020px) {
-
-    #content_border {
-        width: 100%;
-        margin: 0 !important;
-    }
-    #entry {
-        width: 100%;
-    }
-
-
-}
-*/
-=======
-
-
 
 @media screen and (max-width: 1024px) {
 
@@ -971,16 +955,26 @@ address {
         width: 100%;
         max-width: 100%;
     }
+    .wp-pagenavi {
+        font-size: 16px;
+    }
+    .wp-pagenavi a,
+    .current {
+        padding: 4px 8px;
+        margin-left: 8px;
+    }
+    article header {
+        padding: 16px;
+    }
     #sidebar {
         width: 100%;
         max-width: 100%;
-        height: auto;
+        padding-bottom: 48px;
     }
     #sidebar_sub {
         width: 90%;
         max-width: 100%;
-        padding: 18px 5% 0;
-        height: auto;
+        padding: 16px 5% 0;
     }
 
     .post {
@@ -995,5 +989,5 @@ address {
         max-width: 90%;
         height: auto;
     }
+
 }
->>>>>>> responsive
