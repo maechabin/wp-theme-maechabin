@@ -61,8 +61,8 @@ if ($paged >= 2 || $page >= 2)
 <!--<div id="blog_profile"><a href="/about"><i class="icon-user"></i> プロフィール</a></div>-->
 
 <div class="rss">
-<a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><img id="feedlyFollow" src="//s3.feedly.com/img/follows/feedly-follow-rectangle-volume-medium_2x.png" alt="follow us in feedly" width="71" height="28"></a>
-<a href="/feed" target="_blank"><i class="fa fa-rss" style="margin-left:10px;"></i></a>
+  <a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><img id="feedlyFollow" src="//s3.feedly.com/img/follows/feedly-follow-rectangle-volume-medium_2x.png" alt="follow us in feedly" width="71" height="28"></a>
+  <a href="/feed" target="_blank"><i class="fa fa-rss" style="margin-left:10px;"></i></a>
 </div>
 
 </div>

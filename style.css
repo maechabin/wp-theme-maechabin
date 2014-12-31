@@ -931,8 +931,10 @@ address {
 
 @media screen and (max-width: 1024px) {
 
-    #s {
-        display: none;
+
+    .search_box {
+        position: relative;
+        top: 44px;
     }
     #searchsubmit {
         border-radius: 2px;
@@ -988,6 +990,13 @@ address {
     .entry img {
         max-width: 90%;
         height: auto;
+    }
+    #comment {
+        width: 100%;
+        max-width: 100%;
+    }
+    .comment_article {
+        max-width: 94%;
     }
 
 }

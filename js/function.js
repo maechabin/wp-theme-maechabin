@@ -227,8 +227,7 @@ var maechabin_ui = (function () {
 
 })();
 
-window.onload = maechabin_ui.init();
-
+window.onload = maechabin_ui.init;
 
 // ▼jquery.pageswitch.js▼
 (function ($) {
@@ -260,7 +259,7 @@ window.onload = maechabin_ui.init();
     });
     
   };
-  
+
 })(jQuery);
 // ▲jquery.pageswitch.js▲
 
