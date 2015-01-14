@@ -21,9 +21,6 @@
 
 <?php wp_footer(); ?>
 <script src="/wp-content/themes/chabin/js/function.js"></script>
-<?php if(!is_single()): ?>
-<script defer src="/wp-content/themes/chabin/js/color-animations.js"></script>
-<?php endif ?>
 <?php if(is_single()): ?>
 <script defer src="/wp-includes/js/comment-reply.js?ver=20090102"></script>
 <script src="//google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>

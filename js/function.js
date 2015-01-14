@@ -53,27 +53,20 @@ var maechabin_ui = (function () {
 
     var index = $(".post-box");
 
-    index.each(function (i) {
+    index.each(function () {
 
       var $this = $(this);
-
-      $this.hover(
-        function () {
-          $this.find("h1 a").animate({color: "#3160aa"}, 600);
-        },
-        function () {
-          $this.find("h1 a").animate({color: "#333"}, 600);
-        }
-      );
 
       $this.on("click", function (e) {
 
         var element = e.target.nodeName;
 
         if (element === "SECTION" || element === "H1" || element === "UL") {
+
           var link = this.getElementsByTagName("a")[0];
           var href = link.getAttribute("href");
           window.location.assign(href);
+
         }
 
       });
@@ -168,7 +161,8 @@ var maechabin_ui = (function () {
 
     var sidebar = $("#sidebar");
     var sidebar_height = sidebar.height();
-    var sidebar_sub_height = $("#sidebar_sub").height();
+    var sidebar_sub = $("#sidebar_sub");
+    var sidebar_sub_height = sidebar_sub.height();
     var content_height = $("#content_border").height();
 
     if (sidebar_height < content_height) {
@@ -176,6 +170,7 @@ var maechabin_ui = (function () {
       if (window.matchMedia("(max-width: 1024px)").matches) {
 
         sidebar.css("height", sidebar_sub_height + "px");
+        sidebar_sub.css("position", "static");
 
       } else {
 
@@ -230,7 +225,8 @@ var maechabin_ui = (function () {
 window.onload = maechabin_ui.init;
 
 // ▼jquery.pageswitch.js▼
-(function ($) {
+;(function ($, window, document, undefined) {
+
   $.fn.pageswitch = function (options) {
 
     var defaults = {
@@ -244,7 +240,7 @@ window.onload = maechabin_ui.init;
     var options = $.extend(defaults, options);
 
     return this.each(function () {
-    
+
       if(options.url == 'default') var target = $(this).attr('href');
       else var target = options.url;
 
@@ -255,12 +251,12 @@ window.onload = maechabin_ui.init;
         $(options.target).animate(options.properties,options.options);
         return false;
       });
-      
+
     });
-    
+
   };
 
-})(jQuery);
+})(jQuery, window, document);
 // ▲jquery.pageswitch.js▲
 
 $(document).ready(function () {
@@ -270,21 +266,26 @@ $(document).ready(function () {
 
     $("#content").fadeIn(400);
     $("#content_border").css("height", "auto");
+
   });
 
   $(".nav-previous a").pageswitch({
+
     target: "#content",
     properties: {marginRight: -$("body").width()},
     options: {duration: 400}
+
   });
 
   $(".nav-next a").pageswitch({
+
     target: "#content",
     properties: {marginLeft: -$("body").width()},
     options: {duration: 400}
+
   });
 
-  $("#article a:not([target = '_blank']), header a:not([target = '_blank']), #sidebar_sub a:not([target = '_blank']), #footer_sub a:not([target = '_blank'])").pageswitch({
+  $("#article a:not([target = '_blank','.internal-link']), header a:not([target = '_blank']), #sidebar_sub a:not([target = '_blank']), #footer_sub a:not([target = '_blank'])").pageswitch({
     target: "#content",
     options: {duration: 300}
   });
