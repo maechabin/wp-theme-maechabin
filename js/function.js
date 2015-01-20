@@ -1,4 +1,4 @@
-var maechabin_ui = (function () {
+var maechabin_ui = (function (window, document) {
 
   var timer = null;
   var w = $(window);
@@ -40,6 +40,26 @@ var maechabin_ui = (function () {
         var position = $(document.body).offset().top;
 
         smoothScroll(position, speed);
+        return false;
+
+      }
+
+    });
+
+  }
+
+  function backlink() {
+
+    var href = location.href;
+    var referre = document.referrer;
+    var blog_title = $("#blog_title");
+    var regexp = /(mae.chab.in\/archives\/)([0-9]+)/i;
+
+    blog_title.on("click", function () {
+
+      if (href.match(regexp)) {
+
+        history.back();
         return false;
 
       }
@@ -209,6 +229,7 @@ var maechabin_ui = (function () {
 
       goTop();
       clickHeaderBar();
+      backlink();
       clickTopPost();
       makeShadowHeaderBar();
       fixSidebar();
@@ -220,7 +241,7 @@ var maechabin_ui = (function () {
 
   };
 
-})();
+} (window, document));
 
 window.onload = maechabin_ui.init;
 

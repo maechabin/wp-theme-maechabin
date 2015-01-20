@@ -933,8 +933,7 @@ address {
 
 
     .search_box {
-        position: relative;
-        top: 44px;
+visibility: hidden;
     }
     #searchsubmit {
         border-radius: 2px;
