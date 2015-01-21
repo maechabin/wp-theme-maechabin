@@ -55,7 +55,7 @@ if ($paged >= 2 || $page >= 2)
 <header id="header_bar">
 <div id="header_bar_inner">
 
-<h1 id="blog_title"><a href="<?php echo(get_option('home')); ?>"><i class="fa fa-arrow-circle-left" style="color:#fff;"></i><?php bloginfo('name'); ?></a></h1>
+<h1 id="blog_title"><a href="<?php get_option('home'); ?>"><i style="color:#fff;"></i><?php bloginfo('name'); ?></a></h1>
 
 <div id="blog_search"><?php widget_mytheme_search(); ?></div>
 <!--<div id="blog_profile"><a href="/about"><i class="icon-user"></i> プロフィール</a></div>-->

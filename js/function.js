@@ -50,21 +50,25 @@ var maechabin_ui = (function (window, document) {
 
   function backlink() {
 
-    var href = location.href;
-    var referre = document.referrer;
+    var url = location.href;
+    var domain = location.hostname;
+    var port = location.port ? ":" + location.port : "";
+    var regexp = new RegExp("(" + domain + port + "\/archives\/)([0-9]+)", "i");
     var blog_title = $("#blog_title");
-    var regexp = /(mae.chab.in\/archives\/)([0-9]+)/i;
+    var blog_title_link = blog_title.find("a");
+    var blog_title_icon = blog_title.find("i");
+    var referre = document.referrer;
 
-    blog_title.on("click", function () {
+    if (url.match(regexp)) {
 
-      if (href.match(regexp)) {
+      blog_title_icon.attr("class", "fa fa-arrow-circle-left");
+      blog_title_link.attr("href", referre);
 
-        history.back();
-        return false;
+    } else {
 
-      }
+      blog_title_icon.attr("class", "fa fa-home");
 
-    });
+    }
 
   }
 
