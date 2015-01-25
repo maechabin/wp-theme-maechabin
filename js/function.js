@@ -51,22 +51,26 @@ var maechabin_ui = (function (window, document) {
   function backlink() {
 
     var url = location.href;
-    var domain = location.hostname;
-    var port = location.port ? ":" + location.port : "";
-    var regexp = new RegExp("(" + domain + port + "\/archives\/)([0-9]+)", "i");
+    var domain = location.host;
+    //var port = location.port ? ":" + location.port : "";
+    var regexp1 = new RegExp("(" + domain + "\/archives\/)([0-9]+)", "i");
+    var regexp2 = new RegExp("(" + domain + ")", "i");
     var blog_title = $("#blog_title");
     var blog_title_link = blog_title.find("a");
     var blog_title_icon = blog_title.find("i");
-    var referre = document.referrer;
+    var referrer = document.referrer;
 
-    if (url.match(regexp)) {
+console.log(referrer.match(regexp2));
+
+    if (url.match(regexp1) && referrer.match(regexp2)) {
 
       blog_title_icon.attr("class", "fa fa-arrow-circle-left");
-      blog_title_link.attr("href", referre);
+      blog_title_link.attr("href", referrer);
 
     } else {
 
       blog_title_icon.attr("class", "fa fa-home");
+      blog_title_link.attr("href", "/");
 
     }
 

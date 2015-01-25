@@ -18,15 +18,14 @@
 <div class="title">About Me</div>
 <p class="author-name">Takanori Maeda
   <a href="//twitter.com/maechabin" target="_blank"><i class="fa fa-twitter"></i></a>
+  <a href="//www.facebook.com/maechabin" target="_blank"><i class="fa fa-facebook"></i></a>
   <a href="//plus.google.com/+TakanoriMaeda0_0/" target="_blank"><i class="fa fa-google-plus"></i></a>
   <a href="//maechabin.tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
   <a href="//github.com/maechabin" target="_blank"><i class="fa fa-github-alt"></i></a>
   <a href="//jsdo.it/maechabin" target="_blank"><i class="fa fa-html5"></i></a>
 </p>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
-<p class="author-description">
-エンジニア、デザイナーなどを経て現在は都内のネット広告会社で企画をやっています。JavaScriptやHTML5などフロントエンドの技術に興味あり。専門はUI/UXデザイン、SEOなど。
-</p>
+<p class="author-description">PHPプログラマー、デザイナーなどを経て現在は都内のネット広告会社でマーケティングをやっています。JavaScriptやHTML5/CSS3などフロントエンドの技術に興味あり。専門はUI/UXデザイン、SEOなど。</p>
 
 <p class="author-description">
 <a href="//maechabin.tumblr.com" target="_blank"><img src="/wp-content/uploads/2013/11/maes-works.png" width="298" height="49" alt="写真ブログ mae's works - maechabin.tumblr.com"></a>

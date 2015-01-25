@@ -245,9 +245,9 @@ a > i {
     background-color: #f3f3f3;
     clear: both;
     border: 1px solid #999;
-    border-radius: 2px;
+    border-radius: 1px;
     transition: all .3s ease-in-out;
-    box-shadow: 0 1px 1px #eee;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 .post:nth-child(odd) {
 
@@ -416,14 +416,14 @@ article .postmetadata {
 
 /* ▽記事の装飾▽ */
 .entry-h2 {
-    font-weight: bold;
-    padding: 27px 18px;
+
+    padding: 32px 16px;
     background: linear-gradient(-45deg, #e7e7e7 25%, transparent 25%, transparent 50%, #e7e7e7 50%, #e7e7e7 75%, transparent 75%, transparent);
     background: -webkit-linear-gradient(-45deg, #e7e7e7 25%, transparent 25%, transparent 50%, #e7e7e7 50%, #e7e7e7 75%, transparent 75%, transparent);
-    background-size: 3px 3px;
-    border-top: 2px solid #333;
-    border-bottom: 2px solid #333;
-    font-size: 24px;
+    background-size: 2px 2px;
+    border-top: 2px solid #666;
+    border-bottom: 2px solid #666;
+    font-size: 26px;
     margin: 63px auto 27px;
 }
 .entry-h3 {
@@ -487,10 +487,9 @@ code em {
 }
 
 .blockBorder {
-    padding: 9px 18px;
-    border: 2px solid #E5F1C9;
+    padding: 8px 16px;
+    border: 1px solid #E5F1C9;
     background-color: #F1F8E1;
-    background-image: url(image/comment_bg.gif);
     border-radius: 2px;
 }
 .imgBorder {
@@ -933,7 +932,7 @@ address {
 
 
     .search_box {
-visibility: hidden;
+        visibility: hidden;
     }
     #searchsubmit {
         border-radius: 2px;
@@ -987,8 +986,13 @@ visibility: hidden;
         box-shadow: none;
     }
     .entry img {
-        max-width: 90%;
+        box-sizing: border-box;
+        max-width: 100%;
         height: auto;
+    }
+    .entry-h2 {
+        margin-left: -16px;
+        margin-right: -16px;
     }
     #comment {
         width: 100%;
