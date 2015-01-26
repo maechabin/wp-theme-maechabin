@@ -28,7 +28,8 @@ if ($paged >= 2 || $page >= 2)
 <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" media="all">
 <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
-<link rel="stylesheet" href="//google-code-prettify.googlecode.com/svn/trunk/src/prettify.css">
+<!--<link rel="stylesheet" href="//google-code-prettify.googlecode.com/svn/trunk/src/prettify.css">-->
+<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.css">
 <link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome3.min.css">
 <link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">

@@ -23,7 +23,7 @@ while(have_posts()):the_post();
   
 <h1 id="post-<?php the_ID(); ?>" class="entry-title"><?php the_title(); ?></h1>
 <ul class="entry-meta">
-<li class="entry-meta-li"><time pubdate><?php the_date(); ?></time></li>
+<li class="entry-meta-li"><time pubdate><?php the_date('Y年m月d日'); ?></time></li>
 <li class="entry-meta-li"><a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><img src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16" alt="Google+プロフィールへ"></a></li>
 </ul>
 <?php mc_social_button(); ?>
@@ -76,13 +76,6 @@ while(have_posts()):the_post();
 </script>
 
 </div>
-<!--
-<div>
-<a href="//px.moba8.net/svt/ejp?a8mat=2BU3YH+AFOJHU+3NY+6IWSH&amp;guid=on">
-<img width="300" height="250" alt="スマホ・アフィリエイトのMoba8.net（モバハチネット）" src="http://www28.moba8.net/svt/bgt?aid=140812937631&amp;wid=001&amp;eno=01&amp;mid=m00000000475001096000&amp;mc=1"></a>
-<img width="1" height="1" src="http://www15.moba8.net/0.jpg?a8mat=2BU3YH+AFOJHU+3NY+6IWSH&amp;guid=on" alt="">
-</div>
--->
 </aside>
 
 </article>
@@ -101,10 +94,8 @@ while(have_posts()):the_post();
 <?php endif; ?>
 
 <?php else : ?>
-<h2 class="center">Not Found</h2>
-<p class="center">
-<?php _e("Sorry, but you are looking for something that isn't here."); ?></p>
-
+<h2 class="entry-h3 center">Not Found</h2>
+<p class="center"><?php _e("Sorry, but you are looking for something that isn't here."); ?></p>
 <?php endif; ?>
 
 </div><!-- #entry_sub -->

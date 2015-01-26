@@ -27,11 +27,6 @@
 <script src="//google-code-prettify.googlecode.com/svn/trunk/src/lang-css.js"></script>
 <script>window.setTimeout(prettyPrint, 1000);</script>
 <?php endif ?>
-
-<!--
-<script defer src="http://f1.nakanohito.jp/lit/index.js" charset="utf-8"></script>
-<script>try { var lb = new Vesicomyid.Bivalves("118436"); lb.init(); } catch(err) {} </script>
--->
 </body>
 
 </html>

@@ -193,7 +193,7 @@ a > i {
 #entry {
     position: relative;
     float: left;
-    width: 654px;
+    width: 658px;
 }
 #entry_sub {
     margin-bottom: 0;
@@ -249,13 +249,11 @@ a > i {
     transition: all .3s ease-in-out;
     box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
-.post:nth-child(odd) {
-
-}
 .post-box:hover {
     cursor: pointer;
     background-color: #E9F0FA;
     border: 1px solid #E9F0FA;
+    box-shadow: none;
 }
 .post-title {
     font-size: 24px;
@@ -333,7 +331,7 @@ a > i {
 article header {
     padding: 16px 24px;
     margin-bottom: 8px;
-    background-color: #f0f0f0;
+    background-color: #f1f1f1;
 }
 .social-button {
     overflow: hidden;
@@ -416,21 +414,21 @@ article .postmetadata {
 
 /* ▽記事の装飾▽ */
 .entry-h2 {
-
     padding: 32px 16px;
     background: linear-gradient(-45deg, #e7e7e7 25%, transparent 25%, transparent 50%, #e7e7e7 50%, #e7e7e7 75%, transparent 75%, transparent);
     background: -webkit-linear-gradient(-45deg, #e7e7e7 25%, transparent 25%, transparent 50%, #e7e7e7 50%, #e7e7e7 75%, transparent 75%, transparent);
-    background-size: 2px 2px;
-    border-top: 2px solid #666;
-    border-bottom: 2px solid #666;
+    background-size: 3px 3px;
+    border-top: 2px solid #424242;
+    border-bottom: 2px solid #424242;
+    color: #212121;
     font-size: 26px;
-    margin: 63px auto 27px;
+    margin: 64px auto 32px;
 }
 .entry-h3 {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
-    color: #10356F;
-    margin: 45px auto 27px;
+    color: #424242;
+    margin: 48px auto 24px;
 }
 .entry-h4,
 .entry h5 {
@@ -452,14 +450,15 @@ hr {
     border: 1px dashed #ccc;
 }
 code {
-    line-height: 1.4;
-    padding: 10px;
+    font-family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
+    color: #fff;
+    line-height: 1.5;
+    padding: 16px 12px;
     display: block;
     background-color: #fdfdfd;
-    border: 1px solid #ccc;
     font-size: 14px !important;
     text-align: left;
-    border-radius: 2px;
+    border-radius: 2px !important;
 }
 code strong {
     font-weight: bold !important;
@@ -488,8 +487,8 @@ code em {
 
 .blockBorder {
     padding: 8px 16px;
-    border: 1px solid #E5F1C9;
-    background-color: #F1F8E1;
+    border: 1px solid #8BC34A;
+    background-color: #DCEDC8;
     border-radius: 2px;
 }
 .imgBorder {
@@ -733,8 +732,9 @@ pre {
 #respond {
     clear: both;
     border: 1px solid #aaa;
-    padding: 18px;
+    padding: 16px;
     background-color: #fcfcfc;
+    background-color: #ECEFF1;
     border-radius: 2px;
 }
 #respond p,
@@ -783,14 +783,15 @@ textarea {
     color: #BE0016;
 }
 #submit {
-    font-size: 12px;
-    background-color: #C7E667;
+    font-size: 14px;
+    color: #fff;
+    background-color: #795548;
     cursor: pointer;
-    padding: 4px 30px;
+    padding: 8px 40px;
     border-radius: 2px;
 }
 #submit:hover {
-    background-color: #e7e7e7;
+    background-color: #A1887F;
 }
 
 /* ▲コメントフォーム #respond▲ */
@@ -800,15 +801,16 @@ textarea {
 /* ▼#sidebar▼ */
 #sidebar {
     float: right;
-    width: 336px;
+    width: 332px;
     color: #888;
     font-size: 1.2em;
     position: relative;
     background-color: #f2f4f4;
+    background-color: #ECEFF1;
 }
 #sidebar_sub {
     width: 300px;
-    padding: 18px 18px 0;
+    padding: 16px 16px 0;
 }
 #sidebar_sub p,
 #sidebar_sub dl,
@@ -828,7 +830,7 @@ textarea {
     margin: 18px 0 6px;
     line-height: 36px;
     border-radius: 2px;
-    background-color: #5D94BF;
+    background-color: #607D8B;
 }
 .twitter-timeline-area {
     height: 600px;
@@ -975,15 +977,6 @@ address {
         width: 90%;
         max-width: 100%;
         padding: 16px 5% 0;
-    }
-
-    .post {
-        position: relative;
-        margin: 8px 8px 0;
-        background-color: #f3f3f3;
-        border: 1px solid #999;
-        border-radius: 0;
-        box-shadow: none;
     }
     .entry img {
         box-sizing: border-box;
