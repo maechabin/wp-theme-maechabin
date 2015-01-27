@@ -62,7 +62,7 @@ var maechabin_ui = (function (window, document) {
 
 console.log(referrer.match(regexp2));
 
-    if (url.match(regexp1) && referrer.match(regexp2)) {
+    if (url.match(regexp1) && referrer.match(regexp2) && !referrer.match(regexp1)) {
 
       blog_title_icon.attr("class", "fa fa-arrow-circle-left");
       blog_title_link.attr("href", referrer);
