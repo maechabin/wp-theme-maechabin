@@ -57,7 +57,7 @@ select {
 }
 body {
 /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
-    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, メイリオ, Meiryo, 'ＭＳ Ｐゴシック';
+    font-family: メイリオ, Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, 'ＭＳ Ｐゴシック';
     overflow-y: scroll;
     font-size: 62.5%;
     color: #212121;
@@ -597,18 +597,27 @@ pre {
     clear: both;
     color: #fff;
     padding: 0;
-    line-height: 2em;
+    line-height: 3em;
     background-color: #8b0;
-    font-size: 1.6em;
+    font-size: 18px;
     font-weight: normal;
     text-indent: 1em;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
     border-radius: 2px;
 }
 .related-posts-li {
-    margin-bottom: 9px;
-    margin-left: 18px !important;
-    line-height: 1.2em !important;
+    text-align: left;
+    text-indent: -7px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    line-height: 1.2 !important;
+    padding-left: 16px;
+    border-bottom: 1px dotted #E0E0E0;
+    font-size: 15px;
+}
+.related-posts-li i {
+    font-size: 12px;
+    color: #BDBDBD;
 }
 /* △関連記事△ */
 
@@ -646,9 +655,9 @@ pre {
 #comments-title {
     clear: both;
     color: #fff;
-    line-height: 2em;
+    line-height: 3em;
     background-color: #8b0;
-    font-size: 1.6em;
+    font-size: 18px;
     font-weight: normal;
     text-indent: 1em;
     margin-bottom: 1em;

@@ -1,0 +1,22 @@
+{
+  "name": "wp-theme-maechabin",
+  "version": "1.0.0",
+  "description": "WordPress Theme",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Takanori-Maeda/wp-theme-maechabin.git"
+  },
+  "keywords": [
+    "wordpress"
+  ],
+  "author": "@maechabin",
+  "license": "MIT License",
+  "bugs": {
+    "url": "https://github.com/Takanori-Maeda/wp-theme-maechabin/issues"
+  },
+  "homepage": "https://github.com/Takanori-Maeda/wp-theme-maechabin"
+}

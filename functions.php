@@ -2,7 +2,6 @@
 remove_action('wp_head','wp_generator');
 remove_action('wp_head','index_rel_link');
 
-
 #動的サイドバーを必要としていることをプラグインに伝える
 if (function_exists('register_sidebar')) {
 
@@ -287,5 +286,11 @@ do_action( 'comment_form_after_fields' );
 remove_filter('the_content', 'wpautop');
 
 //category-templete.php→163行　$rel=""
+
+// &の自動変換停止
+function my_replace_amp($content) {
+    return str_replace('&#038;', '&', $content);
+}
+add_filter( 'the_content', 'my_replace_amp' );
 
 ?>
