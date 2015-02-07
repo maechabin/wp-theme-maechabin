@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Takanori-Maeda/wp-theme-maechabin/issues"
   },
-  "homepage": "https://github.com/Takanori-Maeda/wp-theme-maechabin"
+  "homepage": "https://github.com/Takanori-Maeda/wp-theme-maechabin",
+  "devDependencies": {
+    "grunt": "^0.4.5"
+  }
 }
