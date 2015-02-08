@@ -69,7 +69,7 @@ console.log(referrer.match(regexp2));
 
     } else {
 
-      blog_title_icon.attr("class", "fa fa-home");
+      //blog_title_icon.attr("class", "fa fa-medium");
       blog_title_link.attr("href", "/");
 
     }
