@@ -19,7 +19,7 @@ module.exports = function (grunt) {
 		cssmin: {
 			minify: {
 				files: {
-					'style.css': ['css/index.css', 'css/single.css', 'css/style.css', 'css/sidebar.css']
+					'style.css': ['css/index.css', 'css/single.css', 'css/sidebar.css', 'css/style.css', 'css/prettify.min.css', 'css/font-awesome.min.css']
 				}
 			}
 		},

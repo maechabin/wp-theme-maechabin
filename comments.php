@@ -9,7 +9,7 @@ return;
 endif;
 ?>
 <?php /*  ▲パスワード制限がある場合▲ */ ?>
-<h1 id="comments-title"><i class="icon-comments"></i> コメント一覧 <!--コメント <?php comments_number('0','1','%'); ?>--></h1>
+<h1 id="comments-title"><i class="fa fa-comments"></i> コメント一覧 <!--コメント <?php comments_number('0','1','%'); ?>--></h1>
 <?php if(have_comments()): ?>
 <?php if(get_comment_pages_count()>1 && get_option('page_comments')): // Are there comments to navigate through? ?>
 <div class="navigation">
@@ -45,7 +45,7 @@ if(!comments_open()):
 
 <?php if(pings_open()): ?>
 <h2 id="trackback-title">トラックバックURL</h2>
-<p><input type="text" value="<?php trackback_url(); ?>" size="50" class="trackback-url" /></p>
+<p><input type="text" value="<?php trackback_url(); ?>" size="50" class="trackback-url"></p>
 <?php endif; ?>
 
 </section><!-- #comments -->

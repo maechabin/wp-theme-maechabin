@@ -287,7 +287,7 @@ a > i {
 
 .cb-share {
   position: absolute;
-  right: 8px;
+  right: 0;
   bottom: 4px; }
 
 .cb-share li {
@@ -298,11 +298,11 @@ a > i {
 .cb-share a,
 .cb-share i {
   vertical-align: baseline;
-  color: #9E9E9E;
+  color: #757575;
   text-decoration: none; }
 
 .cb-share li span {
-  margin: 0 8px 0 4px; }
+  margin: 0 8px 0 0; }
 
 /* ▲indexページ▲ */
 /* ▼article▼ */
@@ -871,9 +871,10 @@ address {
     padding-bottom: 48px; }
 
   #sidebar_sub {
-    width: 90%;
+    width: -webkit-calc(100% - 16px);
+    width: calc(100% - 32px);
     max-width: 100%;
-    padding: 16px 5% 0; }
+    padding: 16px 16px 0; }
 
   .entry img {
     box-sizing: border-box;

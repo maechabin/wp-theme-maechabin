@@ -28,25 +28,21 @@ if ($paged >= 2 || $page >= 2)
 <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
 <link rel="stylesheet" href="<?php bloginfo('stylesheet_url'); ?>" media="all">
 <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
-<?php /*<link rel="stylesheet" href="//google-code-prettify.googlecode.com/svn/trunk/src/prettify.css">*/ ?>
-<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">
-<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome3.min.css">
-<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">
+<?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">*/ ?>
+<?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">*/ ?>
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
 <?php wp_head(); ?>
-<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-16293533-1', 'auto');
-  ga('require', 'displayfeatures');
-  ga('send', 'pageview');
-  ga('require', 'linkid', 'linkid.js');
-  
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-16293533-1', 'auto');
+ga('require', 'displayfeatures');
+ga('send', 'pageview');
+ga('require', 'linkid', 'linkid.js');
 </script>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 </head>
 
 <body id="TOP">
