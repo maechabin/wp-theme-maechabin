@@ -20,13 +20,13 @@
 </div><!-- #index -->
 
 <?php wp_footer(); ?>
-<script src="/wp-content/themes/chabin/js/function.min.js"></script>
 <?php if(is_single()): ?>
 <script defer src="/wp-includes/js/comment-reply.js?ver=20090102"></script>
 <script src="//google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
 <script src="//google-code-prettify.googlecode.com/svn/trunk/src/lang-css.js"></script>
-<script>window.setTimeout(prettyPrint, 1000);</script>
+<script>window.setTimeout(prettyPrint, 500);</script>
 <?php endif ?>
+<script src="/wp-content/themes/chabin/js/function.min.js?ver=20150211090204"></script>
 </body>
 
 </html>

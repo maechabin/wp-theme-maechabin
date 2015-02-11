@@ -33,6 +33,28 @@ module.exports = function (grunt) {
 			}
 		},
 
+		replace: {
+
+			css: {
+				src: ['header.php'],
+				overwrite: true,
+				replacements: [{
+					from: /\<\?php\sbloginfo\(\'stylesheet_url\'\)\;\s\?\>\?ver\=[0-9]{14}/g,
+					to: "<?php bloginfo('stylesheet_url'); ?>?ver=<%= grunt.template.today('yyyymmddhhmmss') %>"
+				}]
+			},
+
+			js: {
+				src: ['footer.php'],
+				overwrite: true,
+				replacements: [{
+					from: /\/wp-content\/themes\/chabin\/js\/function.min\.js\?ver\=[0-9]{14}/g,
+					to: '/wp-content/themes/chabin/js/function.min.js?ver=<%= grunt.template.today("yyyymmddhhmmss") %>'
+				}]
+			}
+
+		},
+
 		watch: {
 
 			sass: {
@@ -42,14 +64,14 @@ module.exports = function (grunt) {
 
 			css: {
 				files: ['css/index.css', 'css/single.css', 'css/style.css', 'css/sidebar.css'],
-				tasks: ['cssmin']
+				tasks: ['cssmin', 'replace:css']
 			},
 
 			js: {
 				// 監視したいファイル
-				files: 'js/*.js',
+				files: 'js/function.js',
 				// 変更を感知した時に実行するタスク
-				tasks: ['uglify']
+				tasks: ['uglify', 'replace:js']
 			}
 
 		}
@@ -60,6 +82,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-text-replace');
 
 	grunt.registerTask('default', ['sass', 'cssmin']);
 
