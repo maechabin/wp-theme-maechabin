@@ -4,7 +4,7 @@
 
 <div class="blog_info">
 <p>Powered by <a href="http://ja.wordpress.org/" target="_blank">WordPress</a></p>
-<address>Copyright &copy; <a href="<?php echo home_url( '/' ) ?>"><?php bloginfo( 'name' ); ?></a> <a title="Googleプロフィールへ" href="https://plus.google.com/105642680110503345013?rel=author" target="_blank"><img src="http://ssl.gstatic.com/images/icons/gplus-16.png" alt="⇒Googleプロフィールへ" height="16" width="16"></a></li>
+<address>Copyright &copy; <a href="<?php echo home_url( '/' ) ?>"><?php bloginfo( 'name' ); ?></a> <a title="Googleプロフィールへ" href="https://plus.google.com/105642680110503345013?rel=author" target="_blank"><img src="http://ssl.gstatic.com/images/icons/gplus-16.png" alt="⇒Googleプロフィールへ" height="16" width="16"></a>
 </address>
 </div>
 

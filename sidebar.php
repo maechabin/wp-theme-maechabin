@@ -24,9 +24,7 @@
   <a href="//github.com/maechabin" target="_blank"><i class="fa fa-github-alt"></i></a>
   <a href="//jsdo.it/maechabin" target="_blank"><i class="fa fa-html5"></i></a>
 </p>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
-<p class="author-description">PHPプログラマー、デザイナーなどを経て現在は都内のネット広告会社でマーケティングをやっています。JavaScriptやHTML5/CSS3などフロントエンドの技術に興味あり。専門はUI/UXデザイン、SEOなど。</p>
-
+<p class="author-description">プログラマー、デザイナーなどを経て現在は都内のネット広告会社でマーケティングをやっています。JavaScriptやHTML5/CSS3などフロントエンドの技術に興味あり。専門はUI/UXデザイン、SEOなど。</p>
 <p class="author-description">
 <a href="//maechabin.tumblr.com" target="_blank"><img src="/wp-content/uploads/2013/11/maes-works.png" width="298" height="49" alt="写真ブログ mae's works - maechabin.tumblr.com"></a>
 <a href="//maechabin.tumblr.com" target="_blank">mae's works</a>。私の写真公開用ブログです。写真が趣味で日々撮った写真をアップしています。使用しているTumblrも全力でカスタマイズ中！
@@ -57,11 +55,11 @@
 
 <div style="margin-bottom: 18px;text-align: center;">
 
-<!--    
+<?php
+/*   
 <a href="http://px.a8.net/svt/ejp?a8mat=1U7TPO+6EESNU+D8Y+C3BAP" target="_blank">
 <img width="300" height="300" alt="" src="http://www26.a8.net/svt/bgt?aid=111219756387&amp;wid=002&amp;eno=01&amp;mid=s00000001717002031000&amp;mc=1" alt="さくらのVPS" /></a>
 <img width="1" height="1" src="http://www17.a8.net/0.gif?a8mat=1U7TPO+6EESNU+D8Y+C3BAP" alt="さくらのVPS" />
--->
 
 <script>
 var adstir_vars = {
@@ -71,10 +69,11 @@ var adstir_vars = {
   center : false
 };
 </script>
-<script src="http://js.ad-stir.com/js/adstir.js?20130527"></script>
-
+<script src="//js.ad-stir.com/js/adstir.js?20130527"></script>
+*/
+?>
 <div>スポンサードリンク</div>
-<script async src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mae's blog（サイドバー下） -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:300px;height:250px"
