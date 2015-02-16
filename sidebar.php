@@ -49,7 +49,7 @@
 <a href="//feedmeter.net/detail.php?r=http%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><img src="//feedmeter.net/image.php?r=http%3A%2F%2Fmae.chab.in%2Ffeed" width="60" height="36" alt="フィードメーター - Mae's Blog"></a>
 <a href="//www.blogmura.com/" target="_blank"><img src="//www.blogmura.com/img/www88_31.gif" width="88" height="31" alt="ブログランキング・にほんブログ村へ"></a>
 <a href="//blogram.jp/users/agent/vote/?uid=116487#ref=vote" target="_blank"><img src="//widget.blogram.jp/images/bgButton1_whi.gif" alt="blogram投票ボタン" width="88" height="31"></a>
-<a href="//blog.with2.net/link.php?1028897" target="_blank"><img src="//image.with2.net/img/banner/banner_13.gif" width="80" height="15" alt="人気ブログランキングへ"></a>
+<a href="//blog.with2.net/link.php?1028897" target="_blank"><img src="/wp-content/themes/chabin/image/banner_13.gif" width="80" height="15" alt="人気ブログランキングへ"></a>
 </figure>
 </div>
 
