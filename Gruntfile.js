@@ -55,6 +55,28 @@ module.exports = function (grunt) {
 
 		},
 
+		md5: {
+
+			css: {
+				files: {
+					'./': 'style.css'
+				}
+			},
+
+			js: {
+				files: {
+					'js/': 'js/function.min.js'
+				}
+			}
+/*,
+			options: {
+				encoding: null,
+				keepBasename: true,
+				keepExtension: true
+			}
+*/
+		},
+
 		watch: {
 
 			sass: {
@@ -64,14 +86,14 @@ module.exports = function (grunt) {
 
 			css: {
 				files: ['css/index.css', 'css/single.css', 'css/style.css', 'css/sidebar.css'],
-				tasks: ['cssmin', 'replace:css']
+				tasks: ['cssmin', 'replace:css', 'md5:css']
 			},
 
 			js: {
 				// 監視したいファイル
 				files: 'js/function.js',
 				// 変更を感知した時に実行するタスク
-				tasks: ['uglify', 'replace:js']
+				tasks: ['uglify', 'replace:js', 'md5:js']
 			}
 
 		}
@@ -83,6 +105,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
 	grunt.loadNpmTasks('grunt-text-replace');
+	grunt.loadNpmTasks('grunt-md5');
 
 	grunt.registerTask('default', ['sass', 'cssmin']);
 

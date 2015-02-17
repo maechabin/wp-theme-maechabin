@@ -21,12 +21,12 @@
 
 <?php wp_footer(); ?>
 <?php if(is_single()): ?>
-<script defer src="/wp-includes/js/comment-reply.js?ver=20090102"></script>
+<script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
 <script src="//google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
 <script src="//google-code-prettify.googlecode.com/svn/trunk/src/lang-css.js"></script>
 <script>window.setTimeout(prettyPrint, 500);</script>
 <?php endif ?>
-<script src="/wp-content/themes/chabin/js/function.min.js?ver=20150211090204"></script>
+<script src="/wp-content/themes/chabin/js/function.min.js?ver=20150218120217" defer></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

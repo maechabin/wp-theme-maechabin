@@ -58,9 +58,6 @@ body {
   color: #212121;
   background-color: #eee; }
 
-a {
-  color: #3160aa; }
-
 a:hover {
   text-decoration: none; }
 
@@ -69,6 +66,9 @@ a > i {
   color: #444;
   text-decoration: none;
   margin-right: .4em; }
+
+a {
+  color: #333333; }
 
 /* ▼header▼ */
 #header_bar {
@@ -315,13 +315,16 @@ article header {
   overflow: hidden;
   text-align: center;
   margin: 16px auto 0;
-  width: 350px;
+  width: 346px;
   height: 64px; }
 
 .social-button > li {
   float: left;
   margin-right: 4px;
   display: inline-block; }
+
+.social-button > li:last-child {
+  margin-right: 0; }
 
 .social-button iframe {
   vertical-align: baseline; }
