@@ -1,8 +1,30 @@
 module.exports = function (grunt) {
 
 	var pkg = grunt.file.readJSON('package.json');
+	var fs = require("fs");
+	var regexp_css = /^style\-[0-9a-z]{32}\.css$/;
+	var regexp_js = /^function\.min\-[0-9a-z]{32}\.js$/;
 
 	grunt.initConfig({
+
+		file: {
+
+			get_name: function (dir) {
+
+				var list = fs.readdirSync("assets/");
+				var regexp = (dir === "css") ? regexp_css : regexp_js;
+
+				for (var i = 0; i < list.length; i++){
+
+					if (list[i].match(regexp)) {
+						return list[i].match(regexp).input;
+					}
+
+				}
+
+			}
+
+		},
 
 		sass: {
 			dist: {
@@ -27,10 +49,33 @@ module.exports = function (grunt) {
 		uglify: {
 			dist: {
 				files: {
-					// 出力ファイル: 元ファイル
 					'js/function.min.js': 'js/function.js'
 				}
 			}
+		},
+
+		clean: {
+
+			css: ['assets/*.css'],
+
+			js: ['assets/*.js']
+
+		},
+
+		md5: {
+
+			css: {
+				files: {
+					'assets/': 'style.css'
+				}
+			},
+
+			js: {
+				files: {
+					'assets/': 'js/function.min.js'
+				}
+			}
+
 		},
 
 		replace: {
@@ -39,8 +84,8 @@ module.exports = function (grunt) {
 				src: ['header.php'],
 				overwrite: true,
 				replacements: [{
-					from: /\<\?php\sbloginfo\(\'stylesheet_url\'\)\;\s\?\>\?ver\=[0-9]{14}/g,
-					to: "<?php bloginfo('stylesheet_url'); ?>?ver=<%= grunt.template.today('yyyymmddhhmmss') %>"
+					from: /\/wp-content\/themes\/chabin\/assets\/style\-[0-9a-z]{32}\.css/g,
+					to: '/wp-content/themes/chabin/assets/<%= file.get_name("css") %>'
 				}]
 			},
 
@@ -48,52 +93,28 @@ module.exports = function (grunt) {
 				src: ['footer.php'],
 				overwrite: true,
 				replacements: [{
-					from: /\/wp-content\/themes\/chabin\/js\/function.min\.js\?ver\=[0-9]{14}/g,
-					to: '/wp-content/themes/chabin/js/function.min.js?ver=<%= grunt.template.today("yyyymmddhhmmss") %>'
+					from: /\/wp-content\/themes\/chabin\/assets\/function\.min\-[0-9a-z]{32}\.js/g,
+					to: '/wp-content/themes/chabin/assets/<%= file.get_name("js") %>'
 				}]
 			}
 
 		},
 
-		md5: {
-
-			css: {
-				files: {
-					'./': 'style.css'
-				}
-			},
-
-			js: {
-				files: {
-					'js/': 'js/function.min.js'
-				}
-			}
-/*,
-			options: {
-				encoding: null,
-				keepBasename: true,
-				keepExtension: true
-			}
-*/
-		},
-
 		watch: {
 
 			sass: {
-				files: 'scss/*.scss',
+				files: ['scss/*.scss'],
 				tasks: ['sass']
 			},
 
 			css: {
 				files: ['css/index.css', 'css/single.css', 'css/style.css', 'css/sidebar.css'],
-				tasks: ['cssmin', 'replace:css', 'md5:css']
+				tasks: ['cssmin', 'clean:css', 'md5:css', 'replace:css']
 			},
 
 			js: {
-				// 監視したいファイル
-				files: 'js/function.js',
-				// 変更を感知した時に実行するタスク
-				tasks: ['uglify', 'replace:js', 'md5:js']
+				files: ['js/function.js'],
+				tasks: ['uglify', 'clean:js', 'md5:js', 'replace:js']
 			}
 
 		}
@@ -104,6 +125,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-sass');
 	grunt.loadNpmTasks('grunt-contrib-cssmin');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-md5');
 
