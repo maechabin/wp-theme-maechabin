@@ -1,9 +1,6 @@
 module.exports = function (grunt) {
 
 	var pkg = grunt.file.readJSON('package.json');
-	var fs = require("fs");
-	var regexp_css = /^style\-[0-9a-z]{32}\.css$/;
-	var regexp_js = /^function\.min\-[0-9a-z]{32}\.js$/;
 
 	grunt.initConfig({
 
@@ -11,6 +8,9 @@ module.exports = function (grunt) {
 
 			get_name: function (dir) {
 
+				var fs = require("fs");
+				var regexp_css = /^style\-[0-9a-z]{32}\.css$/;
+				var regexp_js = /^function\.min\-[0-9a-z]{32}\.js$/;
 				var list = fs.readdirSync("assets/");
 				var regexp = (dir === "css") ? regexp_css : regexp_js;
 
@@ -18,6 +18,7 @@ module.exports = function (grunt) {
 
 					if (list[i].match(regexp)) {
 						return list[i].match(regexp).input;
+						break;
 					}
 
 				}

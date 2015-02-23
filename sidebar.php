@@ -17,14 +17,15 @@
     
 <div class="title">About Me</div>
 <p class="author-name">Takanori Maeda
-  <a href="//twitter.com/maechabin" target="_blank"><i class="fa fa-twitter"></i></a>
-  <a href="//www.facebook.com/maechabin" target="_blank"><i class="fa fa-facebook"></i></a>
-  <a href="//plus.google.com/+TakanoriMaeda0_0/" target="_blank"><i class="fa fa-google-plus"></i></a>
-  <a href="//maechabin.tumblr.com/" target="_blank"><i class="fa fa-tumblr"></i></a>
-  <a href="//github.com/maechabin" target="_blank"><i class="fa fa-github-alt"></i></a>
-  <a href="//jsdo.it/maechabin" target="_blank"><i class="fa fa-html5"></i></a>
+  <a href="//twitter.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-twitter');"><i class="fa fa-twitter"></i></a>
+  <a href="//www.facebook.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-facebook');"><i class="fa fa-facebook"></i></a>
+  <a href="//plus.google.com/+TakanoriMaeda0_0/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-google+');"><i class="fa fa-google-plus"></i></a>
+  <a href="//maechabin.tumblr.com/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-tumblr');"><i class="fa fa-tumblr"></i></a>
+  <a href="//github.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-github');"><i class="fa fa-github-alt"></i></a>
+  <a href="//jsdo.it/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-jsdoit');"><i class="fa fa-html5"></i></a>
+  <a href="//www.muzie.ne.jp/artist/a024945/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-muzie');"><i class="fa fa-music"></i></a>
 </p>
-<p class="author-description">プログラマー、デザイナーなどを経て現在は都内のネット広告会社でマーケティングをやっています。JavaScriptやHTML5/CSS3などフロントエンドの技術に興味あり。専門はUI/UXデザイン、SEOなど。</p>
+<p class="author-description">プログラマー、デザイナーなどを経て現在は都内のネット広告会社でマーケティングをやっています。JavaScriptやHTML5/CSS3などフロントエンドの技術に興味あり。専門はUI/UXデザイン、SEOなど。趣味はカメラ、ピアノ。</p>
 <p class="author-description">
 <a href="//maechabin.tumblr.com" target="_blank"><img src="/wp-content/uploads/2013/11/maes-works.png" width="298" height="49" alt="写真ブログ mae's works - maechabin.tumblr.com"></a>
 <a href="//maechabin.tumblr.com" target="_blank">mae's works</a>。私の写真公開用ブログです。写真が趣味で日々撮った写真をアップしています。使用しているTumblrも全力でカスタマイズ中！

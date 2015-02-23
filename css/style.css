@@ -58,6 +58,9 @@ body {
   color: #212121;
   background-color: #eee; }
 
+a {
+  color: #3160aa; }
+
 a:hover {
   text-decoration: none; }
 
@@ -66,9 +69,6 @@ a > i {
   color: #444;
   text-decoration: none;
   margin-right: .4em; }
-
-a {
-  color: #333333; }
 
 /* ▼header▼ */
 #header_bar {
@@ -455,6 +455,7 @@ code em {
   font-style: normal; }
 
 .entry q {
+  color: #4e342e;
   font-weight: bold;
   margin-left: 2em;
   display: block;
