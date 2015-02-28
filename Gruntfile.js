@@ -101,6 +101,20 @@ module.exports = function (grunt) {
 
 		},
 
+		typescript: {
+
+			ts: {
+				files: {
+					'ts/function.js': 'ts/function.ts'
+				},
+				options: {
+					module: 'amd', //or commonjs 
+					target: 'es5' //or es3 
+				}
+			}
+
+		},
+
 		watch: {
 
 			sass: {
@@ -116,6 +130,11 @@ module.exports = function (grunt) {
 			js: {
 				files: ['js/function.js'],
 				tasks: ['uglify', 'clean:js', 'md5:js', 'replace:js']
+			},
+
+			ts: {
+				files: ['ts/*.ts'],
+				tasks: ['typescript']
 			}
 
 		}
@@ -129,6 +148,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-md5');
+	grunt.loadNpmTasks('grunt-typescript');
 
 	grunt.registerTask('default', ['sass', 'cssmin']);
 
