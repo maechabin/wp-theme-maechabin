@@ -1,4 +1,5 @@
-/// <reference path="../lib/jquery.d.ts" />
+/// <reference path="../typings/tsd.d.ts" />
 $(document).ready(function () {
-    alert("jQUery!!");
+    alert("jQuery!!");
+    var w = $(window);
 });

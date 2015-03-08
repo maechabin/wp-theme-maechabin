@@ -115,6 +115,22 @@ module.exports = function (grunt) {
 
 		},
 
+		tslint: {
+
+			ts: {
+
+				options: {
+					configuration: grunt.file.readJSON('tslint.json')
+				},
+
+				files: {
+					src: ['ts/function.ts']
+				}
+
+			}
+
+		},
+
 		watch: {
 
 			sass: {
@@ -134,7 +150,7 @@ module.exports = function (grunt) {
 
 			ts: {
 				files: ['ts/*.ts'],
-				tasks: ['typescript']
+				tasks: ['typescript', 'tslint']
 			}
 
 		}
@@ -149,6 +165,7 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-text-replace');
 	grunt.loadNpmTasks('grunt-md5');
 	grunt.loadNpmTasks('grunt-typescript');
+	grunt.loadNpmTasks('grunt-tslint');
 
 	grunt.registerTask('default', ['sass', 'cssmin']);
 

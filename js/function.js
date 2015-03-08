@@ -173,9 +173,9 @@ console.log(referrer.match(regexp2));
     var sidebar = $("#sidebar");
     var margin_width = 0;
 
-    if (content_width > 990) {
+    if (content_width > 1020) {
 
-      margin_width = (content_width - 990) / 2;
+      margin_width = (content_width - 1020) / 2;
       content.css("width", content_width + "px");
 
     }

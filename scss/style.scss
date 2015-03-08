@@ -93,6 +93,7 @@ a > i {
     position: relative;
     line-height: 56px;
     width: 1020px;
+    width: 1050px;
     margin: 0 auto;
     overflow: hidden;
     text-align: center;
@@ -183,7 +184,7 @@ a > i {
 }
 #content {
     zoom: 1;
-    width: 990px;
+    width: 1020px;
     margin: 0 auto;
 }
 
@@ -191,6 +192,7 @@ a > i {
     position: relative;
     float: left;
     width: 658px;
+    width: 688px;
 }
 #entry_sub {
     margin-bottom: 0;
@@ -348,13 +350,13 @@ article header {
     vertical-align: baseline;
 }
 .entry {
-  border-top: 6px solid #555;
+  border-top: 6px solid #616161;
   padding-top: 16px;
   margin: 8px 16px 0;
 }
 .intro {
-    padding: 0 16px 16px;
-    border-bottom: 6px solid #555;
+    padding: 0 8px 16px;
+    border-bottom: 6px solid #616161;
 }
 .intro p {
     font-family: serif;
@@ -485,10 +487,10 @@ code em {
     margin-left: 0 !important;
 }
 .blockBorder {
-    padding: 8px 16px;
-    border: 1px solid #8BC34A;
-    background-color: #DCEDC8;
-    border-radius: 2px;
+    padding: 16px;
+    border: 1px solid #C5E1A5;
+    background-color: #F1F8E9;
+    border-radius: 1px;
 }
 .imgBorder {
     text-align: center;
@@ -556,6 +558,10 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+.mark {
+    background-color: #E0E0E0;
+}
+
 
 .affi-item {
     overflow: hidden;
@@ -589,6 +595,9 @@ pre {
 }
 .entry .bottom_2 {
     margin-bottom: 36px;
+}
+.text-center {
+    text-align: center;
 }
 /* △記事の装飾△ */
 
