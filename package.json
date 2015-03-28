@@ -1,24 +1,24 @@
 {
   "name": "wp-theme-maechabin",
   "version": "1.0.0",
-  "description": "WordPress Theme",
-  "main": "index.php",
+  "description": "WordPress Original Theme",
+  "main": "./index.php",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Takanori-Maeda/wp-theme-maechabin.git"
+    "url": "https://github.com/maechabin/mae.chab.in.git"
   },
   "keywords": [
     "wordpress"
   ],
-  "author": "@maechabin",
+  "author": "@maechabin mail@chab.in http://mae.chab.in/",
   "license": "MIT License",
   "bugs": {
-    "url": "https://github.com/Takanori-Maeda/wp-theme-maechabin/issues"
+    "url": "http://mae.chab.in/"
   },
-  "homepage": "https://github.com/Takanori-Maeda/wp-theme-maechabin",
+  "homepage": "https://github.com/maechabin/mae.chab.in.git",
   "devDependencies": {
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",

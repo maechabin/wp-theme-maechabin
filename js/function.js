@@ -60,8 +60,6 @@ var maechabin_ui = (function (window, document) {
     var blog_title_icon = blog_title.find("i");
     var referrer = document.referrer;
 
-console.log(referrer.match(regexp2));
-
     if (url.match(regexp1) && referrer.match(regexp2) && !referrer.match(regexp1)) {
 
       blog_title_icon.attr("class", "fa fa-arrow-circle-left");
@@ -266,16 +264,16 @@ window.onload = maechabin_ui.init;
       options: {duration: 750, easing: "linear", queue: true}
     };
 
-    var options = $.extend(defaults, options);
+    var options = $.extend({}, defaults, options);
 
     return this.each(function () {
 
-      if(options.url == 'default') var target = $(this).attr('href');
+      if (options.url === 'default') var target = $(this).attr('href');
       else var target = options.url;
 
       $(this).bind(options.event, function () {
         options.options.complete = function () {
-          window.location.assign(target)
+          window.location.assign(target);
         };
         $(options.target).animate(options.properties,options.options);
         return false;
