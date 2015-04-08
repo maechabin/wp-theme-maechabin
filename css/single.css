@@ -1,3 +1,31 @@
-
+.item {
+  overflow: hidden; }
+  .item:after {
+    content: "";
+    clear: both; }
+  .item__image {
+    display: inline;
+    float: left;
+    margin-right: 10px !important; }
+  .item__info {
+    display: inline;
+    text-align: left !important; }
+    .item__info li {
+      font-size: 14px;
+      line-height: 1.4; }
+  .item__button {
+    font-size: 14px;
+    padding: 8px;
+    width: 300px;
+    border-radius: 2px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 1px 2px #888; }
+    .item__button--amazon {
+      width: 240px;
+      margin-top: 8px;
+      background-color: #F57F17;
+      color: #fff;
+      float: left; }
 
 /*# sourceMappingURL=single.css.map */

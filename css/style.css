@@ -541,42 +541,6 @@ pre {
 .mark {
   background-color: #E0E0E0; }
 
-.affi-item {
-  overflow: hidden; }
-
-.affi-item:after {
-  content: "";
-  clear: both; }
-
-.affi-item-image {
-  display: inline;
-  float: left;
-  margin-right: 10px !important; }
-
-.affi-item-info {
-  display: inline;
-  text-align: left !important; }
-
-.affi-item-info li {
-  font-size: 14px;
-  line-height: 1.4; }
-
-.btn {
-  font-size: 14px;
-  padding: 8px;
-  width: 300px;
-  border-radius: 2px;
-  border: none;
-  cursor: pointer;
-  box-shadow: 0 1px 2px #888; }
-
-.btn-affi {
-  width: 240px;
-  margin-top: 8px;
-  background-color: #F57F17;
-  color: #fff;
-  float: left; }
-
 .entry .top_0 {
   margin-top: 0; }
 
