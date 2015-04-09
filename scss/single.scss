@@ -1,17 +1,15 @@
+/* item */
 .item {
-    overflow: hidden;
-    &:after {
-        content: "";
-        clear: both;
+    display: flex;
+    figcaption {
+        padding-left: 8px;
     }
     &__image {
-        display: inline;
-        float: left;
-        margin-right: 10px !important;
+        flex: none;
     }
     &__info {
-        display: inline;
-        text-align:left !important;
+        text-align:left;
+        margin-bottom: 0 !important;
         li {
             font-size: 14px;
             line-height: 1.4;
@@ -20,17 +18,16 @@
     &__button {
         font-size: 14px;
         padding: 8px;
-        width: 300px;
         border-radius: 2px;
+        width: 220px;
         border: none;
         cursor: pointer;
         box-shadow: 0 1px 2px #888;
-        &--amazon {
-            width: 240px;
+        &--orange {
+            float: left;
             margin-top: 8px;
             background-color: #F57F17;
             color: #fff;
-            float: left;
         }
     }
 }

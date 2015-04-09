@@ -1,31 +1,28 @@
+/* item */
 .item {
-  overflow: hidden; }
-  .item:after {
-    content: "";
-    clear: both; }
+  display: flex; }
+  .item figcaption {
+    padding-left: 8px; }
   .item__image {
-    display: inline;
-    float: left;
-    margin-right: 10px !important; }
+    flex: none; }
   .item__info {
-    display: inline;
-    text-align: left !important; }
+    text-align: left;
+    margin-bottom: 0 !important; }
     .item__info li {
       font-size: 14px;
       line-height: 1.4; }
   .item__button {
     font-size: 14px;
     padding: 8px;
-    width: 300px;
     border-radius: 2px;
+    width: 220px;
     border: none;
     cursor: pointer;
     box-shadow: 0 1px 2px #888; }
-    .item__button--amazon {
-      width: 240px;
+    .item__button--orange {
+      float: left;
       margin-top: 8px;
       background-color: #F57F17;
-      color: #fff;
-      float: left; }
+      color: #fff; }
 
 /*# sourceMappingURL=single.css.map */
