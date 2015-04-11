@@ -40,7 +40,7 @@ code {
   border-radius: 2px !important;
   color: #fff;
   display: block;
-  line-height: 1.5;
+  line-height: 1.4;
   padding: 16px 12px;
   text-align: left;
 }
@@ -57,8 +57,7 @@ code em {
 code .update {
   background-color: #E91E63 !important;
 }
-
-li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
+code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.L6, code li.L7, code li.L8, code li.L9 {
   color: #aaa;
   list-style-type: decimal !important;
   margin-left: 36px;

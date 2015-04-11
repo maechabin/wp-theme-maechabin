@@ -883,42 +883,30 @@ textarea {
 
 /* ▲コメントフォーム #respond▲ */
 /* ▼#footer▼ */
-footer {
+.footer {
+  color: #fff;
   position: fixed;
   bottom: 0;
   left: 0;
-  border-top: 1px solid #ccc;
   overflow: hidden;
   clear: both;
-  background-color: #eee;
+  background-color: #424242;
   z-index: 0;
   width: 100%;
 }
-
-#footer_sub {
-  padding: 42px 0 43px;
+.footer__sub {
+  padding: 42px 0 44px;
   margin: 0 auto;
 }
-
-.blog_info {
+.footer__credit {
   text-align: center;
-}
-
-.blog_info p {
-  font-size: 1.2em;
-}
-
-address {
+  font-size: 12px;
   font-style: normal;
-  font-size: 1.2em;
 }
-
-.html5 {
-  position: absolute;
-  right: 0;
+.footer__credit a {
+  color: #fff;
 }
-
-#footer_bar {
+.footer__bar {
   position: fixed;
   bottom: 0;
   width: 100%;
@@ -927,8 +915,7 @@ address {
   padding: 0;
   margin: 0;
 }
-
-.back-to-top a {
+.footer__bar--link a {
   color: #fff;
   text-align: right;
   display: block;
@@ -943,8 +930,7 @@ address {
   -ms-filter: 'alpha(opacity=90)';
   text-decoration: none;
 }
-
-.back-to-top a i {
+.footer__bar--link a i {
   color: #fff;
 }
 
@@ -966,7 +952,7 @@ address {
   #content_border {
     min-width: 100%;
     width: 100%;
-    margin: 0 !important;
+    margin: 0 0 154px !important;
   }
 
   #content {

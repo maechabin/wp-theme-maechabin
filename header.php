@@ -26,7 +26,7 @@ if ($paged >= 2 || $page >= 2)
 <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
 <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-<link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-412f672a110e31b4c693f731f7b2a872.css" media="all">
+<link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-9f2ec4419254f19a63a98d1a1c80c30c.css" media="all">
 <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
 <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">*/ ?>
 <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">*/ ?>

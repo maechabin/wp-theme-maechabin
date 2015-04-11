@@ -42,7 +42,7 @@ code {
     border-radius: 2px !important;
     color: #fff;
     display: block;
-    line-height: 1.5;
+    line-height: 1.4;
     padding: 16px 12px;
     text-align: left;
     strong {
@@ -60,9 +60,11 @@ code {
     .update {
         background-color: #E91E63 !important;
     }
-}
-li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
-    color: #aaa;
-    list-style-type: decimal !important;
-    margin-left: 36px;
+    li {
+        &.L0, &.L1, &.L2, &.L3, &.L4, &.L5, &.L6, &.L7, &.L8, &.L9 {
+            color: #aaa;
+            list-style-type: decimal !important;
+            margin-left: 36px;
+        }
+    }
 }

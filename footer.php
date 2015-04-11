@@ -1,21 +1,22 @@
 <!-- ▼footer▼ -->
 <footer>
-<div id="footer_sub">
+<div class="footer">
+<div id="footer_sub" class="footer__sub">
 
-<div class="blog_info">
-<p>Powered by <a href="http://ja.wordpress.org/" target="_blank">WordPress</a></p>
-<address>Copyright &copy; <a href="<?php echo home_url( '/' ) ?>"><?php bloginfo( 'name' ); ?></a> <a title="Googleプロフィールへ" href="https://plus.google.com/105642680110503345013?rel=author" target="_blank"><img src="http://ssl.gstatic.com/images/icons/gplus-16.png" alt="⇒Googleプロフィールへ" height="16" width="16"></a>
+<address class="footer__credit">
+	Copyright &copy; <a href="<?php echo home_url( '/' ) ?>">maechabin</a>
+	<a title="Googleプロフィールへ" href="https://plus.google.com/105642680110503345013?rel=author" target="_blank"><img src="//ssl.gstatic.com/images/icons/gplus-16.png" alt="Googleプロフィールへ" height="16" width="16"></a>
 </address>
-</div>
 
 </div><!-- #footer_sub -->
-</footer>
-<!-- ▲footer▲ -->
-
-<div id="footer_bar">
-<p class="back-to-top"><a href="#TOP"><i class="fa fa-chevron-circle-up"></i>ページ上部に戻る</a></p>
 </div>
 
+<div id="footer_bar" class="footer__bar">
+	<p class="footer__bar--link"><a href="#TOP"><i class="fa fa-chevron-circle-up"></i>ページ上部に戻る</a></p>
+</div>
+
+</footer>
+<!-- ▲footer▲ -->
 
 </div><!-- #index -->
 

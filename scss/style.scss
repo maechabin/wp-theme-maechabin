@@ -782,61 +782,56 @@ textarea {
 /* ▲コメントフォーム #respond▲ */
 
 /* ▼#footer▼ */
-footer {
+.footer {
+    $font-color: #fff;
+    color: $font-color;
     position: fixed;
     bottom: 0;
     left: 0;
-    border-top: 1px solid #ccc;
     overflow: hidden;
     clear: both;
-    background-color: #eee;
+    background-color: #424242;
     z-index: 0;
     width: 100%;
-}
-#footer_sub {
-    padding: 42px 0 43px;
-    margin: 0 auto;
-}
-.blog_info {
-    text-align: center;
-}
-.blog_info p {
-    font-size: 1.2em;
-} 
-address {
-    font-style: normal;
-    font-size: 1.2em;
-}
-.html5 {
-    position: absolute;
-    right: 0;
-}
-#footer_bar {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    z-index: 4;
-    height: 24px;
-    padding: 0;
-    margin: 0;
-}
-.back-to-top a {
-    color: #fff;
-    text-align: right;
-    display: block;
-    font-size: 1.2em;
-    margin: 0 36px;
-    padding: 0 36px;
-    line-height: 24px;
-    background-color: #8b0;
-    border-radius: 2px 2px 0 0;
-    opacity: .9;
-    filter: alpha(opacity=90);
-    -ms-filter: 'alpha(opacity=90)';
-    text-decoration: none;
-}
-.back-to-top a i {
-    color: #fff;
+    &__sub {
+        padding: 42px 0 44px;
+        margin: 0 auto;
+    }
+    &__credit {
+        text-align: center;
+        font-size: 12px;
+        font-style: normal;
+    }
+    &__credit a {
+        color: $font-color;
+    }
+    &__bar {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 4;
+        height: 24px;
+        padding: 0;
+        margin: 0;
+        &--link a {
+            color: #fff;
+            text-align: right;
+            display: block;
+            font-size: 1.2em;
+            margin: 0 36px;
+            padding: 0 36px;
+            line-height: 24px;
+            background-color: #8b0;
+            border-radius: 2px 2px 0 0;
+            opacity: .9;
+            filter: alpha(opacity=90);
+            -ms-filter: 'alpha(opacity=90)';
+            text-decoration: none;
+        }
+        &--link a i {
+            color: #fff;
+        }
+    }
 }
 /* ▲#footer▲ */
 
@@ -856,7 +851,7 @@ address {
     #content_border {
         min-width: 100%;
         width: 100%;
-        margin: 0 !important;
+        margin: 0 0 154px !important;
     }
     #content {
         max-width: 100%;
