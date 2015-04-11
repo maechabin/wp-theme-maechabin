@@ -31,3 +31,38 @@
         }
     }
 }
+
+/* code */
+code {
+    font: {
+        family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
+        size: 14px !important;
+    }
+    background-color: #fdfdfd;
+    border-radius: 2px !important;
+    color: #fff;
+    display: block;
+    line-height: 1.5;
+    padding: 16px 12px;
+    text-align: left;
+    strong {
+        font-weight: bold !important;
+    }
+    em {
+        font: {
+            style: normal;
+            weight: normal;
+        }
+        background-color: #424242;
+        display: inline-block;
+        width: 100%;
+    }
+    .update {
+        background-color: #E91E63 !important;
+    }
+}
+li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
+    color: #aaa;
+    list-style-type: decimal !important;
+    margin-left: 36px;
+}

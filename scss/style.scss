@@ -450,29 +450,6 @@ hr {
     overflow: hidden;
     border: 1px dashed #ccc;
 }
-code {
-    font-family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
-    color: #fff;
-    line-height: 1.5;
-    padding: 16px 12px;
-    display: block;
-    background-color: #fdfdfd;
-    font-size: 14px !important;
-    text-align: left;
-    border-radius: 2px !important;
-}
-code strong {
-    font-weight: bold !important;
-}
-li.L0, li.L1, li.L2, li.L3, li.L4, li.L5, li.L6, li.L7, li.L8, li.L9 {
-    color: #aaa;
-    list-style-type: decimal !important;
-    margin-left: 36px;
-}
-code em {
-    font-style: normal;
-    font-weight: normal;
-}
 .entry cite {
     font-style: normal;
 }
