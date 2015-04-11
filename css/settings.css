@@ -1,0 +1,25 @@
+@charset "UTF-8";
+body {
+  /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
+  font-family: メイリオ, Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, 'ＭＳ Ｐゴシック';
+  overflow-y: scroll;
+  font-size: 62.5%;
+  color: #212121;
+  background-color: #eee;
+}
+
+a {
+  color: #3160aa;
+}
+a:hover {
+  text-decoration: none;
+}
+
+a > i {
+  vertical-align: -1px;
+  color: #444;
+  text-decoration: none;
+  margin-right: .4em;
+}
+
+/*# sourceMappingURL=settings.css.map */

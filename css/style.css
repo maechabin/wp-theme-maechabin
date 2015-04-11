@@ -45,7 +45,6 @@ ol {
   display: none;
 }
 
-/* ▲初期化▲ */
 /* ▼html5用▼ */
 section, nav, article, aside, hgroup, header, footer, figure, figcaption {
   display: block;
@@ -58,6 +57,7 @@ select {
   cursor: pointer;
 }
 
+/* ▲初期化▲ */
 body {
   /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
   font-family: メイリオ, Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, 'ＭＳ Ｐゴシック';
@@ -70,7 +70,6 @@ body {
 a {
   color: #3160aa;
 }
-
 a:hover {
   text-decoration: none;
 }

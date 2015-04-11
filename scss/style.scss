@@ -8,71 +8,8 @@ Author:mae
 Author URI: http://mae.chab.in/
 */
 
-/* ▼初期化▼ */
-body, div, pre, p, blockquote, form, fieldset, input, textarea, select, option,
-dl, dt, dd, ul, ol, li,
-h1, h2, h3, h4, h5, h6,
-table, th, td, embed, object {
-    margin: 0;
-    padding: 0;
-    vertical-align: baseline;
-}
-h1, h2, h3, h4, h5, h6 {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1em;
-}
-img {
-    -ms-interpolation-mode: bicubic;
-}
-img,
-input,
-iframe {
-    margin: 0;
-    padding: 0;
-    vertical-align: middle !important;
-    border: 0;
-}
-ul,
-ol {
-    list-style-type: none;
-}
-.hidden_elem {
-    display: none;
-}
-/* ▲初期化▲ */
-
-/* ▼html5用▼ */
-section, nav, article, aside, hgroup, header, footer, figure, figcaption {
-    display: block;
-    margin: 0;
-    padding: 0;
-}
-/* ▲html5用▲ */
-
-select {
-    cursor: pointer;
-}
-body {
-/*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
-    font-family: メイリオ, Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, 'ＭＳ Ｐゴシック';
-    overflow-y: scroll;
-    font-size: 62.5%;
-    color: #212121;
-    background-color: #eee;
-}
-a {
-    color: #3160aa;
-}
-a:hover {
-    text-decoration: none;
-}
-a > i {
-    vertical-align: -1px;
-    color: #444;
-    text-decoration: none;
-    margin-right: .4em;
-}
+@import "reset";
+@import "settings";
 
 /* ▼header▼ */
 #header_bar {
@@ -517,8 +454,8 @@ figcaption {
     border: 4px solid #444;
 }
 .figBorder a:hover img {
-    border: 4px solid #3160aa;
-    background-color: #3160aa;
+    border: 4px solid $_link-color;
+    background-color: $_link-color;
     opacity: .9;
 }
 .figBorder figcaption {
