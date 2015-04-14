@@ -13,11 +13,12 @@
 <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
 <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-<link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-e34e751abf03362a23fb40d3d759f80b.css" media="all">
+<link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-51075ff8fb3e005496d558ffd0ead9f2.css" media="all">
 <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
 <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">*/ ?>
 <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">*/ ?>
 <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
+<?php get_template_part('header-custom-field'); ?>
 <?php wp_head(); ?>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </head>
