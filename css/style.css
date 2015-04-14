@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/*
+/*!
 Theme Name: chabin
 Template: chabin
 Theme URI: http://mae.chab.in/
@@ -81,8 +81,7 @@ a > i {
   margin-right: .4em;
 }
 
-/* ▼header▼ */
-#header_bar {
+.header {
   width: 100%;
   background-color: #000;
   background: -webkit-linear-gradient(#222 50%, #000 50%, #000);
@@ -96,8 +95,7 @@ a > i {
   opacity: .9;
   zoom: 1;
 }
-
-#header_bar_inner {
+.header__inner {
   position: relative;
   line-height: 56px;
   width: 1020px;
@@ -106,46 +104,40 @@ a > i {
   overflow: hidden;
   text-align: center;
 }
-
-#blog_title {
+.header__title {
   position: absolute;
   left: 16px;
-  font-size: 20px;
+  font-size: 22px;
   z-index: 30;
 }
-
-#blog_title a {
+.header__title a {
   color: #fff !important;
   text-decoration: none;
   font-weight: normal;
   display: block;
   line-height: 56px;
 }
-
-#blog_title a:hover {
+.header__title a:hover {
   color: #fff !important;
   text-shadow: 0px 0px 20px #fff;
 }
-
-#blog_search {
+.header__search {
   width: 322px;
   margin-left: auto;
   margin-right: auto;
 }
-
-#s {
+.header__search-text {
+  color: #666;
   font-size: 14px;
   background-color: #fff;
   width: 280px;
   height: 30px;
   padding: 0 6px;
   border-radius: 2px 0 0 2px;
-  letter-spacing: 1px;
   vertical-align: middle;
 }
-
-#searchsubmit {
-  background-color: #f0f0f0;
+.header__search-button {
+  background-color: #efefef;
   font-size: 16px;
   cursor: pointer;
   width: 30px;
@@ -154,38 +146,44 @@ a > i {
   vertical-align: middle;
   border-radius: 0 2px 2px 0;
 }
-
-.rss {
+.header__share {
   line-height: 48px;
   text-align: right;
   position: absolute;
   top: 0;
   right: 16px;
 }
-
-.rss img {
+.header__share img {
   position: relative;
   top: -4px;
 }
-
-.rss a i {
+.header__share a i {
   line-height: 56px;
   font-size: 20px;
   color: #fff;
+  margin-left: 8px;
+}
+@media screen and (max-width: 1024px) {
+  .header__inner {
+    max-width: 100%;
+    width: 100%;
+  }
+  .header__search {
+    visibility: hidden;
+  }
 }
 
 #blog_header {
   position: fixed;
   top: 56px;
   left: 0;
-  height: 114px;
+  height: 128px;
   z-index: 0;
   clear: both;
   background-color: #8b0;
   width: 100%;
 }
 
-/* ▲header▲ */
 /* ▼content▼ */
 #content_border {
   z-index: 2;
@@ -881,7 +879,6 @@ textarea {
 }
 
 /* ▲コメントフォーム #respond▲ */
-/* ▼#footer▼ */
 .footer {
   color: #fff;
   position: fixed;
@@ -933,21 +930,7 @@ textarea {
   color: #fff;
 }
 
-/* ▲#footer▲ */
 @media screen and (max-width: 1024px) {
-  .search_box {
-    visibility: hidden;
-  }
-
-  #searchsubmit {
-    border-radius: 2px;
-  }
-
-  #header_bar_inner {
-    max-width: 100%;
-    width: 100%;
-  }
-
   #content_border {
     min-width: 100%;
     width: 100%;
@@ -976,19 +959,6 @@ textarea {
 
   article header {
     padding: 16px;
-  }
-
-  #sidebar {
-    width: 100%;
-    max-width: 100%;
-    padding-bottom: 48px;
-  }
-
-  #sidebar_sub {
-    width: -webkit-calc(100% - 16px);
-    width: calc(100% - 32px);
-    max-width: 100%;
-    padding: 16px 16px 0;
   }
 
   .entry img {

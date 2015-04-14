@@ -6,27 +6,14 @@
 <!--[if lt IE 9]>
 <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
-<title><?php
-//Print the <title> tag based on what is being viewed.
-global $page,$paged;
-wp_title('|', true, 'right');
-// Add the blog name.
-bloginfo('name');
-// Add the blog description for the home/front page.
-$site_description = get_bloginfo('description','display');
-if ($site_description && (is_home() || is_front_page()))
-  echo(" | $site_description");
-// Add a page number if necessary:
-if ($paged >= 2 || $page >= 2)
-  echo(' | ' . sprintf(__('Page %s', 'twentyten'), max($paged,$page)));
-?></title>
+<title><?php site_title() ?></title>
 <meta http-equiv="default-style" content="<?php bloginfo('stylesheet_url'); ?>">
-<meta name="description" content="都内のIT企業でWebディレクターをやってます。HTML5、CSS3、JavaScript,jQueryなどのWeb技術に関する話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
-<meta name="keywords" content="JavaScript, jQuery, HTML5, wordpress, apple, ドメイン, ピアノ">
+<meta name="description" content="都内のIT企業でWebディレクターをやってます。HTML5、CSS3、JavaScript、jQueryなどのWeb技術に関する話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
+<meta name="keywords" content="JavaScript, jQuery, HTML5, wordpress, apple">
 <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
 <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-<link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-9f2ec4419254f19a63a98d1a1c80c30c.css" media="all">
+<link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-e34e751abf03362a23fb40d3d759f80b.css" media="all">
 <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
 <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">*/ ?>
 <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">*/ ?>
@@ -39,17 +26,20 @@ if ($paged >= 2 || $page >= 2)
 <div id="index">
 
 <!-- ▼header▼ -->
-<header id="header_bar">
-<div id="header_bar_inner">
+<header id="header_bar" class="header">
+<div id="header_bar_inner" class="header__inner">
 
-<h1 id="blog_title"><a href="<?php get_option('home'); ?>"><i style="color:#fff;"></i><?php bloginfo('name'); ?></a></h1>
+<h1 class="header__title"><a href="/"><i style="color:#fff;"></i>mae's blog</a></h1>
 
-<div id="blog_search"><?php widget_mytheme_search(); ?></div>
-<!--<div id="blog_profile"><a href="/about"><i class="icon-user"></i> プロフィール</a></div>-->
+<div class="header__search">
+  <form role="search" method="get" id="header__search-form" action="<?php bloginfo('url') ?>" >
+    <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログを検索" class="header__search-text"><button type="submit" class="header__search-button"><i class="fa fa-search"></i></button>
+  </form>
+</div>
 
-<div class="rss">
+<div class="header__share">
   <a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><img id="feedlyFollow" src="/wp-content/themes/chabin/image/feedly.png" alt="follow us in feedly" width="71" height="28"></a>
-  <a href="/feed" target="_blank"><i class="fa fa-rss" style="margin-left:10px;"></i></a>
+  <a href="/feed" target="_blank"><i class="fa fa-rss"></i></a>
 </div>
 
 </div>

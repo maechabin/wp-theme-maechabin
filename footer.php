@@ -27,7 +27,7 @@
 <script src="//google-code-prettify.googlecode.com/svn/trunk/src/lang-css.js"></script>
 <script>window.setTimeout(prettyPrint, 500);</script>
 <?php endif ?>
-<script src="/wp-content/themes/chabin/assets/function.min-ee016ad3fe22f119ab5bb8d4df0e0124.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-5b6cc99cddeb64a3ec72c13be26fa571.js" defer></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

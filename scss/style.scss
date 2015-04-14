@@ -1,5 +1,5 @@
 @charset "utf-8";
-/*
+/*!
 Theme Name: chabin
 Template: chabin
 Theme URI: http://mae.chab.in/
@@ -10,102 +10,7 @@ Author URI: http://mae.chab.in/
 
 @import "reset";
 @import "settings";
-
-/* ▼header▼ */
-#header_bar {
-    width: 100%;
-    background-color: #000;
-    background: -webkit-linear-gradient(#222 50%, #000 50%, #000);
-    background: linear-gradient(#222 50%, #000 50%, #000);
-    line-height: 56px;
-    height: 56px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    opacity: .9;
-    zoom: 1;
-}
-#header_bar_inner {
-    position: relative;
-    line-height: 56px;
-    width: 1020px;
-    width: 1050px;
-    margin: 0 auto;
-    overflow: hidden;
-    text-align: center;
-}
-#blog_title {
-    position: absolute;
-    left: 16px;
-    font-size: 20px;
-    z-index: 30;
-}
-#blog_title a {
-    color: #fff !important;
-    text-decoration: none;
-    font-weight: normal;
-    display: block;
-    line-height: 56px;
-}
-#blog_title a:hover {
-    color: #fff !important;
-    text-shadow: 0px 0px 20px #fff;
-}
-#blog_search {
-    width: 322px;
-    margin-left: auto;
-    margin-right: auto;
-}
-#s {
-    font-size: 14px;
-    background-color: #fff;
-    width: 280px;
-    height: 30px;
-    padding: 0 6px;
-    border-radius: 2px 0 0 2px;
-    letter-spacing: 1px;
-    vertical-align: middle;
-}
-#searchsubmit {
-    background-color: #f0f0f0;
-    font-size: 16px;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    border: 0;
-    vertical-align: middle;
-    border-radius: 0 2px 2px 0;
-}
-.rss {
-    line-height: 48px;
-    text-align: right;
-    position: absolute;
-    top: 0;
-    right: 16px;
-}
-.rss img {
-    position: relative;
-    top: -4px;
-}
-.rss a i {
-    line-height: 56px;
-    font-size: 20px;
-    color: #fff;
-}
-#blog_header {
-    position: fixed;
-    top: 56px;
-    left: 0;
-    height: 114px;
-    z-index: 0;
-    clear: both;
-    background-color: #8b0;
-    width: 100%;
-}
-/* ▲header▲ */
-
-
+@import "header";
 
 /* ▼content▼ */
 #content_border {
@@ -718,73 +623,10 @@ textarea {
 }
 /* ▲コメントフォーム #respond▲ */
 
-/* ▼#footer▼ */
-.footer {
-    $font-color: #fff;
-    color: $font-color;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    clear: both;
-    background-color: #424242;
-    z-index: 0;
-    width: 100%;
-    &__sub {
-        padding: 42px 0 44px;
-        margin: 0 auto;
-    }
-    &__credit {
-        text-align: center;
-        font-size: 12px;
-        font-style: normal;
-    }
-    &__credit a {
-        color: $font-color;
-    }
-    &__bar {
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-        z-index: 4;
-        height: 24px;
-        padding: 0;
-        margin: 0;
-        &--link a {
-            color: #fff;
-            text-align: right;
-            display: block;
-            font-size: 1.2em;
-            margin: 0 36px;
-            padding: 0 36px;
-            line-height: 24px;
-            background-color: #8b0;
-            border-radius: 2px 2px 0 0;
-            opacity: .9;
-            filter: alpha(opacity=90);
-            -ms-filter: 'alpha(opacity=90)';
-            text-decoration: none;
-        }
-        &--link a i {
-            color: #fff;
-        }
-    }
-}
-/* ▲#footer▲ */
+@import "footer";
 
+@media screen and (max-width: $_responsive-point) {
 
-@media screen and (max-width: 1024px) {
-
-    .search_box {
-        visibility: hidden;
-    }
-    #searchsubmit {
-        border-radius: 2px;
-    }
-    #header_bar_inner {
-        max-width: 100%;
-        width: 100%;
-    }
     #content_border {
         min-width: 100%;
         width: 100%;
@@ -808,17 +650,6 @@ textarea {
     }
     article header {
         padding: 16px;
-    }
-    #sidebar {
-        width: 100%;
-        max-width: 100%;
-        padding-bottom: 48px;
-    }
-    #sidebar_sub {
-        width : -webkit-calc(100% - 16px);
-        width: calc(100% - 32px);
-        max-width: 100%;
-        padding: 16px 16px 0;
     }
     .entry img {
         box-sizing: border-box;

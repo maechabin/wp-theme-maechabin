@@ -18,18 +18,29 @@ if (function_exists('register_sidebar')) {
 
 }
 
+#タイトル
+function site_title() {
 
-#検索フォーム
-function widget_mytheme_search() {
-?>
-  <div class="search_box">
-  <form role="search" method="get" id="searchform" action="<?php bloginfo('url') ?>" >
-  <input type="text" value="<?php echo get_search_query(); ?>" name="s" id="s" placeholder="ブログ検索"><button type="submit" id="searchsubmit"><i class="fa fa-search"></i></button>
-  </form>
-  </div>
-<?php
+  //Print the <title> tag based on what is being viewed.
+  global $page,$paged;
+  wp_title('|', true, 'right');
+
+  // Add the blog name.
+  bloginfo('name');
+
+  // Add the blog description for the home/front page.
+  $site_description = get_bloginfo('description', 'display');
+
+  if ($site_description && (is_home() || is_front_page())) {
+    echo(" | $site_description");
+  }
+
+  // Add a page number if necessary:
+  if ($paged >= 2 || $page >= 2) {
+    echo(' | ' . sprintf(__('Page %s', 'twentyten'), max($paged,$page)));
+  }
+
 }
-
 
 #パンくずリスト
 function breadcrumb() {

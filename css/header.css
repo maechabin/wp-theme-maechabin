@@ -1,0 +1,104 @@
+.header {
+  width: 100%;
+  background-color: #000;
+  background: -webkit-linear-gradient(#222 50%, #000 50%, #000);
+  background: linear-gradient(#222 50%, #000 50%, #000);
+  line-height: 56px;
+  height: 56px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  opacity: .9;
+  zoom: 1;
+}
+.header__inner {
+  position: relative;
+  line-height: 56px;
+  width: 1020px;
+  width: 1050px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
+}
+.header__title {
+  position: absolute;
+  left: 16px;
+  font-size: 22px;
+  z-index: 30;
+}
+.header__title a {
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: normal;
+  display: block;
+  line-height: 56px;
+}
+.header__title a:hover {
+  color: #fff !important;
+  text-shadow: 0px 0px 20px #fff;
+}
+.header__search {
+  width: 322px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.header__search-text {
+  color: #666;
+  font-size: 14px;
+  background-color: #fff;
+  width: 280px;
+  height: 30px;
+  padding: 0 6px;
+  border-radius: 2px 0 0 2px;
+  vertical-align: middle;
+}
+.header__search-button {
+  background-color: #efefef;
+  font-size: 16px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border: 0;
+  vertical-align: middle;
+  border-radius: 0 2px 2px 0;
+}
+.header__share {
+  line-height: 48px;
+  text-align: right;
+  position: absolute;
+  top: 0;
+  right: 16px;
+}
+.header__share img {
+  position: relative;
+  top: -4px;
+}
+.header__share a i {
+  line-height: 56px;
+  font-size: 20px;
+  color: #fff;
+  margin-left: 8px;
+}
+@media screen and (max-width: 1024px) {
+  .header__inner {
+    max-width: 100%;
+    width: 100%;
+  }
+  .header__search {
+    visibility: hidden;
+  }
+}
+
+#blog_header {
+  position: fixed;
+  top: 56px;
+  left: 0;
+  height: 128px;
+  z-index: 0;
+  clear: both;
+  background-color: #8b0;
+  width: 100%;
+}
+
+/*# sourceMappingURL=header.css.map */

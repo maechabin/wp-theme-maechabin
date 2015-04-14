@@ -1,0 +1,52 @@
+.footer {
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  clear: both;
+  background-color: #424242;
+  z-index: 0;
+  width: 100%;
+}
+.footer__sub {
+  padding: 42px 0 44px;
+  margin: 0 auto;
+}
+.footer__credit {
+  text-align: center;
+  font-size: 12px;
+  font-style: normal;
+}
+.footer__credit a {
+  color: #fff;
+}
+.footer__bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 4;
+  height: 24px;
+  padding: 0;
+  margin: 0;
+}
+.footer__bar--link a {
+  color: #fff;
+  text-align: right;
+  display: block;
+  font-size: 1.2em;
+  margin: 0 36px;
+  padding: 0 36px;
+  line-height: 24px;
+  background-color: #8b0;
+  border-radius: 2px 2px 0 0;
+  opacity: .9;
+  filter: alpha(opacity=90);
+  -ms-filter: 'alpha(opacity=90)';
+  text-decoration: none;
+}
+.footer__bar--link a i {
+  color: #fff;
+}
+
+/*# sourceMappingURL=footer.css.map */
