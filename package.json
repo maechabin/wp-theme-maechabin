@@ -1,6 +1,6 @@
 {
   "name": "wp-theme-maechabin",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "WordPress Original Theme",
   "main": "./index.php",
   "scripts": {
