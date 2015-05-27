@@ -29,17 +29,17 @@
   color: #444;
 }
 .sidebar__author-description {
-  color: #444;
+  color: #666;
 }
 .sidebar__author-description img {
   border: 1px solid #888;
   margin-bottom: 2px;
   border-radius: 2px;
 }
-.sidebar__widget--twitter {
+.sidebar__widget_twitter {
   height: 600px;
 }
-.sidebar__widget--ad {
+.sidebar__widget_ad {
   text-align: center;
 }
 .sidebar img, .sidebar iframe {

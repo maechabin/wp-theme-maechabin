@@ -1,4 +1,8 @@
-var maechabin_ui = (function (window, document) {
+var jQuery = jQuery || {};
+
+var maechabinUi = (function ($, window, document) {
+
+  "use strict";
 
   var timer = null;
   var w = $(window);
@@ -7,7 +11,7 @@ var maechabin_ui = (function (window, document) {
 
   // Smooth Scroll
   function smoothScroll(position, speed) {
-    $("html, body").animate({scrollTop:position}, speed, "swing");
+    $("html, body").animate({scrollTop: position}, speed, "swing");
   }
 
   // ページ上部に戻る押したとき
@@ -18,7 +22,7 @@ var maechabin_ui = (function (window, document) {
       var speed = 400;
       var href = $(this).attr("href");
       var target = $(href === "#" || href === "" ? "html" : href);
-      var position = target.offset().top;
+      var position = target.offset().top - header_bar.height();
 
       smoothScroll(position, speed);
       return false;
@@ -210,9 +214,9 @@ var maechabin_ui = (function (window, document) {
 
   function startFunc() {
 
-    clearTimeout(timer);
+    window.clearTimeout(timer);
 
-    timer = setTimeout(function () {
+    timer = window.setTimeout(function () {
 
       resizeWidth();
       resizeSidebarHeight();
@@ -247,12 +251,14 @@ var maechabin_ui = (function (window, document) {
 
   };
 
-} (window, document));
+} (jQuery, window, document));
 
-window.onload = maechabin_ui.init;
+window.onload = maechabinUi.init;
 
 // ▼jquery.pageswitch.js▼
 ;(function ($, window, document, undefined) {
+
+  "use strict";
 
   $.fn.pageswitch = function (options) {
 

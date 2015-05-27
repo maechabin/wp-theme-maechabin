@@ -1,0 +1,27 @@
+.navi
+    =-font-color
+        $color: black, white
+        &-font
+            @each $c in $color
+                &-#{$c}
+                    color: $c
+    =-background-color
+        $color: red, gray
+        &-background
+            @each $c in $color
+                &-#{$c}
+                    background-color: $c
+    =_color
+        +-background-color
+        +-font-color
+    =__button($padding, $width)
+        padding: $padding
+        width: $width
+        &_color
+            +_color
+    &_color
+        +-background-color
+    &__button1
+        +__button(8px 0, 100px)
+    &__button2 
+        +__button(16px 0, 300px)

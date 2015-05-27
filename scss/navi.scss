@@ -1,0 +1,42 @@
+.navi {
+    @mixin -font-color {
+        $color: black, white;
+        &-font {
+            @each $c in $color {
+                &-#{$c} {
+                    color: $c;
+                }
+            }
+        }
+    }
+    @mixin -background-color {
+        $color: red, gray;
+        &-background {
+            @each $c in $color {
+                &-#{$c} {
+                    background-color: $c;
+                }
+            }
+        }
+    }
+    @mixin _color {
+        @include -background-color;
+        @include -font-color;
+    }
+    @mixin __button($padding, $width) {
+        padding: $padding;
+        width: $width;
+        &_color {
+            @include _color
+        }
+    }
+    &_color {
+        @include -background-color;
+    }
+    &__button1 {
+        @include __button(8px 0, 100px);
+    }
+    &__button2 {
+        @include __button(16px 0, 300px);
+    }
+}

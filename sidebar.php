@@ -2,7 +2,7 @@
 <div id="sidebar_sub" class="sidebar__sub">
 
 <aside>
-<div class="sidebar__widget--ad">
+<div class="sidebar__widget_ad">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mae's blog（サイドバー上） -->
 <ins class="adsbygoogle"
@@ -32,7 +32,7 @@
 </p>
 
 <?php if(!is_home()): ?>
-<div class="sidebar__widget--twitter">
+<div class="sidebar__widget_twitter">
 <a class="twitter-timeline" href="//twitter.com/maechabin" data-widget-id="510042758585651200">@maechabin からのツイート</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
@@ -52,7 +52,7 @@
 <a href="//blog.with2.net/link.php?1028897" target="_blank"><img src="/wp-content/themes/chabin/image/banner_13.gif" width="80" height="15" alt="人気ブログランキングへ"></a>
 </figure>
 
-<div class="sidebar__widget--ad">
+<div class="sidebar__widget_ad">
 <div>スポンサードリンク</div>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- mae's blog（サイドバー下） -->
