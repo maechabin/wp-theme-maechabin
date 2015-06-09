@@ -902,6 +902,12 @@ textarea {
 .footer__credit a {
   color: #fff;
 }
+.footer__style--show {
+  display: block;
+}
+.footer__style--hidden {
+  display: none;
+}
 .footer__bar {
   position: fixed;
   bottom: 0;

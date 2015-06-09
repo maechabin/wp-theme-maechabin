@@ -167,6 +167,18 @@ var maechabinUi = (function ($, window, document) {
 
   }
 
+  function showAgendaLink() {
+
+    var agenda = $("#agenda");
+    var agendaLink = $("#footer__bar__agenda-link");
+
+    if (agenda[0]) {
+      agendaLink.addClass("footer__style--show");
+      agendaLink.removeClass("footer__style--hidden");
+    }
+
+  }
+
   function resizeWidth() {
 
     var content = $("#content");
@@ -237,6 +249,7 @@ var maechabinUi = (function ($, window, document) {
 
     init: function () {
 
+      showAgendaLink();
       goTop();
       clickHeaderBar();
       backlink();

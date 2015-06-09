@@ -13,7 +13,7 @@
 
 <div id="footer_bar" class="footer__bar">
 	<ul>
-		<li class="footer__bar-link footer__bar-link--left"><a href="#agenda"><i class="fa fa-chevron-circle-up"></i>目次に戻る</a></li>
+		<li class="footer__bar-link footer__bar-link--left footer__style--hidden" id="footer__bar__agenda-link"><a href="#agenda"><i class="fa fa-chevron-circle-up"></i>目次に戻る</a></li>
 		<li class="footer__bar-link footer__bar-link--right"><a href="#TOP"><i class="fa fa-chevron-circle-up"></i>ページ上部に戻る</a></li>
 	</ul>
 </div>
@@ -31,7 +31,7 @@
 <script>window.setTimeout(prettyPrint, 500);</script>
 <?php endif ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-c1635d3c43244a345c8a29b7dc2293a2.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-e7b8d77d2be1b71873609f1b238a840c.js" defer></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

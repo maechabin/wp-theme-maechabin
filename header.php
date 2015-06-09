@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
 <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
 <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-<link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-7c63d7807e3f33f6e700a11e2b4ab5cd.css" media="all">
+<link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-ba52d1aa2ab4b0559a96c7f7b0f08fb1.css" media="all">
 <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
 <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">*/ ?>
 <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">*/ ?>

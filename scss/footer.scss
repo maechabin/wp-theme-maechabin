@@ -21,6 +21,14 @@
             color: $font-color;
         }
     }
+    &__style {
+      &--show {
+        display: block;
+      }
+      &--hidden {
+        display: none;
+      }
+    }
     &__bar {
         position: fixed;
         bottom: 0;
