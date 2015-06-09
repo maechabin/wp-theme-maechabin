@@ -905,28 +905,33 @@ textarea {
 .footer__bar {
   position: fixed;
   bottom: 0;
-  width: 100%;
+  width: calc(100% - 80px);
+  margin-left: 40px;
+  margin-right: 40px;
   z-index: 4;
   height: 24px;
-  padding: 0;
-  margin: 0;
-}
-.footer__bar--link a {
-  color: #fff;
-  text-align: right;
-  display: block;
-  font-size: 1.2em;
-  margin: 0 36px;
-  padding: 0 36px;
-  line-height: 24px;
   background-color: #8b0;
   border-radius: 2px 2px 0 0;
   opacity: .9;
   filter: alpha(opacity=90);
   -ms-filter: 'alpha(opacity=90)';
+}
+.footer__bar-link {
+  position: absolute;
+  bottom: 4px;
+}
+.footer__bar-link--left {
+  left: 16px;
+}
+.footer__bar-link--right {
+  right: 16px;
+}
+.footer__bar-link a {
+  color: #fff;
+  font-size: 1.2em;
   text-decoration: none;
 }
-.footer__bar--link a i {
+.footer__bar-link a i {
   color: #fff;
 }
 

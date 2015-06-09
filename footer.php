@@ -12,7 +12,10 @@
 </div>
 
 <div id="footer_bar" class="footer__bar">
-	<p class="footer__bar--link"><a href="#TOP"><i class="fa fa-chevron-circle-up"></i>ページ上部に戻る</a></p>
+	<ul>
+		<li class="footer__bar-link footer__bar-link--left"><a href="#agenda"><i class="fa fa-chevron-circle-up"></i>目次に戻る</a></li>
+		<li class="footer__bar-link footer__bar-link--right"><a href="#TOP"><i class="fa fa-chevron-circle-up"></i>ページ上部に戻る</a></li>
+	</ul>
 </div>
 
 </footer>
