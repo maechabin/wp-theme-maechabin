@@ -15,8 +15,10 @@
     }
     &__credit {
         text-align: center;
-        font-size: 12px;
-        font-style: normal;
+        font: {
+          size: 12px;
+          style: normal;
+        }
         a {
             color: $font-color;
         }
@@ -32,16 +34,17 @@
     &__bar {
         position: fixed;
         bottom: 0;
-        width: calc(100% - 80px);
-        margin-left: 40px;
-        margin-right: 40px;
+        width: -webkit-calc(100% - 64px);
+        width: calc(100% - 64px);
+        margin: {
+          left: 32px;
+          right: 32px;
+        }
         z-index: 4;
         height: 24px;
         background-color: #8b0;
         border-radius: 2px 2px 0 0;
         opacity: .9;
-        filter: alpha(opacity=90);
-        -ms-filter: 'alpha(opacity=90)';
         &-link {
           position: absolute;
           bottom: 4px;
@@ -53,12 +56,22 @@
           }
         }
         &-link a {
-            color: #fff;
+            color: $font-color;
             font-size: 1.2em;
             text-decoration: none;
         }
         &-link a i {
-            color: #fff;
+            color: $font-color;
         }
+    }
+    @media screen and (max-width: 1024px) {
+      &__bar {
+        width: -webkit-calc(100% - 32px);
+        width: calc(100% - 32px);
+        margin: {
+          left: 16px;
+          right: 16px;
+        }
+      }
     }
 }

@@ -73,12 +73,18 @@ Author URI: http://mae.chab.in/
 
 /* ▼indexページ▼ */
 .breadcrumb {
-    color: #aaa;
-    font-size: 12px;
+    color: #888;
+    font-size: 14px;
     margin-bottom: 4px;
 }
-.breadcrumb a {
+.breadcrumb a,
+.breadcrumb a i {
     color: #888;
+    text-decoration: underline;
+}
+.breadcrumb a:hover,
+.breadcrumb a:hover i {
+    text-decoration: none;
 }
 .post {
     position: relative;

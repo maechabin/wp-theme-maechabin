@@ -246,13 +246,20 @@ a > i {
 /* ▲共通事項▲ */
 /* ▼indexページ▼ */
 .breadcrumb {
-  color: #aaa;
-  font-size: 12px;
+  color: #888;
+  font-size: 14px;
   margin-bottom: 4px;
 }
 
-.breadcrumb a {
+.breadcrumb a,
+.breadcrumb a i {
   color: #888;
+  text-decoration: underline;
+}
+
+.breadcrumb a:hover,
+.breadcrumb a:hover i {
+  text-decoration: none;
 }
 
 .post {
@@ -911,16 +918,15 @@ textarea {
 .footer__bar {
   position: fixed;
   bottom: 0;
-  width: calc(100% - 80px);
-  margin-left: 40px;
-  margin-right: 40px;
+  width: -webkit-calc(100% - 64px);
+  width: calc(100% - 64px);
+  margin-left: 32px;
+  margin-right: 32px;
   z-index: 4;
   height: 24px;
   background-color: #8b0;
   border-radius: 2px 2px 0 0;
   opacity: .9;
-  filter: alpha(opacity=90);
-  -ms-filter: 'alpha(opacity=90)';
 }
 .footer__bar-link {
   position: absolute;
@@ -939,6 +945,14 @@ textarea {
 }
 .footer__bar-link a i {
   color: #fff;
+}
+@media screen and (max-width: 1024px) {
+  .footer__bar {
+    width: -webkit-calc(100% - 32px);
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+  }
 }
 
 @media screen and (max-width: 1024px) {
