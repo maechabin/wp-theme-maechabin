@@ -306,14 +306,22 @@ a > i {
 }
 
 .wp-pagenavi a,
+.wp-pagenavi i,
 .current {
+  display: inline-block;
   color: #004D40;
-  padding: 16px 24px;
+  width: 40px;
+  line-height: 40px;
   background-color: #ECEFF1;
   margin-left: 4px;
-  border-radius: 2px;
+  border-radius: 50%;
   text-decoration: none;
+  text-align: center;
   transition: all .4s ease-in-out;
+}
+
+.wp-pagenavi i {
+  margin: 0;
 }
 
 .wp-pagenavi a:hover {
@@ -1020,16 +1028,6 @@ textarea {
   #entry {
     width: 100%;
     max-width: 100%;
-  }
-
-  .wp-pagenavi {
-    font-size: 16px;
-  }
-
-  .wp-pagenavi a,
-  .current {
-    padding: 4px 8px;
-    margin-left: 8px;
   }
 
   article header {
