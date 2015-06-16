@@ -89,20 +89,22 @@ Author URI: http://mae.chab.in/
 .post {
     position: relative;
     margin: 8px 8px 0;
-    background-color: #EEEEEE;
+    background-color: #ECEFF1;
     clear: both;
-    border: 1px solid #999;
+    border: 1px solid #ECEFF1;
     border-radius: 1px;
     transition: all .3s ease-in-out;
-    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: none;
 }
 .post-box:hover {
     cursor: pointer;
+/*
     background-color: #E9F0FA;
     border: 1px solid #E9F0FA;
+*/
     background-color: #E8EAF6;
     border: 1px solid #E8EAF6;
-    box-shadow: none;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 .post-title {
     font-size: 24px;
@@ -127,7 +129,7 @@ Author URI: http://mae.chab.in/
 .wp-pagenavi i,
 .current {
   display: inline-block;
-  color: #004D40;
+  color: #607D8B;
   width: 40px;
   line-height: 40px;
   background-color: #ECEFF1;
@@ -137,18 +139,19 @@ Author URI: http://mae.chab.in/
     decoration: none;
     align: center;
   }
-  transition: all .4s ease-in-out;
+  transition: all .1s ease-in-out;
 }
 .wp-pagenavi i {
   margin: 0;
 }
+.wp-pagenavi i:hover,
 .wp-pagenavi a:hover {
-    color: #333;
-    background-color: #E8EAF6;
+    color: #fff;
+    background-color: $_link-color;
 }
 .current {
     color: #fff;
-    background-color: #004D40;
+    background-color: #607D8B;
     font-weight: bold;
 }
 .postmetadata li img {
@@ -172,7 +175,7 @@ Author URI: http://mae.chab.in/
 .cb-share a,
 .cb-share i {
     vertical-align: baseline;
-    color: #757575;
+    color: #263238;
     text-decoration: none;
 }
 .cb-share li span {
