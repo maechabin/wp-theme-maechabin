@@ -43,10 +43,5 @@ if(!comments_open()):
 
 <?php comment_form_mae(); ?>
 
-<?php if(pings_open()): ?>
-<h2 id="trackback-title">トラックバックURL</h2>
-<p><input type="text" value="<?php trackback_url(); ?>" size="50" class="trackback-url"></p>
-<?php endif; ?>
-
 </section><!-- #comments -->
 <!-- ▲#comments▲ -->
