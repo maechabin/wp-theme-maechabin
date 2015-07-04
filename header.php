@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-42c29642d0eef9d0b719993995c77b13.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-21f50e1089eb99130047e9192aec724b.css" media="all">
   <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
   <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">*/ ?>
   <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">*/ ?>
@@ -34,7 +34,7 @@
 
         <div class="header__search">
           <form role="search" method="get" id="header__search-form" action="<?php bloginfo('url') ?>" >
-            <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログを検索" class="header__search-text"><button type="submit" class="header__search-button"><i class="fa fa-search"></i></button>
+            <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログ記事を検索" class="header__search-text"><button type="submit" class="header__search-button"><i class="fa fa-search"></i></button>
           </form>
         </div>
 

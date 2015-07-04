@@ -1,39 +1,39 @@
-.navi_color-background-red {
+.nav_color-background-red {
   background-color: red;
 }
-.navi_color-background-gray {
+.nav_color-background-gray {
   background-color: gray;
 }
-.navi__button1 {
+.nav__button1 {
   padding: 8px 0;
   width: 100px;
 }
-.navi__button1_color-background-red {
+.nav__button1_color-background-red {
   background-color: red;
 }
-.navi__button1_color-background-gray {
+.nav__button1_color-background-gray {
   background-color: gray;
 }
-.navi__button1_color-font-black {
+.nav__button1_color-font-black {
   color: black;
 }
-.navi__button1_color-font-white {
+.nav__button1_color-font-white {
   color: white;
 }
-.navi__button2 {
+.nav__button2 {
   padding: 16px 0;
   width: 300px;
 }
-.navi__button2_color-background-red {
+.nav__button2_color-background-red {
   background-color: red;
 }
-.navi__button2_color-background-gray {
+.nav__button2_color-background-gray {
   background-color: gray;
 }
-.navi__button2_color-font-black {
+.nav__button2_color-font-black {
   color: black;
 }
-.navi__button2_color-font-white {
+.nav__button2_color-font-white {
   color: white;
 }
 

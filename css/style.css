@@ -41,10 +41,6 @@ ol {
   list-style-type: none;
 }
 
-.hidden_elem {
-  display: none;
-}
-
 /* ▼html5用▼ */
 section, nav, article, aside, hgroup, header, footer, figure, figcaption {
   display: block;
@@ -81,11 +77,15 @@ a > i {
   margin-right: .4em;
 }
 
+.hidden_elem {
+  display: none;
+}
+
 .header {
   width: 100%;
   background-color: #000;
-  background: -webkit-linear-gradient(#222 50%, #000 50%, #000);
-  background: linear-gradient(#222 50%, #000 50%, #000);
+  background: -webkit-linear-gradient(#111 50%, #000 50%, #000);
+  background: linear-gradient(#111 50%, #000 50%, #000);
   line-height: 56px;
   height: 56px;
   position: fixed;
@@ -122,17 +122,17 @@ a > i {
   text-shadow: 0px 0px 20px #fff;
 }
 .header__search {
-  width: 322px;
+  width: 324px;
   margin-left: auto;
   margin-right: auto;
 }
 .header__search-text {
   color: #666;
-  font-size: 14px;
+  font-size: 16px;
   background-color: #fff;
   width: 280px;
-  height: 30px;
-  padding: 0 6px;
+  height: 32px;
+  padding: 0px 6px;
   border-radius: 2px 0 0 2px;
   vertical-align: middle;
 }
@@ -140,8 +140,8 @@ a > i {
   background-color: #efefef;
   font-size: 16px;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   border: 0;
   vertical-align: middle;
   border-radius: 0 2px 2px 0;

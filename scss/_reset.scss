@@ -27,19 +27,16 @@ ul,
 ol {
     list-style-type: none;
 }
-.hidden_elem {
-    display: none;
-}
 
 /* ▼html5用▼ */
 section, nav, article, aside, hgroup, header, footer, figure, figcaption {
-    display: block;
-    margin: 0;
-    padding: 0;
+  display: block;
+  margin: 0;
+  padding: 0;
 }
 /* ▲html5用▲ */
 
 select {
-    cursor: pointer;
+  cursor: pointer;
 }
 /* ▲初期化▲ */
