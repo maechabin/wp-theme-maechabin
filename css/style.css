@@ -91,9 +91,11 @@ a > i {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 3;
-  opacity: .9;
-  zoom: 1;
+  z-index: 3 !important;
+  /*opacity: .9;*/
+  :
+    zoom: 1;
+  /*visibility: hidden;*/
 }
 .header__inner {
   position: relative;
@@ -111,14 +113,14 @@ a > i {
   z-index: 30;
 }
 .header__title a {
-  color: #fff !important;
+  color: #8b0 !important;
   text-decoration: none;
   font-weight: normal;
   display: block;
   line-height: 56px;
 }
 .header__title a:hover {
-  color: #fff !important;
+  color: #8b0 !important;
   text-shadow: 0px 0px 20px #fff;
 }
 .header__search {
@@ -175,9 +177,9 @@ a > i {
 
 #blog_header {
   position: fixed;
-  top: 56px;
+  top: 0;
   left: 0;
-  height: 128px;
+  height: 184px;
   z-index: 0;
   clear: both;
   background-color: #8b0;
@@ -194,7 +196,7 @@ a > i {
   overflow: hidden;
   min-width: 990px;
   margin: 0 16px 210px;
-  border-radius: 0 0 2px 2px;
+  border-radius: 2px;
 }
 
 #content {
