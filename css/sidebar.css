@@ -22,11 +22,25 @@
   border-radius: 1px;
   background-color: #607D8B;
 }
+.sidebar__author-photo {
+  width: 100px;
+  margin: 16px auto 8px;
+  text-align: center;
+}
+.sidebar__author-photo img {
+  border-radius: 50%;
+}
 .sidebar__author-name {
-  font-size: 14px;
-  font-weight: bold;
+  text-align: center !important;
   margin-bottom: 0 !important;
   color: #444;
+  font-size: 20px;
+  font-weight: bold;
+}
+.sidebar__author-social {
+  margin: 8px auto 0;
+  font-size: 16px;
+  text-align: center !important;
 }
 .sidebar__author-description {
   color: #666;

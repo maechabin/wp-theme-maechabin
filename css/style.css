@@ -92,10 +92,7 @@ a > i {
   top: 0;
   left: 0;
   z-index: 3 !important;
-  /*opacity: .9;*/
-  :
-    zoom: 1;
-  /*visibility: hidden;*/
+  zoom: 1;
 }
 .header__inner {
   position: relative;
