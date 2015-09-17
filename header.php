@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-840be37367f0a04d0cb5918dbed3810c.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-29d41b4caaecc29c55719a508af8430d.css" media="all">
   <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
   <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">*/ ?>
   <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">*/ ?>
@@ -39,8 +39,7 @@
         </div>
 
         <div class="header__share">
-          <a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><img id="feedlyFollow" src="/wp-content/themes/chabin/image/feedly.png" alt="follow us in feedly" width="71" height="28"></a>
-          <a href="/feed" target="_blank"><i class="fa fa-rss"></i></a>
+          <a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><i class="fa fa-rss"></i></a>
         </div>
 
       </div>
