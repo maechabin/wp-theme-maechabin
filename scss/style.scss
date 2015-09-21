@@ -649,6 +649,8 @@ pre {
 }
 /* ▲コメントフォーム #respond▲ */
 
+@import "single";
+@import "sidebar";
 @import "footer";
 
 @media screen and (max-width: $_responsive-point) {
