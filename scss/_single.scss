@@ -1,3 +1,37 @@
+/* ad-single1 */
+.ad {
+  @mixin __title {
+    margin-bottom: 2px;
+    font-size: 12px;
+    color: #888;
+  }
+  &-single1 {
+    text-align: center;
+    &__title {
+      @include __title;
+    }
+    &__text {
+      display: none;
+    }
+    @media screen and (min-width: 640px) {
+      &__text {
+        display: block;
+      }
+      &__banner {
+        display: none;
+      }
+    }
+  }
+  &-single2 {
+    text-align: center;
+    margin-bottom: 32px;
+    &__title {
+      @include __title;
+    }
+  }
+}
+
+
 /* item */
 .item {
   display: flex;
@@ -39,37 +73,37 @@
 
 /* code */
 code {
+  font: {
+    family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
+    size: 14px !important;
+  }
+  background-color: #fdfdfd;
+  border-radius: 2px !important;
+  color: #fff;
+  display: block;
+  line-height: 1.4;
+  padding: 16px 12px;
+  text-align: left;
+  strong {
+    font-weight: bold !important;
+  }
+  em {
     font: {
-        family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
-        size: 14px !important;
+      style: normal;
+      weight: normal;
     }
-    background-color: #fdfdfd;
-    border-radius: 2px !important;
-    color: #fff;
-    display: block;
-    line-height: 1.4;
-    padding: 16px 12px;
-    text-align: left;
-    strong {
-        font-weight: bold !important;
+    background-color: #424242;
+    display: inline-block;
+    width: 100%;
+  }
+  .update {
+    background-color: #E91E63 !important;
+  }
+  li {
+    &.L0, &.L1, &.L2, &.L3, &.L4, &.L5, &.L6, &.L7, &.L8, &.L9 {
+      color: #aaa;
+      list-style-type: decimal !important;
+      margin-left: 36px;
     }
-    em {
-        font: {
-            style: normal;
-            weight: normal;
-        }
-        background-color: #424242;
-        display: inline-block;
-        width: 100%;
-    }
-    .update {
-        background-color: #E91E63 !important;
-    }
-    li {
-        &.L0, &.L1, &.L2, &.L3, &.L4, &.L5, &.L6, &.L7, &.L8, &.L9 {
-            color: #aaa;
-            list-style-type: decimal !important;
-            margin-left: 36px;
-        }
-    }
+  }
 }

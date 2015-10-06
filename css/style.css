@@ -456,11 +456,6 @@ figure {
   line-height: 2.2 !important;
 }
 
-.google-adsense {
-  text-align: center;
-  margin-bottom: 32px;
-}
-
 #linkpages {
   text-align: center;
   font-size: 14px;
@@ -901,6 +896,36 @@ pre {
 }
 
 /* ▲コメントフォーム #respond▲ */
+/* ad-single1 */
+.ad-single1 {
+  text-align: center;
+}
+.ad-single1__title {
+  margin-bottom: 2px;
+  font-size: 12px;
+  color: #888;
+}
+.ad-single1__text {
+  display: none;
+}
+@media screen and (min-width: 640px) {
+  .ad-single1__text {
+    display: block;
+  }
+  .ad-single1__banner {
+    display: none;
+  }
+}
+.ad-single2 {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.ad-single2__title {
+  margin-bottom: 2px;
+  font-size: 12px;
+  color: #888;
+}
+
 /* item */
 .item {
   display: flex;
