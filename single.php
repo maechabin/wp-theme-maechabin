@@ -20,11 +20,11 @@ while(have_posts()):the_post();
 <nav class="breadcrumb">
 <?php breadcrumb(); ?>
 </nav>
-  
+
 <h1 id="post-<?php the_ID(); ?>" class="entry-title"><?php the_title(); ?></h1>
 <ul class="entry-meta">
-<li class="entry-meta-li"><time pubdate><?php the_date('Y年m月d日'); ?></time></li>
-<li class="entry-meta-li"><a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><img src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16" alt="Google+プロフィールへ"></a></li>
+  <li class="entry-meta-li"><time pubdate><?php the_date('Y年m月d日'); ?></time></li>
+  <li class="entry-meta-li"><a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><img src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16" alt="Google+プロフィールへ"></a></li>
 </ul>
 <?php mc_social_button(); ?>
 
@@ -39,7 +39,7 @@ while(have_posts()):the_post();
      data-ad-slot="3830887178"></ins>
 <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </aside>
-  
+
 <div class="entry">
 <?php the_content(); ?>
 </div>
@@ -49,34 +49,33 @@ while(have_posts()):the_post();
 <?php wp_link_pages('before=&after=&next_or_number=number&pagelink=%'); ?>
 </div>
 
+<aside>
+  <div class="google-adsense">
+    <p class="bottom_0" style="text-align:center;font-size:12px;color:#888;">スポンサードリンク</p>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- mae’s blog（記事下） -->
+    <ins class="adsbygoogle"
+         style="display:inline-block;width:336px;height:280px"
+         data-ad-client="ca-pub-6331923403728737"
+         data-ad-slot="4144613456"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+</aside>
+
 <ul class="postmetadata">
-<li class="postmetadata-li">カテゴリー: <?php the_category(', '); ?></li>
-<li class="postmetadata-li"><?php the_tags(); ?></li>
+  <li class="postmetadata-li">カテゴリー: <?php the_category(', '); ?></li>
+  <li class="postmetadata-li"><?php the_tags(); ?></li>
 </ul>
 
 <?php mc_social_button(); ?>
 
 <ul id="nav-below" class="navigation">
-<li class="nav-previous"><?php previous_post_link('%link','<span class="meta-nav">←</span> %title'); ?></li>
-<li class="nav-next"><?php next_post_link('%link','%title <span class="meta-nav">→</span>'); ?></li>
+  <li class="nav-previous"><?php previous_post_link('%link','<span class="meta-nav">←</span> %title'); ?></li>
+  <li class="nav-next"><?php next_post_link('%link','%title <span class="meta-nav">→</span>'); ?></li>
 </ul><!-- #nav-below -->
 
-<aside>
-
-<div class="google-adsense">
-<p class="bottom_0" style="text-align:center;font-size:12px;color:#888;">スポンサードリンク</p>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- mae’s blog（記事下） -->
-<ins class="adsbygoogle"
-     style="display:inline-block;width:336px;height:280px"
-     data-ad-client="ca-pub-6331923403728737"
-     data-ad-slot="4144613456"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-</div>
-</aside>
 
 </article>
 <!-- ▲article▲ -->
@@ -88,8 +87,8 @@ while(have_posts()):the_post();
 
 <?php if($wp_query->max_num_pages>1): ?>
 <nav id="nav_below" class="navigation">
-<p class="nav_previous"><?php next_posts_link('<span class="meta-nav">&larr;</span> 古い投稿へ'); ?></p>
-<p class="nav_next"><?php previous_posts_link('新しい投稿へ <span class="meta-nav">&rarr;</span>'); ?></p>
+  <p class="nav_previous"><?php next_posts_link('<span class="meta-nav">&larr;</span> 古い投稿へ'); ?></p>
+  <p class="nav_next"><?php previous_posts_link('新しい投稿へ <span class="meta-nav">&rarr;</span>'); ?></p>
 </nav><!-- #nav_below -->
 <?php endif; ?>
 
