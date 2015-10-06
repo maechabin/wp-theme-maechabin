@@ -2,7 +2,7 @@
   <div id="sidebar_sub" class="sidebar__sub">
 
     <aside>
-      <div class="sidebar__widget_ad">
+      <div class="sidebar__widget_ad sidebar__ad1">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- mae's blog（サイドバー上） -->
         <ins class="adsbygoogle"
@@ -64,7 +64,7 @@
         <a href="//blog.with2.net/link.php?1028897" target="_blank"><img src="/wp-content/themes/chabin/image/banner_13.gif" width="80" height="15" alt="人気ブログランキングへ"></a>
       </figure>
 
-      <div class="sidebar__widget_ad">
+      <div class="sidebar__widget_ad sidebar__ad2">
         <div>スポンサードリンク</div>
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- mae's blog（サイドバー下） -->
