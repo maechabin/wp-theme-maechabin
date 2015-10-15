@@ -1078,6 +1078,9 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
     display: block;
   }
 }
+.sidebar__ad2 {
+  margin-top: 32px;
+}
 .sidebar img, .sidebar iframe {
   vertical-align: middle;
 }
