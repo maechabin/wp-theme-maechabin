@@ -66,13 +66,13 @@ maechabin.ui = (function ($, window, document) {
     var regexp1 = new RegExp("^https?:\/\/" + domain + "\/archives\/[0-9]+$", "ig");
     var regexp2 = new RegExp("^https?:\/\/" + domain, "ig");
     var blog_title = $(".header__title").eq(0);
-    var blog_title_link = blog_title.find("a");
-    var blog_title_icon = blog_title.find("i");
+    var blog_title_link = blog_title.find("a").eq(0);
+    var blog_title_icon = blog_title.find("i").eq(0);
     var referrer = document.referrer || "";
 
     if (url.match(regexp1) && referrer.match(regexp2) && !referrer.match(regexp1)) {
 
-      blog_title_icon.attr("class", "fa fa-arrow-circle-left");
+      blog_title_icon.attr("class", "fa fa-chevron-left");
       blog_title_link.attr("href", referrer);
 
     } else {

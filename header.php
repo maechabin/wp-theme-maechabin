@@ -13,14 +13,10 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-c7f98919b73e9651c4b423986e0e88e5.css" media="all">
-  <?php /*<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Play&amp;text=mae's+blog">*/ ?>
-  <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/prettify.min.css">*/ ?>
-  <?php /*<link rel="stylesheet" href="/wp-content/themes/chabin/css/font-awesome.min.css">*/ ?>
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-7fe23987c22f5628f3530365493b65a8.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
-  <?php get_template_part('header-custom-field'); ?>
   <?php wp_head(); ?>
-  <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 
 <body id="TOP">
@@ -30,7 +26,10 @@
     <header id="header_bar" class="header cb-header">
       <div id="header_bar_inner" class="header__inner">
 
-        <h1 class="header__title"><a href="/"><i style="color:#fff;"></i>mae's blog</a></h1>
+        <h1 class="header__title">
+          <a href="/"><i style="color:#fff;"></i></a>
+          <a href="/">mae's blog</a>
+        </h1>
 
         <div class="header__search">
           <form role="search" method="get" id="header__search-form" action="<?php bloginfo('url') ?>" >

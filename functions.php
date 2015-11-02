@@ -304,4 +304,21 @@ function my_replace_amp($content) {
 }
 add_filter( 'the_content', 'my_replace_amp' );
 
-?>
+
+function replace_header() {
+  /*
+  ob_start();
+  include 'header.php'; // PATH
+  $data = ob_get_clean();
+  $data = str_replace(array('http:\/\/', 'http://'), '//', $data); // REGEX
+  echo $data;
+
+  $fp = fopen('/wp-content/themes/chabin/header.php', 'w');
+  echo $fp;
+  fwrite($fp, $data);
+  fclose($fp);
+  */
+
+
+}
+replace_header();

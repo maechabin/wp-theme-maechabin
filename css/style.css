@@ -106,14 +106,12 @@ a > i {
 .header__title {
   position: absolute;
   left: 16px;
-  font-size: 22px;
+  font-size: 24px;
   z-index: 30;
 }
 .header__title a {
   color: #8b0 !important;
   text-decoration: none;
-  font-weight: normal;
-  display: block;
   line-height: 56px;
 }
 .header__title a:hover {
@@ -249,7 +247,6 @@ a > i {
   padding: 4px 14px 5px;
   border: 1px solid #aaa;
   background-color: #e7e7e7;
-  background-image: url(image/comment.png);
   margin-bottom: 18px;
   border-radius: 2px;
 }
@@ -295,6 +292,10 @@ a > i {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
+.post-box a:visited {
+  background-color: #888;
+}
+
 .post-title {
   font-size: 24px;
   line-height: 1.4;
@@ -302,7 +303,7 @@ a > i {
 }
 
 .post-title a {
-  color: #000;
+  color: #111;
   text-decoration: none !important;
 }
 
@@ -740,7 +741,6 @@ pre {
   overflow: hidden;
   clear: both;
   background-color: #F1F8E1;
-  background-image: url(image/comment_bg.gif);
 }
 
 .depth-1,
