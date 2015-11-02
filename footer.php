@@ -56,7 +56,7 @@
 <script>window.setTimeout(prettyPrint, 500);</script>
 <?php endif ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-e7b8d77d2be1b71873609f1b238a840c.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-231c8a0ff35ba0c22da93e669c357c70.js" defer></script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

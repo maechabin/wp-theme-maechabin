@@ -111,8 +111,8 @@ module.exports = function (grunt) {
           'ts/function.js': 'ts/function.ts'
         },
         options: {
-          module: 'amd', //or commonjs 
-          target: 'es5' //or es3 
+          module: 'amd', //or commonjs
+          target: 'es5' //or es3
         }
       }
 
@@ -134,6 +134,14 @@ module.exports = function (grunt) {
 
     },
 
+    browserify: {
+      dist: {
+        files: {
+          'js/function.js': ['js/main.js']
+        }
+      }
+    },
+
     watch: {
 
       sass: {
@@ -147,8 +155,8 @@ module.exports = function (grunt) {
       },
 
       js: {
-        files: ['js/function.js'],
-        tasks: ['uglify', 'clean:js', 'md5:js', 'replace:js']
+        files: ['js/main.js'],
+        tasks: ['browserify', 'uglify', 'clean:js', 'md5:js', 'replace:js']
       },
 
       ts: {
@@ -169,6 +177,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-md5');
   grunt.loadNpmTasks('grunt-typescript');
   grunt.loadNpmTasks('grunt-tslint');
+  grunt.loadNpmTasks('grunt-browserify');
 
   grunt.registerTask('default', ['sass', 'cssmin']);
 
