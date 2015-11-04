@@ -62,15 +62,23 @@ maechabin.ui = (function ($, window, document) {
 
     var url = location.href;
     var domain = location.host;
+    var search = location.search || "";
+
     //var port = location.port ? ":" + location.port : "";
     var regexp1 = new RegExp("^https?:\/\/" + domain + "\/archives\/[0-9]+$", "ig");
     var regexp2 = new RegExp("^https?:\/\/" + domain, "ig");
+    var regexp3 = new RegExp("\/\?s\=.+?", "ig");
     var blog_title = $(".header__title").eq(0);
     var blog_title_link = blog_title.find("a").eq(0);
     var blog_title_icon = blog_title.find("i").eq(0);
     var referrer = document.referrer || "";
 
     if (url.match(regexp1) && referrer.match(regexp2) && !referrer.match(regexp1)) {
+
+      blog_title_icon.attr("class", "fa fa-chevron-left");
+      blog_title_link.attr("href", referrer);
+
+    } else if (search !== "" && search.match(regexp3)) {
 
       blog_title_icon.attr("class", "fa fa-chevron-left");
       blog_title_link.attr("href", referrer);
@@ -109,6 +117,19 @@ maechabin.ui = (function ($, window, document) {
 
     });
 
+  }
+
+  function displayMobileSearch() {
+    var searchMobile = $(".header__search_mobile");
+    var buttonSearch = $(".header__button_search");
+    var buttonBack = $(".header__button_back");
+
+    buttonSearch.on("click", function () {
+      searchMobile.fadeIn("slow");
+    });
+    buttonBack.on("click", function () {
+      searchMobile.fadeOut("slow");
+    });
   }
 
   // スクロール位置によってヘッダーバーに影を付ける
@@ -269,6 +290,7 @@ maechabin.ui = (function ($, window, document) {
       header.cbSlideUpHeader({
         headroom: true
       });
+      displayMobileSearch();
 
     }
 

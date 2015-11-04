@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-7fe23987c22f5628f3530365493b65a8.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-223fd85fe8db301cb6ca67d2eb1af3df.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -37,6 +37,9 @@
           </form>
         </div>
 
+        <div class="header__button_search">
+          <i class="fa fa-search"></i>
+        </div>
         <div class="header__share">
           <a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><i class="fa fa-rss"></i></a>
         </div>
@@ -44,5 +47,12 @@
       </div>
     </header>
     <!-- ▲header▲ -->
+
+    <div class="header__search_mobile">
+      <p class="header__button_back"><i class="fa fa-chevron-left"></i></p>
+      <form role="search" method="get" class="header__search-form_mobile" action="<?php bloginfo('url') ?>" >
+        <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログ記事を検索" class="header__search-text_mobile"><button type="submit" class="header__search-button_mobile"><i class="fa fa-search"></i></button>
+      </form>
+    </div>
 
     <div id="blog_header"></div>
