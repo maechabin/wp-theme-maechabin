@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-223fd85fe8db301cb6ca67d2eb1af3df.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-362c7f73bc8f614c9e29eec55026cc47.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>

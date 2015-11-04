@@ -128,7 +128,6 @@ a > i {
   top: 0;
   left: 40px;
   width: calc(100% - 80px);
-  background-color: #fafafa;
 }
 .header__search-text {
   color: #666;
@@ -148,7 +147,7 @@ a > i {
   padding: 0px 6px;
   border-radius: 2px 0 0 2px;
   vertical-align: middle;
-  width: calc(100% - 32px);
+  width: calc(100% - 40px);
   box-sizing: border-box;
   border: 1px solid #888;
 }
@@ -171,6 +170,8 @@ a > i {
   border: 0;
   vertical-align: middle;
   border-radius: 0 2px 2px 0;
+  text-align: center;
+  padding: 0;
   box-sizing: border-box;
   border: 1px solid #888;
   border-left: none;
