@@ -125,10 +125,14 @@ maechabin.ui = (function ($, window, document) {
     var buttonBack = $(".header__button_back");
 
     buttonSearch.on("click", function () {
-      searchMobile.fadeIn("slow");
+      searchMobile.stop().animate({
+          "right": 0
+      }, 600);
     });
     buttonBack.on("click", function () {
-      searchMobile.fadeOut("slow");
+      searchMobile.stop().animate({
+          "right": "100vw"
+      }, 600);
     });
   }
 

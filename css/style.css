@@ -147,7 +147,7 @@ a > i {
   padding: 0px 6px;
   border-radius: 2px 0 0 2px;
   vertical-align: middle;
-  width: calc(100% - 40px);
+  width: calc(100% - 34px);
   box-sizing: border-box;
   border: 1px solid #888;
 }
@@ -177,13 +177,12 @@ a > i {
   border-left: none;
 }
 .header__search_mobile {
-  width: 100%;
+  width: 100vw;
   position: fixed;
   top: 0;
-  left: 0;
+  right: 100vw;
   z-index: 31;
   background-color: #fff;
-  display: none;
   line-height: 56px;
   height: 56px;
   box-shadow: 0 1px 1px #333;
@@ -235,6 +234,10 @@ a > i {
   }
   .header__search {
     visibility: hidden;
+  }
+  .header__display {
+    display: block;
+    right: 0;
   }
 }
 

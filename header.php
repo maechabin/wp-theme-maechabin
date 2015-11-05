@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-362c7f73bc8f614c9e29eec55026cc47.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-653be579fa797ca86e0cf09e793254b1.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -48,7 +48,7 @@
     </header>
     <!-- ▲header▲ -->
 
-    <div class="header__search_mobile">
+    <div class="header__search_mobile <?php if (is_search()) echo 'header__display' ?>">
       <p class="header__button_back"><i class="fa fa-chevron-left"></i></p>
       <form role="search" method="get" class="header__search-form_mobile" action="<?php bloginfo('url') ?>" >
         <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログ記事を検索" class="header__search-text_mobile"><button type="submit" class="header__search-button_mobile"><i class="fa fa-search"></i></button>
