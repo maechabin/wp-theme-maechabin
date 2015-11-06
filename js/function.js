@@ -127,12 +127,12 @@ maechabin.ui = (function ($, window, document) {
     buttonSearch.on("click", function () {
       searchMobile.stop().animate({
           "left": 0
-      }, 400);
+      }, 500, "swing");
     });
     buttonBack.on("click", function () {
       searchMobile.stop().animate({
           "left": "100vw"
-      }, 200);
+      }, 300, "linear");
     });
   }
 

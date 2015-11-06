@@ -36,7 +36,7 @@
     }
   }
   &__search {
-    width: 324px;
+    width: 420px;
     margin: {
       left: auto;
       right: auto;
@@ -60,7 +60,7 @@
     }
     &-text {
       @include -text;
-      width: 280px;
+      width: 376px;
       &_mobile {
         @include -text;
         width: calc(100% - 34px);
