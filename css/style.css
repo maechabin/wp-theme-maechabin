@@ -97,8 +97,6 @@ a > i {
 .header__inner {
   position: relative;
   line-height: 56px;
-  width: 1020px;
-  width: 1050px;
   margin: 0 auto;
   overflow: hidden;
   text-align: center;
@@ -126,7 +124,7 @@ a > i {
 .header__search-form_mobile {
   position: absolute;
   top: 0;
-  left: 40px;
+  left: 56px;
   width: calc(100% - 80px);
 }
 .header__search-text {
@@ -209,7 +207,7 @@ a > i {
 .header__button_back {
   position: absolute;
   top: 6px;
-  left: 8px;
+  left: 16px;
   width: 40px;
 }
 .header__button_back i {

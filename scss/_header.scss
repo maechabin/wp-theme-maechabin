@@ -16,8 +16,6 @@
   &__inner {
     position: relative;
     line-height: $height;
-    width: 1020px;
-    width: 1050px;
     margin: 0 auto;
     overflow: hidden;
     text-align: center;
@@ -47,7 +45,7 @@
       &_mobile {
         position: absolute;
         top: 0;
-        left: 40px;
+        left: 56px;
         width: calc(100% - 80px);
       }
     }
@@ -121,7 +119,7 @@
     &_back {
       position: absolute;
       top: 6px;
-      left: 8px;
+      left: 16px;
       width: 40px;
       i {
         font-size: 24px;
