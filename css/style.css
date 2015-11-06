@@ -180,25 +180,28 @@ a > i {
   width: 100vw;
   position: fixed;
   top: 0;
-  right: 100vw;
+  left: 100vw;
   z-index: 31;
   background-color: #fff;
   line-height: 56px;
   height: 56px;
   box-shadow: 0 1px 1px #333;
 }
+　
 .header__button_search {
   position: absolute;
   top: 4px;
   right: 56px;
   width: 40px;
 }
+　
 .header__button_search i {
   font-size: 24px;
   color: #fafafa;
   cursor: pointer;
 }
 @media screen and (min-width: 1024px) {
+  　
   .header__button_search {
     display: none;
   }
@@ -237,7 +240,7 @@ a > i {
   }
   .header__display {
     display: block;
-    right: 0;
+    left: 0;
   }
 }
 

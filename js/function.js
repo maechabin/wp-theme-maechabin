@@ -126,13 +126,13 @@ maechabin.ui = (function ($, window, document) {
 
     buttonSearch.on("click", function () {
       searchMobile.stop().animate({
-          "right": 0
-      }, 600);
+          "left": 0
+      }, 400);
     });
     buttonBack.on("click", function () {
       searchMobile.stop().animate({
-          "right": "100vw"
-      }, 600);
+          "left": "100vw"
+      }, 200);
     });
   }
 
