@@ -1,3 +1,51 @@
+.category {
+  margin: 8px auto 0;
+  max-width: 704px;
+  width: 100%;
+  letter-spacing: -1em;
+  &__list {
+    li:first-child {
+      margin-left: 0;
+      width: 13%;
+    }
+    li {
+      display: inline-block;
+      width: calc(29% - 8px);
+      margin-left: 8px;
+      a {
+        letter-spacing: 0;
+        display: inline-block;
+        border-radius: 2px;
+        width: 100%;
+        font-size: 16px;
+        background-color: #333;
+        color: #fff;
+        padding: 16px 0;
+        text: {
+          align: center;
+          decoration: none;
+        }
+      }
+      span {
+        font-size: 14px;
+      }
+    }
+  }
+  @media screen and (max-width: $_responsive-point) {
+    max-width: calc(100% - 16px);
+    &__list {
+      li {
+        a {
+          font-size: 14px;
+        }
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 /* ad-index1 */
 .ad {
   @mixin __title {

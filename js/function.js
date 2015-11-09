@@ -219,9 +219,9 @@ maechabin.ui = (function ($, window, document) {
     var sidebar = $("#sidebar");
     var margin_width = 0;
 
-    if (content_width > 1020) {
+    if (content_width > 1052) {
 
-      margin_width = (content_width - 1020) / 2;
+      margin_width = (content_width - 1052) / 2;
       content.css("width", content_width + "px");
 
     }

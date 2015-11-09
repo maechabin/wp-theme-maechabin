@@ -81,6 +81,11 @@ a > i {
   display: none;
 }
 
+.ol-type {
+  list-style-type: decimal;
+  padding-left: 1.5em;
+}
+
 .header {
   width: 100%;
   background-color: #000;
@@ -117,7 +122,7 @@ a > i {
   text-shadow: 0px 0px 20px #fff;
 }
 .header__search {
-  width: 420px;
+  width: 450px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -135,7 +140,7 @@ a > i {
   padding: 0px 6px;
   border-radius: 2px 0 0 2px;
   vertical-align: middle;
-  width: 376px;
+  width: 406px;
 }
 .header__search-text_mobile {
   color: #666;
@@ -198,7 +203,7 @@ a > i {
   color: #fafafa;
   cursor: pointer;
 }
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 1084px) {
   　
   .header__button_search {
     display: none;
@@ -228,7 +233,7 @@ a > i {
   color: #fafafa;
   margin-left: 8px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1084px) {
   .header__inner {
     max-width: 100%;
     width: 100%;
@@ -251,6 +256,48 @@ a > i {
   clear: both;
   background-color: #8b0;
   width: 100%;
+}
+
+.category {
+  margin: 8px auto 0;
+  max-width: 704px;
+  width: 100%;
+  letter-spacing: -1em;
+}
+.category__list li:first-child {
+  margin-left: 0;
+  width: 13%;
+}
+.category__list li {
+  display: inline-block;
+  width: calc(29% - 8px);
+  margin-left: 8px;
+}
+.category__list li a {
+  letter-spacing: 0;
+  display: inline-block;
+  border-radius: 2px;
+  width: 100%;
+  font-size: 16px;
+  background-color: #333;
+  color: #fff;
+  padding: 16px 0;
+  text-align: center;
+  text-decoration: none;
+}
+.category__list li span {
+  font-size: 14px;
+}
+@media screen and (max-width: 1084px) {
+  .category {
+    max-width: calc(100% - 16px);
+  }
+  .category__list li a {
+    font-size: 14px;
+  }
+  .category__list li span {
+    display: none;
+  }
 }
 
 /* ad-index1 */
@@ -277,22 +324,21 @@ a > i {
   background-color: #fff;
   clear: both;
   overflow: hidden;
-  min-width: 990px;
+  min-width: 1052px;
   margin: 0 16px 210px;
   border-radius: 2px;
 }
 
 #content {
   zoom: 1;
-  width: 1020px;
+  width: 1052px;
   margin: 0 auto;
 }
 
 #entry {
   position: relative;
   float: left;
-  width: 658px;
-  width: 688px;
+  width: 720px;
 }
 
 #entry_sub {
@@ -442,7 +488,7 @@ a > i {
 }
 
 .cb-share li {
-  width: 54px;
+  width: 60px;
   display: inline-block;
   font-size: 14px;
 }
@@ -455,7 +501,11 @@ a > i {
 }
 
 .cb-share li span {
-  margin: 0 8px 0 0;
+  margin: 0 4px 0 0;
+}
+
+.cb-share li:last-child span {
+  margin: 0;
 }
 
 /* ▲indexページ▲ */
@@ -1051,7 +1101,7 @@ pre {
   background-color: #F57F17;
   color: #fff;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1084px) {
   .item__button {
     width: 100%;
   }
@@ -1102,7 +1152,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   padding: 16px;
 }
 .search__box_title {
-  font-size: 18px;
+  font-size: 20px;
 }
 .search__box p {
   margin: 4px auto;
@@ -1111,6 +1161,10 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .search__box_category {
   font-size: 14px;
   margin-bottom: 8px;
+}
+.search__box_category li {
+  display: inline-block;
+  margin-right: 16px;
 }
 .search__box_share {
   border-radius: 2px;
@@ -1134,7 +1188,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .search__display {
   display: inline;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1084px) {
   .search__display {
     display: none;
   }
@@ -1180,8 +1234,9 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   font-weight: bold;
 }
 .sidebar__author-social {
+  letter-spacing: 2px;
   margin: 8px auto 0;
-  font-size: 16px;
+  font-size: 18px;
   text-align: center !important;
 }
 .sidebar__author-description {
@@ -1231,7 +1286,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .sidebar table {
   margin-bottom: 32px;
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1084px) {
   .sidebar {
     width: 100%;
     max-width: 100%;
@@ -1363,7 +1418,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   color: #fff;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1084px) {
   #content_border {
     min-width: 100%;
     width: 100%;

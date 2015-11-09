@@ -1,6 +1,6 @@
 $_text-color: #212121;
 $_link-color: #3160aa;
-$_responsive-point: 1024px;
+$_responsive-point: 1052px + 32px;
 
 body {
 /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
@@ -25,4 +25,9 @@ a > i {
 
 .hidden_elem {
   display: none;
+}
+
+.ol-type {
+  list-style-type: decimal;
+  padding-left: 1.5em;
 }

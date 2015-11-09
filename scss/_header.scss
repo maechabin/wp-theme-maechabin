@@ -36,7 +36,7 @@
     }
   }
   &__search {
-    width: 420px;
+    width: 450px;
     margin: {
       left: auto;
       right: auto;
@@ -60,7 +60,7 @@
     }
     &-text {
       @include -text;
-      width: 376px;
+      width: 406px;
       &_mobile {
         @include -text;
         width: calc(100% - 34px);
@@ -112,7 +112,7 @@
         color: #fafafa;
         cursor: pointer;
       }
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: $_responsive-point) {
         display: none;
       }
     }
@@ -141,7 +141,7 @@
       margin-left: 8px;
     }
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: $_responsive-point) {
     &__inner {
       max-width: 100%;
       width: 100%;

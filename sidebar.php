@@ -20,12 +20,12 @@
     <p class="sidebar__author-name">Takanori Maeda</p>
 
     <p class="sidebar__author-social">
+      <a href="//github.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-github');"><i class="fa fa-github-alt"></i></a>
+      <a href="//jsdo.it/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-jsdoit');"><i class="fa fa-html5"></i></a>
       <a href="//twitter.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-twitter');"><i class="fa fa-twitter"></i></a>
       <a href="//www.facebook.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-facebook');"><i class="fa fa-facebook"></i></a>
       <a href="//plus.google.com/+TakanoriMaeda0_0/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-google+');"><i class="fa fa-google-plus"></i></a>
       <a href="//maechabin.tumblr.com/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-tumblr');"><i class="fa fa-tumblr"></i></a>
-      <a href="//github.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-github');"><i class="fa fa-github-alt"></i></a>
-      <a href="//jsdo.it/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-jsdoit');"><i class="fa fa-html5"></i></a>
       <a href="//www.muzie.ne.jp/artist/a024945/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-muzie');"><i class="fa fa-music"></i></a>
       <a href="//user.retty.me/1084048/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-retty');"><i class="fa fa-cutlery"></i></a>
     </p>

@@ -40,11 +40,16 @@ while(have_posts()):the_post();
 ?>
 <!-- ▼section▼ -->
 <section class="search__box">
-  <h1  class="search__box_title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
+  <h1  class="search__box_title">
+    <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
+    <small><?php edit_post_link('編集'); ?></small>
+  </h1>
   <?php the_excerpt(); ?>
   <ul class="search__box_category">
     <li><i class="fa fa-archive"></i> <?php the_category(', '); ?></li>
-    <li><?php edit_post_link('編集'); ?></li>
+    <?php if(has_tag()): ?>
+    <li><i class="fa fa-tag"></i> <?php the_tags(''); ?></li>
+    <?php endif ?>
   </ul>
   <ul class="search__box_share" title="<?php the_permalink(); ?>">
     <li class="cb-hb"><a href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>" target="_blank"><b>B!</b> <span></span></a></li>

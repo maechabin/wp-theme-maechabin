@@ -21,21 +21,20 @@ Author URI: http://mae.chab.in/
   background-color: #fff;
   clear: both;
   overflow: hidden;
-  min-width: 990px;
+  min-width: 1052px;
   margin: 0 16px 210px;
   border-radius: 2px;
 }
 #content {
   zoom: 1;
-  width: 1020px;
+  width: 1052px;
   margin: 0 auto;
 }
 
 #entry {
   position: relative;
   float: left;
-  width: 658px;
-  width: 688px;
+  width: 720px;
 }
 #entry_sub {
   margin-bottom: 0;
@@ -171,7 +170,7 @@ Author URI: http://mae.chab.in/
     bottom: 4px;
 }
 .cb-share li {
-    width: 54px;
+    width: 60px;
     display: inline-block;
     font-size: 14px;
 }
@@ -182,7 +181,10 @@ Author URI: http://mae.chab.in/
     text-decoration: none;
 }
 .cb-share li span {
-    margin: 0 8px 0 0;
+    margin: 0 4px 0 0;
+}
+.cb-share li:last-child span {
+    margin: 0;
 }
 /* ▲indexページ▲ */
 

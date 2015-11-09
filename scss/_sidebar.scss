@@ -42,8 +42,9 @@
       }
     }
     &-social {
+      letter-spacing: 2px;
       margin: 8px auto 0;
-      font-size: 16px;
+      font-size: 18px;
       text-align: center !important;
     }
     &-description {
@@ -96,7 +97,7 @@
   table {
     margin-bottom: 32px;
   }
-  @media screen and (max-width: 1024px) {
+  @media screen and (max-width: $_responsive-point) {
     width: 100%;
     max-width: 100%;
     padding-bottom: 48px;
