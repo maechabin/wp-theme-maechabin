@@ -1,6 +1,5 @@
 .header {
   $height: 56px;
-  $theme_color: #8b0;
 
   width: 100%;
   background-color: #000;
@@ -26,11 +25,11 @@
     font-size: 24px;
     z-index: 30;
     a {
-      color: $theme_color !important;
+      color: $_theme-color !important;
       text-decoration: none;
       line-height: $height;
       &:hover {
-        color: $theme_color !important;
+        color: $_theme-color !important;
         text-shadow: 0px 0px 20px #fff;
       }
     }
