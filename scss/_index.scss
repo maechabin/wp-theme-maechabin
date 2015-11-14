@@ -16,6 +16,10 @@
       width: calc(28% - 8px);
       margin-left: 8px;
       border-bottom: 4px solid #424242;
+      transition: .5s;
+      &:hover {
+        border-bottom: 4px solid adjust-color($_theme-color, $alpha: -0.4);
+      }
       a {
         letter-spacing: 0;
         line-height: 1.2;
