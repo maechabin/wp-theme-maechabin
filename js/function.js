@@ -52,8 +52,8 @@ maechabin.ui = (function ($, window, document) {
     categoryList.removeClass(currentClassName);
 
     if (path) {
-      categoryName = path.split("/").pop();
-      switch(categoryName) {
+      categoryName = path.split("/");
+      switch(categoryName[3]) {
         case "tech":
           addCurrentClass(1);
           break;
