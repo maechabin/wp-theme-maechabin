@@ -425,8 +425,8 @@ a > i {
 .post-box:hover {
   cursor: pointer;
   /*
-      background-color: #E9F0FA;
-      border: 1px solid #E9F0FA;
+    background-color: #E9F0FA;
+    border: 1px solid #E9F0FA;
   */
   background-color: #E8EAF6;
   border: 1px solid #E8EAF6;
@@ -564,13 +564,13 @@ article header {
 }
 
 .intro {
-  padding: 0 8px 16px;
+  padding: 0 0 16px;
   border-bottom: 6px solid #616161;
 }
 
 .intro p {
-  font-family: serif;
-  font-size: 16px;
+  font-family: 'Quicksand', "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック';
+  font-size: 17px !important;
   line-height: 2 !important;
 }
 
@@ -1128,15 +1128,15 @@ pre {
 
 /* code */
 code {
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
-  font-size: 14px !important;
-  background-color: #fdfdfd;
-  border-radius: 2px !important;
+  background-color: #212121;
+  border-radius: 1px !important;
   color: #fff;
   display: block;
   line-height: 1.4;
-  padding: 16px 12px;
+  padding: 16px;
   text-align: left;
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
+  font-size: 14px !important;
 }
 code strong {
   font-weight: bold !important;

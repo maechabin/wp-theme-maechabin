@@ -2,6 +2,10 @@
 remove_action('wp_head','wp_generator');
 remove_action('wp_head','index_rel_link');
 
+#WP4.2デフォルト 絵文字機能無効化
+remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+remove_action( 'wp_print_styles', 'print_emoji_styles', 10 );
+
 #動的サイドバーを必要としていることをプラグインに伝える
 if (function_exists('register_sidebar')) {
 
