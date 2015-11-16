@@ -1173,6 +1173,9 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .search__box_title {
   font-size: 20px;
 }
+.search__box_date {
+  color: #757575;
+}
 .search__box p {
   margin: 4px auto;
   font-size: 14px;

@@ -44,6 +44,7 @@ while(have_posts()):the_post();
     <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
     <small><?php edit_post_link('編集'); ?></small>
   </h1>
+  <p class="search__box_date"><time pubdate><?php the_date('Y年m月d日'); ?></time></p>
   <?php the_excerpt(); ?>
   <ul class="search__box_category">
     <li><i class="fa fa-archive"></i> <?php the_category(', '); ?></li>
