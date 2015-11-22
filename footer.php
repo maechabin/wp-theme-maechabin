@@ -51,12 +51,19 @@
 <?php wp_footer(); ?>
 <?php if (is_single()): ?>
 <script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
-<script src="//google-code-prettify.googlecode.com/svn/trunk/src/prettify.js"></script>
-<script src="//google-code-prettify.googlecode.com/svn/trunk/src/lang-css.js"></script>
-<script>window.setTimeout(prettyPrint, 500);</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/lang-css.min.js"></script>
 <?php endif ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-f84f92888b18c38926196b159b0a9990.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-f968c45482b85ee39008d85aa2cd7cf4.js" defer></script>
+<script>
+$(document).ready(function () {
+	$(".cb-share").cbShareCount();
+});
+</script>
+<?php if (is_single()): ?>
+<script>window.setTimeout(prettyPrint, 500);</script>
+<?php endif ?>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

@@ -2,7 +2,7 @@
   "name": "wp-theme-maechabin",
   "version": "2.0.7",
   "description": "WordPress Original Theme",
-  "main": "./index.php",
+  "main": "./main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,7 +14,8 @@
     "wordpress"
   ],
   "browser": {
-    "cbslideheader": "./node_modules/jquery.cb-slideheader.js/dist/jquery.cbslideheader.min.js"
+    "cbslideheader": "./node_modules/jquery.cb-slideheader.js/dist/jquery.cbslideheader.min.js",
+    "cbsharecount": "./node_modules/cbsharecount/dist/jquery.cbsharecount.js"
   },
   "browserify-shim": {
     "jquery": "global:$"
@@ -29,7 +30,7 @@
   "bugs": {
     "url": "http://mae.chab.in/"
   },
-  "homepage": "https://github.com/maechabin/mae.chab.in.git",
+  "homepage": "http://mae.chab.in/",
   "devDependencies": {
     "browserify": "^11.0.1",
     "browserify-shim": "^3.8.10",
@@ -44,8 +45,11 @@
     "grunt-text-replace": "^0.4.0",
     "grunt-tslint": "^2.0.0",
     "grunt-typescript": "^0.6.1",
-    "jquery.cb-slideheader.js": "^0.3.4",
     "tslint": "^2.1.1",
     "typescript": "^1.4.1"
+  },
+  "dependencies": {
+    "cbsharecount": "^1.0.3",
+    "jquery.cb-slideheader.js": "^0.3.4"
   }
 }

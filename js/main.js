@@ -1,5 +1,6 @@
 var jQuery = require('jquery');
 require('cbslideheader');
+require('cbsharecount');
 
 var maechabin = maechabin || {};
 
