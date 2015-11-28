@@ -10,6 +10,8 @@ body {
   font-size: 62.5%;
   color: $_text-color;
   background-color: #eee;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 a {
   color: $_link-color;

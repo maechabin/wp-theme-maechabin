@@ -61,6 +61,8 @@ body {
   font-size: 62.5%;
   color: #212121;
   background-color: #eee;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -87,6 +89,7 @@ a > i {
 }
 
 .header {
+  vertical-align: middle;
   width: 100%;
   background-color: #000;
   background: -webkit-linear-gradient(#111 50%, #000 50%, #000);
@@ -136,7 +139,7 @@ a > i {
   color: #666;
   font-size: 16px;
   background-color: #fff;
-  height: 32px;
+  height: 40px;
   padding: 0px 6px;
   border-radius: 2px 0 0 2px;
   vertical-align: middle;
@@ -146,7 +149,7 @@ a > i {
   color: #666;
   font-size: 16px;
   background-color: #fff;
-  height: 32px;
+  height: 40px;
   padding: 0px 6px;
   border-radius: 2px 0 0 2px;
   vertical-align: middle;
@@ -159,7 +162,7 @@ a > i {
   font-size: 16px;
   cursor: pointer;
   width: 32px;
-  height: 32px;
+  height: 40px;
   border: 0;
   vertical-align: middle;
   border-radius: 0 2px 2px 0;
@@ -169,7 +172,7 @@ a > i {
   font-size: 16px;
   cursor: pointer;
   width: 32px;
-  height: 32px;
+  height: 40px;
   border: 0;
   vertical-align: middle;
   border-radius: 0 2px 2px 0;
@@ -192,6 +195,7 @@ a > i {
 }
 　
 .header__button_search {
+  outline: none;
   position: absolute;
   top: 4px;
   right: 56px;
@@ -210,6 +214,7 @@ a > i {
   }
 }
 .header__button_back {
+  outline: none;
   position: absolute;
   top: 6px;
   left: 16px;
