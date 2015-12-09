@@ -15,7 +15,7 @@
 
     <div class="sidebar__title">About Me</div>
     <figure class="sidebar__author-photo">
-      <img src="//www.gravatar.com/avatar/486f7aa0938f0dedd822ca3e01775537?s=200" width="100" height="100" alt="maechabin / Takanori Maeda">
+      <img src="/wp-content/uploads/2015/11/maechabin_400.png" width="100" height="100" alt="maechabin / Takanori Maeda">
     </figure>
     <p class="sidebar__author-name">Takanori Maeda</p>
 
