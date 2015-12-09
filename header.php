@@ -11,6 +11,59 @@
   <meta name="description" content="JavaScript、HTML5、CSS3などのフロントエンド関連のWeb技術の話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
   <meta name="keywords" content="JavaScript, jQuery, HTML5, wordpress, apple">
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+
+  <!-- OGP -->
+  <?php if(is_home()): ?>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<?php bloginfo('name'); ?>">
+  <meta property="og:url" content="http://mae.chab.in/">
+  <meta property="og:description" content="<?php bloginfo('description'); ?>">
+  <meta property="og:image" content="/wp-content/uploads/2015/11/maechabin_400.png">
+
+  <?php elseif(is_page()): ?>
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="<?php the_title(); ?>">
+  <meta property="og:url" content="<?php echo get_permalink(); ?>">
+  <meta property="og:description" content="<?php bloginfo('description'); ?>">
+  <meta property="og:image" content="/wp-content/uploads/2015/11/maechabin_400.png">
+
+  <?php else: ?>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="<?php the_title(); ?>">
+  <meta property="og:url" content="<?php echo get_permalink(); ?>">
+  <meta property="og:description" content="<?php echo mb_substr(str_replace(array("rn", "r", "n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
+  <?php endif; ?>
+  <?php $image_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'large'); ?>
+  <?php if(is_single() && has_post_thumbnail() ): ?>
+  <meta property="og:image" content="<?php echo $image_url[0] ?>">
+  <?php elseif(!is_home() && !is_page() ): ?>
+  <meta property="og:image" content="/wp-content/uploads/2015/11/maechabin_400.png">
+  <?php endif; ?>
+  <!-- OGP -->
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"> <!-- ←Twitterカードの種類 -->
+  <meta name="twitter:site" content="@maechabin"> <!-- ←Twitterアカウント -->
+  <?php if(is_home()): ?>  <!-- ←でブログのトップページを判定 -->
+  <meta name="twitter:title" content="<?php bloginfo('name'); ?>">
+  <meta name="twitter:description" content="<?php bloginfo('description'); ?>">
+  <meta name="twitter:image:src" content="/wp-content/uploads/2015/11/maechabin_400.png">
+  <?php elseif(is_page()): ?> <!-- ←で固定ページを判定 -->
+  <meta name="twitter:title" content="<?php the_title(); ?>">
+  <meta name="twitter:description" content="<?php bloginfo('description'); ?>">
+  <meta name="twitter:image:src" content="/wp-content/uploads/2015/11/maechabin_400.png">
+  <?php else: ?> <!-- ←上記の条件にもれたページ（記事ページ） -->
+  <meta name="twitter:title" content="<?php the_title(); ?>">
+  <meta name="twitter:description" content="<?php echo mb_substr(str_replace(array("rn", "r", "n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
+  <?php endif; ?>
+  <?php $image_url = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID),'large'); ?>
+  <?php if(is_single() && has_post_thumbnail() ): ?>
+  <meta name="twitter:image:src" content="<?php echo $image_url[0] ?>">
+  <?php elseif(!is_home() && !is_page() ): ?>
+  <meta name="twitter:image:src" content="http://mae.chab.in/wp-content/uploads/2015/11/maechabin_400.png">
+  <?php endif; ?>
+  <!-- Twitter Card -->
+
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-7d3a6cc9ed1dbff06db013ef7af08afa.css" media="all">
