@@ -2,6 +2,9 @@
 remove_action('wp_head','wp_generator');
 remove_action('wp_head','index_rel_link');
 
+#アイキャッチ対応
+add_theme_support('post-thumbnails');
+
 #WP4.2デフォルト 絵文字機能無効化
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles', 10 );
@@ -61,7 +64,7 @@ function breadcrumb() {
   }
 
   //トップページへのリンクを表示
-  echo '<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/" itemprop="url"><span itemprop="title"><i class="fa fa-home" title="mae.chab.in"></i></span></a>　<i class="fa fa-angle-right"></i></span>　';
+  echo '<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/" itemprop="url"><span itemprop="title"><i class="fa fa-home" title="mae.chab.in"></i></span></a>　<i class="fa fa-angle-double-right"></i></span>　';
 
   //現在のページの親が無くなるまで処理を繰り返す
   while ($tmp->parent) {

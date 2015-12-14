@@ -21,7 +21,9 @@ while(have_posts()):the_post();
     <ul class="entry-meta">
       <li class="entry-meta-li"><time pubdate><?php the_date('Y年m月d日'); ?></time></li>
       <li class="entry-meta-li"><a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><img src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16" alt="Google+プロフィールへ"></a></li>
-    </ul>
+      <li class="entry-meta-li"><?php the_tags(); ?></li>
+  </ul>
+
     <?php mc_social_button(); ?>
   </header>
 
