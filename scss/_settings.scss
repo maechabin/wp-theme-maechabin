@@ -1,7 +1,9 @@
 $_theme-color: #8b0;
 $_text-color: #212121;
 $_link-color: #3160aa;
-$_responsive-point: 1052px + 32px;
+$_content-width: 1060px; /* ここを変更する時は、main.jsも */
+$_entry-width: 728px;
+$_responsive-point: $_content-width + 32px;
 
 body {
 /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */

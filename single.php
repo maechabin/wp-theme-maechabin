@@ -29,13 +29,14 @@ while(have_posts()):the_post();
 
   <aside class="ad-single1">
     <div class="ad-single1__text">
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=wanderer-22&o=9&p=48&l=ur1&category=prime&banner=0VEMZSN241RE9KEJYV02&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+      <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
       <!-- mae’s blog（テキスト） -->
-      <ins class="adsbygoogle"
+      <!--<ins class="adsbygoogle"
            style="display:inline-block;width:468px;height:15px"
            data-ad-client="ca-pub-6331923403728737"
            data-ad-slot="3830887178"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>-->
     </div>
 
     <div class="ad-single1__banner">

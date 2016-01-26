@@ -55,7 +55,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/lang-css.min.js"></script>
 <?php endif ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-f968c45482b85ee39008d85aa2cd7cf4.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-6563401b82a4118d3efe619cfcc87fe1.js" defer></script>
 <script>
 $(document).ready(function () {
 	$(".cb-share").cbShareCount();

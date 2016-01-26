@@ -54,6 +54,7 @@ select {
 }
 
 /* ▲初期化▲ */
+/* ここを変更する時は、main.jsも */
 body {
   /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
   font-family: メイリオ, Meiryo, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', Osaka, 'ＭＳ Ｐゴシック';
@@ -207,7 +208,7 @@ a > i {
   color: #fafafa;
   cursor: pointer;
 }
-@media screen and (min-width: 1084px) {
+@media screen and (min-width: 1092px) {
   　
   .header__button_search {
     display: none;
@@ -238,7 +239,7 @@ a > i {
   color: #fafafa;
   margin-left: 8px;
 }
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: 1092px) {
   .header__inner {
     max-width: 100%;
     width: 100%;
@@ -310,7 +311,7 @@ a > i {
 .category__list li span {
   font-size: 14px;
 }
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: 1092px) {
   .category {
     max-width: calc(100% - 16px);
   }
@@ -348,21 +349,21 @@ a > i {
   background-color: #fff;
   clear: both;
   overflow: hidden;
-  min-width: 1052px;
+  min-width: 1060px;
   margin: 0 16px 210px;
   border-radius: 2px;
 }
 
 #content {
   zoom: 1;
-  width: 1052px;
+  width: 1060px;
   margin: 0 auto;
 }
 
 #entry {
   position: relative;
   float: left;
-  width: 720px;
+  width: 728px;
 }
 
 #entry_sub {
@@ -1128,7 +1129,7 @@ pre {
   background-color: #F57F17;
   color: #fff;
 }
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: 1092px) {
   .item__button {
     width: 100%;
   }
@@ -1218,7 +1219,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .search__display {
   display: inline;
 }
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: 1092px) {
   .search__display {
     display: none;
   }
@@ -1316,7 +1317,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .sidebar table {
   margin-bottom: 32px;
 }
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: 1092px) {
   .sidebar {
     width: 100%;
     max-width: 100%;
@@ -1448,7 +1449,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   color: #fff;
 }
 
-@media screen and (max-width: 1084px) {
+@media screen and (max-width: 1092px) {
   #content_border {
     min-width: 100%;
     width: 100%;
