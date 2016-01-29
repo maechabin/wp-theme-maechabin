@@ -1,5 +1,5 @@
 .header {
-  $height: 56px;
+  $height: 64px;
 
   vertical-align: middle;
   width: 100%;
@@ -21,10 +21,14 @@
     text-align: center;
   }
   &__title {
+    margin-top: -2px;
     position: absolute;
     left: 16px;
-    font-size: 24px;
     z-index: 30;
+    font:{
+      size: 28px;
+      weight: normal;
+    }
     a {
       color: $_theme-color !important;
       text-decoration: none;
@@ -50,13 +54,14 @@
       }
     }
     @mixin -text {
-      color: #666;
-      font-size: 16px;
-      background-color: #fff;
-      height: 40px;
+      box-sizing: border-box;
+      color: #fff;
+      font-size: 20px;
+      background-color: #424242;
+      height: 44px;
       padding: 0px 6px;
       border-radius: 2px 0 0 2px;
-      vertical-align: middle;
+      margin-top: -2px;
     }
     &-text {
       @include -text;
@@ -65,15 +70,17 @@
         @include -text;
         width: calc(100% - 34px);
         box-sizing: border-box;
-        border: 1px solid #888;
       }
     }
     @mixin -button {
-      background-color: #efefef;
+      box-sizing: border-box;
+      margin-top: -2px;
+      background-color: #424242;
       font-size: 16px;
+      color: #bdbdbd;
       cursor: pointer;
       width: 32px;
-      height: 40px;
+      height: 44px;
       border: 0;
       vertical-align: middle;
       border-radius: 0 2px 2px 0;
@@ -85,7 +92,6 @@
         text-align: center;
         padding: 0;
         box-sizing: border-box;
-        border: 1px solid #888;
         border-left: none;
       }
     }
@@ -132,10 +138,10 @@
   }
   &__share {
     width: 40px;
-    line-height: 48px;
+    line-height: 64px;
     text-align: center;
     position: absolute;
-    top: 8px;
+    top: 4px;
     right: 16px;
     a i {
       font-size: 24px;
