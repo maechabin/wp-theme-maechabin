@@ -56,7 +56,7 @@ Author URI: http://mae.chab.in/
   font-size: 1.4em;
   line-height: 1em;
   float: left;
-  color: #888;
+  color: #757575;
   margin-right: 1em;
 }
 .comments {
@@ -72,13 +72,13 @@ Author URI: http://mae.chab.in/
 
 /* ▼indexページ▼ */
 .breadcrumb {
-  color: #888;
+  color: #757575;
   font-size: 16px !important;
   margin-bottom: 4px;
 }
 .breadcrumb a,
 .breadcrumb a i {
-  color: #888;
+  color: #757575;
   text-decoration: underline;
 }
 .breadcrumb a:hover,
@@ -106,7 +106,7 @@ Author URI: http://mae.chab.in/
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
 }
 .post-box a:visited {
-  background-color: #888;
+  background-color: #757575;
 }
 .post-title {
   font-size: 24px;
@@ -192,9 +192,7 @@ Author URI: http://mae.chab.in/
 
 /* ▼article▼ */
 article header {
-  padding: 16px 24px;
-  margin-bottom: 8px;
-  background-color: #f1f1f1;
+  padding: 16px;
 }
 .social-button {
   overflow: hidden;
@@ -217,13 +215,13 @@ article header {
   vertical-align: baseline;
 }
 .entry {
-  border-top: 6px solid #616161;
+  border-top: 8px solid #424242;
   padding-top: 16px;
   margin: 8px 16px 0;
 }
 .intro {
   padding: 0 0 16px;
-  border-bottom: 6px solid #616161;
+  border-bottom: 8px solid #424242;
 }
 .intro p {
   font-family: 'Quicksand', "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック';
@@ -243,11 +241,11 @@ article header {
   line-height: 1.6;
   font-size: 14px;
   float: left;
-  color: #888;
+  color: #757575;
   margin-right: 1em;
 }
 .entry-meta-li a {
-  color: #888;
+  color: #757575;
 }
 .entry div {
   margin-bottom: 36px;
@@ -281,8 +279,8 @@ article .postmetadata {
   background: linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
   background: -webkit-linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
   background-size: 3px 3px;
-  border-top: 2px solid #424242;
-  border-bottom: 2px solid #424242;
+  border-top: 3px solid #424242;
+  border-bottom: 3px solid #424242;
   color: #212121;
   font-size: 26px;
   margin: 64px auto 32px;
@@ -368,15 +366,15 @@ figcaption {
 }
 .figBorder {
   width: 100%;
-  padding: 9px 0;
+  padding: 8px 0;
   text-align: center;
-  border-top: 1px dotted #bbb;
-  border-bottom: 1px dotted #bbb;
+  border-top: 1px dotted #bdbdbd;
+  border-bottom: 1px dotted #bdbdbd;
   overflow: hidden;
 }
 .figBorder img {
   border-radius: 2px;
-  border: 4px solid #444;
+  border: 6px solid #424242;
 }
 .figBorder a:hover img {
   border: 4px solid $_link-color;
@@ -387,7 +385,7 @@ figcaption {
   margin-top: 9px;
 }
 .figbg {
-  background-color: #e7e7e7;
+  background-color: #eee;
   padding: 4px 9px;
 }
 pre {
@@ -538,7 +536,7 @@ pre {
   font-weight: bold;
 }
 .comment_meta {
-  color: #888;
+  color: #757575;
   font-size: 12px;
 }
 .children article {
@@ -606,10 +604,10 @@ pre {
 }
 #author,
 #comment {
-    ime-mode: active;
+  ime-mode: active;
 }
 #email,#url {
-    ime-mode: disabled;
+  ime-mode: disabled;
 }
 #comment {
   box-sizing: border-box;
@@ -622,12 +620,12 @@ pre {
   padding: 8px;
 }
 .logged-in-as {
-    margin-bottom: 14px;
-    font-size: 1.4em !important;
+  margin-bottom: 14px;
+  font-size: 1.4em !important;
 }
 .required {
-    font-size: 12px;
-    color: #BE0016;
+  font-size: 12px;
+  color: #BE0016;
 }
 .form-submit {
   clear: both;
@@ -641,11 +639,11 @@ pre {
   padding: 8px 0;
   width: 300px;
   border-radius: 40px;
-  box-shadow: 0 1px 2px #888;
+  box-shadow: 0 1px 2px #757575;
 }
 #submit:hover {
-    background-color: #A1887F;
-    box-shadow: none;
+  background-color: #A1887F;
+  box-shadow: none;
 }
 /* ▲コメントフォーム #respond▲ */
 

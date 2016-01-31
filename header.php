@@ -3,9 +3,6 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
   <title><?php site_title() ?></title>
   <meta http-equiv="default-style" content="<?php bloginfo('stylesheet_url'); ?>">
   <meta name="description" content="JavaScript、HTML5、CSS3などのフロントエンド関連のWeb技術の話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
@@ -66,7 +63,7 @@
 
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-ba5bc6361139e9a5c889a0a47b75da5d.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-65ebb2b1a4e8bfa04b99fb923e0326fd.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
   <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
