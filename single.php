@@ -29,7 +29,7 @@ while(have_posts()):the_post();
 
   <aside class="ad-single1">
     <div class="ad-single1__text">
-      <iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=wanderer-22&o=9&p=48&l=ur1&category=prime&banner=0VEMZSN241RE9KEJYV02&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+      <iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=wanderer-22&o=9&p=48&l=ur1&category=gift_certificates&banner=06TTEXS1YFYS6PB0VKG2&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
       <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
       <!-- mae’s blog（テキスト） -->
       <!--<ins class="adsbygoogle"

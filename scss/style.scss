@@ -191,8 +191,11 @@ Author URI: http://mae.chab.in/
 
 
 /* ▼article▼ */
+#article {
+  margin: 0 16px;
+}
 article header {
-  padding: 16px;
+  padding: 16px 0;
 }
 .social-button {
   overflow: hidden;
@@ -217,7 +220,7 @@ article header {
 .entry {
   border-top: 8px solid #424242;
   padding-top: 16px;
-  margin: 8px 16px 0;
+  margin: 8px 0px 0;
 }
 .intro {
   padding: 0 0 16px;
@@ -225,7 +228,7 @@ article header {
 }
 .intro p {
   font-family: 'Quicksand', "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック';
-  font-size: 17px!important;
+  font-size: 18px!important;
   line-height: 2 !important;
 }
 .entry-title {
@@ -256,7 +259,7 @@ article header {
 .entry ol,
 figure {
   clear: both;
-  font-size: 16px;
+  font-size: 17px;
   text-align: justify;
   text-justify: inter-ideograph;
   margin-bottom: 27px;
@@ -294,7 +297,7 @@ article .postmetadata {
 .entry-h4,
 .entry h5 {
   line-height: 1.8em;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
 }
 hr {
@@ -377,16 +380,16 @@ figcaption {
   border: 6px solid #424242;
 }
 .figBorder a:hover img {
-  border: 4px solid $_link-color;
+  border: 6px solid $_link-color;
   background-color: $_link-color;
   opacity: .9;
 }
 .figBorder figcaption {
-  margin-top: 9px;
+  margin-top: 8px;
 }
 .figbg {
   background-color: #eee;
-  padding: 4px 9px;
+  padding: 4px 8px;
 }
 pre {
   white-space: -moz-pre-wrap;
@@ -653,7 +656,6 @@ pre {
 @import "footer";
 
 @media screen and (max-width: $_responsive-point) {
-
   #content_border {
     min-width: 100%;
     width: 100%;
@@ -667,14 +669,19 @@ pre {
     width: 100%;
     max-width: 100%;
   }
-  article header {
-    padding: 16px;
-  }
   .entry img {
     box-sizing: border-box;
     max-width: 100%;
     height: auto;
   }
+  .figBorder {
+    width: calc(100% + 32px);
+  }
+  .figBorder img {
+    border-radius: 0;
+  }
+  .figbg,
+  .figBorder,
   .entry-h2 {
     margin-left: -16px;
     margin-right: -16px;
@@ -685,6 +692,10 @@ pre {
   }
   .comment_article {
     max-width: 94%;
+  }
+  .entry code {
+    margin-left: -16px;
+    margin-right: -16px;
   }
   #author,
   #email,
