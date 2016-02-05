@@ -796,6 +796,35 @@ pre {
   background-color: #E0E0E0;
 }
 
+.btn-github {
+  font-weight: bold;
+  border-radius: 4px;
+  text-align: center;
+  display: inline-block !important;
+  padding: 16px 24px;
+  cursor: pointer;
+  text-decoration: none !important;
+  transition: .3s;
+  box-sizing: border-box;
+  color: #fff !important;
+  background: #37474f;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+}
+
+.btn-github i {
+  color: #fff;
+}
+
+.btn-github:hover,
+.btn-github:focus {
+  background: #222c31;
+}
+
+.btn-github:active {
+  background: #0d1113;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+}
+
 .entry .top_0 {
   margin-top: 0;
 }
