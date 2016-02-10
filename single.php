@@ -29,7 +29,7 @@ while(have_posts()):the_post();
 
   <aside class="ad-single1">
     <div class="ad-single1__text">
-      <iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=wanderer-22&o=9&p=48&l=ur1&category=gift_certificates&banner=06TTEXS1YFYS6PB0VKG2&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+      <iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=wanderer-22&o=9&p=48&l=ur1&category=smp&banner=0MA5NHHMPDWVFPHE0CG2&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
       <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
       <!-- mae’s blog（テキスト） -->
       <!--<ins class="adsbygoogle"
@@ -41,15 +41,31 @@ while(have_posts()):the_post();
 
     <div class="ad-single1__banner">
       <p class="ad-single1__title">スポンサードリンク</p>
-      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      <!-- mae's blog（記事上モバイルバナー） -->
-      <ins class="adsbygoogle"
-           style="display:inline-block;width:320px;height:100px"
-           data-ad-client="ca-pub-6331923403728737"
-           data-ad-slot="7675360770"></ins>
-      <script>
-      (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+<?php
+$iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
+$iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+$iPad    = stripos($_SERVER['HTTP_USER_AGENT'],"iPad");
+$Android = stripos($_SERVER['HTTP_USER_AGENT'],"Android");
+$webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
+
+if ($iPod || $iPhone || $iPad) {
+?>
+<div id='ibb-widget-root-1041258902'></div><script>(function(t,e,i,d){var o=t.getElementById(i),n=t.createElement(e);o.style.height=250;o.style.width=300;o.style.display='inline-block';n.id='ibb-widget',n.setAttribute('src',('https:'===t.location.protocol?'https://':'http://')+d),n.setAttribute('width','300'),n.setAttribute('height','250'),n.setAttribute('frameborder','0'),n.setAttribute('scrolling','no'),o.appendChild(n)})(document,'iframe','ibb-widget-root-1041258902',"banners.itunes.apple.com/banner.html?partnerId=&aId=11lnNZ&bt=catalog&t=catalog_white&id=1041258902&c=jp&l=ja-JP&w=300&h=250&store=apps");</script>
+<?php
+} else {
+?>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- mae's blog（記事上モバイルバナー） -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:100px"
+     data-ad-client="ca-pub-6331923403728737"
+     data-ad-slot="7675360770"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<?php
+}
+?>
     </div>
   </aside>
 
