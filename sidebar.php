@@ -30,7 +30,7 @@
       <a href="//user.retty.me/1084048/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-retty');"><i class="fa fa-cutlery"></i></a>
     </p>
 
-    <p class="sidebar__author-description">フロントエンドエンジニア。JavaScript、HTML5/CSS3、UI/UXデザインなどが専門分野。現在はネット広告会社でマーケティング担当。趣味はカメラ、ピアノ、作曲。</p>
+    <p class="sidebar__author-description">フロントエンドエンジニア。JavaScript、HTML5/CSS3、UI/UXデザインなどが専門分野。フレームワークはReact派。現在はネット広告会社でマーケティング担当。趣味はカメラ、ピアノ、作曲。</p>
 <!--
     <figure class="sidebar__author-description">
       <a href="//maechabin.tumblr.com" target="_blank">

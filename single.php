@@ -50,7 +50,11 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
 
 if ($iPod || $iPhone || $iPad) {
 ?>
-<div id='ibb-widget-root-1041258902'></div><script>(function(t,e,i,d){var o=t.getElementById(i),n=t.createElement(e);o.style.height=250;o.style.width=300;o.style.display='inline-block';n.id='ibb-widget',n.setAttribute('src',('https:'===t.location.protocol?'https://':'http://')+d),n.setAttribute('width','300'),n.setAttribute('height','250'),n.setAttribute('frameborder','0'),n.setAttribute('scrolling','no'),o.appendChild(n)})(document,'iframe','ibb-widget-root-1041258902',"banners.itunes.apple.com/banner.html?partnerId=&aId=11lnNZ&bt=catalog&t=catalog_white&id=1041258902&c=jp&l=ja-JP&w=300&h=250&store=apps");</script>
+<div class="text-crenter">
+<a href="https://itunes.apple.com/jp/app/final-fantasy-ix/id1041258902?mt=8&uo=10">
+<img width="300" height="250" src="https://banners.itunes.apple.com/bannerimages/banner@2x.png?pr=itunes&t=catalog_white&c=jp&l=ja-JP&id=1041258902&w=300&h=250&store=apps&cache=false">
+</a>
+</div>
 <?php
 } else {
 ?>
