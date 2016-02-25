@@ -104,36 +104,6 @@ module.exports = function (grunt) {
 
     },
 
-    typescript: {
-
-      ts: {
-        files: {
-          'ts/function.js': 'ts/function.ts'
-        },
-        options: {
-          module: 'amd', //or commonjs
-          target: 'es5' //or es3
-        }
-      }
-
-    },
-
-    tslint: {
-
-      ts: {
-
-        options: {
-          configuration: grunt.file.readJSON('tslint.json')
-        },
-
-        files: {
-          src: ['ts/function.ts']
-        }
-
-      }
-
-    },
-
     browserify: {
       dist: {
         files: {
@@ -157,11 +127,6 @@ module.exports = function (grunt) {
       js: {
         files: ['js/main.js'],
         tasks: ['browserify', 'uglify', 'clean:js', 'md5:js', 'replace:js']
-      },
-
-      ts: {
-        files: ['ts/*.ts'],
-        tasks: ['typescript', 'tslint']
       }
 
     }
