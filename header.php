@@ -66,7 +66,7 @@
   <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-948cb995e46209e19d0e0a6cbf3d04b5.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
-  <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 </head>
 
 <body id="TOP">

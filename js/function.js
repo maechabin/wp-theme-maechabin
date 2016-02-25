@@ -24,7 +24,7 @@ maechabin.ui = (function ($, window, document) {
   // ページ上部に戻る押したとき
   function goTop() {
 
-    $("a[href^=#]").on("click", function () {
+    $("a[href^='#']").on("click", function () {
 
       var speed = 400;
       var href = $(this).attr("href");
