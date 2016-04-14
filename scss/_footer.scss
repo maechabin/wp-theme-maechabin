@@ -9,6 +9,7 @@
   background-color: #424242;
   z-index: 0;
   width: 100%;
+  box-sizing: border-box;
   &__sub {
     padding: 42px 0 44px;
     margin: 0 auto;
@@ -16,7 +17,7 @@
   &__share-button {
     overflow: hidden;
     text-align: center;
-    width: 216px;
+    width: 288px;
     margin: 0 auto 16px;
     &--list {
       width: 56px;
@@ -26,6 +27,7 @@
         right: 8px;
       }
     }
+
     %__share-button {
       border-radius: 50%;
       display: inline-block;
@@ -38,6 +40,10 @@
     i {
       color: $font-color;
       margin: 0;
+    }
+    &--gh {
+      @extend %__share-button;
+      background-color: #212121;
     }
     &--fb {
       @extend %__share-button;

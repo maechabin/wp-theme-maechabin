@@ -5,8 +5,8 @@
 
 				<ul class="footer__share-button">
 					<li class="footer__share-button--list">
-						<a href="http://www.facebook.com/maechabin" target="_blank" class="footer__share-button--fb">
-							<i class="fa fa-facebook"></i>
+						<a href="https://github.com/maechabin" target="_blank" class="footer__share-button--gh">
+							<i class="fa fa-github"></i>
 						</a>
 					<li>
 					<li class="footer__share-button--list">
@@ -14,6 +14,11 @@
 							<i class="fa fa-twitter"></i>
 						</a>
 					</li>
+					<li class="footer__share-button--list">
+						<a href="https://www.facebook.com/maechabin" target="_blank" class="footer__share-button--fb">
+							<i class="fa fa-facebook"></i>
+						</a>
+					<li>
 					<li class="footer__share-button--list">
 						<a href="https://plus.google.com/105642680110503345013?rel=author" target="_blank" class="footer__share-button--gp">
 							<i class="fa fa-google-plus"></i>
