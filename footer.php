@@ -27,7 +27,8 @@
 				</ul>
 
 				<address class="footer__credit">
-					Copyright &copy; <a href="/">maechabin</a>
+					<strong><a href="/">mae's blog</a></strong>
+					&copy; 2016 maechabin
 				</address>
 
 			</div><!-- #footer_sub -->

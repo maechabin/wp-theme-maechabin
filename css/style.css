@@ -1448,7 +1448,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .footer__credit {
   clear: both;
   text-align: center;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
 }
 .footer__credit a {
