@@ -168,27 +168,6 @@ maechabin.ui = (function ($, window, document) {
     });
   }
 
-  // スクロール位置によってヘッダーバーに影を付ける
-  function makeShadowHeaderBar() {
-
-    w.on("scroll", function () {
-
-      var $this = $(this);
-      if ($this.scrollTop() > 0) {
-        header_bar.css({
-          "box-shadow": "0 1px 3px #111",
-          "transition": "box-shadow .4s linear"
-        });
-      } else {
-        header_bar.css({
-          "box-shadow": "none"
-        });
-      }
-
-    });
-
-  }
-
   // サイドバー固定
   function fixSidebar() {
 
@@ -297,7 +276,7 @@ maechabin.ui = (function ($, window, document) {
       resizeWidth();
       resizeSidebarHeight();
 
-    }, 200);
+    }, 400);
 
   }
 
@@ -312,14 +291,12 @@ maechabin.ui = (function ($, window, document) {
   return {
 
     init: function () {
-
       currentCategory();
       showAgendaLink();
       goTop();
       clickHeaderBar();
       backlink();
       clickTopPost();
-      makeShadowHeaderBar();
       fixSidebar();
       resizeSidebarHeight();
       resizeWidth();
@@ -328,7 +305,6 @@ maechabin.ui = (function ($, window, document) {
         headroom: true
       });
       displayMobileSearch();
-
     }
 
   };
