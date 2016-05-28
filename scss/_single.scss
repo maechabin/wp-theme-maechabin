@@ -73,19 +73,18 @@
 
 /* code */
 code {
+  box-sizing: border-box;
   background-color: #212121;
   border-radius: 1px !important;
   color: #fff;
   display: block;
   line-height: 1.4;
-  padding: 16px;
+  padding: 24px 16px;
   text-align: left;
   font: {
     family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
     size: 14px !important;
-  }
-  strong {
-    font-weight: bold !important;
+    weight: bold !important;
   }
   em {
     font: {
