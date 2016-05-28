@@ -1,17 +1,14 @@
-var jQuery = require('jquery');
+import jQuery from 'jquery';
 require('cbslideheader');
 require('cbsharecount');
 
-var maechabin = maechabin || {};
+const maechabin = maechabin || {};
 
-maechabin.ui = (function ($, window, document) {
-  'use strict';
-
-  var timer = null;
-  var w = $(window);
-  var header = $('.header');
-  var headerBar = $('#header_bar');
-  var sidebar_height = $('#sidebar').height();
+maechabin.ui = (($, window, document) => {
+  const w = $(window);
+  const header = $('.header');
+  const headerBar = $('#header_bar');
+  let timer = null;
 
   // Smooth Scroll
   function smoothScroll(position, speed) {
@@ -20,30 +17,30 @@ maechabin.ui = (function ($, window, document) {
 
   // ページ上部に戻る押したとき
   function goTop() {
-    $('a[href^="#"]').on('click', function () {
-      var speed = 400;
-      var href = $(this).attr('href');
-      var target = $(href === '#' || href === '' ? 'html' : href);
-      var position = target.offset().top - headerBar.height();
+    $('a[href^="#"]').on('click', function (e) {
+      const speed = 400;
+      const href = $(this).attr('href');
+      const target = $(href === '#' || href === '' ? 'html' : href);
+      const position = target.offset().top - headerBar.height();
 
+      e.preventDefault();
       smoothScroll(position, speed);
       return false;
     });
   }
 
   function currentCategory() {
-    var path = location.pathname;
-    var currentClassName = 'category__list_current';
-    var categoryName;
-    var categoryList = $('.category__list').find('li') || '';
-    var addCurrentClass = function (n) {
+    const path = location.pathname;
+    const currentClassName = 'category__list_current';
+    const categoryList = $('.category__list').find('li') || '';
+    const addCurrentClass = (n) => {
       if (categoryList) {
         categoryList.eq(n).addClass(currentClassName);
       }
     };
+    let categoryName;
 
     categoryList.removeClass(currentClassName);
-
     if (path) {
       categoryName = path.split('/');
       switch (categoryName[3]) {
@@ -65,10 +62,10 @@ maechabin.ui = (function ($, window, document) {
 
   // ヘッダーバーをクリックした時
   function clickHeaderBar() {
-    headerBar.on('click', function (e) {
-      var element = $(e.target).attr('id');
-      var speed;
-      var position;
+    headerBar.on('click', (e) => {
+      const element = $(e.target).attr('id');
+      let speed;
+      let position;
 
       if (element === 'header_bar' || element === 'header_bar_inner') {
         speed = 600;
@@ -76,6 +73,7 @@ maechabin.ui = (function ($, window, document) {
         smoothScroll(position, speed);
         return false;
       }
+      return true;
     });
   }
 
@@ -106,7 +104,7 @@ maechabin.ui = (function ($, window, document) {
 
   // トップページのポストをクリックした時
   function clickTopPost() {
-    var index = $('.post-box');
+    const index = $('.post-box');
     index.each(function () {
       var $this = $(this);
       $this.on('click', function (e) {
@@ -123,18 +121,18 @@ maechabin.ui = (function ($, window, document) {
   }
 
   function displayMobileSearch() {
-    var searchMobile = $('.header__search_mobile');
-    var buttonSearch = $('.header__button_search');
-    var buttonBack = $('.header__button_back');
+    const searchMobile = $('.header__search_mobile');
+    const buttonSearch = $('.header__button_search');
+    const buttonBack = $('.header__button_back');
 
-    buttonSearch.on('click', function () {
+    buttonSearch.on('click', () => {
       searchMobile.stop().animate({
-        left: 0
+        left: 0,
       }, 500, 'swing');
     });
-    buttonBack.on('click', function () {
+    buttonBack.on('click', () => {
       searchMobile.stop().animate({
-        left: '100vw'
+        left: '100vw',
       }, 300, 'linear');
     });
   }
@@ -157,7 +155,7 @@ maechabin.ui = (function ($, window, document) {
           if (sidebar_scroll_stop < $(this).scrollTop() && $(this).scrollTop() < sidebar_scroll_start) {
             sidebar_sub.css({ position: 'fixed', bottom: '24px' });
           } else if (w.scrollTop() >= sidebar_scroll_start) {
-            sidebar_sub.css({ position: 'absolute', bottom: '0' });
+            sidebar_sub.css({ position: 'absolute', bottom: 0 });
           } else {
             sidebar_sub.css('position', 'static');
           }
@@ -167,8 +165,8 @@ maechabin.ui = (function ($, window, document) {
   }
 
   function showAgendaLink() {
-    var agenda = $('#agenda');
-    var agendaLink = $('#footer__bar__agenda-link');
+    const agenda = $('#agenda');
+    const agendaLink = $('#footer__bar__agenda-link');
 
     if (agenda[0]) {
       agendaLink.addClass('footer__style--show');
@@ -177,18 +175,18 @@ maechabin.ui = (function ($, window, document) {
   }
 
   function resizeWidth() {
-    var content = $('#content');
-    var content_width = $('#content_border').width();
-    var entry = $('#entry');
-    var sidebar = $('#sidebar');
-    var margin_width = 0;
+    const content = $('#content');
+    const contentWidth = $('#content_border').width();
+    const entry = $('#entry');
+    const sidebar = $('#sidebar');
+    let marginWidth = 0;
 
-    if (content_width > 1092) {
-      margin_width = (content_width - 1092) / 2;
-      content.css('width', content_width + 'px');
+    if (contentWidth > 1092) {
+      marginWidth = (contentWidth - 1092) / 2;
+      content.css('width', `${contentWidth}px`);
     }
-    sidebar.css('padding-right', margin_width + 'px');
-    entry.css('margin-left', margin_width + 'px');
+    sidebar.css('padding-right', `${marginWidth}px`);
+    entry.css('margin-left', `${marginWidth}px`);
   }
 
   function resizeSidebarHeight() {
@@ -210,20 +208,20 @@ maechabin.ui = (function ($, window, document) {
 
   function startFunc() {
     window.clearTimeout(timer);
-    timer = window.setTimeout(function () {
+    timer = window.setTimeout(() => {
       resizeWidth();
       resizeSidebarHeight();
     }, 400);
   }
 
   function checkBrowserSize() {
-    w.on('resize', function () {
+    w.on('resize', () => {
       startFunc();
     });
   }
 
   return {
-    init: function () {
+    init() {
       currentCategory();
       showAgendaLink();
       goTop();
@@ -235,10 +233,10 @@ maechabin.ui = (function ($, window, document) {
       resizeWidth();
       checkBrowserSize();
       header.cbSlideUpHeader({
-        headroom: true
+        headroom: true,
       });
       displayMobileSearch();
-    }
+    },
   };
 })(jQuery, window, document);
 

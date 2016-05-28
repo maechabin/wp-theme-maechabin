@@ -1,19 +1,23 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 (function (global){
-var jQuery = (typeof window !== "undefined" ? window['$'] : typeof global !== "undefined" ? global['$'] : null);
+'use strict';
+
+var _jquery = (typeof window !== "undefined" ? window['$'] : typeof global !== "undefined" ? global['$'] : null);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 require('cbslideheader');
 require('cbsharecount');
 
 var maechabin = maechabin || {};
 
-maechabin.ui = (function ($, window, document) {
-  'use strict';
-
-  var timer = null;
+maechabin.ui = function ($, window, document) {
   var w = $(window);
   var header = $('.header');
   var headerBar = $('#header_bar');
-  var sidebar_height = $('#sidebar').height();
+  var timer = null;
 
   // Smooth Scroll
   function smoothScroll(position, speed) {
@@ -22,12 +26,13 @@ maechabin.ui = (function ($, window, document) {
 
   // ページ上部に戻る押したとき
   function goTop() {
-    $('a[href^="#"]').on('click', function () {
+    $('a[href^="#"]').on('click', function (e) {
       var speed = 400;
       var href = $(this).attr('href');
       var target = $(href === '#' || href === '' ? 'html' : href);
       var position = target.offset().top - headerBar.height();
 
+      e.preventDefault();
       smoothScroll(position, speed);
       return false;
     });
@@ -36,16 +41,15 @@ maechabin.ui = (function ($, window, document) {
   function currentCategory() {
     var path = location.pathname;
     var currentClassName = 'category__list_current';
-    var categoryName;
     var categoryList = $('.category__list').find('li') || '';
-    var addCurrentClass = function (n) {
+    var addCurrentClass = function addCurrentClass(n) {
       if (categoryList) {
         categoryList.eq(n).addClass(currentClassName);
       }
     };
+    var categoryName = void 0;
 
     categoryList.removeClass(currentClassName);
-
     if (path) {
       categoryName = path.split('/');
       switch (categoryName[3]) {
@@ -69,8 +73,8 @@ maechabin.ui = (function ($, window, document) {
   function clickHeaderBar() {
     headerBar.on('click', function (e) {
       var element = $(e.target).attr('id');
-      var speed;
-      var position;
+      var speed = void 0;
+      var position = void 0;
 
       if (element === 'header_bar' || element === 'header_bar_inner') {
         speed = 600;
@@ -78,6 +82,7 @@ maechabin.ui = (function ($, window, document) {
         smoothScroll(position, speed);
         return false;
       }
+      return true;
     });
   }
 
@@ -159,7 +164,7 @@ maechabin.ui = (function ($, window, document) {
           if (sidebar_scroll_stop < $(this).scrollTop() && $(this).scrollTop() < sidebar_scroll_start) {
             sidebar_sub.css({ position: 'fixed', bottom: '24px' });
           } else if (w.scrollTop() >= sidebar_scroll_start) {
-            sidebar_sub.css({ position: 'absolute', bottom: '0' });
+            sidebar_sub.css({ position: 'absolute', bottom: 0 });
           } else {
             sidebar_sub.css('position', 'static');
           }
@@ -180,17 +185,17 @@ maechabin.ui = (function ($, window, document) {
 
   function resizeWidth() {
     var content = $('#content');
-    var content_width = $('#content_border').width();
+    var contentWidth = $('#content_border').width();
     var entry = $('#entry');
     var sidebar = $('#sidebar');
-    var margin_width = 0;
+    var marginWidth = 0;
 
-    if (content_width > 1092) {
-      margin_width = (content_width - 1092) / 2;
-      content.css('width', content_width + 'px');
+    if (contentWidth > 1092) {
+      marginWidth = (contentWidth - 1092) / 2;
+      content.css('width', contentWidth + 'px');
     }
-    sidebar.css('padding-right', margin_width + 'px');
-    entry.css('margin-left', margin_width + 'px');
+    sidebar.css('padding-right', marginWidth + 'px');
+    entry.css('margin-left', marginWidth + 'px');
   }
 
   function resizeSidebarHeight() {
@@ -225,7 +230,7 @@ maechabin.ui = (function ($, window, document) {
   }
 
   return {
-    init: function () {
+    init: function init() {
       currentCategory();
       showAgendaLink();
       goTop();
@@ -242,7 +247,7 @@ maechabin.ui = (function ($, window, document) {
       displayMobileSearch();
     }
   };
-})(jQuery, window, document);
+}(_jquery2.default, window, document);
 
 window.onload = maechabin.ui.init;
 

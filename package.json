@@ -3,9 +3,6 @@
   "version": "2.5.0",
   "description": "WordPress Original Theme",
   "main": "./main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/maechabin/mae.chab.in.git"
@@ -26,12 +23,11 @@
     ]
   },
   "author": "@maechabin mail@chab.in http://mae.chab.in/",
-  "license": "MIT License",
-  "bugs": {
-    "url": "http://mae.chab.in/"
-  },
+  "license": "MIT",
   "homepage": "http://mae.chab.in/",
   "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
     "browserify": "^11.0.1",
     "browserify-shim": "^3.8.10",
     "eslint": "^2.11.0",

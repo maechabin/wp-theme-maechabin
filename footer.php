@@ -61,7 +61,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/lang-css.min.js"></script>
 <?php endif ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-8c610cd01e874ee67a121c43491d614d.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-335f527745474bc80a9db2f83458f8b2.js" defer></script>
 <script>
 $(document).ready(function () {
 	$(".cb-share").cbShareCount();

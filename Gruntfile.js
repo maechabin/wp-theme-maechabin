@@ -97,6 +97,11 @@ module.exports = function (grunt) {
 
     browserify: {
       dist: {
+        options: {
+          transform: [
+            ['babelify']
+          ]
+        },
         files: {
           'js/function.js': ['js/main.js']
         }
