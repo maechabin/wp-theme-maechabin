@@ -8,6 +8,7 @@ maechabin.ui = (($, window, document) => {
   const w = $(window);
   const header = $('.header');
   const headerBar = $('#header_bar');
+  const contentWidthSize = 1092;
   let timer = null;
 
   // Smooth Scroll
@@ -78,17 +79,17 @@ maechabin.ui = (($, window, document) => {
   }
 
   function backlink() {
-    var url = location.href;
-    var domain = location.host;
-    var search = location.search || '';
-    // var port = location.port ? ":" + location.port : "";
-    var regexp1 = new RegExp('^https?://' + domain + '/archives/[0-9]+$', 'ig');
-    var regexp2 = new RegExp('^https?://' + domain, 'ig');
-    var regexp3 = new RegExp('/?s=.+?', 'ig');
-    var blogTitle = $('.header__title').eq(0);
-    var blogTitleLink = blogTitle.find('a').eq(0);
-    var blogTitleIcon = blogTitle.find('i').eq(0);
-    var referrer = document.referrer || '';
+    const url = location.href;
+    const domain = location.host;
+    const search = location.search || '';
+    // const port = location.port ? ":" + location.port : "";
+    const regexp1 = new RegExp(`^https?://${domain}/archives/[0-9]+$`, 'ig');
+    const regexp2 = new RegExp(`^https?://${domain}`, 'ig');
+    const regexp3 = new RegExp('/?s=.+?', 'ig');
+    const blogTitle = $('.header__title').eq(0);
+    const blogTitleLink = blogTitle.find('a').eq(0);
+    const blogTitleIcon = blogTitle.find('i').eq(0);
+    const referrer = document.referrer || '';
 
     if (url.match(regexp1) && referrer.match(regexp2) && !referrer.match(regexp1)) {
       blogTitleIcon.attr('class', 'fa fa-chevron-left');
@@ -97,7 +98,7 @@ maechabin.ui = (($, window, document) => {
       blogTitleIcon.attr('class', 'fa fa-chevron-left');
       blogTitleLink.attr('href', referrer);
     } else {
-      // blog_title_icon.attr("class", "fa fa-medium");
+      // blogTitleIcon.attr("class", "fa fa-medium");
       blogTitleLink.attr('href', '/');
     }
   }
@@ -106,14 +107,12 @@ maechabin.ui = (($, window, document) => {
   function clickTopPost() {
     const index = $('.post-box');
     index.each(function () {
-      var $this = $(this);
-      $this.on('click', function (e) {
-        var element = e.target.nodeName;
-        var link;
-        var href;
+      const $this = $(this);
+      $this.on('click', (e) => {
+        const element = e.target.nodeName;
         if (element === 'SECTION' || element === 'H1' || element === 'UL') {
-          link = this.getElementsByTagName('a')[0];
-          href = link.getAttribute('href');
+          const link = this.getElementsByTagName('a')[0];
+          const href = link.getAttribute('href');
           window.location.assign(href);
         }
       });
@@ -139,25 +138,25 @@ maechabin.ui = (($, window, document) => {
 
   // サイドバー固定
   function fixSidebar() {
-    var headerbar_height = headerBar.height();
-    var content_height = $('#content_border').height();
-    var sidebar_height = $('#sidebar').height();
+    const headerbarHeight = headerBar.height();
+    const contentHeight = $('#content_border').height();
+    const sidebarHeight = $('#sidebar').height();
 
-    if (sidebar_height < content_height) {
-      var sidebar = $('#sidebar');
-      var sidebar_sub = $('#sidebar_sub');
-      var sidebar_scroll_stop = headerbar_height + sidebar_sub.height() + 24 - w.height();
-      var sidebar_scroll_start = headerbar_height + content_height + 24 - w.height();
+    if (sidebarHeight < contentHeight) {
+      const sidebar = $('#sidebar');
+      const sidebarSub = $('#sidebar_sub');
+      const sidebarScrollStop = headerbarHeight + sidebarSub.height() + 24 - w.height();
+      const sidebarScrollStart = headerbarHeight + contentHeight + 24 - w.height();
 
-      sidebar.css('height', content_height + 'px');
+      sidebar.css('height', `${contentHeight}px`);
       w.on('scroll', function () {
-        if (window.matchMedia('(min-width: 1024px)').matches) {
-          if (sidebar_scroll_stop < $(this).scrollTop() && $(this).scrollTop() < sidebar_scroll_start) {
-            sidebar_sub.css({ position: 'fixed', bottom: '24px' });
-          } else if (w.scrollTop() >= sidebar_scroll_start) {
-            sidebar_sub.css({ position: 'absolute', bottom: 0 });
+        if (window.matchMedia('(min-width: 1124px)').matches) {
+          if (sidebarScrollStop < $(this).scrollTop() && $(this).scrollTop() < sidebarScrollStart) {
+            sidebarSub.css({ position: 'fixed', bottom: '24px' });
+          } else if (w.scrollTop() >= sidebarScrollStart) {
+            sidebarSub.css({ position: 'absolute', bottom: 0 });
           } else {
-            sidebar_sub.css('position', 'static');
+            sidebarSub.css('position', 'static');
           }
         }
       });
@@ -176,32 +175,31 @@ maechabin.ui = (($, window, document) => {
 
   function resizeWidth() {
     const content = $('#content');
-    const contentWidth = $('#content_border').width();
+    const contentBorderWidth = $('#content_border').width();
     const entry = $('#entry');
     const sidebar = $('#sidebar');
     let marginWidth = 0;
-
-    if (contentWidth > 1092) {
-      marginWidth = (contentWidth - 1092) / 2;
-      content.css('width', `${contentWidth}px`);
+    if (contentBorderWidth > 1124) {
+      marginWidth = (contentBorderWidth - contentWidthSize) / 2;
+      content.css('width', `${contentBorderWidth}px`);
     }
     sidebar.css('padding-right', `${marginWidth}px`);
     entry.css('margin-left', `${marginWidth}px`);
   }
 
   function resizeSidebarHeight() {
-    var sidebar = $('#sidebar');
-    var sidebar_height = sidebar.height();
-    var sidebar_sub = $('#sidebar_sub');
-    var sidebar_sub_height = sidebar_sub.height();
-    var content_height = $('#content_border').height();
+    const sidebar = $('#sidebar');
+    const sidebarHeight = sidebar.height();
+    const sidebarSub = $('#sidebar_sub');
+    const sidebarSubHeight = sidebarSub.height();
+    const contentHeight = $('#content_border').height();
 
-    if (sidebar_height < content_height) {
-      if (window.matchMedia('(max-width: 1024px)').matches) {
-        sidebar.css('height', sidebar_sub_height + 'px');
-        sidebar_sub.css('position', 'static');
+    if (sidebarHeight < contentHeight) {
+      if (window.matchMedia('(max-width: 1124px)').matches) {
+        sidebar.css('height', `${sidebarSubHeight}px`);
+        sidebarSub.css('position', 'static');
       } else {
-        sidebar.css('height', content_height + 'px');
+        sidebar.css('height', `${contentHeight}px`);
       }
     }
   }

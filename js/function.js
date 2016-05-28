@@ -17,6 +17,7 @@ maechabin.ui = function ($, window, document) {
   var w = $(window);
   var header = $('.header');
   var headerBar = $('#header_bar');
+  var contentWidthSize = 1092;
   var timer = null;
 
   // Smooth Scroll
@@ -90,7 +91,7 @@ maechabin.ui = function ($, window, document) {
     var url = location.href;
     var domain = location.host;
     var search = location.search || '';
-    // var port = location.port ? ":" + location.port : "";
+    // const port = location.port ? ":" + location.port : "";
     var regexp1 = new RegExp('^https?://' + domain + '/archives/[0-9]+$', 'ig');
     var regexp2 = new RegExp('^https?://' + domain, 'ig');
     var regexp3 = new RegExp('/?s=.+?', 'ig');
@@ -106,7 +107,7 @@ maechabin.ui = function ($, window, document) {
       blogTitleIcon.attr('class', 'fa fa-chevron-left');
       blogTitleLink.attr('href', referrer);
     } else {
-      // blog_title_icon.attr("class", "fa fa-medium");
+      // blogTitleIcon.attr("class", "fa fa-medium");
       blogTitleLink.attr('href', '/');
     }
   }
@@ -115,14 +116,14 @@ maechabin.ui = function ($, window, document) {
   function clickTopPost() {
     var index = $('.post-box');
     index.each(function () {
+      var _this = this;
+
       var $this = $(this);
       $this.on('click', function (e) {
         var element = e.target.nodeName;
-        var link;
-        var href;
         if (element === 'SECTION' || element === 'H1' || element === 'UL') {
-          link = this.getElementsByTagName('a')[0];
-          href = link.getAttribute('href');
+          var link = _this.getElementsByTagName('a')[0];
+          var href = link.getAttribute('href');
           window.location.assign(href);
         }
       });
@@ -148,28 +149,30 @@ maechabin.ui = function ($, window, document) {
 
   // サイドバー固定
   function fixSidebar() {
-    var headerbar_height = headerBar.height();
-    var content_height = $('#content_border').height();
-    var sidebar_height = $('#sidebar').height();
+    var headerbarHeight = headerBar.height();
+    var contentHeight = $('#content_border').height();
+    var sidebarHeight = $('#sidebar').height();
 
-    if (sidebar_height < content_height) {
-      var sidebar = $('#sidebar');
-      var sidebar_sub = $('#sidebar_sub');
-      var sidebar_scroll_stop = headerbar_height + sidebar_sub.height() + 24 - w.height();
-      var sidebar_scroll_start = headerbar_height + content_height + 24 - w.height();
+    if (sidebarHeight < contentHeight) {
+      (function () {
+        var sidebar = $('#sidebar');
+        var sidebarSub = $('#sidebar_sub');
+        var sidebarScrollStop = headerbarHeight + sidebarSub.height() + 24 - w.height();
+        var sidebarScrollStart = headerbarHeight + contentHeight + 24 - w.height();
 
-      sidebar.css('height', content_height + 'px');
-      w.on('scroll', function () {
-        if (window.matchMedia('(min-width: 1024px)').matches) {
-          if (sidebar_scroll_stop < $(this).scrollTop() && $(this).scrollTop() < sidebar_scroll_start) {
-            sidebar_sub.css({ position: 'fixed', bottom: '24px' });
-          } else if (w.scrollTop() >= sidebar_scroll_start) {
-            sidebar_sub.css({ position: 'absolute', bottom: 0 });
-          } else {
-            sidebar_sub.css('position', 'static');
+        sidebar.css('height', contentHeight + 'px');
+        w.on('scroll', function () {
+          if (window.matchMedia('(min-width: 1124px)').matches) {
+            if (sidebarScrollStop < $(this).scrollTop() && $(this).scrollTop() < sidebarScrollStart) {
+              sidebarSub.css({ position: 'fixed', bottom: '24px' });
+            } else if (w.scrollTop() >= sidebarScrollStart) {
+              sidebarSub.css({ position: 'absolute', bottom: 0 });
+            } else {
+              sidebarSub.css('position', 'static');
+            }
           }
-        }
-      });
+        });
+      })();
     }
   }
 
@@ -185,14 +188,13 @@ maechabin.ui = function ($, window, document) {
 
   function resizeWidth() {
     var content = $('#content');
-    var contentWidth = $('#content_border').width();
+    var contentBorderWidth = $('#content_border').width();
     var entry = $('#entry');
     var sidebar = $('#sidebar');
     var marginWidth = 0;
-
-    if (contentWidth > 1092) {
-      marginWidth = (contentWidth - 1092) / 2;
-      content.css('width', contentWidth + 'px');
+    if (contentBorderWidth > 1124) {
+      marginWidth = (contentBorderWidth - contentWidthSize) / 2;
+      content.css('width', contentBorderWidth + 'px');
     }
     sidebar.css('padding-right', marginWidth + 'px');
     entry.css('margin-left', marginWidth + 'px');
@@ -200,17 +202,17 @@ maechabin.ui = function ($, window, document) {
 
   function resizeSidebarHeight() {
     var sidebar = $('#sidebar');
-    var sidebar_height = sidebar.height();
-    var sidebar_sub = $('#sidebar_sub');
-    var sidebar_sub_height = sidebar_sub.height();
-    var content_height = $('#content_border').height();
+    var sidebarHeight = sidebar.height();
+    var sidebarSub = $('#sidebar_sub');
+    var sidebarSubHeight = sidebarSub.height();
+    var contentHeight = $('#content_border').height();
 
-    if (sidebar_height < content_height) {
-      if (window.matchMedia('(max-width: 1024px)').matches) {
-        sidebar.css('height', sidebar_sub_height + 'px');
-        sidebar_sub.css('position', 'static');
+    if (sidebarHeight < contentHeight) {
+      if (window.matchMedia('(max-width: 1124px)').matches) {
+        sidebar.css('height', sidebarSubHeight + 'px');
+        sidebarSub.css('position', 'static');
       } else {
-        sidebar.css('height', content_height + 'px');
+        sidebar.css('height', contentHeight + 'px');
       }
     }
   }
