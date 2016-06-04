@@ -59,9 +59,8 @@
 <script src="/wp-content/themes/chabin/assets/function.min-09f3b2224148e650b2f5a764314d5270.js" defer></script>
 <?php if (is_single()): ?>
 	<script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/run_prettify.min.js"></script>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/lang-css.min.js"></script>
-	<script>window.setTimeout(prettyPrint, 500);</script>
 <?php endif ?>
 <script>
 $(document).ready(function () {
