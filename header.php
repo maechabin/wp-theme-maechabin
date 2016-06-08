@@ -63,7 +63,7 @@
 
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-a5a1507e65a687e5a86a4239e3a71b79.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-6e1bb7e213389e4014119898ab59c908.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
 </head>
@@ -103,5 +103,3 @@
         <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログ記事を検索" class="header__search-text_mobile"><button type="submit" class="header__search-button_mobile"><i class="fa fa-search"></i></button>
       </form>
     </div>
-
-    <div id="blog_header"></div>
