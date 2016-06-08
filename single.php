@@ -29,9 +29,8 @@ while(have_posts()):the_post();
 
   <aside class="ad-single1">
     <div class="ad-single1__text">
-      <iframe src="http://rcm-fe.amazon-adsystem.com/e/cm?t=wanderer-22&o=9&p=48&l=ur1&category=kindle&banner=1YBF6JP8Q21WHGTKHTG2&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;max-width:900px;max-height:600px;" frameborder="0"></iframe>
-      <!--<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>-->
-      <!-- mae’s blog（テキスト） -->
+      <a href="https://px.moba8.net/svt/ejp?a8mat=2HHJ3B+2ZRI1M+153Q+BZ0Z5&guid=on" target="_blank">
+      <img border="0" width="728" height="90" alt="" src="https://www27.moba8.net/svt/bgt?aid=150303719181&wid=002&eno=01&mid=m00000005327002011000&mc=1"></a>      <!-- mae’s blog（テキスト） -->
       <!--<ins class="adsbygoogle"
            style="display:inline-block;width:468px;height:15px"
            data-ad-client="ca-pub-6331923403728737"
