@@ -91,7 +91,7 @@
     }
     z-index: 4;
     height: 24px;
-    background-color: #8b0;
+    background-color: $_theme-color;
     border-radius: 2px 2px 0 0;
     opacity: .9;
     &-link {
@@ -128,7 +128,7 @@
         height: 80px;
         border-radius: 50%;
         color: $font-color;
-        background-color: #8b0;
+        background-color: $_theme-color;
       }
     }
   }

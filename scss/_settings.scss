@@ -1,4 +1,5 @@
 $_theme-color: #8b0;
+$_theme-color: #7CB342;
 $_text-color: #212121;
 $_link-color: #3160aa;
 $_content-width: 1092px; /* ここを変更する時は、main.jsも */
@@ -11,7 +12,7 @@ body {
   overflow-y: scroll;
   font-size: 62.5%;
   color: $_text-color;
-  background-color: #eee;
+  background-color: #fff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

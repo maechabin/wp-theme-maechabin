@@ -22,7 +22,7 @@ Author URI: http://mae.chab.in/
   clear: both;
   overflow: hidden;
   min-width: $_content-width;
-  margin: 0 16px 210px;
+  margin: 0 0 210px;
   border-radius: 2px;
 }
 #content {
@@ -457,7 +457,7 @@ pre {
   color: #fff;
   padding: 0;
   line-height: 3em;
-  background-color: #8b0;
+  background-color: $_theme-color;
   font-size: 18px;
   font-weight: normal;
   text-indent: 1em;
@@ -515,7 +515,7 @@ pre {
   clear: both;
   color: #fff;
   line-height: 3em;
-  background-color: #8b0;
+  background-color: $_theme-color;
   font-size: 18px;
   font-weight: normal;
   text-indent: 1em;

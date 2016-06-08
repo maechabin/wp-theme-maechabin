@@ -89,7 +89,14 @@ code {
   em {
     font: {
       style: normal;
-      weight: normal;
+    }
+    margin: {
+      left: -16px;
+      right: -16px;
+    }
+    padding: {
+      left: 16px;
+      right: 16px;
     }
     background-color: #424242;
     display: inline-block;
