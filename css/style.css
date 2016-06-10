@@ -54,6 +54,7 @@ select {
 }
 
 /* ▲初期化▲ */
+/* light green 600 */
 /* ここを変更する時は、main.jsも */
 body {
   /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
@@ -585,7 +586,7 @@ article header {
 .entry-title {
   color: #212121;
   margin-bottom: 4px;
-  font-size: 34px;
+  font-size: 36px;
   line-height: 1.4;
 }
 
@@ -618,7 +619,7 @@ figure {
   font-size: 17px;
   text-align: justify;
   text-justify: inter-ideograph;
-  margin-bottom: 27px;
+  margin-bottom: 32px;
   line-height: 1.8;
 }
 
@@ -641,10 +642,10 @@ article .postmetadata {
   background: linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
   background: -webkit-linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
   background-size: 3px 3px;
-  border-top: 3px solid #424242;
-  border-bottom: 3px solid #424242;
+  border-top: 4px solid #424242;
+  border-bottom: 4px solid #424242;
   color: #212121;
-  font-size: 26px;
+  font-size: 28px;
   margin: 64px auto 32px;
 }
 
@@ -695,7 +696,7 @@ hr {
 
 .blockBorder {
   padding: 16px;
-  border: 1px solid #C5E1A5;
+  border: 1px solid #DCEDC8;
   background-color: #F1F8E9;
   border-radius: 1px;
 }
@@ -783,6 +784,7 @@ pre {
 
 .mark {
   background-color: #E0E0E0;
+  padding: 0 2px;
 }
 
 .btn-github {
@@ -831,11 +833,11 @@ pre {
 }
 
 .entry .bottom_1 {
-  margin-bottom: 26px;
+  margin-bottom: 32px;
 }
 
 .entry .bottom_2 {
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 .text-center {
@@ -847,13 +849,12 @@ pre {
 #related-posts-title {
   clear: both;
   color: #fff;
-  padding: 0;
-  line-height: 3em;
+  padding: 24px 0;
   background-color: #7CB342;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: normal;
-  text-indent: 1em;
-  margin-bottom: 16px;
+  text-align: center;
+  margin-bottom: 24px;
   border-radius: 2px;
 }
 
@@ -903,18 +904,18 @@ pre {
 /* ▲article▲ */
 /* ▼コメント▼ */
 #comments {
-  margin: 0 18px;
+  margin: 0 16px;
 }
 
 #comments-title {
   clear: both;
   color: #fff;
-  line-height: 3em;
+  padding: 24px 0;
   background-color: #7CB342;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: normal;
-  text-indent: 1em;
-  margin-bottom: 1em;
+  text-align: center;
+  margin-bottom: 24px;
   border-radius: 2px;
 }
 
@@ -923,6 +924,11 @@ pre {
   overflow: hidden;
   clear: both;
   background-color: #F1F8E1;
+  box-sizing: border-box;
+}
+
+.comment {
+  padding: 16px 16px 8px;
 }
 
 .depth-1,
@@ -933,8 +939,8 @@ pre {
 .comment_author_img {
   float: left;
   width: 40px;
-  padding-top: 8px;
-  padding-left: 8px;
+  margin-right: 8px;
+  box-sizing: border-box;
 }
 
 .comment_author_img img {
@@ -943,23 +949,24 @@ pre {
 
 .comment_article {
   float: left;
-  width: 580px;
-  padding: 8px;
-  font-size: 14px;
+  width: calc(100% - 48px);
+  box-sizing: border-box;
+  font-size: 16px;
 }
 
 .comment_text {
+  box-sizing: border-box;
   border: 2px solid #C7E667;
   background-color: #fff;
-  padding: 8px;
+  padding: 16px;
   padding-bottom: 0;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   border-radius: 2px;
 }
 
 .comment_text p {
-  line-height: 1.6em;
-  margin-bottom: 1em;
+  line-height: 1.4;
+  margin-bottom: 16px;
 }
 
 .comment_author_name {
@@ -971,13 +978,16 @@ pre {
   font-size: 12px;
 }
 
+.children .comment {
+  padding: 8px 0 0;
+}
+
 .children article {
-  margin-left: 56px;
+  margin-left: 48px;
 }
 
 .children article .comment_article {
-  width: 524px;
-  padding-bottom: 8px;
+  width: calc(100% - 48px);
 }
 
 .pingback p {
@@ -1259,7 +1269,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .sidebar {
   float: right;
   width: 332px;
-  color: #888;
+  color: #757575;
   font-size: 14px;
   position: relative;
   background-color: #ECEFF1;
@@ -1275,7 +1285,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   color: #fff;
   text-align: center;
   margin: 16px 0 8px;
-  line-height: 40px;
+  padding: 8px 0;
   border-radius: 1px;
   background-color: #607D8B;
 }
@@ -1297,7 +1307,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .sidebar__author-social {
   letter-spacing: 2px;
   margin: 8px auto 0;
-  font-size: 22px;
+  font-size: 24px;
   text-align: center !important;
 }
 .sidebar__author-description {
@@ -1541,6 +1551,13 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   .comment_form_list,
   .comment-form-comment {
     width: 100%;
+  }
+
+  #related-posts-title,
+  #comments-title {
+    border-radius: 0;
+    margin-left: -16px;
+    margin-right: -16px;
   }
 }
 
