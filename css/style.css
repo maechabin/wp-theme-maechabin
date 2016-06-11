@@ -548,7 +548,7 @@ article header {
 }
 
 .social-button > li {
-  float: left;
+  vertical-align: top;
   margin-right: 2px;
   display: inline-block;
 }
@@ -623,7 +623,7 @@ figure {
 }
 
 .entry p {
-  line-height: 2.2 !important;
+  line-height: 2.2;
 }
 
 #linkpages {
@@ -682,10 +682,12 @@ hr {
 }
 
 .entry q {
-  color: #4e342e;
+  background-color: #EFEBE9;
   font-weight: bold;
-  margin-left: 2em;
+  padding-left: 2em;
+  padding-right: 8px;
   display: block;
+  font-size: 16px;
   font-style: italic;
 }
 
@@ -698,6 +700,11 @@ hr {
   border: 1px solid #DCEDC8;
   background-color: #F1F8E9;
   border-radius: 1px;
+}
+
+.blockBorder p {
+  line-height: 1.8;
+  margin-bottom: 24px;
 }
 
 .imgBorder {
@@ -914,7 +921,7 @@ pre {
   font-size: 24px;
   font-weight: normal;
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 8px;
   border-radius: 2px;
 }
 
@@ -1530,6 +1537,10 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
     margin-right: -16px;
   }
 
+  #comments {
+    margin: 0;
+  }
+
   #comment {
     width: 100%;
     max-width: 100%;
@@ -1537,6 +1548,10 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 
   .comment_article {
     max-width: 94%;
+  }
+
+  #respond {
+    border-radius: 0;
   }
 
   .entry code {
