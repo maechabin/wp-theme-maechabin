@@ -53,10 +53,10 @@
 	<!-- ▲footer▲ -->
 
 </div><!-- #index -->
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <?php wp_footer(); ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-09f3b2224148e650b2f5a764314d5270.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-23fff25437ef93d638a1edabbfe7bc9a.js" defer></script>
 <?php if (is_single()): ?>
 	<script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

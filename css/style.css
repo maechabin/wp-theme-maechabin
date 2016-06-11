@@ -76,7 +76,7 @@ a:hover {
 
 a > i {
   vertical-align: -1px;
-  color: #444;
+  color: #424242;
   text-decoration: none;
   margin-right: .4em;
 }
@@ -217,7 +217,7 @@ a > i {
   color: #fafafa;
   cursor: pointer;
 }
-@media screen and (min-width: 1124px) {
+@media screen and (min-width: 1092px) {
   　
   .header__button_search {
     display: none;
@@ -248,7 +248,7 @@ a > i {
   color: #fafafa;
   margin-left: 8px;
 }
-@media screen and (max-width: 1124px) {
+@media screen and (max-width: 1092px) {
   .header__inner {
     max-width: 100%;
     width: 100%;
@@ -309,7 +309,7 @@ a > i {
 .category__list li span {
   font-size: 14px;
 }
-@media screen and (max-width: 1124px) {
+@media screen and (max-width: 1092px) {
   .category {
     max-width: calc(100% - 16px);
   }
@@ -347,18 +347,17 @@ a > i {
   background-color: #fff;
   clear: both;
   overflow: hidden;
-  min-width: 1092px;
   margin: 0 0 210px;
-  border-radius: 2px;
 }
 
 #content {
   zoom: 1;
-  width: 1092px;
+  width: 100%;
   margin: 0 auto;
 }
 
 #entry {
+  padding-left: calc((100% - 1092px) / 2);
   position: relative;
   float: left;
   width: 760px;
@@ -1167,7 +1166,7 @@ pre {
   background-color: #F57F17;
   color: #fff;
 }
-@media screen and (max-width: 1124px) {
+@media screen and (max-width: 1092px) {
   .item__button {
     width: 100%;
   }
@@ -1259,7 +1258,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .search__display {
   display: inline;
 }
-@media screen and (max-width: 1124px) {
+@media screen and (max-width: 1092px) {
   .search__display {
     display: none;
   }
@@ -1268,7 +1267,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 /* #sidebar */
 .sidebar {
   float: right;
-  width: 332px;
+  width: calc(((100% - 1092px) / 2) + 332px);
   color: #757575;
   font-size: 14px;
   position: relative;
@@ -1357,7 +1356,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .sidebar table {
   margin-bottom: 32px;
 }
-@media screen and (max-width: 1124px) {
+@media screen and (max-width: 1092px) {
   .sidebar {
     width: 100%;
     max-width: 100%;
@@ -1493,7 +1492,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   color: #fff;
 }
 
-@media screen and (max-width: 1124px) {
+@media screen and (max-width: 1092px) {
   #content_border {
     min-width: 100%;
     width: 100%;
