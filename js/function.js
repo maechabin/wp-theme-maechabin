@@ -152,19 +152,20 @@ maechabin.ui = function ($, window, document) {
     var headerbarHeight = headerBar.height();
     var contentHeight = $('#content_border').height();
     var sidebarHeight = $('#sidebar').height();
+    var footerBarHight = 24;
 
     if (sidebarHeight < contentHeight) {
       (function () {
         var sidebar = $('#sidebar');
         var sidebarSub = $('#sidebar_sub');
-        var sidebarScrollStop = headerbarHeight + sidebarSub.height() + 24 - w.height();
-        var sidebarScrollStart = headerbarHeight + contentHeight + 24 - w.height();
+        var sidebarScrollStop = headerbarHeight + sidebarSub.height() + footerBarHight - w.height();
+        var sidebarScrollStart = headerbarHeight + contentHeight + footerBarHight - w.height();
 
         sidebar.css('height', contentHeight + 'px');
         w.on('scroll', function () {
-          if (window.matchMedia('(min-width: 1124px)').matches) {
-            if (sidebarScrollStop < $(this).scrollTop() && $(this).scrollTop() < sidebarScrollStart) {
-              sidebarSub.css({ position: 'fixed', bottom: '24px' });
+          if (window.matchMedia('(min-width: ' + contentWidthSize + 'px)').matches) {
+            if (sidebarScrollStop < w.scrollTop() && w.scrollTop() < sidebarScrollStart) {
+              sidebarSub.css({ position: 'fixed', bottom: footerBarHight + 'px' });
             } else if (w.scrollTop() >= sidebarScrollStart) {
               sidebarSub.css({ position: 'absolute', bottom: 0 });
             } else {
@@ -186,20 +187,6 @@ maechabin.ui = function ($, window, document) {
     }
   }
 
-  function resizeWidth() {
-    var content = $('#content');
-    var contentBorderWidth = $('#content_border').width();
-    var entry = $('#entry');
-    var sidebar = $('#sidebar');
-    var marginWidth = 0;
-    if (contentBorderWidth > 1124) {
-      marginWidth = (contentBorderWidth - contentWidthSize) / 2;
-      content.css('width', contentBorderWidth + 'px');
-    }
-    sidebar.css('padding-right', marginWidth + 'px');
-    entry.css('margin-left', marginWidth + 'px');
-  }
-
   function resizeSidebarHeight() {
     var sidebar = $('#sidebar');
     var sidebarHeight = sidebar.height();
@@ -208,7 +195,7 @@ maechabin.ui = function ($, window, document) {
     var contentHeight = $('#content_border').height();
 
     if (sidebarHeight < contentHeight) {
-      if (window.matchMedia('(max-width: 1124px)').matches) {
+      if (window.matchMedia('(max-width: ' + contentWidthSize + 'px)').matches) {
         sidebar.css('height', sidebarSubHeight + 'px');
         sidebarSub.css('position', 'static');
       } else {
@@ -220,7 +207,6 @@ maechabin.ui = function ($, window, document) {
   function startFunc() {
     window.clearTimeout(timer);
     timer = window.setTimeout(function () {
-      resizeWidth();
       resizeSidebarHeight();
     }, 400);
   }
@@ -241,7 +227,6 @@ maechabin.ui = function ($, window, document) {
       clickTopPost();
       fixSidebar();
       resizeSidebarHeight();
-      resizeWidth();
       checkBrowserSize();
       header.cbSlideUpHeader({
         headroom: true
@@ -251,7 +236,9 @@ maechabin.ui = function ($, window, document) {
   };
 }(_jquery2.default, window, document);
 
-window.onload = maechabin.ui.init;
+document.addEventListener('DOMContentLoaded', function () {
+  maechabin.ui.init();
+});
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{"cbsharecount":2,"cbslideheader":3}],2:[function(require,module,exports){

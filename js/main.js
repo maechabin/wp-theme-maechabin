@@ -141,18 +141,19 @@ maechabin.ui = (($, window, document) => {
     const headerbarHeight = headerBar.height();
     const contentHeight = $('#content_border').height();
     const sidebarHeight = $('#sidebar').height();
+    const footerBarHight = 24;
 
     if (sidebarHeight < contentHeight) {
       const sidebar = $('#sidebar');
       const sidebarSub = $('#sidebar_sub');
-      const sidebarScrollStop = headerbarHeight + sidebarSub.height() + 24 - w.height();
-      const sidebarScrollStart = headerbarHeight + contentHeight + 24 - w.height();
+      const sidebarScrollStop = headerbarHeight + sidebarSub.height() + footerBarHight - w.height();
+      const sidebarScrollStart = headerbarHeight + contentHeight + footerBarHight - w.height();
 
       sidebar.css('height', `${contentHeight}px`);
-      w.on('scroll', function () {
-        if (window.matchMedia('(min-width: 1124px)').matches) {
-          if (sidebarScrollStop < $(this).scrollTop() && $(this).scrollTop() < sidebarScrollStart) {
-            sidebarSub.css({ position: 'fixed', bottom: '24px' });
+      w.on('scroll', () => {
+        if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
+          if (sidebarScrollStop < w.scrollTop() && w.scrollTop() < sidebarScrollStart) {
+            sidebarSub.css({ position: 'fixed', bottom: `${footerBarHight}px` });
           } else if (w.scrollTop() >= sidebarScrollStart) {
             sidebarSub.css({ position: 'absolute', bottom: 0 });
           } else {
@@ -173,20 +174,6 @@ maechabin.ui = (($, window, document) => {
     }
   }
 
-  function resizeWidth() {
-    const content = $('#content');
-    const contentBorderWidth = $('#content_border').width();
-    const entry = $('#entry');
-    const sidebar = $('#sidebar');
-    let marginWidth = 0;
-    if (contentBorderWidth > 1124) {
-      marginWidth = (contentBorderWidth - contentWidthSize) / 2;
-      content.css('width', `${contentBorderWidth}px`);
-    }
-    sidebar.css('padding-right', `${marginWidth}px`);
-    entry.css('margin-left', `${marginWidth}px`);
-  }
-
   function resizeSidebarHeight() {
     const sidebar = $('#sidebar');
     const sidebarHeight = sidebar.height();
@@ -195,7 +182,7 @@ maechabin.ui = (($, window, document) => {
     const contentHeight = $('#content_border').height();
 
     if (sidebarHeight < contentHeight) {
-      if (window.matchMedia('(max-width: 1124px)').matches) {
+      if (window.matchMedia(`(max-width: ${contentWidthSize}px)`).matches) {
         sidebar.css('height', `${sidebarSubHeight}px`);
         sidebarSub.css('position', 'static');
       } else {
@@ -207,7 +194,6 @@ maechabin.ui = (($, window, document) => {
   function startFunc() {
     window.clearTimeout(timer);
     timer = window.setTimeout(() => {
-      resizeWidth();
       resizeSidebarHeight();
     }, 400);
   }
@@ -228,7 +214,6 @@ maechabin.ui = (($, window, document) => {
       clickTopPost();
       fixSidebar();
       resizeSidebarHeight();
-      resizeWidth();
       checkBrowserSize();
       header.cbSlideUpHeader({
         headroom: true,
@@ -238,4 +223,6 @@ maechabin.ui = (($, window, document) => {
   };
 })(jQuery, window, document);
 
-window.onload = maechabin.ui.init;
+document.addEventListener('DOMContentLoaded', () => {
+  maechabin.ui.init();
+});

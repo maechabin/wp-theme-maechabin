@@ -21,17 +21,15 @@ Author URI: http://mae.chab.in/
   background-color: #fff;
   clear: both;
   overflow: hidden;
-  min-width: $_content-width;
   margin: 0 0 210px;
-  border-radius: 2px;
 }
 #content {
   zoom: 1;
-  width: $_content-width;
+  width: 100%;
   margin: 0 auto;
 }
-
 #entry {
+  padding-left: calc((100% - 1092px) / 2);
   position: relative;
   float: left;
   width: $_entry-width;
