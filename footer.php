@@ -36,9 +36,14 @@
 
 		<div id="footer_bar" class="footer__bar">
 			<ul>
-				<li class="footer__bar-link footer__bar-link--left footer__style--hidden" id="footer__bar__agenda-link">
+				<li class="footer__bar-link footer__bar-link--left" id="footer__bar_home">
+					<a href="/">
+						<i class="fa fa-home"></i>ホーム
+					</a>
+				</li>
+				<li class="footer__bar-link footer__style--hidden" id="footer__bar__agenda-link">
 					<a href="#agenda">
-						<i class="fa fa-chevron-circle-up"></i>目次に戻る
+						<i class="fa fa-book"></i>目次に移動
 					</a>
 				</li>
 				<li class="footer__bar-link footer__bar-link--right">

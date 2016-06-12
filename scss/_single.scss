@@ -34,7 +34,10 @@
 
 /* item */
 .item {
+  background-color: #FAFAFA;
+  box-sizing: border-box;
   display: flex;
+  padding: 16px 8px;
   figcaption {
     padding-left: 8px;
   }
@@ -45,15 +48,20 @@
     text-align:left;
     margin-bottom: 0 !important;
     li {
-      font-size: 14px;
+      font-size: 16px;
       line-height: 1.4;
+    }
+    strong {
+      font-size: 20px;
     }
   }
   &__button {
-    font-size: 14px;
-    padding: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    box-sizing: border-box;
+    padding: 16px 8px;
     border-radius: 2px;
-    width: 220px;
+    width: 300px;
     border: none;
     cursor: pointer;
     box-shadow: 0 1px 2px #757575;
@@ -66,6 +74,7 @@
   }
   @media screen and (max-width: $_responsive-point) {
     &__button {
+      clear: both;
       width: 100%;
     }
   }

@@ -29,8 +29,9 @@ while(have_posts()):the_post();
 
   <aside class="ad-single1">
     <div class="ad-single1__text">
-      <a href="https://px.moba8.net/svt/ejp?a8mat=2HHJ3B+2ZRI1M+153Q+BZ0Z5&guid=on" target="_blank">
-      <img border="0" width="728" height="90" alt="" src="https://www27.moba8.net/svt/bgt?aid=150303719181&wid=002&eno=01&mid=m00000005327002011000&mc=1"></a>      <!-- mae’s blog（テキスト） -->
+      <a href="//px.a8.net/svt/ejp?a8mat=2NMHB5+9ALNIY+2OGI+64Z8X" target="_blank">
+        <img border="0" width="728" height="90" alt="" src="http://www22.a8.net/svt/bgt?aid=160612385562&wid=002&eno=01&mid=s00000012501001031000&mc=1">
+      </a>
       <!--<ins class="adsbygoogle"
            style="display:inline-block;width:468px;height:15px"
            data-ad-client="ca-pub-6331923403728737"

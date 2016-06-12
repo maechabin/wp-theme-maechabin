@@ -11,7 +11,7 @@
   width: 100%;
   box-sizing: border-box;
   &__sub {
-    padding: 42px 0 44px;
+    padding: 48px 0 48px;
     margin: 0 auto;
   }
   &__share-button {
@@ -72,45 +72,54 @@
       color: $font-color;
     }
   }
+  &__bar {
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc(((100% - 1092px) / 2) + 332px);
+    z-index: 4;
+    height: 40px;
+    background-color: $_theme-color;
+    &-link {
+      padding: 0;
+      box-sizing: border-box;
+      width: calc(100% / 3);
+      padding-top: 4px;
+      text-align: center;
+      display: inline-block;
+      &--right {
+        position: absolute;
+        right: 0;
+      }
+    }
+    &-link a {
+      display: block;
+      line-height: 12px;
+      color: $font-color;
+      font-size: 12px;
+      text-decoration: none;
+    }
+    &-link a i {
+      font-size: 20px;
+      line-height: 20px;
+      display: block;
+      color: $font-color;
+      margin: 0;
+    }
+  }
   &__style {
     &--show {
-      display: block;
+      display: inline-block;
     }
     &--hidden {
       display: none;
     }
   }
-  &__bar {
-    position: fixed;
-    bottom: 0;
-    width: -webkit-calc(100% - 64px);
-    width: calc(100% - 64px);
-    margin: {
-      left: 32px;
-      right: 32px;
-    }
-    z-index: 4;
-    height: 24px;
-    background-color: $_theme-color;
-    border-radius: 2px 2px 0 0;
-    opacity: .9;
-    &-link {
-      position: absolute;
-      bottom: 4px;
-      &--left {
-        left: 16px;
-      }
-      &--right {
-        right: 16px;
-      }
-    }
-    &-link a {
-      color: $font-color;
-      font-size: 1.2em;
-      text-decoration: none;
-    }
-    &-link a i {
-      color: $font-color;
+  @media screen and (max-width: $_responsive-point) {
+    &__bar {
+      opacity: .9;
+      width: 100%;
     }
   }
   /*
