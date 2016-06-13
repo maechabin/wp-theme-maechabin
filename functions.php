@@ -45,6 +45,23 @@ function site_title() {
 
 }
 
+# カテゴリー
+function current_category($category) {
+  if (is_category()) {
+    $cate = get_queried_object();
+  } else if (is_single()) {
+    $cate = get_the_category()[0];
+  }
+
+  if ($category === $cate->name) {
+    return 'category__list_current';
+  } else if ($category === 'all' && $cate->name === null) {
+    return 'category__list_current';
+  } else {
+    return $cate->name;
+  }
+}
+
 #パンくずリスト
 function breadcrumb() {
   //パンくずリストの内容を格納する変数

@@ -63,7 +63,7 @@
 
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-1ed6974d64a9ba6fdfa0dd21b067fa1f.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-442093d52d4fd14182b41d8cfaae0729.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
 </head>
@@ -103,3 +103,15 @@
         <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログ記事を検索" class="header__search-text_mobile"><button type="submit" class="header__search-button_mobile"><i class="fa fa-search"></i></button>
       </form>
     </div>
+
+    <?php
+    $all = get_category(31)->category_count + get_category(33)->category_count + get_category(32)->category_count;
+    ?>
+    <nav class="category">
+      <ul class="category__list">
+        <li class="<?php echo current_category('all'); ?>"><a href="/">All<span>（<?php echo $all; ?>）</a></li>
+        <li class="<?php echo current_category('Web技術'); ?>"><a href="/archives/category/tech">Web技術<span>（<?php echo get_category(31)->category_count; ?>）</span></a></li>
+        <li class="<?php echo current_category('出来事'); ?>"><a href="/archives/category/event">出来事<span>（<?php echo get_category(33)->category_count; ?>）</span></a></li>
+        <li class="<?php echo current_category('所感'); ?>"><a href="/archives/category/impression">所感<span>（<?php echo get_category(32)->category_count; ?>）</span></a></li>
+      </ul>
+    </nav>

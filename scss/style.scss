@@ -17,11 +17,12 @@ Author URI: http://mae.chab.in/
 #content_border {
   z-index: 2;
   position: relative;
-  top: 64px;
+  top: 0;
   background-color: #fff;
   clear: both;
   overflow: hidden;
-  margin: 0 0 210px;
+  border-top: 1px solid #CFD8DC;
+  margin: 0 0 256px;
 }
 #content {
   zoom: 1;
@@ -85,7 +86,7 @@ Author URI: http://mae.chab.in/
 }
 .post {
   position: relative;
-  margin: 8px 8px 0;
+  margin: 0 8px 8px;
   background-color: #ECEFF1;
   clear: both;
   border: 1px solid #ECEFF1;

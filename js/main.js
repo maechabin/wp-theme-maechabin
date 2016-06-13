@@ -30,37 +30,6 @@ maechabin.ui = (($, window, document) => {
     });
   }
 
-  function currentCategory() {
-    const path = location.pathname;
-    const currentClassName = 'category__list_current';
-    const categoryList = $('.category__list').find('li') || '';
-    const addCurrentClass = (n) => {
-      if (categoryList) {
-        categoryList.eq(n).addClass(currentClassName);
-      }
-    };
-    let categoryName;
-
-    categoryList.removeClass(currentClassName);
-    if (path) {
-      categoryName = path.split('/');
-      switch (categoryName[3]) {
-        case 'tech':
-          addCurrentClass(1);
-          break;
-        case 'event':
-          addCurrentClass(2);
-          break;
-        case 'impression':
-          addCurrentClass(3);
-          break;
-        default:
-          addCurrentClass(0);
-          break;
-      }
-    }
-  }
-
   // ヘッダーバーをクリックした時
   function clickHeaderBar() {
     headerBar.on('click', (e) => {
@@ -206,7 +175,6 @@ maechabin.ui = (($, window, document) => {
 
   return {
     init() {
-      currentCategory();
       showAgendaLink();
       goTop();
       clickHeaderBar();

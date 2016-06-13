@@ -22,17 +22,6 @@
     </script>
   </div>
 </aside>
-<?php
-$all = get_category(31)->category_count + get_category(33)->category_count + get_category(32)->category_count;
-?>
-<nav class="category">
-  <ul class="category__list">
-    <li><a href="/">All<span>（<?php echo $all; ?>）</a></li>
-    <li><a href="/archives/category/tech">Web技術<span>（<?php echo get_category(31)->category_count; ?>）</span></a></li>
-    <li><a href="/archives/category/event">出来事<span>（<?php echo get_category(33)->category_count; ?>）</span></a></li>
-    <li><a href="/archives/category/impression">所感<span>（<?php echo get_category(32)->category_count; ?>）</span></a></li>
-  </ul>
-</nav>
 
 <?php
 if(have_posts()):
