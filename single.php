@@ -88,12 +88,24 @@ if ($iPod || $iPhone || $iPad) {
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <!-- mae’s blog（記事下） -->
       <ins class="adsbygoogle"
-           style="display:inline-block;width:336px;height:280px"
+           style="display:inline-block;width:336px;height:280px;"
            data-ad-client="ca-pub-6331923403728737"
            data-ad-slot="4144613456"></ins>
       <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
+
+      <span class="pc_only">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- mae’s blog（記事下） -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:336px;height:280px;padding-left:16px;"
+             data-ad-client="ca-pub-6331923403728737"
+             data-ad-slot="4144613456"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </span>
     </div>
   </aside>
 

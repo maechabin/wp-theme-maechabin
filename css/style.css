@@ -90,6 +90,11 @@ a > i {
   padding-left: 1.5em;
 }
 
+@media screen and (max-width: 1092px) {
+  .pc_only {
+    display: none;
+  }
+}
 .header {
   vertical-align: middle;
   width: 100%;
@@ -1296,10 +1301,16 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   font-size: 14px;
   position: relative;
   background-color: #ECEFF1;
+  overflow: hidden;
 }
 .sidebar__sub {
-  width: 300px;
+  box-sizing: border-box;
+  width: 332px;
   padding: 16px 16px 12px;
+  height: calc(100vh - 40px);
+}
+.sidebar__box {
+  height: calc(100vh - 40px);
 }
 .sidebar__title,
 .sidebar .title {
@@ -1313,33 +1324,30 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   background-color: #607D8B;
 }
 .sidebar__author-photo {
-  width: 128px;
-  margin: 16px auto 8px;
+  margin: 8px auto 4px;
   text-align: center;
 }
 .sidebar__author-photo img {
   border-radius: 50%;
 }
 .sidebar__author-name {
-  text-align: center !important;
-  margin-bottom: 0 !important;
-  color: #444;
-  font-size: 22px;
+  text-align: center;
+  margin-bottom: 0;
+  color: #424242;
+  font-size: 20px;
   font-weight: bold;
 }
 .sidebar__author-social {
   letter-spacing: 2px;
-  margin: 8px auto 0;
-  font-size: 24px;
+  margin: 0 auto 8px;
+  font-size: 22px;
   text-align: center !important;
 }
 .sidebar__author-description {
+  text-align: justify;
+  text-justify: inter-ideograph;
   color: #666;
-}
-.sidebar__author-description img {
-  border: 1px solid #888;
-  margin-bottom: 2px;
-  border-radius: 2px;
+  margin-bottom: 8px;
 }
 .sidebar__widget_twitter {
   height: 600px;
@@ -1361,16 +1369,6 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .sidebar img, .sidebar iframe {
   vertical-align: middle;
 }
-.sidebar p,
-.sidebar dl,
-.sidebar ul,
-.sidebar ol {
-  clear: both;
-  text-align: justify;
-  text-justify: inter-ideograph;
-  margin-bottom: 1em;
-  line-height: 1.6;
-}
 .sidebar li {
   font-size: 14px;
   padding-bottom: 8px;
@@ -1387,9 +1385,12 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
     padding-bottom: 48px;
   }
   .sidebar__sub {
-    width: -webkit-calc(100% - 16px);
-    width: calc(100% - 32px);
+    width: 100%;
     max-width: 100%;
+    height: auto;
+  }
+  .sidebar__box {
+    height: auto;
   }
 }
 

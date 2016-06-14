@@ -107,6 +107,32 @@ maechabin.ui = (($, window, document) => {
 
   // サイドバー固定
   function fixSidebar() {
+    const contentHeight = $('#content_border').height();
+    const sidebarHeight = $('#sidebar').height();
+
+    if (sidebarHeight < contentHeight) {
+      const headerbarHeight = headerBar.height();
+      const sidebar = $('#sidebar');
+      const sidebarSub = $('#sidebar_sub');
+      const footerBarHight = 40;
+      const sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
+
+      sidebar.css('height', `${contentHeight}px`);
+      w.on('scroll', () => {
+        if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
+          if (107 < w.scrollTop() && w.scrollTop() < sidebarScrollStart) {
+            sidebarSub.css({ position: 'fixed', top: 0 });
+          } else if (w.scrollTop() >= sidebarScrollStart) {
+            sidebarSub.css({ position: 'absolute', bottom: 0, top: 'auto' });
+          } else {
+            sidebarSub.css('position', 'static');
+          }
+        }
+      });
+    }
+  }
+/*
+  function fixSidebar() {
     const headerbarHeight = headerBar.height();
     const contentHeight = $('#content_border').height();
     const sidebarHeight = $('#sidebar').height();
@@ -132,7 +158,7 @@ maechabin.ui = (($, window, document) => {
       });
     }
   }
-
+*/
   function showAgendaLink() {
     const agenda = $('#agenda');
     const agendaLink = $('#footer__bar__agenda-link');

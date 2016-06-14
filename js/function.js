@@ -118,25 +118,24 @@ maechabin.ui = function ($, window, document) {
 
   // サイドバー固定
   function fixSidebar() {
-    var headerbarHeight = headerBar.height();
     var contentHeight = $('#content_border').height();
     var sidebarHeight = $('#sidebar').height();
-    var footerBarHight = 24;
 
     if (sidebarHeight < contentHeight) {
       (function () {
+        var headerbarHeight = headerBar.height();
         var sidebar = $('#sidebar');
         var sidebarSub = $('#sidebar_sub');
-        var sidebarScrollStop = headerbarHeight + sidebarSub.height() + footerBarHight - w.height();
-        var sidebarScrollStart = headerbarHeight + contentHeight + footerBarHight - w.height();
+        var footerBarHight = 40;
+        var sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
 
         sidebar.css('height', contentHeight + 'px');
         w.on('scroll', function () {
           if (window.matchMedia('(min-width: ' + contentWidthSize + 'px)').matches) {
-            if (sidebarScrollStop < w.scrollTop() && w.scrollTop() < sidebarScrollStart) {
-              sidebarSub.css({ position: 'fixed', bottom: footerBarHight + 'px' });
+            if (107 < w.scrollTop() && w.scrollTop() < sidebarScrollStart) {
+              sidebarSub.css({ position: 'fixed', top: 0 });
             } else if (w.scrollTop() >= sidebarScrollStart) {
-              sidebarSub.css({ position: 'absolute', bottom: 0 });
+              sidebarSub.css({ position: 'absolute', bottom: 0, top: 'auto' });
             } else {
               sidebarSub.css('position', 'static');
             }
@@ -145,7 +144,34 @@ maechabin.ui = function ($, window, document) {
       })();
     }
   }
-
+  /*
+    function fixSidebar() {
+      const headerbarHeight = headerBar.height();
+      const contentHeight = $('#content_border').height();
+      const sidebarHeight = $('#sidebar').height();
+      const footerBarHight = 24;
+  
+      if (sidebarHeight < contentHeight) {
+        const sidebar = $('#sidebar');
+        const sidebarSub = $('#sidebar_sub');
+        const sidebarScrollStop = headerbarHeight + sidebarSub.height() + footerBarHight - w.height();
+        const sidebarScrollStart = headerbarHeight + contentHeight + footerBarHight - w.height();
+  
+        sidebar.css('height', `${contentHeight}px`);
+        w.on('scroll', () => {
+          if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
+            if (sidebarScrollStop < w.scrollTop() && w.scrollTop() < sidebarScrollStart) {
+              sidebarSub.css({ position: 'fixed', bottom: `${footerBarHight}px` });
+            } else if (w.scrollTop() >= sidebarScrollStart) {
+              sidebarSub.css({ position: 'absolute', bottom: 0 });
+            } else {
+              sidebarSub.css('position', 'static');
+            }
+          }
+        });
+      }
+    }
+  */
   function showAgendaLink() {
     var agenda = $('#agenda');
     var agendaLink = $('#footer__bar__agenda-link');
