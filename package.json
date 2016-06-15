@@ -11,7 +11,7 @@
     "wordpress"
   ],
   "browser": {
-    "cbslideheader": "./node_modules/jquery.cb-slideheader.js/dist/jquery.cbslideheader.min.js",
+    "cbslideheader": "./node_modules/cbslideheader/dist/jquery.cbslideheader.min.js",
     "cbsharecount": "./node_modules/cbsharecount/dist/jquery.cbsharecount.js"
   },
   "browserify-shim": {
@@ -45,6 +45,6 @@
   },
   "dependencies": {
     "cbsharecount": "^1.0.3",
-    "jquery.cb-slideheader.js": "^0.3.4"
+    "cbslideheader": "^0.3.8"
   }
 }

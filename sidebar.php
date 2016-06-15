@@ -31,21 +31,36 @@
       <p class="sidebar__author-description">フロントエンドエンジニア & デザイナー。JavaScript、HTML5/CSS3、UI/UXデザインなどが専門分野。フレームワークはReact派。現在はネット広告会社でマーケティング担当。趣味はカメラ、ピアノ、作曲。</p>
     </div>
 
-    <?php if(!is_home()): ?>
-      <div class="sidebar__widget_twitter">
-        <a class="twitter-timeline" href="//twitter.com/maechabin" data-widget-id="510042758585651200">
-          @maechabin からのツイート
-        </a>
-        <script>
-          !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-        </script>
-      </div>
-    <?php endif; ?>
+    <div class="mobile_only">
+      <?php if(!is_home()): ?>
+        <div class="sidebar__widget_twitter">
+          <a class="twitter-timeline" href="//twitter.com/maechabin" data-widget-id="510042758585651200">
+            @maechabin からのツイート
+          </a>
+          <script>
+            !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+          </script>
+        </div>
+      <?php endif; ?>
 
-    <nav>
-    <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar() ): ?>
-    <?php endif; ?>
-    </nav>
+      <nav>
+      <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar() ): ?>
+      <?php endif; ?>
+      </nav>
+
+      <aside>
+        <div class="sidebar__widget_ad sidebar__ad2">
+          <div>スポンサードリンク</div>
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- mae's blog（サイドバー下） -->
+          <ins class="adsbygoogle"
+            style="display:inline-block;width:300px;height:250px"
+            data-ad-client="ca-pub-6331923403728737"
+            data-ad-slot="2944739979"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </aside>
+    </div>
 
   </div><!-- #sidebar_sub -->
 </div><!-- #sidebar -->

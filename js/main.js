@@ -131,34 +131,7 @@ maechabin.ui = (($, window, document) => {
       });
     }
   }
-/*
-  function fixSidebar() {
-    const headerbarHeight = headerBar.height();
-    const contentHeight = $('#content_border').height();
-    const sidebarHeight = $('#sidebar').height();
-    const footerBarHight = 24;
 
-    if (sidebarHeight < contentHeight) {
-      const sidebar = $('#sidebar');
-      const sidebarSub = $('#sidebar_sub');
-      const sidebarScrollStop = headerbarHeight + sidebarSub.height() + footerBarHight - w.height();
-      const sidebarScrollStart = headerbarHeight + contentHeight + footerBarHight - w.height();
-
-      sidebar.css('height', `${contentHeight}px`);
-      w.on('scroll', () => {
-        if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
-          if (sidebarScrollStop < w.scrollTop() && w.scrollTop() < sidebarScrollStart) {
-            sidebarSub.css({ position: 'fixed', bottom: `${footerBarHight}px` });
-          } else if (w.scrollTop() >= sidebarScrollStart) {
-            sidebarSub.css({ position: 'absolute', bottom: 0 });
-          } else {
-            sidebarSub.css('position', 'static');
-          }
-        }
-      });
-    }
-  }
-*/
   function showAgendaLink() {
     const agenda = $('#agenda');
     const agendaLink = $('#footer__bar__agenda-link');
@@ -211,6 +184,7 @@ maechabin.ui = (($, window, document) => {
       checkBrowserSize();
       header.cbSlideUpHeader({
         headroom: true,
+        slidePoint: 64,
       });
       displayMobileSearch();
     },

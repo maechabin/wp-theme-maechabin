@@ -32,18 +32,21 @@ a > i {
   text-decoration: none;
   margin-right: .4em;
 }
-
 .hidden_elem {
   display: none;
 }
-
+.mobile_only {
+  display: none;
+}
 .ol-type {
   list-style-type: decimal;
   padding-left: 1.5em;
 }
-
 @media screen and (max-width: $_responsive-point) {
   .pc_only {
     display: none;
+  }
+  .mobile_only {
+    display: block;
   }
 }
