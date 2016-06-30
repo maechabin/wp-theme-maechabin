@@ -25,10 +25,11 @@
         <a href="//www.facebook.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-facebook');"><i class="fa fa-facebook"></i></a>
         <a href="//plus.google.com/+TakanoriMaeda0_0/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-google+');"><i class="fa fa-google-plus"></i></a>
         <a href="//maechabin.tumblr.com/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-tumblr');"><i class="fa fa-tumblr"></i></a>
+        <a href="https://www.instagram.com/maechabin/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-insta');"><i class="fa fa-instagram" aria-hidden="true"></i></a>
         <a href="//www.muzie.ne.jp/artist/a024945/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-muzie');"><i class="fa fa-music"></i></a>
       </p>
 
-      <p class="sidebar__author-description">フロントエンドエンジニア & デザイナー。JavaScript、HTML5/CSS3、UI/UXデザインなどが専門分野。フレームワークはReact派。現在はネット広告会社でマーケティング担当。趣味はカメラ、ピアノ、作曲。</p>
+      <p class="sidebar__author-description">フロントエンドエンジニア & デザイナー。JavaScript、React、UI/UXデザインなどが専門分野。現在はネット広告企業でマーケティング担当。趣味はカメラ、ピアノ、作曲。</p>
     </div>
 
     <div class="mobile_only">

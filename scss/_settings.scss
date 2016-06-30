@@ -42,6 +42,9 @@ a > i {
   list-style-type: decimal;
   padding-left: 1.5em;
 }
+.slideshowad-images {
+  display: none !important;
+}
 @media screen and (max-width: $_responsive-point) {
   .pc_only {
     display: none;

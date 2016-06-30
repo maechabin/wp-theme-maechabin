@@ -1,6 +1,7 @@
 import jQuery from 'jquery';
 require('cbslideheader');
 require('cbsharecount');
+require('slideshowad');
 
 const maechabin = maechabin || {};
 

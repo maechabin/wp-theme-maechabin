@@ -28,15 +28,23 @@ while(have_posts()):the_post();
   </header>
 
   <aside class="ad-single1">
-    <div class="ad-single1__text">
-      <a href="//px.a8.net/svt/ejp?a8mat=2NMHB5+9ALNIY+2OGI+64Z8X" target="_blank">
-        <img border="0" width="728" height="90" alt="" src="http://www22.a8.net/svt/bgt?aid=160612385562&wid=002&eno=01&mid=s00000012501001031000&mc=1">
-      </a>
-      <!--<ins class="adsbygoogle"
-           style="display:inline-block;width:468px;height:15px"
-           data-ad-client="ca-pub-6331923403728737"
-           data-ad-slot="3830887178"></ins>
-      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>-->
+    <div class="pc_only">
+      <div class="ad-single1__text">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- mae's blog（記事上728-90） -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-6331923403728737"
+             data-ad-slot="3358669171"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <!--<ins class="adsbygoogle"
+             style="display:inline-block;width:468px;height:15px"
+             data-ad-client="ca-pub-6331923403728737"
+             data-ad-slot="3830887178"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>-->
+      </div>
     </div>
 
     <div class="ad-single1__banner">
@@ -50,11 +58,15 @@ $webOS   = stripos($_SERVER['HTTP_USER_AGENT'],"webOS");
 
 if ($iPod || $iPhone || $iPad) {
 ?>
-<div class="text-crenter">
-<a href="https://itunes.apple.com/jp/app/final-fantasy-ix/id1041258902?mt=8&uo=10">
-<img width="300" height="250" src="https://banners.itunes.apple.com/bannerimages/banner@2x.png?pr=itunes&t=catalog_white&c=jp&l=ja-JP&id=1041258902&w=300&h=250&store=apps&cache=false">
-</a>
-</div>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- mae's blog（記事上モバイルバナー） -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:320px;height:100px"
+     data-ad-client="ca-pub-6331923403728737"
+     data-ad-slot="7675360770"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
 <?php
 } else {
 ?>
@@ -94,18 +106,6 @@ if ($iPod || $iPhone || $iPad) {
       <script>
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
-
-      <span class="pc_only">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-        <!-- mae’s blog（記事下） -->
-        <ins class="adsbygoogle"
-             style="display:inline-block;width:336px;height:280px;padding-left:16px;"
-             data-ad-client="ca-pub-6331923403728737"
-             data-ad-slot="4144613456"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </span>
     </div>
   </aside>
 
