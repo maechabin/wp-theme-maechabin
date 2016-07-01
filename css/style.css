@@ -98,7 +98,7 @@ a > i {
   display: none !important;
 }
 
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1091px) {
   .pc_only {
     display: none;
   }
@@ -234,7 +234,7 @@ a > i {
   color: #fafafa;
   cursor: pointer;
 }
-@media screen and (min-width: 1092px) {
+@media screen and (min-width: 1091px) {
   　
   .header__button_search {
     display: none;
@@ -265,7 +265,7 @@ a > i {
   color: #fafafa;
   margin-left: 8px;
 }
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1091px) {
   .header__inner {
     max-width: 100%;
     width: 100%;
@@ -333,7 +333,7 @@ a > i {
   font-size: 14px;
   font-weight: normal;
 }
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1091px) {
   .category {
     max-width: 100%;
   }
@@ -367,12 +367,11 @@ a > i {
 #content_border {
   z-index: 2;
   position: relative;
-  top: 0;
   background-color: #fff;
   clear: both;
   overflow: hidden;
   border-top: 1px solid #CFD8DC;
-  margin: 0 0 189px;
+  margin: 0;
 }
 
 #content {
@@ -1206,7 +1205,7 @@ pre {
   background-color: #F57F17;
   color: #fff;
 }
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1091px) {
   .item__button {
     clear: both;
     width: 100%;
@@ -1299,7 +1298,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .search__display {
   display: inline;
 }
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1091px) {
   .search__display {
     display: none;
   }
@@ -1314,8 +1313,10 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   position: relative;
   background-color: #ECEFF1;
   overflow: hidden;
+  z-index: 10;
 }
 .sidebar__sub {
+  z-index: 10;
   box-sizing: border-box;
   width: 332px;
   padding: 16px 16px 12px;
@@ -1390,7 +1391,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .sidebar table {
   margin-bottom: 32px;
 }
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1091px) {
   .sidebar {
     width: 100%;
     max-width: 100%;
@@ -1408,13 +1409,9 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 
 .footer {
   color: #fff;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   overflow: hidden;
   clear: both;
   background-color: #424242;
-  z-index: 0;
   width: 100%;
   box-sizing: border-box;
   /*
@@ -1440,7 +1437,6 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 }
 .footer__sub {
   padding: 48px 0 48px;
-  margin: 0 auto;
 }
 .footer__share-button {
   overflow: hidden;
@@ -1497,7 +1493,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   bottom: 0;
   right: 0;
   width: calc(((100% - 1092px) / 2) + 332px);
-  z-index: 4;
+  z-index: 5;
   height: 40px;
   background-color: #7CB342;
 }
@@ -1533,18 +1529,17 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .footer__style--hidden {
   display: none;
 }
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1091px) {
   .footer__bar {
     opacity: .9;
     width: 100%;
   }
 }
 
-@media screen and (max-width: 1092px) {
+@media screen and (max-width: 1091px) {
   #content_border {
     min-width: 100%;
     width: 100%;
-    margin: 0 0 210px !important;
   }
 
   #content {

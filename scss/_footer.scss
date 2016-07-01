@@ -1,18 +1,13 @@
 .footer {
   $font-color: #fff;
   color: $font-color;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   overflow: hidden;
   clear: both;
   background-color: #424242;
-  z-index: 0;
   width: 100%;
   box-sizing: border-box;
   &__sub {
     padding: 48px 0 48px;
-    margin: 0 auto;
   }
   &__share-button {
     overflow: hidden;
@@ -78,7 +73,7 @@
     bottom: 0;
     right: 0;
     width: calc(((100% - 1092px) / 2) + 332px);
-    z-index: 4;
+    z-index: 5;
     height: 40px;
     background-color: $_theme-color;
     &-link {

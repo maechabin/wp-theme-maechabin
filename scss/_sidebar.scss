@@ -7,7 +7,9 @@
   position: relative;
   background-color: #ECEFF1;
   overflow: hidden;
+  z-index: 10;
   &__sub {
+    z-index: 10;
     box-sizing: border-box;
     width: 332px;
     padding: 16px 16px 12px;
