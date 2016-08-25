@@ -527,30 +527,30 @@ a > i {
   color: #007B6E;
 }
 
-.cb-share {
+.post__sharebutton {
   position: absolute;
   right: 0;
   bottom: 4px;
 }
 
-.cb-share li {
+.post__sharebutton li {
   width: 60px;
   display: inline-block;
   font-size: 14px;
 }
 
-.cb-share a,
-.cb-share i {
+.post__sharebutton a,
+.post__sharebutton i {
   vertical-align: baseline;
   color: #263238;
   text-decoration: none;
 }
 
-.cb-share li span {
+.post__sharebutton li span {
   margin: 0 4px 0 0;
 }
 
-.cb-share li:last-child span {
+.post__sharebutton li:last-child span {
   margin: 0;
 }
 
@@ -642,6 +642,9 @@ figure {
   font-size: 17px;
   text-align: justify;
   text-justify: inter-ideograph;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   margin-bottom: 32px;
   line-height: 1.8;
 }
@@ -1243,6 +1246,116 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   color: #aaa;
   list-style-type: decimal !important;
   margin-left: 36px;
+}
+
+/* sharebutton */
+.entry__share-button {
+  text-align: center;
+  width: 100%;
+}
+.entry__share-button_hatena {
+  margin: 16px auto 0;
+  display: inline-block;
+  width: calc(100% / 4);
+  background: #008CE1;
+}
+.entry__share-button_hatena a {
+  color: #fff;
+  width: 100%;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  padding: 4px 0;
+  border-radius: 2px;
+  transition: .3s;
+}
+.entry__share-button_hatena a:hover {
+  opacity: .5;
+}
+.entry__share-button_hatena a i {
+  color: #fff;
+}
+.entry__share-button_hatena span {
+  font-weight: normal;
+}
+.entry__share-button_twitter {
+  margin: 16px auto 0;
+  display: inline-block;
+  width: calc(100% / 4);
+  background: #55ACEE;
+}
+.entry__share-button_twitter a {
+  color: #fff;
+  width: 100%;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  padding: 4px 0;
+  border-radius: 2px;
+  transition: .3s;
+}
+.entry__share-button_twitter a:hover {
+  opacity: .5;
+}
+.entry__share-button_twitter a i {
+  color: #fff;
+}
+.entry__share-button_twitter span {
+  font-weight: normal;
+}
+.entry__share-button_facebook {
+  margin: 16px auto 0;
+  display: inline-block;
+  width: calc(100% / 4);
+  background: #3864A3;
+}
+.entry__share-button_facebook a {
+  color: #fff;
+  width: 100%;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  padding: 4px 0;
+  border-radius: 2px;
+  transition: .3s;
+}
+.entry__share-button_facebook a:hover {
+  opacity: .5;
+}
+.entry__share-button_facebook a i {
+  color: #fff;
+}
+.entry__share-button_facebook span {
+  font-weight: normal;
+}
+.entry__share-button_pocket {
+  margin: 16px auto 0;
+  display: inline-block;
+  width: calc(100% / 4);
+  background: #ef4357;
+}
+.entry__share-button_pocket a {
+  color: #fff;
+  width: 100%;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 16px;
+  display: inline-block;
+  padding: 4px 0;
+  border-radius: 2px;
+  transition: .3s;
+}
+.entry__share-button_pocket a:hover {
+  opacity: .5;
+}
+.entry__share-button_pocket a i {
+  color: #fff;
+}
+.entry__share-button_pocket span {
+  font-weight: normal;
 }
 
 .search__result {

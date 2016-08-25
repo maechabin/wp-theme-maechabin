@@ -46,7 +46,7 @@
     "grunt-text-replace": "^0.4.0"
   },
   "dependencies": {
-    "cbsharecount": "^1.0.3",
+    "cbsharecount": "^2.0.3",
     "cbslideheader": "^0.3.8",
     "slideshowad": "^1.3.9"
   }

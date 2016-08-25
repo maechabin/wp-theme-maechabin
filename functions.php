@@ -103,33 +103,11 @@ function breadcrumb() {
 #ソーシャルボタン
 function mc_social_button() {
 ?>
-<ul class="social-button">
-  <li>
-    <!-- Hatena Button -->
-    <a href="http://b.hatena.ne.jp/entry/" class="hatena-bookmark-button" data-hatena-bookmark-layout="vertical-balloon" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加"><img src="http://b.st-hatena.com/images/entry-button/button-only@2x.png" alt="このエントリーをはてなブックマークに追加" width="20" height="20" style="border: none;" /></a><script type="text/javascript" src="http://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
-  </li>
-  <!-- Twitter Button -->
-  <li>
-    <a href="https://twitter.com/share" class="twitter-share-button" data-via="maechabin" data-lang="ja" data-count="vertical">ツイート</a>
-    <script async>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-  </li>
-  <li>
-    <!-- Facebook Button -->
-    <span class="fb-like" data-layout="box_count" data-action="like" data-show-faces="false" data-share="false"></span>
-    <span id="fb-root"></span>
-    <script async>(function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0];
-      if (d.getElementById(id)) return;
-      js = d.createElement(s); js.id = id;
-      js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=305618339584509";
-      fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-  </li>
-  <li>
-    <!-- Pocket Button -->
-    <a data-pocket-label="pocket" data-pocket-count="vertical" class="pocket-btn" data-lang="en"></a>
-    <script async>!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
-  </li>
+<ul class="cb-share entry__share-button" title="<?php the_permalink(); ?>">
+  <li class="cb-tw entry__share-button_twitter"><a href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinさんから" target="_blank"><i class="fa fa-twitter"></i> <span></span></a></li><li
+    class="cb-fb entry__share-button_facebook"><a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>', 'new', 'width=500,height=300');return false;"><i class="fa fa-facebook"></i> <span></span></a></li><li
+    class="cb-hb entry__share-button_hatena"><a href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>" target="_blank"><b>B!</b> <span></span></a></li><li
+    class="cb-tw entry__share-button_pocket"><a href="//getpocket.com/edit?url=<?php the_permalink(); ?>" target="_blank"><i class="fa fa-get-pocket"></i> <span></span></a></li>
 </ul>
 <?php
 }

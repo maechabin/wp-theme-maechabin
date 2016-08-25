@@ -24,7 +24,7 @@ while(have_posts()):the_post();
       <li class="entry-meta-li"><?php the_tags(); ?></li>
     </ul>
 
-    <?php mc_social_button(); ?>
+  <?php mc_social_button(); ?>
   </header>
 
   <aside class="ad-single1">

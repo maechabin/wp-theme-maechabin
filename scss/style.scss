@@ -162,26 +162,26 @@ Author URI: http://mae.chab.in/
   color: #007B6E;
 }
 
-.cb-share {
+.post__sharebutton {
   position: absolute;
   right: 0;
   bottom: 4px;
 }
-.cb-share li {
+.post__sharebutton li {
   width: 60px;
   display: inline-block;
   font-size: 14px;
 }
-.cb-share a,
-.cb-share i {
+.post__sharebutton a,
+.post__sharebutton i {
   vertical-align: baseline;
   color: #263238;
   text-decoration: none;
 }
-.cb-share li span {
+.post__sharebutton li span {
   margin: 0 4px 0 0;
 }
-.cb-share li:last-child span {
+.post__sharebutton li:last-child span {
   margin: 0;
 }
 /* ▲indexページ▲ */
@@ -260,6 +260,9 @@ figure {
   font-size: 17px;
   text-align: justify;
   text-justify: inter-ideograph;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   margin-bottom: 32px;
   line-height: 1.8;
 }

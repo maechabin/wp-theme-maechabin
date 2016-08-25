@@ -38,7 +38,7 @@ while(have_posts()):the_post();
   <?php /*<li class="postmetadata-li"><a href="http://b.hatena.ne.jp/entry/<?php the_permalink(); ?>" target="_blank"><img src="http://b.hatena.ne.jp/entry/image/<?php the_permalink(); ?>" alt="" /></a></li>*/ ?>
   <li class="postmetadata-li"><?php edit_post_link('編集'); ?></li>
 </ul>
-<ul class="cb-share" title="<?php the_permalink(); ?>">
+<ul class="cb-share post__sharebutton" title="<?php the_permalink(); ?>">
   <?php /*<li><i class="fa fa-comments-o"></i> <?php comments_popup_link('0','1','%'); ?></li>*/ ?>
   <li class="cb-hb"><a href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>" target="_blank"><b>B!</b> <span></span></a></li>
   <?php /*<li class="cb-tw"><a href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinさんから" target="_blank"><i class="fa fa-twitter"></i><span></span></a></li> */ ?>
