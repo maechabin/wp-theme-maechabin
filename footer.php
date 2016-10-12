@@ -61,7 +61,7 @@
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <?php wp_footer(); ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-99000ca0d9779c68d863e99fe88feeab.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-583438be5adec761a7ca2b4ecb92c325.js" defer></script>
 <?php if (is_single()): ?>
 	<script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

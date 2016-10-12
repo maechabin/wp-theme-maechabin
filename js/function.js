@@ -223,7 +223,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /*!
- * jquery.cbsharecount.js v2.0.3
+ * jquery.cbsharecount.js v2.0.7
  * Auther @maechabin
  * Licensed under mit license
  * https://github.com/maechabin/jquery.cb-share-count.js
@@ -325,7 +325,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var obj = this[0] ? this[0] : this;
           switch (self.key) {
             case 'fb':
-              that.count.fb = obj.share.share_count || 0;
+              that.count.fb = 'share' in obj && 'share_count' in obj.share ? obj.share.share_count : 0;
               break;
             case 'hb':
               that.count.hb = Array.isArray(obj) ? obj[0] : obj || 0;
@@ -337,7 +337,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               if (this[0].results) {
                 var content = obj.results.toString();
                 var match = content.match(/&lt;em id="cnt"&gt;(\d+)&lt;\/em&gt;/i);
-                that.count.pk = match != null ? match[1] : 0;
+                that.count.pk = match !== null ? Number(match[1]) : 0;
               }
               break;
             default:
@@ -418,8 +418,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           if (cache && currentTime - cache.saveTime < this.conf.cacheTime) {
+            console.log(cache.fb);
             this.conf.assign.map(function (key) {
-              return _this2.count[key] = cache[key] || '';
+              return _this2.count[key] = typeof cache[key] === 'number' ? cache[key] : '';
             });
             return this.render();
           }

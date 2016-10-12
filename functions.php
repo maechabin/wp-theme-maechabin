@@ -107,7 +107,7 @@ function mc_social_button() {
   <li class="cb-tw entry__share-button_twitter"><a href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinさんから" target="_blank"><i class="fa fa-twitter"></i> <span></span></a></li><li
     class="cb-fb entry__share-button_facebook"><a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>', 'new', 'width=500,height=300');return false;"><i class="fa fa-facebook"></i> <span></span></a></li><li
     class="cb-hb entry__share-button_hatena"><a href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>" target="_blank"><b>B!</b> <span></span></a></li><li
-    class="cb-tw entry__share-button_pocket"><a href="//getpocket.com/edit?url=<?php the_permalink(); ?>" target="_blank"><i class="fa fa-get-pocket"></i> <span></span></a></li>
+    class="cb-pk entry__share-button_pocket"><a href="//getpocket.com/edit?url=<?php the_permalink(); ?>" target="_blank"><i class="fa fa-get-pocket"></i> <span></span></a></li>
 </ul>
 <?php
 }
