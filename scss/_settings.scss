@@ -8,7 +8,7 @@ $__entry-width: 760px;
 $__sidebar-width: 332px;
 $_entry-width: $__entry-width;
 $_sidebar-width: calc(((100% - 1092px) / 2) + 332px);
-$_responsive-point: $_content-width;
+$_responsive-point: $_content-width + 88px;
 
 body {
 /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
