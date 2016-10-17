@@ -98,7 +98,7 @@ a > i {
   display: none !important;
 }
 
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1171px) {
   .pc_only {
     display: none;
   }
@@ -234,7 +234,7 @@ a > i {
   color: #fafafa;
   cursor: pointer;
 }
-@media screen and (min-width: 1179px) {
+@media screen and (min-width: 1171px) {
   　
   .header__button_search {
     display: none;
@@ -265,7 +265,7 @@ a > i {
   color: #fafafa;
   margin-left: 8px;
 }
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1171px) {
   .header__inner {
     max-width: 100%;
     width: 100%;
@@ -333,7 +333,7 @@ a > i {
   font-size: 14px;
   font-weight: normal;
 }
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1171px) {
   .category {
     max-width: 100%;
   }
@@ -372,7 +372,7 @@ a > i {
   overflow: hidden;
   border-top: 1px solid #CFD8DC;
   margin: 0;
-  padding-right: 88px;
+  padding-right: 80px;
 }
 
 #content {
@@ -1209,7 +1209,7 @@ pre {
   background-color: #F57F17;
   color: #fff;
 }
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1171px) {
   .item__button {
     clear: both;
     width: 100%;
@@ -1412,7 +1412,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .search__display {
   display: inline;
 }
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1171px) {
   .search__display {
     display: none;
   }
@@ -1505,7 +1505,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .sidebar table {
   margin-bottom: 32px;
 }
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1171px) {
   .sidebar {
     width: 100%;
     max-width: 100%;
@@ -1608,7 +1608,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   right: 0;
   /* width: calc(((100% - 1092px) / 2) + 332px); */
   z-index: 3;
-  width: 88px;
+  width: 80px;
   height: 100vh;
   background-color: #7CB342;
 }
@@ -1623,6 +1623,10 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .footer__bar-link--left {
   position: absolute;
   top: 80px;
+}
+.footer__bar-link--center {
+  position: absolute;
+  top: 152px;
 }
 .footer__bar-link--right {
   position: absolute;
@@ -1640,7 +1644,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   line-height: 1;
   display: block;
   color: #fff;
-  margin: 0 auto;
+  margin: 0 auto 4px;
 }
 .footer__style--show {
   display: inline-block;
@@ -1648,7 +1652,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 .footer__style--hidden {
   display: none;
 }
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1171px) {
   .footer__bar {
     opacity: .9;
     width: 100%;
@@ -1663,16 +1667,20 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   .footer__bar-link--left {
     position: static;
   }
+  .footer__bar-link--center {
+    position: static;
+  }
   .footer__bar-link--right {
     right: 0;
     bottom: auto;
   }
   .footer__bar-link a i {
     font-size: 20px;
+    margin-bottom: 0;
   }
 }
 
-@media screen and (max-width: 1179px) {
+@media screen and (max-width: 1171px) {
   #content_border {
     min-width: 100%;
     width: 100%;
@@ -1687,6 +1695,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   #entry {
     width: 100%;
     max-width: 100%;
+    padding-left: 0;
   }
 
   .entry img {

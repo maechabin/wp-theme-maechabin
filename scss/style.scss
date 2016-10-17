@@ -22,7 +22,7 @@ Author URI: http://mae.chab.in/
   overflow: hidden;
   border-top: 1px solid #CFD8DC;
   margin: 0;
-  padding-right: 88px;
+  padding-right: 80px;
 }
 #content {
   zoom: 1;
@@ -707,6 +707,7 @@ pre {
   #entry {
     width: 100%;
     max-width: 100%;
+    padding-left: 0;
   }
   .entry img {
     box-sizing: border-box;

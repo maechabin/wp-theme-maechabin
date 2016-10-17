@@ -41,14 +41,14 @@
 						<i class="fa fa-home"></i>ホーム
 					</a>
 				</li>
-				<li class="footer__bar-link footer__style--hidden" id="footer__bar__agenda-link">
+				<li class="footer__bar-link footer__bar-link--center footer__style--hidden" id="footer__bar__agenda-link">
 					<a href="#agenda">
-						<i class="fa fa-book"></i>目次に移動
+						<i class="fa fa-book"></i>目次
 					</a>
 				</li>
 				<li class="footer__bar-link footer__bar-link--right">
 					<a href="#TOP">
-						<i class="fa fa-chevron-circle-up"></i>トップに移動
+						<i class="fa fa-chevron-circle-up"></i>トップ
 					</a>
 				</li>
 			</ul>
@@ -61,7 +61,7 @@
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <?php wp_footer(); ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-0fc431808c1c92c72ef61a93bb08fa23.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-1de8a7b7e706948796c174f5644b0692.js" defer></script>
 <?php if (is_single()): ?>
 	<script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>

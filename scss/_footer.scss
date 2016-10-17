@@ -74,7 +74,7 @@
     right: 0;
     /* width: calc(((100% - 1092px) / 2) + 332px); */
     z-index: 3;
-    width: 88px;
+    width: 80px;
     height: 100vh;
     background-color: $_theme-color;
     &-link {
@@ -87,6 +87,10 @@
       &--left {
         position: absolute;
         top: 80px;
+      }
+      &--center {
+        position: absolute;
+        top: 152px;
       }
       &--right {
         position: absolute;
@@ -105,7 +109,7 @@
       line-height: 1;
       display: block;
       color: $font-color;
-      margin: 0 auto;
+      margin: 0 auto 4px;
     }
   }
   &__style {
@@ -129,6 +133,9 @@
         &--left {
           position: static;
         }
+        &--center {
+          position: static;
+        }
         &--right {
           right: 0;
           bottom: auto;
@@ -136,6 +143,7 @@
       }
       &-link a i {
         font-size: 20px;
+        margin-bottom: 0;
       }
     }
   }
