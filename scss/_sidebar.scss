@@ -5,14 +5,14 @@
   color: #757575;
   font-size: 14px;
   position: relative;
-  background-color: #ECEFF1;
+  background-color: rgba(236,239,241 ,.5);
   overflow: hidden;
   z-index: 10;
   &__sub {
     z-index: 10;
     box-sizing: border-box;
     width: 332px;
-    padding: 16px 16px 12px;
+    padding: 16px 8px 12px 24px;
     height: calc(100vh - 40px);
   }
   &__box {
@@ -98,6 +98,7 @@
       width: 100%;
       max-width: 100%;
       height: auto;
+      padding: 16px;
     }
     &__box {
       height: auto;

@@ -9,7 +9,7 @@ maechabin.ui = (($, window, document) => {
   const w = $(window);
   const header = $('.header');
   const headerBar = $('#header_bar');
-  const contentWidthSize = 1092 + 80;
+  const contentWidthSize = 1100 + 80;
   let timer = null;
 
   // Smooth Scroll

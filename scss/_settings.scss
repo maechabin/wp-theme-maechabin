@@ -3,11 +3,11 @@ $_theme-color: #7CB342; /* light green 600 */
 $_text-color: #212121;
 $_link-color: #3160aa;
 
-$_content-width: 1091px; /* ここを変更する時は、main.jsも */
+$_content-width: 1099px; /* ここを変更する時は、main.jsも */
 $__entry-width: 760px;
 $__sidebar-width: 332px;
 $_entry-width: $__entry-width;
-$_sidebar-width: calc(((100% - 1092px) / 2) + 332px);
+$_sidebar-width: calc(((100% - 1100px) / 2) + 332px);
 $_responsive-point: $_content-width + 80px;
 
 body {

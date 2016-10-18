@@ -63,7 +63,7 @@
 
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-8d5f764038b11b84533261937677d86f.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-52a24fc9d735d3bd5e09537a80e38962.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
 </head>
