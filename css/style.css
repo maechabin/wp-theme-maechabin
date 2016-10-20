@@ -349,7 +349,7 @@ a > i {
 
 /* ad-index1 */
 .ad-index1 {
-  margin-top: 8px;
+  margin-top: 16px;
   text-align: center;
 }
 .ad-index1__title {
@@ -441,7 +441,7 @@ a > i {
 
 .post {
   position: relative;
-  margin: 0 8px 8px;
+  margin: 0 8px 16px;
   background-color: #ECEFF1;
   clear: both;
   border: 1px solid #ECEFF1;
