@@ -85,40 +85,72 @@ Author URI: http://mae.chab.in/
   text-decoration: none;
 }
 .post {
+  box-sizing: border-box;
   position: relative;
   margin: 0 8px 16px;
   background-color: #ECEFF1;
   clear: both;
-  border: 1px solid #ECEFF1;
   border-radius: 1px;
   transition: all .3s ease-in-out;
   box-shadow: none;
-}
-.post-box:hover {
-  cursor: pointer;
-/*
-  background-color: #E9F0FA;
-  border: 1px solid #E9F0FA;
-*/
-  background-color: #E8EAF6;
-  border: 1px solid #E8EAF6;
-  box-shadow: 0 1px 2px rgba(0,0,0,.1);
-}
-.post-box a:visited {
-  background-color: #757575;
-}
-.post-title {
-  font-size: 24px;
-  line-height: 1.4;
-  margin: 8px 16px;
-}
-.post-title a {
-  color: #111;
-  text-decoration: none !important;
+  &:hover {
+    cursor: pointer;
+    background-color: #E8EAF6;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  }
+  &__title {
+    font-size: 24px;
+    line-height: 1.4;
+    padding-top: 8px;
+    margin: 0 16px;
+    a {
+      color: #111;
+      text-decoration: none;
+    }
+  }
+  &__date {
+    vertical-align: middle;
+    font-size: 14px;
+    color: #616161;
+  }
+  &__category {
+    &_tech {
+
+    }
+    &_event {
+
+    }
+    &_impression {
+
+    }
+  }
+  &__sharebutton {
+    position: absolute;
+    right: 0;
+    bottom: 4px;
+    li {
+      width: 60px;
+      display: inline-block;
+      font-size: 14px;
+      span {
+        margin: 0 4px 0 0;
+      }
+      &:last-child span {
+        margin: 0;
+      }
+    }
+    a,
+    i {
+      vertical-align: baseline;
+      color: #263238;
+      text-decoration: none;
+    }
+  }
 }
 .postmetadata-ul {
   border-top: 1px dotted #aaa;
   padding: 8px 16px;
+  margin-top: 4px;
   margin-bottom: 0 !important;
 }
 .wp-pagenavi {
@@ -161,29 +193,6 @@ Author URI: http://mae.chab.in/
 .comments_number a {
   font-weight: bold;
   color: #007B6E;
-}
-
-.post__sharebutton {
-  position: absolute;
-  right: 0;
-  bottom: 4px;
-}
-.post__sharebutton li {
-  width: 60px;
-  display: inline-block;
-  font-size: 14px;
-}
-.post__sharebutton a,
-.post__sharebutton i {
-  vertical-align: baseline;
-  color: #263238;
-  text-decoration: none;
-}
-.post__sharebutton li span {
-  margin: 0 4px 0 0;
-}
-.post__sharebutton li:last-child span {
-  margin: 0;
 }
 /* ▲indexページ▲ */
 
