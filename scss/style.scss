@@ -111,7 +111,10 @@ Author URI: http://mae.chab.in/
   &__date {
     vertical-align: middle;
     font-size: 14px;
-    color: #616161;
+    a {
+      text-decoration: none;
+      color: #616161;
+    }
   }
   &__category {
     &_tech {
@@ -142,8 +145,23 @@ Author URI: http://mae.chab.in/
     a,
     i {
       vertical-align: baseline;
-      color: #263238;
+      color: #616161;
       text-decoration: none;
+    }
+  }
+  @media screen and (max-width: $_responsive-point) {
+    &__metadata {
+      text-align: center;
+      li {
+        float: none;
+        display: inline-block;
+      }
+    }
+    &__sharebutton {
+      text-align: center;
+      position: static;
+      margin-right: 16px;
+      padding-bottom: 8px;
     }
   }
 }

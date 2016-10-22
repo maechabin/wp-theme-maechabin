@@ -38,12 +38,14 @@ $catslug = $cat[0]->slug; //スラッグ名
   <h1 id="post-<?php the_ID(); ?>" class="post__title">
     <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a>
   </h1>
-  <ul class="postmetadata-ul postmetadata">
+  <ul class="postmetadata-ul postmetadata post__metadata">
     <li class="postmetadata-li post__category_<?php echo $catslug; ?>">
       <i class="fa fa-archive"></i> <?php the_category(', '); ?>
     </li>
     <li class="postmetadata-li">
-      <time pubdate class="post__date"><?php the_date('Y年m月d日'); ?></time>
+      <time pubdate class="post__date">
+        <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_date('Y年m月d日'); ?></a>
+      </time>
     </li>
     <?php /*<li class="postmetadata-li post__tags"><?php the_tags('#', ', #'); ?></li>*/ ?>
     <li class="postmetadata-li">
@@ -65,6 +67,11 @@ $catslug = $cat[0]->slug; //スラッグ名
     <li class="cb-hb">
       <a href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>" target="_blank">
         <b>B!</b> <span></span>
+      </a>
+    </li>
+    <li class="cb-pk">
+      <a href="//getpocket.com/edit?url=<?php the_permalink(); ?>" target="_blank">
+        <i class="fa fa-get-pocket"></i> <span></span>
       </a>
     </li>
   </ul>

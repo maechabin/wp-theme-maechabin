@@ -467,6 +467,9 @@ a > i {
 .post__date {
   vertical-align: middle;
   font-size: 14px;
+}
+.post__date a {
+  text-decoration: none;
   color: #616161;
 }
 .post__sharebutton {
@@ -488,8 +491,23 @@ a > i {
 .post__sharebutton a,
 .post__sharebutton i {
   vertical-align: baseline;
-  color: #263238;
+  color: #616161;
   text-decoration: none;
+}
+@media screen and (max-width: 1179px) {
+  .post__metadata {
+    text-align: center;
+  }
+  .post__metadata li {
+    float: none;
+    display: inline-block;
+  }
+  .post__sharebutton {
+    text-align: center;
+    position: static;
+    margin-right: 16px;
+    padding-bottom: 8px;
+  }
 }
 
 .postmetadata-ul {
