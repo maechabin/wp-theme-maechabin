@@ -76,9 +76,9 @@ a:hover {
 
 a > i {
   vertical-align: -1px;
-  color: #424242;
+  color: #212121;
   text-decoration: none;
-  margin-right: .4em;
+  margin-right: 4px;
 }
 
 .hidden_elem {
@@ -1482,7 +1482,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   text-align: justify;
   text-justify: inter-ideograph;
   color: #666;
-  margin-bottom: 8px;
+  margin-bottom: 16px;
 }
 .sidebar__widget_twitter {
   height: 600px;
