@@ -173,6 +173,11 @@ maechabin.ui = (($, window, document) => {
     });
   }
 
+  function contenteditable() {
+    const code = $('.prettyprint');
+    code.attr('contenteditable', true);
+  }
+
   return {
     init() {
       showAgendaLink();
@@ -183,6 +188,7 @@ maechabin.ui = (($, window, document) => {
       fixSidebar();
       resizeSidebarHeight();
       checkBrowserSize();
+      contenteditable();
       header.cbSlideUpHeader({
         headroom: true,
         slidePoint: 64,

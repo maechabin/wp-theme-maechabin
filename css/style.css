@@ -1226,17 +1226,25 @@ pre {
 
 /* code */
 code {
+  position: relative;
   box-sizing: border-box;
-  background-color: #212121;
+  background-color: #282828;
   border-radius: 1px !important;
-  color: #fff;
+  color: #f8f8f2 !important;
   display: block;
   line-height: 1.4;
-  padding: 24px 16px;
+  padding: 16px;
   text-align: left;
-  font-family: Consolas, 'Courier New', Courier, Monaco, monospace !important;
+  overflow: auto;
+  resize: horizontal;
+  z-index: 500;
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+  font-family: Menlo, Consolas, 'DejaVu Sans Mono', monospace !important;
   font-size: 14px !important;
-  font-weight: bold !important;
+}
+code div {
+  margin: 0 !important;
+  padding: 0;
 }
 code em {
   font-style: normal;
