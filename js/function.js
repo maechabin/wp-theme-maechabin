@@ -190,7 +190,10 @@ maechabin.ui = function ($, window, document) {
 
   function contenteditable() {
     var code = $('.prettyprint');
-    code.attr('contenteditable', true);
+    code.attr({
+      contenteditable: true,
+      spellcheck: false
+    });
   }
 
   return {
