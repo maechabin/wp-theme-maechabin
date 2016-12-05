@@ -122,6 +122,7 @@ code {
   .update {
     background-color: #E91E63 !important;
   }
+
   li {
     &.L0, &.L1, &.L2, &.L3, &.L4, &.L5, &.L6, &.L7, &.L8, &.L9 {
       color: #aaa;
@@ -137,6 +138,7 @@ code {
     margin: 16px auto 0;
     display: inline-block;
     width: calc(100% / 4);
+
     a {
       color: #fff;
       width: 100%;
@@ -146,35 +148,47 @@ code {
       display: inline-block;
       padding: 4px 0;
       border-radius: 2px;
-      transition: .3s;
+      transition: 0.3s;
     }
+
     a:hover {
-      opacity: .5;
+      opacity: 0.5;
     }
+
     a i {
       color: #fff;
     }
+
     span {
       font-weight: normal;
     }
   }
+
   &-button {
     text-align: center;
     width: 100%;
+
     &_hatena {
       @include button;
-      background: #008CE1;
+
+      background: #008ce1;
     }
+
     &_twitter {
       @include button;
-      background: #55ACEE;
+
+      background: #55acee;
     }
+
     &_facebook {
       @include button;
-      background: #3864A3;
+
+      background: #3864a3;
     }
+
     &_pocket {
       @include button;
+
       background: #ef4357;
     }
   }

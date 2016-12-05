@@ -1,5 +1,6 @@
 @charset "utf-8";
-/*!
+
+/* !
 Theme Name: chabin
 Template: chabin
 Theme URI: http://mae.chab.in/
@@ -35,12 +36,11 @@ Author URI: http://mae.chab.in/
   float: left;
   width: $_entry-width;
 }
+
 #entry_sub {
   margin-bottom: 0;
 }
 /* ▲content▲ */
-
-
 
 /* ▼共通事項▼ */
 .postmetadata,
@@ -253,8 +253,8 @@ article header {
   border-bottom: 8px solid #424242;
 }
 .intro p {
-  font-family: 'Quicksand', "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック';
-  font-size: 18px!important;
+  font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
+  font-size: 18px !important;
   line-height: 2 !important;
 }
 .entry-title {
