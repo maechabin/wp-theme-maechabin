@@ -27,7 +27,7 @@
 				</ul>
 
 				<address class="footer__credit">
-					<strong><a href="/">mae's blog</a></strong>
+					<strong><a href="/">maesblog</a></strong>
 					&copy; 2016 maechabin
 				</address>
 
@@ -64,8 +64,8 @@
 <script src="/wp-content/themes/chabin/assets/function.min-ba64ef674a16726252dd914e7e86a802.js" defer></script>
 <?php if (is_single()): ?>
 	<script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
-	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/lang-css.min.js"></script>
+	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/lang-css.min.js"></script> -->
 	<script>
 	/*
 	$(document).ready(function () {

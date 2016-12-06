@@ -63,7 +63,7 @@
 
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-ec664694164e3db308719d8f6ca108bd.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-6bd01233a03a863f12ad5ee1c7bd0e85.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
 </head>
@@ -77,7 +77,7 @@
 
         <h1 class="header__title">
           <a href="/"><i style="color:#fff;"></i></a>
-          <a href="/">mae's blog</a>
+          <a href="/">maesblog</a>
         </h1>
 
         <div class="header__search">

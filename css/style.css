@@ -116,9 +116,9 @@ a > i {
 .header {
   vertical-align: middle;
   width: 100%;
-  background-color: #000;
   background: -webkit-linear-gradient(#111 50%, #000 50%, #000);
   background: linear-gradient(#111 50%, #000 50%, #000);
+  background-color: #000;
   line-height: 64px;
   height: 64px;
   position: fixed;
@@ -168,7 +168,7 @@ a > i {
   font-size: 18px;
   background-color: #424242;
   height: 44px;
-  padding: 0px 6px;
+  padding: 0 6px;
   border-radius: 2px 0 0 2px;
   margin-top: -2px;
   width: 406px;
@@ -179,7 +179,7 @@ a > i {
   font-size: 18px;
   background-color: #424242;
   height: 44px;
-  padding: 0px 6px;
+  padding: 0 6px;
   border-radius: 2px 0 0 2px;
   margin-top: -2px;
   width: calc(100% - 34px);
@@ -1266,9 +1266,14 @@ code .update {
   background-color: #E91E63 !important;
 }
 code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.L6, code li.L7, code li.L8, code li.L9 {
-  color: #aaa;
-  list-style-type: decimal !important;
+  padding-left: 16px;
+  border-left: 1px solid #75715e;
   margin-left: 36px;
+  line-height: 1.4;
+  list-style-type: decimal !important;
+  list-style-position: outside;
+  background-color: #272822;
+  font-size: 14px;
 }
 
 /* sharebutton */

@@ -124,10 +124,24 @@ code {
   }
 
   li {
-    &.L0, &.L1, &.L2, &.L3, &.L4, &.L5, &.L6, &.L7, &.L8, &.L9 {
-      color: #aaa;
-      list-style-type: decimal !important;
+    &.L0,
+    &.L1,
+    &.L2,
+    &.L3,
+    &.L4,
+    &.L5,
+    &.L6,
+    &.L7,
+    &.L8,
+    &.L9 {
+      padding-left: 16px;
+      border-left: 1px solid #75715e;
       margin-left: 36px;
+      line-height: 1.4;
+      list-style-type: decimal !important;
+      list-style-position: outside;
+      background-color: #272822;
+      font-size: 14px;
     }
   }
 }
