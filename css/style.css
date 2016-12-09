@@ -139,16 +139,17 @@ a > i {
   position: absolute;
   left: 16px;
   z-index: 30;
+  font-family: "Myriad Set Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 28px;
   font-weight: normal;
 }
 .header__title a {
-  color: #7cb342 !important;
+  color: #85af4b !important;
   text-decoration: none;
   line-height: 64px;
 }
 .header__title a:hover {
-  color: #7cb342 !important;
+  color: #85af4b !important;
   text-shadow: 0px 0px 20px #fff;
 }
 .header__search {
@@ -297,11 +298,11 @@ a > i {
   letter-spacing: -1em;
 }
 .category__list_current {
-  border-bottom: 4px solid #7cb342 !important;
+  border-bottom: 4px solid #85af4b !important;
 }
 .category__list_current a {
   font-weight: bold;
-  color: #7cb342 !important;
+  color: #85af4b !important;
 }
 .category__list li:first-child {
   margin-left: 0;
@@ -314,7 +315,7 @@ a > i {
   transition: .2s;
 }
 .category__list li:hover {
-  border-bottom: 4px solid rgba(124, 179, 66, 0.9);
+  border-bottom: 4px solid rgba(133, 175, 75, 0.9);
 }
 .category__list li a {
   letter-spacing: 0;
@@ -330,10 +331,10 @@ a > i {
   text-decoration: none;
 }
 .category__list li a:hover {
-  color: #7cb342;
+  color: #85af4b;
 }
 .category__list li a:active {
-  color: #7cb342;
+  color: #85af4b;
 }
 .category__list li span {
   font-size: 14px;
@@ -898,7 +899,7 @@ pre {
   clear: both;
   color: #fff;
   padding: 24px 0;
-  background-color: #7cb342;
+  background-color: #85af4b;
   font-size: 24px;
   font-weight: normal;
   text-align: center;
@@ -959,7 +960,7 @@ pre {
   clear: both;
   color: #fff;
   padding: 24px 0;
-  background-color: #7cb342;
+  background-color: #85af4b;
   font-size: 24px;
   font-weight: normal;
   text-align: center;
@@ -1638,7 +1639,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   z-index: 3;
   width: 80px;
   height: 100vh;
-  background-color: #7cb342;
+  background-color: #85af4b;
 }
 .footer__bar-link {
   padding: 0;
