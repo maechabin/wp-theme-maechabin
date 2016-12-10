@@ -77,7 +77,7 @@ function breadcrumb() {
   }
 
   //トップページへのリンクを表示
-  echo '<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/" itemprop="url"><span itemprop="title"><i class="fa fa-home" title="mae.chab.in"></i> mae\'s blog</span></a>　<i class="fa fa-angle-double-right"></i></span>　';
+  echo '<span itemscope itemtype="http://data-vocabulary.org/Breadcrumb"><a href="' . home_url() . '/" itemprop="url"><span itemprop="title"><i class="fa fa-home" title="mae.chab.in"></i> maesblog</span></a>　<i class="fa fa-angle-double-right"></i></span>　';
 
   //現在のページの親が無くなるまで処理を繰り返す
   while ($tmp->parent) {
