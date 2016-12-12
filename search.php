@@ -5,7 +5,7 @@
 <div id="content">
 
 <!-- ▼#entry▼ -->
-<div id="entry">
+<main id="entry">
 <div id="entry_sub">
 <?php
 
@@ -84,7 +84,7 @@ wp_pagenavi();
 <?php endif; ?>
 
 </div><!-- #entry_sub -->
-</div><!-- #entry -->
+</main><!-- #entry -->
 <!-- ▲#entry▲ -->
 
 <?php get_sidebar(); ?>

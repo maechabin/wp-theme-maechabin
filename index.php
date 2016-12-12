@@ -5,14 +5,13 @@
 <div id="content">
 
 <!-- ▼#entry▼ -->
-<div id="entry">
+<main id="entry">
 <div id="entry_sub">
 
-<aside class="ad-index1">
+<div class="ad-index1">
   <div class="ad-index1__banner">
-    <p class="ad-index1__title">スポンサードリンク</p>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- mae's blog（記事上モバイルバナー） -->
+    <!-- maesblog（記事上モバイルバナー） -->
     <ins class="adsbygoogle"
          style="display:inline-block;width:320px;height:100px"
          data-ad-client="ca-pub-6331923403728737"
@@ -21,7 +20,7 @@
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
   </div>
-</aside>
+</div>
 
 <?php
 if(have_posts()):
@@ -90,7 +89,7 @@ wp_pagenavi();
 <p style="font-size: 16px;text-align: center;">キーワードを含む記事はありませんでした。</p>
 <div style="text-align: center;margin-top: 40px;">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- mae's blog（Page/index用） -->
+<!-- maesblog（Page/index用） -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:468px;height:60px"
      data-ad-client="ca-pub-6331923403728737"
@@ -102,7 +101,7 @@ wp_pagenavi();
 <?php endif; ?>
 
 </div><!-- #entry_sub -->
-</div><!-- #entry -->
+</main><!-- #entry -->
 <!-- ▲#entry▲ -->
 
 <?php get_sidebar(); ?>

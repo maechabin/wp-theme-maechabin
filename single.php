@@ -5,7 +5,7 @@
 <div id="content">
 
 <!-- ▼#entry▼ -->
-<div id="entry">
+<main id="entry">
 <div id="entry_sub">
 <?php
 if(have_posts()):
@@ -27,7 +27,7 @@ while(have_posts()):the_post();
   <?php mc_social_button(); ?>
   </header>
 
-  <aside class="ad-single1">
+  <div class="ad-single1">
     <div class="pc_only">
       <div class="ad-single1__text">
         <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -48,7 +48,6 @@ while(have_posts()):the_post();
     </div>
 
     <div class="ad-single1__banner">
-      <p class="ad-single1__title">スポンサードリンク</p>
 <?php
 $iPod    = stripos($_SERVER['HTTP_USER_AGENT'],"iPod");
 $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'],"iPhone");
@@ -83,7 +82,7 @@ if ($iPod || $iPhone || $iPad) {
 }
 ?>
     </div>
-  </aside>
+  </div>
 
   <div class="entry">
   <?php the_content(); ?>
@@ -94,7 +93,7 @@ if ($iPod || $iPhone || $iPad) {
   <?php wp_link_pages('before=&after=&next_or_number=number&pagelink=%'); ?>
   </div>
 
-  <aside class="ad-single2">
+  <div class="ad-single2">
     <div class="sd-single2__banner">
       <p class="ad-single2__title">スポンサードリンク</p>
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -107,7 +106,7 @@ if ($iPod || $iPhone || $iPad) {
       (adsbygoogle = window.adsbygoogle || []).push({});
       </script>
     </div>
-  </aside>
+  </div>
 
   <ul class="postmetadata">
     <li class="postmetadata-li">カテゴリー: <?php the_category(', '); ?></li>
@@ -142,7 +141,7 @@ if ($iPod || $iPhone || $iPad) {
 <?php endif; ?>
 
 </div><!-- #entry_sub -->
-</div><!-- #entry -->
+</main><!-- #entry -->
 <!-- ▲#entry▲ -->
 
 <?php get_sidebar(); ?>

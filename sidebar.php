@@ -20,37 +20,33 @@
 
         <p class="sidebar__author-description">フロントエンドエンジニア。JavaScript、React、UI/UXデザインなどが専門分野。現在はネット広告企業でマーケティング担当。趣味はカメラ、ピアノ、作曲。</p>
       </div>
-      <aside>
-        <div class="sidebar__widget_ad sidebar__ad1">
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- mae's blog（サイドバー上） -->
-          <ins class="adsbygoogle"
-            style="display:inline-block;width:300px;height:250px"
-            data-ad-client="ca-pub-6331923403728737"
-            data-ad-slot="3530398982"></ins>
-          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-      </aside>
+
+      <div class="sidebar__widget_ad sidebar__ad1">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- maesblog（サイドバー上） -->
+        <ins class="adsbygoogle"
+          style="display:inline-block;width:300px;height:250px"
+          data-ad-client="ca-pub-6331923403728737"
+          data-ad-slot="3530398982"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
     </div>
 
     <div class="mobile_only">
-      <nav>
       <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar() ): ?>
       <?php endif; ?>
-      </nav>
 
-      <aside>
-        <div class="sidebar__widget_ad sidebar__ad2">
-          <div>スポンサードリンク</div>
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-          <!-- mae's blog（サイドバー下） -->
-          <ins class="adsbygoogle"
-            style="display:inline-block;width:300px;height:250px"
-            data-ad-client="ca-pub-6331923403728737"
-            data-ad-slot="2944739979"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-      </aside>
+      <div class="sidebar__widget_ad sidebar__ad2">
+        <div>スポンサードリンク</div>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- maesblog（サイドバー下） -->
+        <ins class="adsbygoogle"
+          style="display:inline-block;width:300px;height:250px"
+          data-ad-client="ca-pub-6331923403728737"
+          data-ad-slot="2944739979"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
     </div>
 
   </div><!-- #sidebar_sub -->

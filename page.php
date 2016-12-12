@@ -5,7 +5,7 @@
 <div id="content">
 
 <!-- ▼#entry▼ -->
-<div id="entry">
+<main id="entry">
 <div id="entry_sub">
 <?php
 if(have_posts()):
@@ -45,10 +45,9 @@ while(have_posts()):the_post();
 
 <?php endif; ?>
 
-<aside>
 <div style="text-align:center;">
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- mae's blog（Page用） -->
+<!-- maesblog（Page用） -->
 <ins class="adsbygoogle"
      style="display:inline-block;width:468px;height:60px"
      data-ad-client="ca-pub-6331923403728737"
@@ -57,10 +56,9 @@ while(have_posts()):the_post();
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 </div>
-</aside>
 
 </div><!-- #entry_sub -->
-</div><!-- #entry -->
+</main><!-- #entry -->
 <!-- ▲#entry▲ -->
 
 <?php get_sidebar(); ?>
