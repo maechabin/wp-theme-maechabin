@@ -28,7 +28,7 @@
 
 				<address class="footer__credit">
 					<strong><a href="/">maesblog</a></strong>
-					&copy; 2016 maechabin
+					&copy; 2017 maechabin
 				</address>
 
 			</div><!-- #footer_sub -->
