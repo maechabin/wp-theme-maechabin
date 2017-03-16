@@ -93,6 +93,19 @@ if ($iPod || $iPhone || $iPad) {
   <?php wp_link_pages('before=&after=&next_or_number=number&pagelink=%'); ?>
   </div>
 
+  <section id="related-posts">
+    <h1 id="related-posts-title"><i class="fa fa-files-o"></i> 関連記事</h1>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="autorelaxed"
+         data-ad-client="ca-pub-6331923403728737"
+         data-ad-slot="3210202778"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </section>
+
   <div class="ad-single2">
     <div class="sd-single2__banner">
       <p class="ad-single2__title">スポンサードリンク</p>
