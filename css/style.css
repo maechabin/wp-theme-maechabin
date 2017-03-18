@@ -1185,19 +1185,14 @@ pre {
 
 /* item */
 .item {
+  border: 1px solid #ccc;
+  text-align: center;
   background-color: #FAFAFA;
   box-sizing: border-box;
-  display: flex;
   padding: 16px 8px;
 }
-.item figcaption {
-  padding-left: 8px;
-}
-.item__image {
-  flex: none;
-}
 .item__info {
-  text-align: left;
+  text-align: center !important;
   margin-bottom: 0 !important;
 }
 .item__info li {
@@ -1213,16 +1208,23 @@ pre {
   box-sizing: border-box;
   padding: 16px 8px;
   border-radius: 2px;
-  width: 300px;
+  max-width: 300px;
+  width: 100%;
   border: none;
   cursor: pointer;
   box-shadow: 0 1px 2px #757575;
 }
+.item__button:active {
+  box-shadow: none;
+}
 .item__button--orange {
-  float: left;
-  margin-top: 8px;
+  margin: 16px auto 8px;
   background-color: #F57F17;
   color: #fff;
+  transition: .2s;
+}
+.item__button--orange:hover {
+  opacity: .8;
 }
 @media screen and (max-width: 1179px) {
   .item__button {
