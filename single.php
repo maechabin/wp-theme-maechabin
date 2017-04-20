@@ -77,6 +77,19 @@ if ($iPod || $iPhone || $iPad) {
     </div>
   </div>
 
+  <div class="ad-single2">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- maesblog（記事下レスポンシブ） -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-6331923403728737"
+         data-ad-slot="7877624377"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </div>
+
   <ul class="postmetadata">
     <li class="postmetadata-li">カテゴリー: <?php the_category(', '); ?></li>
     <li class="postmetadata-li"><?php the_tags(); ?></li>

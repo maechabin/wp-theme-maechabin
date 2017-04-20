@@ -119,7 +119,7 @@ maechabin.ui = (($, window, document) => {
       const sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
 
       sidebar.css('height', `${contentHeight}px`);
-      w.on('scroll', () => {
+      window.addEventListener('scroll', () => {
         if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
           if (w.scrollTop() > 107 && w.scrollTop() < sidebarScrollStart) {
             sidebarSub.css({ position: 'fixed', top: 0 });
@@ -129,7 +129,7 @@ maechabin.ui = (($, window, document) => {
             sidebarSub.css('position', 'static');
           }
         }
-      });
+      }, { passive: true });
     }
   }
 

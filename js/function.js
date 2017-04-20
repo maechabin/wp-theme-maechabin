@@ -133,7 +133,7 @@ maechabin.ui = function ($, window, document) {
         var sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
 
         sidebar.css('height', contentHeight + 'px');
-        w.on('scroll', function () {
+        window.addEventListener('scroll', function () {
           if (window.matchMedia('(min-width: ' + contentWidthSize + 'px)').matches) {
             if (w.scrollTop() > 107 && w.scrollTop() < sidebarScrollStart) {
               sidebarSub.css({ position: 'fixed', top: 0 });
@@ -143,7 +143,7 @@ maechabin.ui = function ($, window, document) {
               sidebarSub.css('position', 'static');
             }
           }
-        });
+        }, { passive: true });
       })();
     }
   }

@@ -518,24 +518,19 @@ pre {
 /* ▽次のページへ　前のページへ▽ */
 #nav-below {
   overflow: hidden;
-  margin: 16px 0 40px;
-  font-size: 1.2em;
+  margin: 16px 0 0;
+  font-size: 14px;
   background-color: #f7f7f7;
-  padding: 9px 18px;
-  margin-bottom: 36px;
+  padding: 16px;
 }
 #nav-below li.nav-previous {
   float: left;
-  width: 200px;
-  text-align: justify;
-  text-justify: inter-ideograph;
+  width: 40%;
 }
 #nav-below li.nav-next {
   float: right;
-  width: 200px;
+  width: 40%;
   text-align: right;
-  text-align: justify;
-  text-justify: inter-ideograph;
 }
 /* △次のページへ　前のページへ△ */
 /* ▲article▲ */
