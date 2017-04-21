@@ -2,6 +2,7 @@ import jQuery from 'jquery';
 require('cbslideheader');
 require('cbsharecount');
 require('slideshowad');
+require('smoothscroll-polyfill').polyfill();
 
 const maechabin = maechabin || {};
 
@@ -10,24 +11,27 @@ maechabin.ui = (($, window, document) => {
   const header = $('.header');
   const headerBar = $('#header_bar');
   const contentWidthSize = 1100 + 80;
+  const style = document.createElement('div').style;
   let timer = null;
 
   // Smooth Scroll
-  function smoothScroll(position, speed) {
-    $('html, body').animate({ scrollTop: position }, speed, 'swing');
+  function callSmoothScroll(target = '#TOP') {
+    const elem = document.querySelector(target);
+    const rect = elem.getBoundingClientRect().top + window.pageYOffset - 56;
+    return window.scrollTo({ top: rect, left: 0, behavior: 'smooth' });
   }
 
   // ページ上部に戻る押したとき
   function goTop() {
-    $('a[href^="#"]').on('click', function (e) {
-      const speed = 400;
-      const href = $(this).attr('href');
-      const target = $(href === '#' || href === '' ? 'html' : href);
-      const position = target.offset().top - headerBar.height();
-
-      e.preventDefault();
-      smoothScroll(position, speed);
-      return false;
+    const elem = document.querySelectorAll('a[href^="#"]');
+    return Array.prototype.forEach.call(elem, x => {
+      x.addEventListener('click', (e) => {
+        e.preventDefault();
+        const regexp = new RegExp(/#.*$/, 'ig');
+        const href = x.getAttribute('href');
+        const target = href.match(regexp);
+        return callSmoothScroll(target);
+      }, false);
     });
   }
 
@@ -35,14 +39,9 @@ maechabin.ui = (($, window, document) => {
   function clickHeaderBar() {
     headerBar.on('click', (e) => {
       const element = $(e.target).attr('id');
-      let speed;
-      let position;
 
       if (element === 'header_bar' || element === 'header_bar_inner') {
-        speed = 600;
-        position = $(document.body).offset().top;
-        smoothScroll(position, speed);
-        return false;
+        return callSmoothScroll('#TOP');
       }
       return true;
     });
@@ -184,7 +183,9 @@ maechabin.ui = (($, window, document) => {
   return {
     init() {
       showAgendaLink();
-      goTop();
+      if (!('scroll-behavior' in style)) {
+        goTop();
+      }
       clickHeaderBar();
       backlink();
       clickTopPost();
@@ -201,6 +202,8 @@ maechabin.ui = (($, window, document) => {
   };
 })(jQuery, window, document);
 
-document.addEventListener('DOMContentLoaded', () => {
-  maechabin.ui.init();
-});
+document.addEventListener(
+  'DOMContentLoaded',
+  () => maechabin.ui.init(),
+  false
+);
