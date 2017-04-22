@@ -15,20 +15,25 @@ maechabin.ui = (($, window, document) => {
   let timer = null;
 
   // Smooth Scroll
-  function callSmoothScroll(target = '#TOP') {
-    const elem = document.querySelector(target);
-    const rect = elem.getBoundingClientRect().top + window.pageYOffset - 56;
+  function callSmoothScroll(target = ['#TOP']) {
+    const elem = document.querySelector(target[0]);
+    let rect;
+    if (target[0] === '#TOP') {
+      rect = elem.getBoundingClientRect().top + window.pageYOffset;
+    } else {
+      rect = elem.getBoundingClientRect().top + window.pageYOffset - 56;
+    }
     return window.scrollTo({ top: rect, left: 0, behavior: 'smooth' });
   }
 
   // ページ上部に戻る押したとき
-  function goTop() {
+  function getTarget() {
     const elem = document.querySelectorAll('a[href^="#"]');
-    return Array.prototype.forEach.call(elem, x => {
-      x.addEventListener('click', (e) => {
+    return Array.prototype.forEach.call(elem, (a) => {
+      a.addEventListener('click', (e) => {
         e.preventDefault();
         const regexp = new RegExp(/#.*$/, 'ig');
-        const href = x.getAttribute('href');
+        const href = a.getAttribute('href');
         const target = href.match(regexp);
         return callSmoothScroll(target);
       }, false);
@@ -41,7 +46,7 @@ maechabin.ui = (($, window, document) => {
       const element = $(e.target).attr('id');
 
       if (element === 'header_bar' || element === 'header_bar_inner') {
-        return callSmoothScroll('#TOP');
+        return callSmoothScroll(['#TOP']);
       }
       return true;
     });
@@ -184,7 +189,7 @@ maechabin.ui = (($, window, document) => {
     init() {
       showAgendaLink();
       if (!('scroll-behavior' in style)) {
-        goTop();
+        getTarget();
       }
       clickHeaderBar();
       backlink();

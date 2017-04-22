@@ -27,21 +27,26 @@ maechabin.ui = function ($, window, document) {
 
   // Smooth Scroll
   function callSmoothScroll() {
-    var target = arguments.length <= 0 || arguments[0] === undefined ? '#TOP' : arguments[0];
+    var target = arguments.length <= 0 || arguments[0] === undefined ? ['#TOP'] : arguments[0];
 
-    var elem = document.querySelector(target);
-    var rect = elem.getBoundingClientRect().top + window.pageYOffset - 56;
+    var elem = document.querySelector(target[0]);
+    var rect = void 0;
+    if (target[0] === '#TOP') {
+      rect = elem.getBoundingClientRect().top + window.pageYOffset;
+    } else {
+      rect = elem.getBoundingClientRect().top + window.pageYOffset - 56;
+    }
     return window.scrollTo({ top: rect, left: 0, behavior: 'smooth' });
   }
 
   // ページ上部に戻る押したとき
-  function goTop() {
+  function getTarget() {
     var elem = document.querySelectorAll('a[href^="#"]');
-    return Array.prototype.forEach.call(elem, function (x) {
-      x.addEventListener('click', function (e) {
+    return Array.prototype.forEach.call(elem, function (a) {
+      a.addEventListener('click', function (e) {
         e.preventDefault();
         var regexp = new RegExp(/#.*$/, 'ig');
-        var href = x.getAttribute('href');
+        var href = a.getAttribute('href');
         var target = href.match(regexp);
         return callSmoothScroll(target);
       }, false);
@@ -54,7 +59,7 @@ maechabin.ui = function ($, window, document) {
       var element = $(e.target).attr('id');
 
       if (element === 'header_bar' || element === 'header_bar_inner') {
-        return callSmoothScroll('#TOP');
+        return callSmoothScroll(['#TOP']);
       }
       return true;
     });
@@ -201,7 +206,7 @@ maechabin.ui = function ($, window, document) {
     init: function init() {
       showAgendaLink();
       if (!('scroll-behavior' in style)) {
-        goTop();
+        getTarget();
       }
       clickHeaderBar();
       backlink();
