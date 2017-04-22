@@ -27,28 +27,23 @@ maechabin.ui = function ($, window, document) {
 
   // Smooth Scroll
   function callSmoothScroll() {
-    var target = arguments.length <= 0 || arguments[0] === undefined ? ['#TOP'] : arguments[0];
+    var position = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
 
-    var elem = document.querySelector(target[0]);
-    var rect = void 0;
-    if (target[0] === '#TOP') {
-      rect = elem.getBoundingClientRect().top + window.pageYOffset;
-    } else {
-      rect = elem.getBoundingClientRect().top + window.pageYOffset - 56;
-    }
-    return window.scrollTo({ top: rect, left: 0, behavior: 'smooth' });
+    return window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
   }
 
   // ページ上部に戻る押したとき
-  function getTarget() {
+  function getTargetPosition(callback) {
     var elem = document.querySelectorAll('a[href^="#"]');
     return Array.prototype.forEach.call(elem, function (a) {
       a.addEventListener('click', function (e) {
         e.preventDefault();
-        var regexp = new RegExp(/#.*$/, 'ig');
         var href = a.getAttribute('href');
+        var regexp = new RegExp(/#.*$/, 'ig');
         var target = href.match(regexp);
-        return callSmoothScroll(target);
+        var targetElem = document.querySelector(target[0]);
+        var position = targetElem.getBoundingClientRect().top + window.pageYOffset - 56;
+        return callback(position);
       }, false);
     });
   }
@@ -59,7 +54,7 @@ maechabin.ui = function ($, window, document) {
       var element = $(e.target).attr('id');
 
       if (element === 'header_bar' || element === 'header_bar_inner') {
-        return callSmoothScroll(['#TOP']);
+        return callSmoothScroll(0);
       }
       return true;
     });
@@ -206,7 +201,7 @@ maechabin.ui = function ($, window, document) {
     init: function init() {
       showAgendaLink();
       if (!('scroll-behavior' in style)) {
-        getTarget();
+        getTargetPosition(callSmoothScroll);
       }
       clickHeaderBar();
       backlink();
