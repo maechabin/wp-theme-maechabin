@@ -371,13 +371,36 @@ a > i {
   }
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.sticky.sticky-fixed.is-sticky {
+  position: fixed;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.sticky.sticky-fixed.is-sticky:not([style*="margin-top"]) {
+  margin-top: 0 !important;
+}
+
+.sticky.sticky-fixed.is-sticky:not([style*="margin-bottom"]) {
+  margin-bottom: 0 !important;
+}
+
+.sticky.sticky-fixed.is-absolute {
+  position: absolute;
+}
+
 /* ▼content▼ */
 #content_border {
   z-index: 2;
   position: relative;
   background-color: #fff;
   clear: both;
-  overflow: hidden;
   border-top: 1px solid #CFD8DC;
   margin: 0;
   padding-right: 80px;
@@ -387,12 +410,14 @@ a > i {
   zoom: 1;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 #entry {
   padding-left: calc((100% - 1100px) / 2);
   position: relative;
-  float: left;
+  /* float: left; */
   width: 760px;
 }
 
@@ -1446,23 +1471,28 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
 
 /* #sidebar */
 .sidebar {
-  float: right;
+  /* float: right; */
   width: calc(((100% - 1100px) / 2) + 332px);
   color: #757575;
   font-size: 14px;
-  position: relative;
   background-color: rgba(236, 239, 241, 0.5);
-  overflow: hidden;
   z-index: 10;
+  display: flex;
 }
 .sidebar__sub {
   z-index: 10;
   box-sizing: border-box;
   width: 332px;
-  padding: 16px 8px 12px 24px;
-  height: calc(100vh - 40px);
+  padding: 16px 8px 16px 16px;
 }
 .sidebar__box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 56px;
   height: calc(100vh - 40px);
 }
 .sidebar__title,
@@ -1547,6 +1577,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
     padding: 16px;
   }
   .sidebar__box {
+    position: static;
     height: auto;
   }
 }
@@ -1718,6 +1749,7 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   }
 
   #content {
+    display: block;
     max-width: 100%;
     width: 100%;
   }

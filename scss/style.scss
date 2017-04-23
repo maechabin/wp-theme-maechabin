@@ -13,6 +13,7 @@ Author URI: http://mae.chab.in/
 @import "settings";
 @import "header";
 @import "index";
+@import "sticky";
 
 /* ▼content▼ */
 #content_border {
@@ -20,7 +21,6 @@ Author URI: http://mae.chab.in/
   position: relative;
   background-color: #fff;
   clear: both;
-  overflow: hidden;
   border-top: 1px solid #CFD8DC;
   margin: 0;
   padding-right: 80px;
@@ -29,11 +29,13 @@ Author URI: http://mae.chab.in/
   zoom: 1;
   width: 100%;
   margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
 }
 #entry {
   padding-left: calc((100% - 1100px) / 2);
   position: relative;
-  float: left;
+  /* float: left; */
   width: $_entry-width;
 }
 
@@ -723,6 +725,7 @@ pre {
     padding-right: 0;
   }
   #content {
+    display: block;
     max-width: 100%;
     width: 100%;
   }

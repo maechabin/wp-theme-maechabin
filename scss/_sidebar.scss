@@ -1,23 +1,31 @@
 /* #sidebar */
 .sidebar {
-  float: right;
+  /* float: right; */
   width: $_sidebar-width;
   color: #757575;
   font-size: 14px;
-  position: relative;
   background-color: rgba(236, 239, 241, 0.5);
-  overflow: hidden;
   z-index: 10;
+  display: flex;
+
   &__sub {
     z-index: 10;
     box-sizing: border-box;
     width: 332px;
-    padding: 16px 8px 12px 24px;
-    height: calc(100vh - 40px);
+    padding: 16px 8px 16px 16px;
   }
+
   &__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 56px;
     height: calc(100vh - 40px);
   }
+
   &__title,
   .title {
     font: {
@@ -109,6 +117,7 @@
     }
 
     &__box {
+      position: static;
       height: auto;
     }
   }

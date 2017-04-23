@@ -14,6 +14,7 @@ require('cbslideheader');
 require('cbsharecount');
 require('slideshowad');
 require('smoothscroll-polyfill').polyfill();
+var StickyState = require('sticky-state');
 
 var maechabin = maechabin || {};
 
@@ -22,7 +23,7 @@ maechabin.ui = function ($, window, document) {
   var header = $('.header');
   var headerBar = $('#header_bar');
   var contentWidthSize = 1100 + 80;
-  var style = document.createElement('div').style;
+  var div = document.createElement('div');
   var timer = null;
 
   // Smooth Scroll
@@ -30,22 +31,6 @@ maechabin.ui = function ($, window, document) {
     var position = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
 
     return window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
-  }
-
-  // ページ上部に戻る押したとき
-  function getTargetPosition(callback) {
-    var elem = document.querySelectorAll('a[href^="#"]');
-    return Array.prototype.forEach.call(elem, function (a) {
-      a.addEventListener('click', function (e) {
-        e.preventDefault();
-        var href = a.getAttribute('href');
-        var regexp = new RegExp(/#.*$/, 'ig');
-        var target = href.match(regexp);
-        var targetElem = document.querySelector(target[0]);
-        var position = targetElem.getBoundingClientRect().top + window.pageYOffset - 56;
-        return callback(position);
-      }, false);
-    });
   }
 
   // ヘッダーバーをクリックした時
@@ -120,35 +105,6 @@ maechabin.ui = function ($, window, document) {
     });
   }
 
-  // サイドバー固定
-  function fixSidebar() {
-    var contentHeight = $('#content_border').height();
-    var sidebarHeight = $('#sidebar').height();
-
-    if (sidebarHeight < contentHeight) {
-      (function () {
-        var headerbarHeight = headerBar.height();
-        var sidebar = $('#sidebar');
-        var sidebarSub = $('#sidebar_sub');
-        var footerBarHight = 40;
-        var sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
-
-        sidebar.css('height', contentHeight + 'px');
-        window.addEventListener('scroll', function () {
-          if (window.matchMedia('(min-width: ' + contentWidthSize + 'px)').matches) {
-            if (w.scrollTop() > 107 && w.scrollTop() < sidebarScrollStart) {
-              sidebarSub.css({ position: 'fixed', top: 0 });
-            } else if (w.scrollTop() > sidebarScrollStart) {
-              sidebarSub.css({ position: 'absolute', bottom: 0, top: 'auto' });
-            } else {
-              sidebarSub.css('position', 'static');
-            }
-          }
-        }, { passive: true });
-      })();
-    }
-  }
-
   function showAgendaLink() {
     var agenda = $('#agenda');
     var agendaLink = $('#footer__bar__agenda-link');
@@ -159,36 +115,6 @@ maechabin.ui = function ($, window, document) {
     }
   }
 
-  function resizeSidebarHeight() {
-    var sidebar = $('#sidebar');
-    var sidebarHeight = sidebar.height();
-    var sidebarSub = $('#sidebar_sub');
-    var sidebarSubHeight = sidebarSub.height();
-    var contentHeight = $('#content_border').height();
-
-    if (sidebarHeight < contentHeight) {
-      if (window.matchMedia('(max-width: ' + contentWidthSize + 'px)').matches) {
-        sidebar.css('height', sidebarSubHeight + 'px');
-        sidebarSub.css('position', 'static');
-      } else {
-        sidebar.css('height', contentHeight + 'px');
-      }
-    }
-  }
-
-  function startFunc() {
-    window.clearTimeout(timer);
-    timer = window.setTimeout(function () {
-      resizeSidebarHeight();
-    }, 400);
-  }
-
-  function checkBrowserSize() {
-    w.on('resize', function () {
-      startFunc();
-    });
-  }
-
   function contenteditable() {
     var code = $('.prettyprint');
     code.attr({
@@ -197,24 +123,115 @@ maechabin.ui = function ($, window, document) {
     });
   }
 
+  /*
+    function resizeSidebarHeight() {
+      const sidebar = $('#sidebar');
+      const sidebarHeight = sidebar.height();
+      const sidebarSub = $('#sidebar_sub');
+      const sidebarSubHeight = sidebarSub.height();
+      const contentHeight = $('#content_border').height();
+  
+      if (sidebarHeight < contentHeight) {
+        if (window.matchMedia(`(max-width: ${contentWidthSize}px)`).matches) {
+          sidebar.css('height', `${sidebarSubHeight}px`);
+          sidebarSub.css('position', 'static');
+        } else {
+          sidebar.css('height', `${contentHeight}px`);
+        }
+      }
+    }
+  
+    function startFunc() {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        resizeSidebarHeight();
+      }, 400);
+    }
+  
+    function checkBrowserSize() {
+      w.on('resize', () => {
+        startFunc();
+      });
+    }
+  
+    // サイドバー固定
+    function fixSidebar() {
+      const contentHeight = $('#content_border').height();
+      const sidebarHeight = $('#sidebar').height();
+  
+      if (sidebarHeight < contentHeight) {
+        const headerbarHeight = headerBar.height();
+        const sidebar = $('#sidebar');
+        const sidebarSub = $('#sidebar_sub');
+        const footerBarHight = 40;
+        const sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
+  
+        sidebar.css('height', `${contentHeight}px`);
+        window.addEventListener('scroll', () => {
+          if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
+            if (w.scrollTop() > 107 && w.scrollTop() < sidebarScrollStart) {
+              sidebarSub.css({ position: 'fixed', top: 0 });
+            } else if (w.scrollTop() > sidebarScrollStart) {
+              sidebarSub.css({ position: 'absolute', bottom: 0, top: 'auto' });
+            } else {
+              sidebarSub.css('position', 'static');
+            }
+          }
+        }, { passive: true });
+      }
+    }
+  */
+
+  /* === polyfill === */
+
+  // ページ上部に戻る押したとき
+  function getTargetPosition(callback) {
+    var elem = document.querySelectorAll('a[href^="#"]');
+    return Array.prototype.forEach.call(elem, function (a) {
+      a.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href = a.getAttribute('href');
+        var regexp = new RegExp(/#.*$/, 'ig');
+        var target = href.match(regexp);
+        var targetElem = document.querySelector(target[0]);
+        var position = targetElem.getBoundingClientRect().top + window.pageYOffset - 56;
+        return callback(position);
+      }, false);
+    });
+  }
+
+  function detectSticky() {
+    div.style.position = 'sticky';
+    return div.style.position.indexOf('sticky') !== -1;
+  }
+
+  function callStickyState() {
+    var sidebarBox = document.querySelector('.sidebar__box');
+    sidebarBox.setAttribute('class', 'sidebar__box sticky');
+    return new StickyState(document.querySelectorAll('.sticky'));
+  }
+
   return {
     init: function init() {
       showAgendaLink();
-      if (!('scroll-behavior' in style)) {
-        getTargetPosition(callSmoothScroll);
-      }
       clickHeaderBar();
       backlink();
       clickTopPost();
-      fixSidebar();
-      resizeSidebarHeight();
-      checkBrowserSize();
+      // fixSidebar();
+      // resizeSidebarHeight();
+      // checkBrowserSize();
       contenteditable();
       header.cbSlideUpHeader({
         headroom: true,
         slidePoint: 64
       });
       displayMobileSearch();
+      if (!('scroll-behavior' in div.style)) {
+        getTargetPosition(callSmoothScroll);
+      }
+      if (!detectSticky()) {
+        callStickyState();
+      }
     }
   };
 }(_jquery2.default, window, document);
@@ -224,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"cbsharecount":2,"cbslideheader":4,"slideshowad":6,"smoothscroll-polyfill":8}],2:[function(require,module,exports){
+},{"cbsharecount":2,"cbslideheader":4,"slideshowad":12,"smoothscroll-polyfill":14,"sticky-state":15}],2:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -811,7 +828,7 @@ var ShareCount = function () {
 
 exports.default = ShareCount;
 
-},{"jquery":5}],4:[function(require,module,exports){
+},{"jquery":7}],4:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -877,6 +894,191 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}],5:[function(require,module,exports){
+var hasOwn = {}.hasOwnProperty;
+
+function classArray() {
+  var classes = [];
+  var i = -1;
+  var arg;
+  var argType;
+  while (++i < arguments.length) {
+    if (!arguments[i]) continue;
+    arg = arguments[i];
+    argType = typeof arg;
+
+    if (argType === 'string' || argType === 'number') {
+      classes.push(arg);
+    } else if (Array.isArray(arg)) {
+      var c = classArray.apply(null, arg);
+      classes = classes.length ? classes.join(' ').split(' ') : classes;
+      var j = -1;
+      while (++j < c.length) {
+        if (classes.indexOf(c[j]) === -1) {
+          classes.push(c[j]);
+        }
+      }
+    } else if (argType === 'object') {
+      // var cl = classes.length ? ' '+classes.join(' ') : '';
+      var l = classes.length;
+      classes = l ? classes.join(' ').split(' ') : classes;
+      for (var key in arg) {
+        if (hasOwn.call(arg, key)) {
+          var index = l ? classes.indexOf(key) : -1;
+          if (arg[key]) {
+            if (index < 0) {
+              // cl += ' '+key;
+              classes.push(key);
+              ++l;
+            }
+          } else if (index > -1) {
+            // cl.split(key).join('');
+            classes.splice(index, 1);
+          }
+        }
+      }
+      // classes = cl.split(' ').slice(1);
+    }
+  }
+  return classes;
+}
+
+function classString() {
+  return classArray.apply(null, arguments).join(' ');
+}
+
+module.exports = classString;
+
+},{}],6:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function isEmpty(obj) {
+  if (obj) {
+    return Object.keys(obj).length === 0;
+  }
+  return true;
+}
+
+var EventDispatcher = function () {
+  function EventDispatcher() {
+    var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},
+        target = _ref.target,
+        currentTarget = _ref.currentTarget;
+
+    _classCallCheck(this, EventDispatcher);
+
+    this.target = target || this;
+    this.currentTarget = currentTarget || this;
+    this.eventMap = {};
+    this.destroyed = false;
+
+    this.on = this.bind = this.addEventListener = this.addListener;
+    this.off = this.unbind = this.removeEventListener = this.removeListener;
+    this.once = this.one = this.addListenerOnce;
+    this.emit = this.trigger = this.dispatchEvent = this.dispatch;
+  }
+
+  EventDispatcher.prototype.addListener = function addListener(event, listener) {
+    var listeners = this.getListener(event);
+    if (!listeners) {
+      this.eventMap[event] = [listener];
+    } else if (listeners.indexOf(listener) === -1) {
+      listeners.push(listener);
+    }
+    return this;
+  };
+
+  EventDispatcher.prototype.addListenerOnce = function addListenerOnce(event, listener) {
+    var _this = this;
+
+    var f2 = function f2(e) {
+      listener(e);
+      _this.off(event, f2);
+    };
+    return this.on(event, f2);
+  };
+
+  EventDispatcher.prototype.removeListener = function removeListener(event, listener) {
+    if (!listener) {
+      return this.removeAllListener(event);
+    }
+
+    var listeners = this.getListener(event);
+    if (listeners) {
+      var i = listeners.indexOf(listener);
+      if (i > -1) {
+        listeners.splice(i, 1);
+        if (!listeners.length) {
+          delete this.eventMap[event];
+        }
+      }
+    }
+    return this;
+  };
+
+  EventDispatcher.prototype.removeAllListener = function removeAllListener(event) {
+    var listeners = this.getListener(event);
+    if (listeners) {
+      this.eventMap[event].length = 0;
+      delete this.eventMap[event];
+    }
+    return this;
+  };
+
+  EventDispatcher.prototype.hasListener = function hasListener(event) {
+    return this.getListener(event) !== null;
+  };
+
+  EventDispatcher.prototype.hasListeners = function hasListeners() {
+    return this.eventMap !== null && this.eventMap !== undefined && !isEmpty(this.eventMap);
+  };
+
+  EventDispatcher.prototype.dispatch = function dispatch(eventType, eventObject) {
+    var listeners = this.getListener(eventType);
+
+    if (listeners) {
+      var evtObj = eventObject || {};
+      evtObj.type = eventType;
+      evtObj.target = evtObj.target || this.target;
+      evtObj.currentTarget = evtObj.currentTarget || this.currentTarget;
+
+      var i = -1;
+      while (++i < listeners.length) {
+        listeners[i](evtObj);
+      }
+    }
+    return this;
+  };
+
+  EventDispatcher.prototype.getListener = function getListener(event) {
+    var result = this.eventMap ? this.eventMap[event] : null;
+    return result || null;
+  };
+
+  EventDispatcher.prototype.destroy = function destroy() {
+    if (this.eventMap) {
+      var keys = Object.keys(this.eventMap);
+      for (var i = 0; i < keys.length; i++) {
+        this.removeAllListener(keys[i]);
+      }
+    }
+
+    this.eventMap = null;
+    this.destroyed = true;
+    return this;
+  };
+
+  return EventDispatcher;
+}();
+
+exports.default = EventDispatcher;
+module.exports = exports["default"];
+},{}],7:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v1.12.4
  * http://jquery.com/
@@ -11886,7 +12088,542 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],6:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
+'use strict';
+/* eslint-disable no-unused-vars */
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (e) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (Object.getOwnPropertySymbols) {
+			symbols = Object.getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+},{}],9:[function(require,module,exports){
+'use strict';
+
+var regex = /(auto|scroll)/;
+
+var hasOverflow = function hasOverflow(element) {
+  var style = window.getComputedStyle(element, null);
+  return regex.test(style.getPropertyValue('overflow') + style.getPropertyValue('overflow-y') + style.getPropertyValue('overflow-x'));
+};
+module.exports = hasOverflow;
+},{}],10:[function(require,module,exports){
+'use strict';
+
+var hasOverflow = require('./has-overflow');
+
+var scrollParent = function scrollParent(element) {
+
+  if (!(element instanceof HTMLElement)) {
+    return window;
+  }
+
+  while (element.parentNode) {
+    if (element.parentNode === document.body) {
+      return window;
+    }
+
+    if (hasOverflow(element.parentNode)) {
+      return element.parentNode;
+    }
+    element = element.parentNode;
+  }
+  return window;
+};
+
+module.exports = scrollParent;
+},{"./has-overflow":9}],11:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _eventdispatcher = require('eventdispatcher');
+
+var _eventdispatcher2 = _interopRequireDefault(_eventdispatcher);
+
+var _scrollParent = require('./scroll-parent');
+
+var _scrollParent2 = _interopRequireDefault(_scrollParent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var unprefixAnimationFrame = function unprefixAnimationFrame() {
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame;
+  }
+};
+
+var ScrollFeatures = function (_EventDispatcher) {
+  _inherits(ScrollFeatures, _EventDispatcher);
+
+  ScrollFeatures.getInstance = function getInstance(scrollTarget, options) {
+    if (!scrollTarget.scrollFeatures) {
+      return new ScrollFeatures(scrollTarget, options);
+    }
+    return scrollTarget.scrollFeatures;
+  };
+
+  ScrollFeatures.hasInstance = function hasInstance(scrollTarget) {
+    return typeof scrollTarget.scrollFeatures !== 'undefined';
+  };
+
+  ScrollFeatures.getScrollParent = function getScrollParent(element) {
+    return (0, _scrollParent2.default)(element);
+  };
+
+  _createClass(ScrollFeatures, null, [{
+    key: 'windowY',
+    get: function get() {
+      return window.pageYOffset || window.scrollY || 0;
+    }
+  }, {
+    key: 'windowX',
+    get: function get() {
+      return window.pageXOffset || window.scrollX || 0;
+    }
+  }, {
+    key: 'documentHeight',
+    get: function get() {
+      return Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+    }
+  }, {
+    key: 'documentWidth',
+    get: function get() {
+      return Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
+    }
+  }]);
+
+  function ScrollFeatures() {
+    var scrollTarget = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : window;
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    _classCallCheck(this, ScrollFeatures);
+
+    if (ScrollFeatures.hasInstance(scrollTarget)) {
+      var _ret;
+
+      return _ret = ScrollFeatures.getInstance(scrollTarget), _possibleConstructorReturn(_this, _ret);
+    }
+
+    var _this = _possibleConstructorReturn(this, _EventDispatcher.call(this, { target: scrollTarget }));
+
+    _this._scrollTarget = null;
+    _this._y = 0;
+    _this._x = 0;
+    _this._speedY = 0;
+    _this._speedX = 0;
+    _this._lastSpeed = 0;
+    _this._lastDirectionY = ScrollFeatures.direction.none;
+    _this._lastDirectionX = ScrollFeatures.direction.none;
+    _this._stopFrames = 3;
+    _this._currentStopFrames = 0;
+    _this._firstRender = true;
+    _this._directionY = ScrollFeatures.direction.none;
+    _this._directionX = ScrollFeatures.direction.none;
+    _this._scrolling = false;
+    _this._canScrollY = false;
+    _this._canScrollX = false;
+
+
+    scrollTarget.scrollFeatures = _this;
+    _this._scrollTarget = scrollTarget;
+    _this.options = options;
+
+    if (Can.animationFrame) {
+      unprefixAnimationFrame();
+    }
+
+    _this.init();
+    return _this;
+  }
+
+  ScrollFeatures.prototype.init = function init() {
+    var _this2 = this;
+
+    this.getScrollPosition = this._scrollTarget === window ? function () {
+      return { y: ScrollFeatures.windowY, x: ScrollFeatures.windowX };
+    }.bind(this) : function () {
+      return { y: this._scrollTarget.scrollTop, x: this._scrollTarget.scrollLeft };
+    }.bind(this);
+
+    this.onResize = function () {
+      _this2.trigger(ScrollFeatures.events.SCROLL_RESIZE);
+    };
+    this.onScroll = this.onScroll.bind(this);
+    this.onNextFrame = this.onNextFrame.bind(this);
+
+    this.updateScrollPosition();
+
+    if (this._scrollTarget !== window) {
+      var regex = /(auto|scroll)/;
+      var style = window.getComputedStyle(this._scrollTarget, null);
+      this._canScrollY = regex.test(style.getPropertyValue('overflow-y'));
+      this._canScrollX = regex.test(style.getPropertyValue('overflow-x'));
+    } else {
+      this._canScrollY = this.clientHeight < this.scrollHeight;
+      this._canScrollX = this.clientWidth < this.scrollWidth;
+    }
+
+    if (this._scrollTarget.addEventListener) {
+      this._scrollTarget.addEventListener('scroll', this.onScroll, false);
+      this._scrollTarget.addEventListener('resize', this.onResize, false);
+    } else if (this._scrollTarget.attachEvent) {
+      this._scrollTarget.attachEvent('scroll', this.onScroll);
+      this._scrollTarget.attachEvent('resize', this.onResize);
+    }
+  };
+
+  ScrollFeatures.prototype.destroy = function destroy() {
+
+    this._cancelNextFrame();
+
+    _EventDispatcher.prototype.destroy.call(this);
+
+    if (this._scrollTarget) {
+      if (this._scrollTarget.addEventListener) {
+        this._scrollTarget.removeEventListener('scroll', this.onScroll);
+        this._scrollTarget.removeEventListener('resize', this.onResize);
+      } else if (this._scrollTarget.attachEvent) {
+        this._scrollTarget.detachEvent('scroll', this.onScroll);
+        this._scrollTarget.detachEvent('resize', this.onResize);
+      }
+    }
+
+    this.onResize = null;
+    this.onScroll = null;
+    this.getScrollPosition = null;
+    this.onNextFrame = null;
+    delete this._scrollTarget.scrollFeatures;
+    this._scrollTarget = null;
+  };
+
+  ScrollFeatures.prototype.updateScrollPosition = function updateScrollPosition() {
+    this._y = this.y;
+    this._x = this.x;
+  };
+
+  ScrollFeatures.prototype.onScroll = function onScroll() {
+    this._currentStopFrames = 0;
+    if (this._firstRender) {
+      this._firstRender = false;
+      if (this.y > 1 || this.x > 1) {
+        this.updateScrollPosition();
+        this.trigger(ScrollFeatures.events.SCROLL_PROGRESS);
+        return;
+      }
+    }
+
+    if (!this._scrolling) {
+      this._scrolling = true;
+      this._lastDirectionY = ScrollFeatures.direction.none;
+      this._lastDirectionX = ScrollFeatures.direction.none;
+      this.trigger(ScrollFeatures.events.SCROLL_START);
+      if (Can.animationFrame) {
+        this.nextFrameID = window.requestAnimationFrame(this.onNextFrame);
+      } else {
+        this.onNextFrame();
+      }
+    }
+  };
+
+  ScrollFeatures.prototype.onNextFrame = function onNextFrame() {
+    var _this3 = this;
+
+    this._speedY = this._y - this.y;
+    this._speedX = this._x - this.x;
+
+    var speed = +this.speedY + +this.speedX;
+    if (this._scrolling && speed === 0 && this._currentStopFrames++ > this._stopFrames) {
+      this.onScrollStop();
+      return;
+    }
+
+    this.updateScrollPosition();
+
+    if (this._lastDirectionY !== this.directionY) {
+      this.trigger('scroll:' + (this.directionY === ScrollFeatures.direction.down ? 'down' : 'up'));
+    }
+    if (this._lastDirectionX !== this.directionX) {
+      this.trigger('scroll:' + (this.directionX === ScrollFeatures.direction.right ? 'right' : 'left'));
+    }
+
+    this._lastDirectionY = this.directionY;
+    this._lastDirectionX = this.directionX;
+
+    this.trigger(ScrollFeatures.events.SCROLL_PROGRESS);
+
+    if (Can.animationFrame) {
+      this.nextFrameID = window.requestAnimationFrame(this.onNextFrame);
+    } else {
+      this._nextTimeout = setTimeout(function () {
+        _this3.onNextFrame();
+      }, 1000 / 60);
+    }
+  };
+
+  ScrollFeatures.prototype.onScrollStop = function onScrollStop() {
+
+    this._scrolling = false;
+    this.updateScrollPosition();
+
+    this.trigger(ScrollFeatures.events.SCROLL_STOP);
+
+    if (this._canScrollY) {
+      if (this.y <= 0) {
+        this.trigger(ScrollFeatures.events.SCROLL_MIN);
+      } else if (this.y + this.clientHeight >= this.scrollHeight) {
+        this.trigger(ScrollFeatures.events.SCROLL_MAX);
+      }
+    }
+
+    if (this._canScrollX) {
+      if (this.x <= 0) {
+        this.trigger(ScrollFeatures.events.SCROLL_MIN);
+      } else if (this.x + this.clientWidth >= this.scrollWidth) {
+        this.trigger(ScrollFeatures.events.SCROLL_MAX);
+      }
+    }
+
+    this._cancelNextFrame();
+  };
+
+  ScrollFeatures.prototype._cancelNextFrame = function _cancelNextFrame() {
+    this._currentStopFrames = 0;
+    if (Can.animationFrame) {
+      window.cancelAnimationFrame(this.nextFrameID);
+      this.nextFrameID = -1;
+    } else {
+      clearTimeout(this._nextTimeout);
+    }
+  };
+
+  _createClass(ScrollFeatures, [{
+    key: 'scrollPosition',
+    get: function get() {
+      return this.getScrollPosition();
+    }
+  }, {
+    key: 'directionY',
+    get: function get() {
+      if (!this._canScrollY || this.speedY === 0 && !this._scrolling) {
+        this._directionY = ScrollFeatures.direction.none;
+      } else {
+        if (this.speedY > 0) {
+          this._directionY = ScrollFeatures.direction.up;
+        } else if (this.speedY < 0) {
+          this._directionY = ScrollFeatures.direction.down;
+        }
+      }
+      return this._directionY;
+    }
+  }, {
+    key: 'directionX',
+    get: function get() {
+      if (!this._canScrollX || this.speedX === 0 && !this._scrolling) {
+        this._directionX = ScrollFeatures.direction.none;
+      } else {
+        if (this.speedX > 0) {
+          this._directionX = ScrollFeatures.direction.left;
+        } else if (this.speedX < 0) {
+          this._directionX = ScrollFeatures.direction.right;
+        }
+      }
+      return this._directionX;
+    }
+  }, {
+    key: 'scrollTarget',
+    get: function get() {
+      return this._scrollTarget;
+    }
+  }, {
+    key: 'scrolling',
+    get: function get() {
+      return this._scrolling;
+    }
+  }, {
+    key: 'speedY',
+    get: function get() {
+      return this._speedY;
+    }
+  }, {
+    key: 'speedX',
+    get: function get() {
+      return this._speedX;
+    }
+  }, {
+    key: 'canScrollY',
+    get: function get() {
+      return this._canScrollY;
+    }
+  }, {
+    key: 'canScrollX',
+    get: function get() {
+      return this._canScrollX;
+    }
+  }, {
+    key: 'y',
+    get: function get() {
+      return this.scrollPosition.y;
+    }
+  }, {
+    key: 'x',
+    get: function get() {
+      return this.scrollPosition.x;
+    }
+  }, {
+    key: 'clientHeight',
+    get: function get() {
+      return this._scrollTarget === window ? window.innerHeight : this._scrollTarget.clientHeight;
+    }
+  }, {
+    key: 'clientWidth',
+    get: function get() {
+      return this._scrollTarget === window ? window.innerWidth : this._scrollTarget.clientWidth;
+    }
+  }, {
+    key: 'scrollHeight',
+    get: function get() {
+      return this._scrollTarget === window ? ScrollFeatures.documentHeight : this._scrollTarget.scrollHeight;
+    }
+  }, {
+    key: 'scrollWidth',
+    get: function get() {
+      return this._scrollTarget === window ? ScrollFeatures.documentWidth : this._scrollTarget.scrollWidth;
+    }
+  }]);
+
+  return ScrollFeatures;
+}(_eventdispatcher2.default);
+
+ScrollFeatures.direction = {
+  up: -1,
+  down: 1,
+  none: 0,
+  right: 2,
+  left: -2
+};
+ScrollFeatures.events = {
+  SCROLL_PROGRESS: 'scroll:progress',
+  SCROLL_START: 'scroll:start',
+  SCROLL_STOP: 'scroll:stop',
+  SCROLL_DOWN: 'scroll:down',
+  SCROLL_UP: 'scroll:up',
+  SCROLL_MIN: 'scroll:min',
+  SCROLL_MAX: 'scroll:max',
+  SCROLL_RESIZE: 'scroll:resize'
+};
+exports.default = ScrollFeatures;
+
+
+var _animationFrame = null;
+
+var Can = function () {
+  function Can() {
+    _classCallCheck(this, Can);
+  }
+
+  _createClass(Can, null, [{
+    key: 'animationFrame',
+    get: function get() {
+      if (_animationFrame === null) {
+        _animationFrame = !!(window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame);
+      }
+      return _animationFrame;
+    }
+  }]);
+
+  return Can;
+}();
+
+module.exports = exports['default'];
+},{"./scroll-parent":10,"eventdispatcher":6}],12:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -12015,7 +12752,7 @@ return jQuery;
   }, { SlideShowAd: 1 }] }, {}, [2]);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"SlideShowAd":7}],7:[function(require,module,exports){
+},{"SlideShowAd":13}],13:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -12331,7 +13068,7 @@ var SlideShowAd = function () {
 
 exports.default = SlideShowAd;
 
-},{"jquery":5}],8:[function(require,module,exports){
+},{"jquery":7}],14:[function(require,module,exports){
 /*
  * smoothscroll polyfill - v0.3.4
  * https://iamdustan.github.io/smoothscroll
@@ -12624,4 +13361,646 @@ exports.default = SlideShowAd;
   }
 })(window, document);
 
-},{}]},{},[1]);
+},{}],15:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _objectAssign = require('object-assign');
+
+var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+var _classstring = require('classstring');
+
+var _classstring2 = _interopRequireDefault(_classstring);
+
+var _eventdispatcher = require('eventdispatcher');
+
+var _eventdispatcher2 = _interopRequireDefault(_eventdispatcher);
+
+var _scrollfeatures = require('scrollfeatures');
+
+var _scrollfeatures2 = _interopRequireDefault(_scrollfeatures);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var defaults = {
+  disabled: false,
+  className: 'sticky',
+  stateClassName: 'is-sticky',
+  fixedClass: 'sticky-fixed',
+  wrapperClass: 'sticky-wrap',
+  wrapFixedSticky: true,
+  absoluteClass: 'is-absolute',
+
+  scrollClass: {
+    down: null,
+    up: null,
+    none: null,
+    persist: false,
+    active: false
+  }
+};
+
+var initialState = {
+  sticky: false,
+  absolute: false,
+  fixedOffset: '',
+  offsetHeight: 0,
+  bounds: {
+    top: null,
+    left: null,
+    right: null,
+    bottom: null,
+    height: null,
+    width: null
+  },
+  restrict: {
+    top: null,
+    left: null,
+    right: null,
+    bottom: null,
+    height: null,
+    width: null
+  },
+  wrapperStyle: null,
+  elementStyle: null,
+  initialStyle: null,
+  style: {
+    top: null,
+    bottom: null,
+    left: null,
+    right: null,
+    'margin-top': 0,
+    'margin-bottom': 0,
+    'margin-left': 0,
+    'margin-right': 0
+  },
+  disabled: false
+};
+
+var getAbsolutBoundingRect = function getAbsolutBoundingRect(el, fixedHeight) {
+  var rect = el.getBoundingClientRect();
+  var top = rect.top + _scrollfeatures2.default.windowY;
+  var height = fixedHeight || rect.height;
+  return {
+    top: top,
+    bottom: top + height,
+    height: height,
+    width: rect.width,
+    left: rect.left,
+    right: rect.right
+  };
+};
+
+var addBounds = function addBounds(rect1, rect2) {
+  var rect = (0, _objectAssign2.default)({}, rect1);
+  rect.top -= rect2.top;
+  rect.left -= rect2.left;
+  rect.right = rect.left + rect1.width;
+  rect.bottom = rect.top + rect1.height;
+  return rect;
+};
+
+var getPositionStyle = function getPositionStyle(el) {
+
+  var result = {};
+  var style = window.getComputedStyle(el, null);
+
+  for (var key in initialState.style) {
+    var value = parseInt(style.getPropertyValue(key));
+    value = isNaN(value) ? null : value;
+    result[key] = value;
+  }
+
+  return result;
+};
+
+var getPreviousElementSibling = function getPreviousElementSibling(el) {
+  var prev = el.previousElementSibling;
+  if (prev && prev.tagName.toLocaleLowerCase() === 'script') {
+    prev = getPreviousElementSibling(prev);
+  }
+  return prev;
+};
+
+var StickyState = function (_EventDispatcher) {
+  _inherits(StickyState, _EventDispatcher);
+
+  function StickyState(element, options) {
+    _classCallCheck(this, StickyState);
+
+    var elements;
+    if (element instanceof window.NodeList) {
+      elements = [].slice.call(element, 1);
+      element = element[0];
+    }
+
+    var _this = _possibleConstructorReturn(this, _EventDispatcher.call(this, { target: element }));
+
+    _this.el = null;
+    _this.firstRender = true;
+    _this.scroll = null;
+    _this.wrapper = null;
+    _this.options = null;
+
+
+    _this.el = element;
+
+    if (options && options.scrollClass) {
+      options.scrollClass = (0, _objectAssign2.default)({}, defaults.scrollClass, options.scrollClass, { active: true });
+    }
+    _this.options = (0, _objectAssign2.default)({}, defaults, options);
+
+    _this.setState((0, _objectAssign2.default)({}, initialState, { disabled: _this.options.disabled }), true);
+
+    _this.scrollTarget = _scrollfeatures2.default.getScrollParent(_this.el);
+    _this.hasOwnScrollTarget = _this.scrollTarget !== window;
+    if (_this.hasOwnScrollTarget) {
+      _this.updateFixedOffset = _this.updateFixedOffset.bind(_this);
+    }
+
+    _this.render = _this.render.bind(_this);
+    _this.addSrollHandler();
+    _this.addResizeHandler();
+    _this.render();
+
+    if (elements && elements.length) {
+      var _ret;
+
+      var collection = StickyState.apply(elements, options);
+      collection.push(_this);
+      return _ret = collection, _possibleConstructorReturn(_this, _ret);
+    }
+    return _this;
+  }
+
+  StickyState.apply = function apply(elements, options) {
+
+    if (elements && elements.length) {
+      var arr = new StickyStateCollection();
+      for (var i = 0; i < elements.length; i++) {
+        arr.push(new StickyState(elements[i], options));
+      }
+      return arr;
+    }
+
+    return new StickyState(elements, options);
+  };
+
+  StickyState.prototype.setState = function setState(newState, silent) {
+    this.lastState = this.state || newState;
+    this.state = (0, _objectAssign2.default)({}, this.state, newState);
+    if (silent !== true) {
+      this.render();
+      this.trigger(this.state.sticky ? 'sticky:on' : 'sticky:off');
+    }
+  };
+
+  StickyState.prototype.disable = function disable(value) {
+    this.setState({ disabled: value }, value);
+  };
+
+  StickyState.prototype.getBoundingClientRect = function getBoundingClientRect() {
+    return this.el.getBoundingClientRect();
+  };
+
+  StickyState.prototype.getBounds = function getBounds(noCache) {
+
+    var clientRect = this.getBoundingClientRect();
+    var offsetHeight = _scrollfeatures2.default.documentHeight;
+    noCache = noCache === true;
+
+    if (noCache !== true && this.state.bounds.height !== null) {
+      if (this.state.offsetHeight === offsetHeight && clientRect.height === this.state.bounds.height) {
+        return {
+          offsetHeight: offsetHeight,
+          style: this.state.style,
+          bounds: this.state.bounds,
+          restrict: this.state.restrict
+        };
+      }
+    }
+
+    // var style = noCache ? this.state.style : getPositionStyle(this.el);
+    var initialStyle = this.state.initialStyle;
+    if (!initialStyle) {
+      initialStyle = getPositionStyle(this.el);
+    }
+
+    var style = initialStyle;
+    var child = this.wrapper || this.el;
+    var rect;
+    var restrict;
+    var offsetY = 0;
+    var offsetX = 0;
+
+    if (!Can.sticky) {
+      rect = getAbsolutBoundingRect(child, clientRect.height);
+      if (this.hasOwnScrollTarget) {
+        var parentRect = getAbsolutBoundingRect(this.scrollTarget);
+        offsetY = this.scroll.y;
+        rect = addBounds(rect, parentRect);
+        restrict = parentRect;
+        restrict.top = 0;
+        restrict.height = this.scroll.scrollHeight || restrict.height;
+        restrict.bottom = restrict.height;
+      }
+    } else {
+      var elem = getPreviousElementSibling(child);
+      offsetY = 0;
+
+      if (elem) {
+        offsetY = parseInt(window.getComputedStyle(elem)['margin-bottom']);
+        offsetY = offsetY || 0;
+        rect = getAbsolutBoundingRect(elem);
+        if (this.hasOwnScrollTarget) {
+          rect = addBounds(rect, getAbsolutBoundingRect(this.scrollTarget));
+          offsetY += this.scroll.y;
+        }
+        rect.top = rect.bottom + offsetY;
+      } else {
+        elem = child.parentNode;
+        offsetY = parseInt(window.getComputedStyle(elem)['padding-top']);
+        offsetY = offsetY || 0;
+        rect = getAbsolutBoundingRect(elem);
+        if (this.hasOwnScrollTarget) {
+          rect = addBounds(rect, getAbsolutBoundingRect(this.scrollTarget));
+          offsetY += this.scroll.y;
+        }
+        rect.top = rect.top + offsetY;
+      }
+      if (this.hasOwnScrollTarget) {
+        restrict = getAbsolutBoundingRect(this.scrollTarget);
+        restrict.top = 0;
+        restrict.height = this.scroll.scrollHeight || restrict.height;
+        restrict.bottom = restrict.height;
+      }
+
+      rect.height = child.clientHeight;
+      rect.width = child.clientWidth;
+      rect.bottom = rect.top + rect.height;
+    }
+
+    restrict = restrict || getAbsolutBoundingRect(child.parentNode);
+
+    return {
+      offsetHeight: offsetHeight,
+      style: style,
+      bounds: rect,
+      initialStyle: initialStyle,
+      restrict: restrict
+    };
+  };
+
+  StickyState.prototype.updateBounds = function updateBounds(silent, noCache) {
+    silent = silent === true;
+    noCache = noCache === true;
+    this.setState(this.getBounds(noCache), silent);
+  };
+
+  StickyState.prototype.updateFixedOffset = function updateFixedOffset() {
+    this.lastState.fixedOffset = this.state.fixedOffset;
+    if (this.state.sticky) {
+      this.state.fixedOffset = this.scrollTarget.getBoundingClientRect().top + 'px;';
+    } else {
+      this.state.fixedOffset = '';
+    }
+    if (this.lastState.fixedOffset !== this.state.fixedOffset) {
+      this.render();
+    }
+  };
+
+  StickyState.prototype.addSrollHandler = function addSrollHandler() {
+    if (!this.scroll) {
+      var hasScrollTarget = _scrollfeatures2.default.hasInstance(this.scrollTarget);
+      this.scroll = _scrollfeatures2.default.getInstance(this.scrollTarget);
+      this.onScroll = this.onScroll.bind(this);
+      this.scroll.on('scroll:start', this.onScroll);
+      this.scroll.on('scroll:progress', this.onScroll);
+      this.scroll.on('scroll:stop', this.onScroll);
+
+      if (this.options.scrollClass.active) {
+        this.onScrollDirection = this.onScrollDirection.bind(this);
+        this.scroll.on('scroll:up', this.onScrollDirection);
+        this.scroll.on('scroll:down', this.onScrollDirection);
+        if (!this.options.scrollClass.persist) {
+          this.scroll.on('scroll:stop', this.onScrollDirection);
+        }
+      }
+      if (hasScrollTarget && this.scroll.scrollY > 0) {
+        this.scroll.trigger('scroll:progress');
+      }
+    }
+  };
+
+  StickyState.prototype.removeSrollHandler = function removeSrollHandler() {
+    if (this.scroll) {
+      this.scroll.off('scroll:start', this.onScroll);
+      this.scroll.off('scroll:progress', this.onScroll);
+      this.scroll.off('scroll:stop', this.onScroll);
+      if (this.options.scrollClass.active) {
+        this.scroll.off('scroll:up', this.onScrollDirection);
+        this.scroll.off('scroll:down', this.onScrollDirection);
+        this.scroll.off('scroll:stop', this.onScrollDirection);
+      }
+      if (!this.scroll.hasListeners()) {
+        this.scroll.destroy();
+      }
+      this.onScroll = null;
+      this.onScrollDirection = null;
+      this.scroll = null;
+    }
+  };
+
+  StickyState.prototype.addResizeHandler = function addResizeHandler() {
+    if (!this.onResize) {
+      this.onResize = this.update.bind(this);
+      window.addEventListener('sticky:update', this.onResize, false);
+      window.addEventListener('resize', this.onResize, false);
+      window.addEventListener('orientationchange', this.onResize, false);
+    }
+  };
+
+  StickyState.prototype.removeResizeHandler = function removeResizeHandler() {
+    if (this.onResize) {
+      window.removeEventListener('sticky:update', this.onResize);
+      window.removeEventListener('resize', this.onResize);
+      window.removeEventListener('orientationchange', this.onResize);
+      this.onResize = null;
+    }
+  };
+
+  StickyState.prototype.destroy = function destroy() {
+    _EventDispatcher.prototype.destroy.call(this);
+    this.removeSrollHandler();
+    this.removeResizeHandler();
+    this.render = null;
+    this.el = null;
+    this.state = null;
+    this.wrapper = null;
+  };
+
+  StickyState.prototype.getScrollClasses = function getScrollClasses(obj) {
+    if (this.options.scrollClass.active) {
+      obj = obj || {};
+      var direction = this.scroll.y <= 0 || this.scroll.y + this.scroll.clientHeight >= this.scroll.scrollHeight ? 0 : this.scroll.directionY;
+      obj[this.options.scrollClass.up] = direction < 0;
+      obj[this.options.scrollClass.down] = direction > 0;
+    }
+    return obj;
+  };
+
+  StickyState.prototype.onScrollDirection = function onScrollDirection(e) {
+    if (this.state.sticky || e.type === _scrollfeatures2.default.events.SCROLL_STOP) {
+      this.el.className = (0, _classstring2.default)(this.el.className, this.getScrollClasses());
+    }
+  };
+
+  StickyState.prototype.onScroll = function onScroll(e) {
+    this.updateStickyState(false);
+    if (this.hasOwnScrollTarget && !Can.sticky) {
+      this.updateFixedOffset();
+      if (this.state.sticky && !this.hasWindowScrollListener) {
+        this.hasWindowScrollListener = true;
+        _scrollfeatures2.default.getInstance(window).on('scroll:progress', this.updateFixedOffset);
+      } else if (!this.state.sticky && this.hasWindowScrollListener) {
+        this.hasWindowScrollListener = false;
+        _scrollfeatures2.default.getInstance(window).off('scroll:progress', this.updateFixedOffset);
+      }
+    }
+  };
+
+  StickyState.prototype.update = function update() {
+    this.scroll.updateScrollPosition();
+    this.updateBounds(true, true);
+    this.updateStickyState(false);
+  };
+
+  StickyState.prototype.getStickyState = function getStickyState() {
+
+    if (this.state.disabled) {
+      return { sticky: false, absolute: false };
+    }
+
+    var scrollY = this.scroll.y;
+    var scrollX = this.scroll.x;
+    var top = this.state.style.top;
+    var bottom = this.state.style.bottom;
+    // var left = this.state.style.left;
+    // var right = this.state.style.right;
+    var sticky = this.state.sticky;
+    var absolute = this.state.absolute;
+
+    if (top !== null) {
+      var offsetBottom = this.state.restrict.bottom - this.state.bounds.height - top;
+      top = this.state.bounds.top - top;
+
+      if (this.state.sticky === false && (scrollY >= top && scrollY <= offsetBottom || top <= 0 && scrollY < top)) {
+        sticky = true;
+        absolute = false;
+      } else if (this.state.sticky && (top > 0 && scrollY < top || scrollY > offsetBottom)) {
+        sticky = false;
+        absolute = scrollY > offsetBottom;
+      }
+    } else if (bottom !== null) {
+
+      scrollY += window.innerHeight;
+      var offsetTop = this.state.restrict.top + this.state.bounds.height - bottom;
+      bottom = this.state.bounds.bottom + bottom;
+
+      if (this.state.sticky === false && scrollY <= bottom && scrollY >= offsetTop) {
+        sticky = true;
+        absolute = false;
+      } else if (this.state.sticky && (scrollY > bottom || scrollY < offsetTop)) {
+        sticky = false;
+        absolute = scrollY <= offsetTop;
+      }
+    }
+    return { sticky: sticky, absolute: absolute };
+  };
+
+  StickyState.prototype.updateStickyState = function updateStickyState(silent) {
+    var values = this.getStickyState();
+
+    if (values.sticky !== this.state.sticky || values.absolute !== this.state.absolute) {
+      silent = silent === true;
+      values = (0, _objectAssign2.default)(values, this.getBounds());
+      this.setState(values, silent);
+    }
+  };
+
+  StickyState.prototype.render = function render() {
+
+    if (this.state.disabled) {
+      return;
+    }
+
+    var classNameObj = {};
+
+    if (this.firstRender) {
+      this.firstRender = false;
+
+      if (!Can.sticky) {
+        this.wrapper = document.createElement('div');
+        this.wrapper.className = this.options.wrapperClass;
+        var parent = this.el.parentNode;
+        if (parent) {
+          parent.insertBefore(this.wrapper, this.el);
+        }
+        if (this.options.wrapFixedSticky) {
+          this.wrapper.appendChild(this.el);
+        }
+        classNameObj[this.options.fixedClass] = true;
+      }
+
+      this.updateBounds(true, true);
+      this.updateStickyState(true);
+    }
+
+    if (!Can.sticky) {
+      var elementStyle = '';
+      var height = this.state.disabled || this.state.bounds.height === null || !this.state.sticky && !this.state.absolute ? 'auto;' : this.state.bounds.height + 'px;';
+      var wrapperStyle = 'height:' + height;
+      wrapperStyle += height === 'auto;' ? '' : (this.state.style['margin-top'] ? 'margin-top:' + this.state.style['margin-top'] + 'px;' : '0;') + (this.state.style['margin-bottom'] ? 'margin-bottom' + this.state.style['margin-bottom'] + 'px;' : '0;');
+
+      if (this.state.absolute !== this.lastState.absolute) {
+        wrapperStyle += this.state.absolute ? 'position:relative;' : '';
+        classNameObj[this.options.absoluteClass] = this.state.absolute;
+        elementStyle += this.state.absolute ? this.state.style.top !== null ? 'margin-top:' + (this.state.restrict.height - (this.state.bounds.height + this.state.style.top) + (this.state.restrict.top - this.state.bounds.top)) + 'px;' : 'margin-top:0;' + (this.state.style.bottom !== null ? 'margin-bottom:' + (this.state.restrict.height - (this.state.bounds.height + this.state.style.bottom) + (this.state.restrict.bottom - this.state.bounds.bottom)) + 'px;' : 'margin-bottom:0;') : 'margin-bottom:0;margin-top:0;';
+      }
+
+      if ((this.state.style.top !== null || this.state.style.bottom !== null) && this.hasOwnScrollTarget && !this.state.absolute && this.lastState.fixedOffset !== this.state.fixedOffset) {
+        elementStyle += 'margin-top:' + (this.state.fixedOffset ? this.state.fixedOffset : '0;');
+      }
+
+      if (this.state.wrapperStyle !== wrapperStyle) {
+        this.state.wrapperStyle = wrapperStyle;
+        this.wrapper.style.cssText += wrapperStyle;
+      }
+
+      if (this.state.elementStyle !== elementStyle) {
+        this.state.elementStyle = elementStyle;
+        this.el.style.cssText += elementStyle;
+      }
+    }
+
+    classNameObj[this.options.stateClassName] = this.state.sticky;
+    classNameObj = this.getScrollClasses(classNameObj);
+    var className = (0, _classstring2.default)(this.el.className, classNameObj);
+
+    if (this.el.className !== className) {
+      this.el.className = className;
+    }
+
+    return this.el;
+  };
+
+  _createClass(StickyState, null, [{
+    key: 'native',
+    get: function get() {
+      return Can.sticky;
+    }
+  }]);
+
+  return StickyState;
+}(_eventdispatcher2.default);
+
+var _canSticky = null;
+
+var Can = function () {
+  function Can() {
+    _classCallCheck(this, Can);
+  }
+
+  _createClass(Can, null, [{
+    key: 'sticky',
+    get: function get() {
+      if (_canSticky !== null) {
+        return _canSticky;
+      }
+      if (typeof window !== 'undefined') {
+
+        if (window.Modernizr && window.Modernizr.hasOwnProperty('csspositionsticky')) {
+          return _canSticky = window.Modernizr.csspositionsticky;
+        }
+
+        var documentFragment = document.documentElement;
+        var testEl = document.createElement('div');
+        documentFragment.appendChild(testEl);
+        var prefixedSticky = ['sticky', '-webkit-sticky'];
+
+        _canSticky = false;
+
+        for (var i = 0; i < prefixedSticky.length; i++) {
+          testEl.style.position = prefixedSticky[i];
+          _canSticky = !!window.getComputedStyle(testEl).position.match('sticky');
+          if (_canSticky) {
+            break;
+          }
+        }
+        documentFragment.removeChild(testEl);
+      }
+      return _canSticky;
+    }
+  }]);
+
+  return Can;
+}();
+
+var StickyStateCollection = function (_EventDispatcher2) {
+  _inherits(StickyStateCollection, _EventDispatcher2);
+
+  function StickyStateCollection() {
+    _classCallCheck(this, StickyStateCollection);
+
+    var _this2 = _possibleConstructorReturn(this, _EventDispatcher2.call(this));
+
+    _this2.items = [];
+    return _this2;
+  }
+
+  StickyStateCollection.prototype.push = function push(item) {
+    this.items.push(item);
+  };
+
+  StickyStateCollection.prototype.update = function update() {
+    var i = -1;
+    while (++i < this.items.length) {
+      this.items[i].update();
+    }
+  };
+
+  StickyStateCollection.prototype.addListener = function addListener(event, listener) {
+
+    var i = -1;
+    while (++i < this.items.length) {
+      this.items[i].addListener(event, listener);
+    }
+    return this;
+  };
+
+  StickyStateCollection.prototype.removeListener = function removeListener(event, listener) {
+    var i = -1;
+    while (++i < this.items.length) {
+      this.items[i].removeListener(event, listener);
+    }
+    return this;
+  };
+
+  return StickyStateCollection;
+}(_eventdispatcher2.default);
+
+exports.default = StickyState;
+module.exports = exports['default'];
+},{"classstring":5,"eventdispatcher":6,"object-assign":8,"scrollfeatures":11}]},{},[1]);

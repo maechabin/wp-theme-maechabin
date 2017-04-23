@@ -3,6 +3,7 @@ require('cbslideheader');
 require('cbsharecount');
 require('slideshowad');
 require('smoothscroll-polyfill').polyfill();
+const StickyState = require('sticky-state');
 
 const maechabin = maechabin || {};
 
@@ -11,28 +12,12 @@ maechabin.ui = (($, window, document) => {
   const header = $('.header');
   const headerBar = $('#header_bar');
   const contentWidthSize = 1100 + 80;
-  const style = document.createElement('div').style;
+  const div = document.createElement('div');
   let timer = null;
 
   // Smooth Scroll
   function callSmoothScroll(position = 0) {
     return window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
-  }
-
-  // ページ上部に戻る押したとき
-  function getTargetPosition(callback) {
-    const elem = document.querySelectorAll('a[href^="#"]');
-    return Array.prototype.forEach.call(elem, (a) => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
-        const href = a.getAttribute('href');
-        const regexp = new RegExp(/#.*$/, 'ig');
-        const target = href.match(regexp);
-        const targetElem = document.querySelector(target[0]);
-        const position = targetElem.getBoundingClientRect().top + window.pageYOffset - 56;
-        return callback(position);
-      }, false);
-    });
   }
 
   // ヘッダーバーをクリックした時
@@ -105,33 +90,6 @@ maechabin.ui = (($, window, document) => {
     });
   }
 
-  // サイドバー固定
-  function fixSidebar() {
-    const contentHeight = $('#content_border').height();
-    const sidebarHeight = $('#sidebar').height();
-
-    if (sidebarHeight < contentHeight) {
-      const headerbarHeight = headerBar.height();
-      const sidebar = $('#sidebar');
-      const sidebarSub = $('#sidebar_sub');
-      const footerBarHight = 40;
-      const sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
-
-      sidebar.css('height', `${contentHeight}px`);
-      window.addEventListener('scroll', () => {
-        if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
-          if (w.scrollTop() > 107 && w.scrollTop() < sidebarScrollStart) {
-            sidebarSub.css({ position: 'fixed', top: 0 });
-          } else if (w.scrollTop() > sidebarScrollStart) {
-            sidebarSub.css({ position: 'absolute', bottom: 0, top: 'auto' });
-          } else {
-            sidebarSub.css('position', 'static');
-          }
-        }
-      }, { passive: true });
-    }
-  }
-
   function showAgendaLink() {
     const agenda = $('#agenda');
     const agendaLink = $('#footer__bar__agenda-link');
@@ -142,6 +100,15 @@ maechabin.ui = (($, window, document) => {
     }
   }
 
+  function contenteditable() {
+    const code = $('.prettyprint');
+    code.attr({
+      contenteditable: true,
+      spellcheck: false,
+    });
+  }
+
+/*
   function resizeSidebarHeight() {
     const sidebar = $('#sidebar');
     const sidebarHeight = sidebar.height();
@@ -172,32 +139,84 @@ maechabin.ui = (($, window, document) => {
     });
   }
 
-  function contenteditable() {
-    const code = $('.prettyprint');
-    code.attr({
-      contenteditable: true,
-      spellcheck: false,
+  // サイドバー固定
+  function fixSidebar() {
+    const contentHeight = $('#content_border').height();
+    const sidebarHeight = $('#sidebar').height();
+
+    if (sidebarHeight < contentHeight) {
+      const headerbarHeight = headerBar.height();
+      const sidebar = $('#sidebar');
+      const sidebarSub = $('#sidebar_sub');
+      const footerBarHight = 40;
+      const sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
+
+      sidebar.css('height', `${contentHeight}px`);
+      window.addEventListener('scroll', () => {
+        if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
+          if (w.scrollTop() > 107 && w.scrollTop() < sidebarScrollStart) {
+            sidebarSub.css({ position: 'fixed', top: 0 });
+          } else if (w.scrollTop() > sidebarScrollStart) {
+            sidebarSub.css({ position: 'absolute', bottom: 0, top: 'auto' });
+          } else {
+            sidebarSub.css('position', 'static');
+          }
+        }
+      }, { passive: true });
+    }
+  }
+*/
+
+  /* === polyfill === */
+
+  // ページ上部に戻る押したとき
+  function getTargetPosition(callback) {
+    const elem = document.querySelectorAll('a[href^="#"]');
+    return Array.prototype.forEach.call(elem, (a) => {
+      a.addEventListener('click', (e) => {
+        e.preventDefault();
+        const href = a.getAttribute('href');
+        const regexp = new RegExp(/#.*$/, 'ig');
+        const target = href.match(regexp);
+        const targetElem = document.querySelector(target[0]);
+        const position = targetElem.getBoundingClientRect().top + window.pageYOffset - 56;
+        return callback(position);
+      }, false);
     });
+  }
+
+  function detectSticky() {
+    div.style.position = 'sticky';
+    return div.style.position.indexOf('sticky') !== -1;
+  }
+
+  function callStickyState() {
+    const sidebarBox = document.querySelector('.sidebar__box');
+    sidebarBox.setAttribute('class', 'sidebar__box sticky');
+    return new StickyState(document.querySelectorAll('.sticky'));
   }
 
   return {
     init() {
       showAgendaLink();
-      if (!('scroll-behavior' in style)) {
-        getTargetPosition(callSmoothScroll);
-      }
       clickHeaderBar();
       backlink();
       clickTopPost();
-      fixSidebar();
-      resizeSidebarHeight();
-      checkBrowserSize();
+      // fixSidebar();
+      // resizeSidebarHeight();
+      // checkBrowserSize();
       contenteditable();
       header.cbSlideUpHeader({
         headroom: true,
         slidePoint: 64,
       });
       displayMobileSearch();
+      if (!('scroll-behavior' in div.style)) {
+        getTargetPosition(callSmoothScroll);
+      }
+      if (!detectSticky()) {
+        callStickyState();
+      }
     },
   };
 })(jQuery, window, document);
