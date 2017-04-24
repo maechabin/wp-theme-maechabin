@@ -7,12 +7,12 @@
   background-color: rgba(236, 239, 241, 0.5);
   z-index: 10;
   display: flex;
+  justify-content: center;
 
   &__sub {
-    z-index: 10;
     box-sizing: border-box;
     width: 332px;
-    padding: 16px 8px 16px 16px;
+    padding: 16px 8px;
   }
 
   &__box {
@@ -40,6 +40,7 @@
     background-color: #607D8B;
   }
   &__author {
+    width: 316px;
     &-photo {
       margin: 8px auto 4px;
       text-align: center;
@@ -71,7 +72,7 @@
       text-align: justify;
       text-justify: inter-ideograph;
       color: #666;
-      margin-bottom: 0;
+      margin-bottom: 4px;
     }
   }
   &__widget {
@@ -119,6 +120,10 @@
     &__box {
       position: static;
       height: auto;
+    }
+
+    &__author {
+      width: 100%;
     }
   }
 }

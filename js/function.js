@@ -14,17 +14,19 @@ require('cbslideheader');
 require('cbsharecount');
 require('slideshowad');
 require('smoothscroll-polyfill').polyfill();
-var StickyState = require('sticky-state');
 
+var StickyState = require('sticky-state');
 var maechabin = maechabin || {};
 
 maechabin.ui = function ($, window, document) {
-  var w = $(window);
   var header = $('.header');
   var headerBar = $('#header_bar');
-  var contentWidthSize = 1100 + 80;
   var div = document.createElement('div');
-  var timer = null;
+  /*
+  const contentWidthSize = 1100 + 80;
+  const w = $(window);
+  let timer = null;
+  */
 
   // Smooth Scroll
   function callSmoothScroll() {
