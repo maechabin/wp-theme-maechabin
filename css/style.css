@@ -1485,7 +1485,6 @@ code li.L0, code li.L1, code li.L2, code li.L3, code li.L4, code li.L5, code li.
   color: #757575;
   font-size: 14px;
   background-color: rgba(236, 239, 241, 0.5);
-  z-index: 10;
   display: flex;
   justify-content: center;
 }

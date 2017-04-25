@@ -193,7 +193,7 @@ maechabin.ui = function ($, window, document) {
       a.addEventListener('click', function (e) {
         e.preventDefault();
         var href = a.getAttribute('href');
-        var regexp = new RegExp(/#.*$/, 'ig');
+        var regexp = new RegExp('#.*$', 'ig');
         var target = href.match(regexp);
         var targetElem = document.querySelector(target[0]);
         var position = targetElem.getBoundingClientRect().top + window.pageYOffset - 56;

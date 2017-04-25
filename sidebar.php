@@ -7,7 +7,7 @@
           <img src="/wp-content/uploads/2015/11/maechabin_400.png" width="128" height="128" alt="maechabin / Takanori Maeda">
         </figure>
         <p class="sidebar__author-name">Takanori Maeda</p>
-        <p class="sidebar__author-description">フロントエンドエンジニア。JavaScript、React、UI/UXデザインなどが専門分野。ネット広告会社勤務。趣味はカメラ、ピアノ、作曲。</p>
+        <p class="sidebar__author-description">フロントエンドエンジニア。JavaScript、React、UI/UXデザインなどが専門。ネット広告会社勤務。趣味はカメラ、読書、英語、ピアノ、作曲。</p>
         <p class="sidebar__author-social">
           <a href="//github.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-github');"><i class="fa fa-github-alt"></i></a>
           <a href="//twitter.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-twitter');"><i class="fa fa-twitter"></i></a>
