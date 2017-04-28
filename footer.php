@@ -80,6 +80,7 @@
 <script>
 $(document).ready(function () {
 	$('.cb-share').cbShareCount({
+		assign: ['fb', 'hb', 'pk'],
 		cacheTime: 360000
 	});
 });
