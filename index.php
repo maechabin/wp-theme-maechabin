@@ -42,6 +42,7 @@ $catslug = $cat[0]->slug; //スラッグ名
       <i class="fa fa-archive"></i> <?php the_category(', '); ?>
     </li>
     <li class="postmetadata-li">
+      <i class="fa fa-calendar" aria-hidden="true"></i>
       <time pubdate class="post__date">
         <a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_date('Y年m月d日'); ?></a>
       </time>

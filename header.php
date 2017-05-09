@@ -5,9 +5,10 @@
   <meta charset="utf-8">
   <title><?php site_title() ?></title>
   <meta http-equiv="default-style" content="<?php bloginfo('stylesheet_url'); ?>">
-  <meta name="description" content="JavaScript、HTML5、CSS3などのフロントエンド関連のWeb技術の話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
-  <meta name="keywords" content="JavaScript, jQuery, HTML5, wordpress, apple">
+  <meta name="description" content="JavaScript、Reactなどのフロントエンド関連のWeb技術の話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
+  <meta name="keywords" content="JavaScript, Raect, HTML5, wordpress, apple">
   <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+  <meta name="google-site-verification" content="auMacOLlBwYsiL4oZPE_McmHLAHEb6_T8FnBMaC69Dw">
 
   <!-- OGP -->
   <?php if(is_home()): ?>
@@ -61,6 +62,8 @@
   <?php endif; ?>
   <!-- Twitter Card -->
 
+  <?php $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES); ?>
+  <link rel="canonical" href="https://mae.chab.in<?php echo $path ?>">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-81907d46a88c2c0e4f8c3078eebf897c.css" media="all">

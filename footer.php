@@ -61,7 +61,7 @@
 <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
 <?php wp_footer(); ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-47637964934fa034f846d793b33a8ded.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-18eb43040245fb6a00c7cc3e8934715e.js" defer></script>
 <?php if (is_single()): ?>
 	<script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
 	<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css"></script>
@@ -78,12 +78,14 @@
 	</script>
 <?php endif ?>
 <script>
+/*
 $(document).ready(function () {
 	$('.cb-share').cbShareCount({
 		assign: ['fb', 'hb', 'pk'],
 		cacheTime: 360000
 	});
 });
+*/
 </script>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

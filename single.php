@@ -19,8 +19,8 @@ while(have_posts()):the_post();
     <nav class="breadcrumb"><?php breadcrumb(); ?></nav>
     <h1 id="post-<?php the_ID(); ?>" class="entry-title"><?php the_title(); ?></h1>
     <ul class="entry-meta">
-      <li class="entry-meta-li"><time pubdate><?php the_date('Y年m月d日'); ?></time></li>
-      <li class="entry-meta-li"><a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><i class="fa fa-google-plus" style="color: #db4437;"></i></a></li>
+      <li class="entry-meta-li"><i class="fa fa-calendar" aria-hidden="true"></i> <time pubdate><?php the_date('Y年m月d日'); ?></time></li>
+      <li class="entry-meta-li"><i class="fa fa-pencil" aria-hidden="true"></i> <a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><i class="fa fa-google-plus" style="color: #db4437;"></i></a></li>
       <li class="entry-meta-li"><?php the_tags('#', ', #'); ?></li>
     </ul>
 

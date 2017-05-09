@@ -1,6 +1,6 @@
 import jQuery from 'jquery';
 require('cbslideheader');
-require('cbsharecount');
+// require('cbsharecount');
 require('slideshowad');
 require('smoothscroll-polyfill').polyfill();
 
