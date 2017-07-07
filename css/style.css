@@ -672,7 +672,7 @@ article header {
 }
 
 .entry div {
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 .entry p,
@@ -687,7 +687,7 @@ figure {
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
   line-height: 1.8;
 }
 
@@ -812,7 +812,7 @@ a:hover .imgBorder {
 }
 
 figure {
-  margin-bottom: 30px;
+  margin-bottom: 40px;
 }
 
 figcaption {
