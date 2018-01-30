@@ -58,7 +58,7 @@
 	<!-- ▲footer▲ -->
 
 </div><!-- #index -->
-<script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <?php wp_footer(); ?>
 <?php get_template_part('footer-custom-field'); ?>
 <script src="/wp-content/themes/chabin/assets/function.min-18eb43040245fb6a00c7cc3e8934715e.js" defer></script>
