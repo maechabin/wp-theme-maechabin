@@ -9,13 +9,16 @@
 <div id="entry_sub">
 <?php
 
-$allsearch =& new WP_Query("s=$s&posts_per_page=-1");
+$allsearch = new WP_Query("s=$s&posts_per_page=-1");
 
 $key = wp_specialchars($s, 1);
 $count = $allsearch->post_count;
 ?>
 
-<p class="search__result"><span class="search__display"><strong><?php echo $key ?></strong> の</span>検索結果: <strong><?php echo $count ?></strong> 件</p>
+<p class="search__result">
+  <span class="search__display"><strong><?php echo $key ?></strong> の</span>
+  検索結果: <strong><?php echo $count ?></strong> 件
+</p>
 
 <aside class="ad-index1">
   <div class="ad-index1__banner">
@@ -71,15 +74,15 @@ wp_pagenavi();
 <h2 class="entry-h3" style="text-align: center;">Not Found</h2>
 <p style="font-size: 16px;text-align: center;">キーワードを含む記事はありませんでした。</p>
 <div style="text-align: center;margin-top: 40px;">
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- mae's blog（Page/index用） -->
-<ins class="adsbygoogle"
-   style="display:inline-block;width:468px;height:60px"
-   data-ad-client="ca-pub-6331923403728737"
-   data-ad-slot="8443865971"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <!-- mae's blog（Page/index用） -->
+  <ins class="adsbygoogle"
+    style="display:inline-block;width:468px;height:60px"
+    data-ad-client="ca-pub-6331923403728737"
+    data-ad-slot="8443865971"></ins>
+  <script>
+  (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
 </div>
 <?php endif; ?>
 
