@@ -1,38 +1,37 @@
-module.exports = function (grunt) {
-
-  var pkg = grunt.file.readJSON('package.json');
+module.exports = (grunt) => {
+  const pkg = grunt.file.readJSON('package.json');
 
   grunt.initConfig({
 
     file: {
-      get_name: function (dir) {
-        var fs = require('fs');
-        var regexpCss = /^style\-[0-9a-z]{32}\.css$/;
-        var regexpJs = /^function\.min\-[0-9a-z]{32}\.js$/;
-        var list = fs.readdirSync('assets/');
-        var regexp = (dir === 'css') ? regexpCss : regexpJs;
+      get_name(dir) {
+        const fs = require('fs');
+        const regexpCss = /^style\-[0-9a-z]{32}\.css$/;
+        const regexpJs = /^function\.min\-[0-9a-z]{32}\.js$/;
+        const list = fs.readdirSync('assets/');
+        const regexp = (dir === 'css') ? regexpCss : regexpJs;
 
-        for (var i = 0; i < list.length; i++) {
+        for (let i = 0; i < list.length; i++) {
           if (list[i].match(regexp)) {
             return list[i].match(regexp).input;
           }
         }
-      }
+      },
     },
 
     sass: {
       dist: {
         options: {
-          style: 'expanded'
+          style: 'expanded',
         },
         files: [{
           expand: true,
           cwd: 'scss',
           src: ['*.scss', '*.sass'],
           dest: 'css',
-          ext: '.css'
-        }]
-      }
+          ext: '.css',
+        }],
+      },
     },
 
     cssmin: {
@@ -44,36 +43,36 @@ module.exports = function (grunt) {
             'css/sidebar.css',
             'css/style.css',
             'css/prettify.min.css',
-            'css/font-awesome.min.css'
-          ]
-        }
-      }
+            'css/font-awesome.min.css',
+          ],
+        },
+      },
     },
 
     uglify: {
       dist: {
         files: {
-          'js/function.min.js': 'js/function.js'
-        }
-      }
+          'js/function.min.js': 'js/function.js',
+        },
+      },
     },
 
     clean: {
       css: ['assets/*.css'],
-      js: ['assets/*.js']
+      js: ['assets/*.js'],
     },
 
     md5: {
       css: {
         files: {
-          'assets/': 'style.css'
-        }
+          'assets/': 'style.css',
+        },
       },
       js: {
         files: {
-          'assets/': 'js/function.min.js'
-        }
-      }
+          'assets/': 'js/function.min.js',
+        },
+      },
     },
 
     replace: {
@@ -82,36 +81,36 @@ module.exports = function (grunt) {
         overwrite: true,
         replacements: [{
           from: /\/wp-content\/themes\/chabin\/assets\/style\-[0-9a-z]{32}\.css/g,
-          to: '/wp-content/themes/chabin/assets/<%= file.get_name("css") %>'
-        }]
+          to: '/wp-content/themes/chabin/assets/<%= file.get_name("css") %>',
+        }],
       },
       js: {
         src: ['footer.php'],
         overwrite: true,
         replacements: [{
           from: /\/wp-content\/themes\/chabin\/assets\/function\.min\-[0-9a-z]{32}\.js/g,
-          to: '/wp-content/themes/chabin/assets/<%= file.get_name("js") %>'
-        }]
-      }
+          to: '/wp-content/themes/chabin/assets/<%= file.get_name("js") %>',
+        }],
+      },
     },
 
     browserify: {
       dist: {
         options: {
           transform: [
-            ['babelify']
-          ]
+            ['babelify'],
+          ],
         },
         files: {
-          'js/function.js': ['js/main.js']
-        }
-      }
+          'js/function.js': ['js/main.js'],
+        },
+      },
     },
 
     watch: {
       sass: {
         files: ['scss/*.scss', 'scss/*.sass'],
-        tasks: ['sass']
+        tasks: ['sass'],
       },
       css: {
         files: ['css/index.css', 'css/single.css', 'css/style.css', 'css/sidebar.css'],
@@ -120,9 +119,8 @@ module.exports = function (grunt) {
       js: {
         files: ['js/main.js'],
         tasks: ['browserify', 'uglify', 'clean:js', 'md5:js', 'replace:js']
-      }
-    }
-
+      },
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
