@@ -6,14 +6,17 @@
   background-color: #424242;
   width: 100%;
   box-sizing: border-box;
+
   &__sub {
     padding: 48px 0 48px;
   }
+
   &__share-button {
     overflow: hidden;
     text-align: center;
     width: 288px;
     margin: 0 auto 16px;
+
     &--list {
       width: 56px;
       float: left;
@@ -30,32 +33,43 @@
       width: 56px;
       line-height: 56px;
       font-size: 28px;
-      transition: all .8s ease 0s;
+      transition: all 0.8s ease 0s;
     }
+
     i {
       color: $font-color;
       margin: 0;
     }
+
     &--gh {
       @extend %__share-button;
+
       background-color: #212121;
     }
+
     &--fb {
       @extend %__share-button;
-      background-color: #3864A3;
+
+      background-color: #3864a3;
     }
+
     &--tw {
       @extend %__share-button;
-      background-color: #55ACEE;
+
+      background-color: #55acee;
     }
+
     &--gp {
       @extend %__share-button;
+
       background-color: #bd3d2a;
     }
+
     :hover {
       transform: rotate(360deg);
     }
   }
+
   &__credit {
     clear: both;
     text-align: center;
@@ -63,20 +77,24 @@
       size: 14px;
       style: normal;
     }
+
     a {
       color: $font-color;
     }
   }
+
   &__bar {
     box-sizing: border-box;
     position: fixed;
     top: 0;
     right: 0;
+
     /* width: calc(((100% - 1092px) / 2) + 332px); */
     z-index: 3;
     width: 80px;
     height: 100vh;
     background-color: $_theme-color;
+
     &-link {
       padding: 0;
       box-sizing: border-box;
@@ -84,19 +102,23 @@
       padding-top: 4px;
       text-align: center;
       display: inline-block;
+
       &--left {
         position: absolute;
         top: 80px;
       }
+
       &--center {
         position: absolute;
         top: 152px;
       }
+
       &--right {
         position: absolute;
         bottom: 24px;
       }
     }
+
     &-link a {
       display: block;
       line-height: 1;
@@ -104,6 +126,7 @@
       font-size: 12px;
       text-decoration: none;
     }
+
     &-link a i {
       font-size: 28px;
       line-height: 1;
@@ -112,41 +135,50 @@
       margin: 0 auto 4px;
     }
   }
+
   &__style {
     &--show {
       display: inline-block;
     }
+
     &--hidden {
       display: none;
     }
   }
+
   @media screen and (max-width: $_responsive-point) {
     &__bar {
-      opacity: .9;
+      opacity: 0.9;
       width: 100%;
       height: 40px;
       top: auto;
       bottom: 0;
       right: 0;
+
       &-link {
         width: calc(100% / 3);
+
         &--left {
           position: static;
         }
+
         &--center {
           position: static;
         }
+
         &--right {
           right: 0;
           bottom: auto;
         }
       }
+
       &-link a i {
         font-size: 20px;
         margin-bottom: 0;
       }
     }
   }
+
   /*
   @media screen and (max-width: 1024px) {
     &__bar {

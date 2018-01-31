@@ -437,8 +437,14 @@ pre {
   word-wrap: break-word;
 }
 .mark {
-  background-color: #E0E0E0;
-  padding: 0 2px;
+  color: #424242;
+  vertical-align: 2px;
+  font-size: 88%;
+  border: 1px solid #e0e0e0;
+  background-color: #f1f1f1;
+  padding: 2px 4px;
+  border-radius: 2px;
+  line-height: 1;
 }
 
 .btn-github {

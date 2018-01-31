@@ -31,22 +31,27 @@
       weight: bold;
       size: 18px;
     }
+
     color: #fff;
     text-align: center;
     margin: 16px 0 8px;
     padding: 8px 0;
     border-radius: 1px;
-    background-color: #607D8B;
+    background-color: #607d8b;
   }
+
   &__author {
     width: 316px;
+
     &-photo {
       margin: 8px auto 4px;
       text-align: center;
+
       img {
         border-radius: 50%;
       }
     }
+
     &-name {
       text-align: center;
       margin-bottom: 4px;
@@ -56,10 +61,12 @@
         weight: bold;
       }
     }
+
     &-social {
       margin: 0 auto 16px;
       font-size: 20px;
       text-align: center !important;
+
       a {
         margin: {
           left: 8px;
@@ -67,6 +74,7 @@
         }
       }
     }
+
     &-description {
       text-align: justify;
       text-justify: inter-ideograph;
@@ -74,6 +82,7 @@
       margin-bottom: 4px;
     }
   }
+
   &__widget {
     &_twitter {
       height: 600px;
@@ -82,22 +91,29 @@
       text-align: center;
     }
   }
+
   &__ad1 {
     display: none;
+
     @media screen and (min-width: 640px) {
       display: block;
     }
   }
+
   &__ad2 {
     margin-top: 32px;
   }
-  img, iframe {
+
+  img,
+  iframe {
     vertical-align: middle;
   }
+
   li {
     font-size: 14px;
     padding-bottom: 8px;
   }
+
   ul,
   select,
   table {

@@ -38,25 +38,28 @@
   }
 }
 
-
 /* item */
 .item {
   border: 1px solid #ccc;
   text-align: center;
-  background-color: #FAFAFA;
+  background-color: #fafafa;
   box-sizing: border-box;
   padding: 16px 8px;
+
   &__info {
     text-align: center !important;
     margin-bottom: 0 !important;
+
     li {
       font-size: 16px;
       line-height: 1.4;
     }
+
     strong {
       font-size: 20px;
     }
   }
+
   &__button {
     font-size: 16px;
     font-weight: bold;
@@ -68,19 +71,23 @@
     border: none;
     cursor: pointer;
     box-shadow: 0 1px 2px #757575;
+
     &:active {
       box-shadow: none;
     }
+
     &--orange {
       margin: 16px auto 8px;
-      background-color: #F57F17;
+      background-color: #f57f17;
       color: #fff;
-      transition: .2s;
+      transition: 0.2s;
+
       &:hover {
-        opacity: .8;
+        opacity: 0.8;
       }
     }
   }
+
   @media screen and (max-width: $_responsive-point) {
     &__button {
       clear: both;
@@ -108,10 +115,12 @@ code {
     family: Menlo, Consolas, 'DejaVu Sans Mono', monospace !important;
     size: 14px !important;
   }
+
   div {
     margin: 0 !important;
     padding: 0;
   }
+
   em {
     font: {
       style: normal;
@@ -124,12 +133,14 @@ code {
       left: 16px;
       right: 16px;
     }
+
     background-color: #424242;
     display: inline-block;
     width: 100%;
   }
+
   .update {
-    background-color: #E91E63 !important;
+    background-color: #e91e63 !important;
   }
 
   li {
