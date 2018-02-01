@@ -21,10 +21,11 @@ Author URI: http://mae.chab.in/
   position: relative;
   background-color: #fff;
   clear: both;
-  border-top: 1px solid #CFD8DC;
+  border-top: 1px solid #cfd8dc;
   margin: 0;
   padding-right: 80px;
 }
+
 #content {
   zoom: 1;
   width: 100%;
@@ -32,26 +33,27 @@ Author URI: http://mae.chab.in/
   display: flex;
   justify-content: space-between;
 }
+
 #entry {
   padding-left: calc((100% - 1100px) / 2);
   position: relative;
-  /* float: left; */
   width: $_entry-width;
 }
 
 #entry_sub {
   margin-bottom: 0;
 }
-/* ▲content▲ */
 
 /* ▼共通事項▼ */
 .postmetadata,
 .comments {
   overflow: hidden;
 }
+
 .postmetadata {
   margin-bottom: 16px;
 }
+
 .postmetadata-li,
 .comments li {
   font-size: 1.4em;
@@ -60,6 +62,7 @@ Author URI: http://mae.chab.in/
   color: #757575;
   margin-right: 1em;
 }
+
 .comments {
   padding: 4px 14px 5px;
   border: 1px solid #aaa;
@@ -67,9 +70,6 @@ Author URI: http://mae.chab.in/
   margin-bottom: 18px;
   border-radius: 2px;
 }
-/* ▲共通事項▲ */
-
-
 
 /* ▼indexページ▼ */
 .breadcrumb {
@@ -77,73 +77,75 @@ Author URI: http://mae.chab.in/
   font-size: 16px !important;
   margin-bottom: 4px;
 }
+
 .breadcrumb a,
 .breadcrumb a i {
   color: #757575;
   text-decoration: underline;
 }
+
 .breadcrumb a:hover,
 .breadcrumb a:hover i {
   text-decoration: none;
 }
+
 .post {
   box-sizing: border-box;
   position: relative;
   margin: 0 8px 16px;
-  background-color: #ECEFF1;
+  background-color: #eceff1;
   clear: both;
   border-radius: 1px;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   box-shadow: none;
+
   &:hover {
     cursor: pointer;
-    background-color: #E8EAF6;
-    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    background-color: #e8eaf6;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
+
   &__title {
     font-size: 24px;
     line-height: 1.4;
     padding-top: 8px;
     margin: 0 16px;
+
     a {
       color: #111;
       text-decoration: none;
     }
   }
+
   &__date {
     vertical-align: middle;
     font-size: 14px;
+
     a {
       text-decoration: none;
       color: #616161;
     }
   }
-  &__category {
-    &_tech {
 
-    }
-    &_event {
-
-    }
-    &_impression {
-
-    }
-  }
   &__sharebutton {
     position: absolute;
     right: 0;
     bottom: 4px;
+
     li {
       width: 60px;
       display: inline-block;
       font-size: 14px;
+
       span {
         margin: 0 4px 0 0;
       }
+
       &:last-child span {
         margin: 0;
       }
     }
+
     a,
     i {
       vertical-align: baseline;
@@ -151,14 +153,17 @@ Author URI: http://mae.chab.in/
       text-decoration: none;
     }
   }
+
   @media screen and (max-width: $_responsive-point) {
     &__metadata {
       text-align: center;
+
       li {
         float: none;
         display: inline-block;
       }
     }
+
     &__sharebutton {
       text-align: center;
       position: static;
@@ -167,107 +172,125 @@ Author URI: http://mae.chab.in/
     }
   }
 }
+
 .postmetadata-ul {
   border-top: 1px dotted #aaa;
   padding: 8px 16px;
   margin-top: 4px;
   margin-bottom: 0 !important;
 }
+
 .wp-pagenavi {
   margin: 40px auto;
   text-align: center;
   font-size: 16px;
 }
+
 .wp-pagenavi a,
 .wp-pagenavi i,
 .current {
   display: inline-block;
-  color: #607D8B;
+  color: #607d8b;
   width: 40px;
   line-height: 40px;
-  background-color: #ECEFF1;
+  background-color: #eceff1;
   margin-left: 4px;
   border-radius: 50%;
   text: {
     decoration: none;
     align: center;
   }
-  transition: all .1s ease-in-out;
+
+  transition: all 0.1s ease-in-out;
 }
+
 .wp-pagenavi i {
   margin: 0;
 }
+
 .wp-pagenavi i:hover,
 .wp-pagenavi a:hover {
   color: #fff;
   background-color: $_link-color;
 }
+
 .current {
   color: #fff;
-  background-color: #607D8B;
+  background-color: #607d8b;
   font-weight: bold;
 }
+
 .postmetadata li img {
   vertical-align: -3px;
 }
+
 .comments_number a {
   font-weight: bold;
-  color: #007B6E;
+  color: #007b6e;
 }
-/* ▲indexページ▲ */
-
-
 
 /* ▼article▼ */
 #article {
   margin: 0 16px;
 }
+
 article header {
   padding: 16px 0;
 }
+
 .social-button {
   overflow: hidden;
   text-align: center;
   margin: 16px auto 0;
   height: 64px;
 }
+
 .social-button > li {
   vertical-align: top;
   margin-right: 2px;
   display: inline-block;
 }
+
 .social-button > li:nth-child(2) {
   padding-top: 42px;
 }
+
 .social-button > li:last-child {
   margin-right: 0;
 }
+
 .social-button iframe {
   vertical-align: baseline;
 }
+
 .entry {
   border-top: 8px solid #424242;
   padding-top: 16px;
-  margin: 8px 0px 0;
+  margin: 8px 0 0;
 }
+
 .intro {
   padding: 0 0 16px;
   border-bottom: 8px solid #424242;
+
+  p {
+    font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
+    font-size: 18px !important;
+    line-height: 2 !important;
+  }
 }
-.intro p {
-  font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
-  font-size: 18px !important;
-  line-height: 2 !important;
-}
+
 .entry-title {
   color: #212121;
   margin-bottom: 4px;
   font-size: 36px;
   line-height: 1.4;
 }
+
 .entry-meta {
   overflow: hidden;
 }
+
 .entry-meta-li {
   line-height: 1.6;
   font-size: 14px;
@@ -275,12 +298,15 @@ article header {
   color: #757575;
   margin-right: 1em;
 }
+
 .entry-meta-li a {
   color: #757575;
 }
+
 .entry div {
   margin-bottom: 40px;
 }
+
 .entry p,
 .entry dl,
 .entry ul,
@@ -296,14 +322,17 @@ figure {
   margin-bottom: 40px;
   line-height: 1.8;
 }
+
 .entry p {
   margin-bottom: 26px;
   line-height: 2.2;
 }
+
 #linkpages {
   text-align: center;
   font-size: 14px;
 }
+
 article .postmetadata {
   margin-left: 16px;
 }
@@ -320,18 +349,21 @@ article .postmetadata {
   font-size: 32px;
   margin: 64px auto 32px;
 }
+
 .entry-h3 {
   font-size: 26px;
   font-weight: bold;
   color: #424242;
   margin: 48px auto 24px;
 }
+
 .entry-h4,
 .entry h5 {
   line-height: 1.8em;
   font-size: 18px;
   font-weight: bold;
 }
+
 hr {
   background-color: #ccc;
   border: 0;
@@ -340,16 +372,19 @@ hr {
   width: 400px;
   margin: 3.2em auto;
 }
+
 .sample {
   padding: 14px;
   overflow: hidden;
   border: 1px dashed #ccc;
 }
+
 .entry cite {
   font-style: normal;
 }
+
 .entry q {
-  background-color: #EFEBE9;
+  background-color: #efebe9;
   font-weight: bold;
   padding-left: 2em;
   padding-right: 8px;
@@ -357,54 +392,67 @@ hr {
   font-size: 16px;
   font-style: italic;
 }
+
 .blockBorder q {
   margin-left: 0 !important;
 }
+
 .blockBorder {
   padding: 16px;
-  border: 1px solid #DCEDC8;
-  background-color: #F1F8E9;
+  border: 1px solid #dcedc8;
+  background-color: #f1f8e9;
   border-radius: 1px;
 }
+
 .blockBorder p {
   line-height: 1.8;
   margin-bottom: 24px;
 }
+
 .imgBorder {
   text-align: center;
   border: 1px solid #aaa;
   padding: 8px;
   background-color: #ddd;
 }
+
 a:hover .imgBorder {
-  background-color: #B7CBEA;
+  background-color: #b7cbea;
 }
+
 .entry .ol-type {
   list-style-type: decimal;
   padding-left: 1.5em;
 }
+
 .entry .outside {
   text-indent: -1em;
   margin-left: 1em;
 }
+
 .entry .li-disc {
   margin-left: 1em;
   list-style-type: disc;
 }
+
 .entry dd {
   margin-bottom: 1em;
 }
+
 .entry dd:last-child {
   margin-bottom: 36px !important;
 }
+
 figure {
   margin-bottom: 40px;
 }
+
 figcaption {
   font-size: 14px;
   line-height: 1.6em;
   letter-spacing: 1px;
 }
+
 .figBorder {
   width: 100%;
   padding: 8px 0;
@@ -413,22 +461,27 @@ figcaption {
   border-bottom: 1px dotted #bdbdbd;
   overflow: hidden;
 }
+
 .figBorder img {
   border-radius: 2px;
   border: 6px solid #424242;
 }
+
 .figBorder a:hover img {
   border: 6px solid $_link-color;
   background-color: $_link-color;
-  opacity: .9;
+  opacity: 0.9;
 }
+
 .figBorder figcaption {
   margin-top: 8px;
 }
+
 .figbg {
   background-color: #eee;
   padding: 4px 8px;
 }
+
 pre {
   white-space: -moz-pre-wrap;
   white-space: -pre-wrap;
@@ -436,6 +489,7 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
+
 .mark {
   color: #424242;
   vertical-align: 2px;
@@ -461,13 +515,16 @@ pre {
   background: #37474f;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
 }
+
 .btn-github i {
   color: #fff;
 }
+
 .btn-github:hover,
 .btn-github:focus {
   background: #222c31;
 }
+
 .btn-github:active {
   background: #0d1113;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
@@ -476,25 +533,30 @@ pre {
 .entry .top_0 {
   margin-top: 0;
 }
+
 .entry .top_1 {
   margin-top: 24px;
 }
+
 .entry .top_2 {
   margin-top: 36px;
 }
+
 .entry .bottom_0 {
   margin-bottom: 0;
 }
+
 .entry .bottom_1 {
   margin-bottom: 32px;
 }
+
 .entry .bottom_2 {
   margin-bottom: 40px;
 }
+
 .text-center {
   text-align: center;
 }
-/* △記事の装飾△ */
 
 /* ▽関連記事▽ */
 #related-posts-title {
@@ -508,6 +570,7 @@ pre {
   margin-bottom: 24px;
   border-radius: 2px;
 }
+
 .related-posts-li {
   text-align: left;
   text-indent: -7px;
@@ -515,22 +578,22 @@ pre {
   padding-bottom: 16px;
   line-height: 1.2 !important;
   padding-left: 16px;
-  border-bottom: 1px dotted #E0E0E0;
+  border-bottom: 1px dotted #e0e0e0;
   font-size: 15px;
 }
+
 .related-posts-li i {
   font-size: 12px;
-  color: #BDBDBD;
+  color: #bdbdbd;
 }
 
 .yarpp-related a {
   text-decoration: underline !important;
+
   &:hover {
     text-decoration: none !important;
   }
 }
-
-/* △関連記事△ */
 
 /* ▽次のページへ　前のページへ▽ */
 #nav-below {
@@ -540,24 +603,23 @@ pre {
   background-color: #f7f7f7;
   padding: 16px;
 }
+
 #nav-below li.nav-previous {
   float: left;
   width: 40%;
 }
+
 #nav-below li.nav-next {
   float: right;
   width: 40%;
   text-align: right;
 }
-/* △次のページへ　前のページへ△ */
-/* ▲article▲ */
-
-
 
 /* ▼コメント▼ */
 #comments {
   margin: 0 16px;
 }
+
 #comments-title {
   width: 100%;
   box-sizing: border-box;
@@ -571,70 +633,82 @@ pre {
   margin: 16px auto;
   border-radius: 2px;
 }
+
 .comment,
 .pingback {
   overflow: hidden;
   clear: both;
-  background-color: #F1F8E1;
+  background-color: #f1f8e1;
   box-sizing: border-box;
 }
+
 .comment {
   padding: 16px 16px 8px;
 }
+
 .depth-1,
 .pingback {
   margin-bottom: 8px;
 }
+
 .comment_author_img {
   float: left;
   width: 40px;
   margin-right: 8px;
   box-sizing: border-box;
 }
+
 .comment_author_img img {
   border: 1px solid #444;
 }
+
 .comment_article {
   float: left;
   width: calc(100% - 48px);
   box-sizing: border-box;
   font-size: 16px;
 }
+
 .comment_text {
   box-sizing: border-box;
-  border: 2px solid #C7E667;
+  border: 2px solid #c7e667;
   background-color: #fff;
   padding: 16px;
   padding-bottom: 0;
   margin-bottom: 4px;
   border-radius: 2px;
 }
+
 .comment_text p {
   line-height: 1.4;
   margin-bottom: 16px;
 }
+
 .comment_author_name {
   font-weight: bold;
 }
+
 .comment_meta {
   color: #757575;
   font-size: 12px;
 }
+
 .children .comment {
   padding: 8px 0 0;
 }
+
 .children article {
   margin-left: 48px;
 }
+
 .children article .comment_article {
   width: calc(100% - 48px);
 }
+
 .pingback p {
   margin: 8px;
   font-size: 12px;
 }
-/* ▲コメント▲ */
-
 
 /* ▼コメントフォーム #respond▼ */
 #respond {
@@ -642,21 +716,24 @@ pre {
   clear: both;
   box-shadow: 0 0 4px #aaa;
   padding: 16px;
-  background-color: #ECEFF1;
+  background-color: #eceff1;
   border-radius: 2px;
   margin-bottom: 16px;
   text-align: center;
 }
+
 #respond p,
 #respond ul {
   font-size: 1.2;
 }
+
 #respond li {
   clear: both;
   overflow: hidden;
   margin-bottom: 8px;
   text-align: left;
 }
+
 .comment-label,
 #commentform label {
   text-align: left;
@@ -665,15 +742,18 @@ pre {
   line-height: 1.2;
   margin-bottom: 2px;
 }
+
 .comment_form_list {
   width: 290px;
   display: inline-block;
   float: left;
 }
+
 .comment-form-comment {
   width: 330px;
   display: inline-block;
 }
+
 #author,
 #email,
 #url {
@@ -685,13 +765,17 @@ pre {
   display: block;
   padding: 8px;
 }
+
 #author,
 #comment {
   ime-mode: active;
 }
-#email,#url {
+
+#email,
+#url {
   ime-mode: disabled;
 }
+
 #comment {
   box-sizing: border-box;
   width: 100%;
@@ -702,18 +786,22 @@ pre {
   font-size: 16px;
   padding: 8px;
 }
+
 .logged-in-as {
   margin-bottom: 14px;
   font-size: 1.4em !important;
 }
+
 .required {
   font-size: 12px;
-  color: #BE0016;
+  color: #be0016;
 }
+
 .form-submit {
   clear: both;
   text-align: center;
 }
+
 #submit {
   font-size: 16px;
   color: #fff;
@@ -724,11 +812,11 @@ pre {
   border-radius: 40px;
   box-shadow: 0 1px 2px #757575;
 }
+
 #submit:hover {
-  background-color: #A1887F;
+  background-color: #a1887f;
   box-shadow: none;
 }
-/* ▲コメントフォーム #respond▲ */
 
 @import "single";
 @import "search";
@@ -741,50 +829,62 @@ pre {
     width: 100%;
     padding-right: 0;
   }
+
   #content {
     display: block;
     max-width: 100%;
     width: 100%;
   }
+
   #entry {
     width: 100%;
     max-width: 100%;
     padding-left: 0;
   }
+
   .entry img {
     box-sizing: border-box;
     max-width: 100%;
     height: auto;
   }
+
   .figBorder {
     width: calc(100% + 32px);
   }
+
   .figBorder img {
     border-radius: 0;
   }
+
   .figbg,
   .figBorder,
   .entry-h2 {
     margin-left: -16px;
     margin-right: -16px;
   }
+
   #comments {
     margin: 0;
   }
+
   #comment {
     width: 100%;
     max-width: 100%;
   }
+
   .comment_article {
     max-width: 94%;
   }
+
   #respond {
     border-radius: 0;
   }
+
   .entry code {
     margin-left: -16px;
     margin-right: -16px;
   }
+
   #author,
   #email,
   #url,
@@ -792,6 +892,7 @@ pre {
   .comment-form-comment {
     width: 100%;
   }
+
   #related-posts-title,
   #comments-title {
     border-radius: 0;
