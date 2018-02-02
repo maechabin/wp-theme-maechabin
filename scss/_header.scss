@@ -13,6 +13,7 @@
   left: 0;
   z-index: 6 !important;
   zoom: 1;
+
   &__inner {
     position: relative;
     line-height: $height;
@@ -20,32 +21,37 @@
     overflow: hidden;
     text-align: center;
   }
+
   &__title {
     margin-top: -2px;
     position: absolute;
     left: 16px;
     z-index: 30;
-    font:{
+    font: {
       family: "Myriad Set Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
       size: 28px;
       weight: normal;
     }
+
     a {
       color: $_theme-color !important;
       text-decoration: none;
       line-height: $height;
+
       &:hover {
         color: $_theme-color !important;
-        text-shadow: 0px 0px 20px #fff;
+        text-shadow: 0 0 20px #fff;
       }
     }
   }
+
   &__search {
     width: 450px;
     margin: {
       left: auto;
       right: auto;
     }
+
     &-form {
       &_mobile {
         position: absolute;
@@ -54,6 +60,7 @@
         width: calc(100% - 80px);
       }
     }
+
     @mixin -text {
       box-sizing: border-box;
       color: #fff;
@@ -64,15 +71,20 @@
       border-radius: 2px 0 0 2px;
       margin-top: -2px;
     }
+
     &-text {
       @include -text;
+
       width: 406px;
+
       &_mobile {
         @include -text;
+
         width: calc(100% - 34px);
         box-sizing: border-box;
       }
     }
+
     @mixin -button {
       box-sizing: border-box;
       margin-top: -2px;
@@ -86,19 +98,23 @@
       vertical-align: middle;
       border-radius: 0 2px 2px 0;
     }
+
     &-button {
       @include -button;
+
       &_mobile {
         @include -button;
+
         text-align: center;
         padding: 0;
         box-sizing: border-box;
         border-left: none;
       }
     }
+
     &_mobile {
       width: 100vw;
-      position :fixed;
+      position: fixed;
       top: 0;
       left: 100vw;
       z-index: 31;
@@ -108,28 +124,33 @@
       box-shadow: 0 1px 1px #333;
     }
   }
-  &__button {　
+
+  &__button {
     &_search {
       outline: none;
       position: absolute;
       top: 4px;
       right: 56px;
       width: 40px;
+
       i {
         font-size: 24px;
         color: #fafafa;
         cursor: pointer;
       }
+
       @media screen and (min-width: $_responsive-point) {
         display: none;
       }
     }
+
     &_back {
       outline: none;
       position: absolute;
       top: 6px;
       left: 16px;
       width: 40px;
+
       i {
         font-size: 24px;
         color: #111;
@@ -137,6 +158,7 @@
       }
     }
   }
+
   &__share {
     width: 40px;
     line-height: 64px;
@@ -144,20 +166,24 @@
     position: absolute;
     top: 4px;
     right: 16px;
+
     a i {
       font-size: 24px;
       color: #fafafa;
       margin-left: 8px;
     }
   }
+
   @media screen and (max-width: $_responsive-point) {
     &__inner {
       max-width: 100%;
       width: 100%;
     }
+
     &__search {
       visibility: hidden;
     }
+
     &__display {
       display: block;
       left: 0;

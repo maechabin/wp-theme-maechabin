@@ -1,0 +1,172 @@
+.entry {
+  border-top: 8px solid #424242;
+  padding-top: 16px;
+  margin: 8px 0 0;
+
+  div {
+    margin-bottom: 40px;
+  }
+
+  p,
+  dl,
+  ul,
+  ol,
+  figure {
+    clear: both;
+    font-size: 17px;
+    text-align: justify;
+    text-justify: inter-ideograph;
+    -ms-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+    margin-bottom: 40px;
+    line-height: 1.8;
+  }
+
+  p {
+    margin-bottom: 26px;
+    line-height: 2.2;
+  }
+
+  figcaption {
+    font-size: 14px;
+    line-height: 1.6;
+    letter-spacing: 1px;
+  }
+
+  cite {
+    font-style: normal;
+  }
+
+  q {
+    background-color: #efebe9;
+    font-weight: bold;
+    padding-left: 2em;
+    padding-right: 8px;
+    display: block;
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  .intro {
+    padding: 0 0 16px;
+    border-bottom: 8px solid #424242;
+
+    p {
+      font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
+      font-size: 18px;
+      line-height: 2;
+    }
+  }
+
+  h2,
+  .entry-h2 {
+    padding: 32px 16px;
+    background: linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
+    background: -webkit-linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
+    background-size: 3px 3px;
+    border-top: 4px solid #424242;
+    border-bottom: 4px solid #424242;
+    color: #212121;
+    font-size: 32px;
+    margin: 64px auto 32px;
+  }
+
+  h3,
+  .entry-h3 {
+    font-size: 26px;
+    font-weight: bold;
+    color: #424242;
+    margin: 48px auto 24px;
+  }
+
+  .entry-h4,
+  h4,
+  h5 {
+    line-height: 1.8em;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  .figBorder {
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+    border-top: 1px dotted #bdbdbd;
+    border-bottom: 1px dotted #bdbdbd;
+    overflow: hidden;
+
+    img {
+      border-radius: 2px;
+      border: 6px solid #424242;
+    }
+
+    figcaption {
+      margin-top: 8px;
+    }
+
+    a:hover img {
+      border: 6px solid $_link-color;
+      background-color: $_link-color;
+      opacity: 0.9;
+    }
+  }
+
+  .figbg {
+    background-color: #eee;
+    padding: 4px 8px;
+  }
+
+  .top_0 {
+    margin-top: 0;
+  }
+
+  .top_1 {
+    margin-top: 24px;
+  }
+
+  .top_2 {
+    margin-top: 32px;
+  }
+
+  .bottom_0 {
+    margin-bottom: 0;
+  }
+
+  .bottom_1 {
+    margin-bottom: 32px;
+  }
+
+  .bottom_2 {
+    margin-bottom: 40px;
+  }
+
+  .btn-github {
+    font-weight: bold;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block !important;
+    padding: 16px 24px;
+    cursor: pointer;
+    text-decoration: none !important;
+    transition: 0.3s;
+    box-sizing: border-box;
+    color: #fff !important;
+    background: #37474f;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);
+
+    &:hover,
+    &:focus {
+      background: #222c31;
+    }
+
+    &:active {
+      background: #0d1113;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    }
+
+    i {
+      color: #fff;
+    }
+  }
+}

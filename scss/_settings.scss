@@ -45,21 +45,17 @@ a > i {
   margin-right: 4px;
 }
 
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
 .hidden_elem {
   display: none;
 }
 
 .mobile_only {
   display: none;
-}
-
-.ol-type {
-  list-style-type: decimal;
-  padding-left: 1.5em;
-}
-
-.slideshowad-images {
-  display: none !important;
 }
 
 @media screen and (max-width: $_responsive-point) {
