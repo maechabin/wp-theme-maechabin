@@ -7,15 +7,14 @@
           <img src="/wp-content/uploads/2015/11/maechabin_400.png" width="128" height="128" alt="maechabin / Takanori Maeda">
         </figure>
         <p class="sidebar__author-name">Takanori Maeda</p>
-        <p class="sidebar__author-description">フロントエンドエンジニア。JavaScript、React、UI/UXデザインなどが専門。ネット広告会社勤務。趣味はカメラ、読書、英語、ピアノ、作曲。</p>
+        <p class="sidebar__author-description">フロントエンドエンジニア / JavaScipt / React / Angular。趣味はカメラ、読書、英語、作曲。</p>
         <p class="sidebar__author-social">
-          <a href="//github.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-github');"><i class="fa fa-github-alt"></i></a>
-          <a href="//twitter.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-twitter');"><i class="fa fa-twitter"></i></a>
-          <a href="//www.facebook.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-facebook');"><i class="fa fa-facebook"></i></a>
-          <a href="//plus.google.com/+TakanoriMaeda0_0/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-google+');"><i class="fa fa-google-plus"></i></a>
-          <a href="//maechabin.tumblr.com/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-tumblr');"><i class="fa fa-tumblr"></i></a>
+          <a href="https://github.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-github');"><i class="fa fa-github-alt"></i></a>
+          <a href="https://twitter.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-twitter');"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.facebook.com/maechabin" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-facebook');"><i class="fa fa-facebook"></i></a>
+          <a href="http://maechabin.tumblr.com/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-tumblr');"><i class="fa fa-tumblr"></i></a>
           <a href="https://www.instagram.com/maechabin/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-insta');"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-          <a href="//www.muzie.ne.jp/artist/a024945/" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-muzie');"><i class="fa fa-music"></i></a>
+          <a href="https://big-up.style/artists/9902/singles?q%5Bs%5D=id%20desc" target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-muzie');"><i class="fa fa-music"></i></a>
         </p>
       </div>
 
