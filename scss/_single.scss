@@ -228,3 +228,21 @@ code {
     }
   }
 }
+
+/* breadcrumb */
+.breadcrumb {
+  color: #757575;
+  font-size: 16px !important;
+  margin-bottom: 4px;
+
+  a,
+  a i {
+    color: #757575;
+    text-decoration: underline;
+  }
+
+  a:hover,
+  a:hover i {
+    text-decoration: none;
+  }
+}
