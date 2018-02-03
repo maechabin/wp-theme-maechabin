@@ -16,31 +16,22 @@ Author URI: http://mae.chab.in/
 @import "sticky";
 
 /* ▼content▼ */
-#content_border {
+.content {
   z-index: 2;
   position: relative;
   background-color: #fff;
-  clear: both;
   border-top: 1px solid #cfd8dc;
-  margin: 0;
+  width: calc(100% - 80px);
   padding-right: 80px;
-}
-
-#content {
-  zoom: 1;
-  width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
 
-#entry {
+.main {
   padding-left: calc((100% - 1100px) / 2);
   position: relative;
   width: $_entry-width;
-}
-
-#entry_sub {
   margin-bottom: 0;
 }
 
@@ -97,7 +88,7 @@ Author URI: http://mae.chab.in/
 }
 
 /* ▼article▼ */
-#article {
+.article {
   margin: 0 16px;
 }
 
@@ -340,19 +331,14 @@ a:hover .imgBorder {
 @import "footer";
 
 @media screen and (max-width: $_responsive-point) {
-  #content_border {
-    min-width: 100%;
+  .content {
+    display: block;
+    max-width: 100%;
     width: 100%;
     padding-right: 0;
   }
 
-  #content {
-    display: block;
-    max-width: 100%;
-    width: 100%;
-  }
-
-  #entry {
+  .main {
     width: 100%;
     max-width: 100%;
     padding-left: 0;

@@ -1,7 +1,7 @@
 import jQuery from 'jquery';
-require('cbslideheader');
+import 'cbslideheader';
 // require('cbsharecount');
-require('slideshowad');
+import 'slideshowad';
 require('smoothscroll-polyfill').polyfill();
 
 const StickyState = require('sticky-state');
@@ -11,11 +11,6 @@ maechabin.ui = (($, window, document) => {
   const header = $('.header');
   const headerBar = $('#header_bar');
   const div = document.createElement('div');
-  /*
-  const contentWidthSize = 1100 + 80;
-  const w = $(window);
-  let timer = null;
-  */
 
   // Smooth Scroll
   function callSmoothScroll(position = 0) {
@@ -110,65 +105,6 @@ maechabin.ui = (($, window, document) => {
     });
   }
 
-/*
-  function resizeSidebarHeight() {
-    const sidebar = $('#sidebar');
-    const sidebarHeight = sidebar.height();
-    const sidebarSub = $('#sidebar_sub');
-    const sidebarSubHeight = sidebarSub.height();
-    const contentHeight = $('#content_border').height();
-
-    if (sidebarHeight < contentHeight) {
-      if (window.matchMedia(`(max-width: ${contentWidthSize}px)`).matches) {
-        sidebar.css('height', `${sidebarSubHeight}px`);
-        sidebarSub.css('position', 'static');
-      } else {
-        sidebar.css('height', `${contentHeight}px`);
-      }
-    }
-  }
-
-  function startFunc() {
-    window.clearTimeout(timer);
-    timer = window.setTimeout(() => {
-      resizeSidebarHeight();
-    }, 400);
-  }
-
-  function checkBrowserSize() {
-    w.on('resize', () => {
-      startFunc();
-    });
-  }
-
-  // サイドバー固定
-  function fixSidebar() {
-    const contentHeight = $('#content_border').height();
-    const sidebarHeight = $('#sidebar').height();
-
-    if (sidebarHeight < contentHeight) {
-      const headerbarHeight = headerBar.height();
-      const sidebar = $('#sidebar');
-      const sidebarSub = $('#sidebar_sub');
-      const footerBarHight = 40;
-      const sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
-
-      sidebar.css('height', `${contentHeight}px`);
-      window.addEventListener('scroll', () => {
-        if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
-          if (w.scrollTop() > 107 && w.scrollTop() < sidebarScrollStart) {
-            sidebarSub.css({ position: 'fixed', top: 0 });
-          } else if (w.scrollTop() > sidebarScrollStart) {
-            sidebarSub.css({ position: 'absolute', bottom: 0, top: 'auto' });
-          } else {
-            sidebarSub.css('position', 'static');
-          }
-        }
-      }, { passive: true });
-    }
-  }
-*/
-
   /* === polyfill === */
 
   // ページ上部に戻る押したとき
@@ -204,9 +140,6 @@ maechabin.ui = (($, window, document) => {
       clickHeaderBar();
       backlink();
       clickTopPost();
-      // fixSidebar();
-      // resizeSidebarHeight();
-      // checkBrowserSize();
       contenteditable();
       header.cbSlideUpHeader({
         headroom: true,

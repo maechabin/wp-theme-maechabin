@@ -28,6 +28,12 @@
     line-height: 2.2;
   }
 
+  img {
+    box-sizing: border-box;
+    max-width: 728px;
+    height: auto;
+  }
+
   figcaption {
     font-size: 14px;
     line-height: 1.6;
