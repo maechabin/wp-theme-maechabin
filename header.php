@@ -63,7 +63,7 @@
   <link rel="canonical" href="https://mae.chab.in<?php echo $path ?>">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-5e0d77bdaa2bd7f8edd674c2e7141218.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-64d81fcc7f9d190a4ac927847689cd73.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
 </head>
