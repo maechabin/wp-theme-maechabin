@@ -155,83 +155,6 @@ article .postmetadata {
   margin-left: 16px;
 }
 
-/* ▽記事の装飾▽ */
-hr {
-  background-color: #ccc;
-  border: 0;
-  clear: both;
-  height: 1px;
-  width: 400px;
-  margin: 3.2em auto;
-}
-
-.sample {
-  padding: 14px;
-  overflow: hidden;
-  border: 1px dashed #ccc;
-}
-
-.blockBorder {
-  padding: 16px;
-  border: 1px solid #dcedc8;
-  background-color: #f1f8e9;
-  border-radius: 1px;
-
-  p {
-    line-height: 1.8;
-    margin-bottom: 24px;
-  }
-
-  q {
-    margin-left: 0 !important;
-  }
-}
-
-.imgBorder {
-  text-align: center;
-  border: 1px solid #aaa;
-  padding: 8px;
-  background-color: #ddd;
-}
-
-a:hover .imgBorder {
-  background-color: #b7cbea;
-}
-
-.entry .ol-type {
-  list-style-type: decimal;
-  padding-left: 1.5em;
-}
-
-.entry .outside {
-  text-indent: -1em;
-  margin-left: 1em;
-}
-
-.entry .li-disc {
-  margin-left: 1em;
-  list-style-type: disc;
-}
-
-.entry dd {
-  margin-bottom: 1em;
-}
-
-.entry dd:last-child {
-  margin-bottom: 36px !important;
-}
-
-.mark {
-  color: #424242;
-  vertical-align: 2px;
-  font-size: 88%;
-  border: 1px solid #e0e0e0;
-  background-color: #f1f1f1;
-  padding: 2px 4px;
-  border-radius: 2px;
-  line-height: 1;
-}
-
 .text-center {
   text-align: center;
 }
@@ -344,27 +267,6 @@ a:hover .imgBorder {
     padding-left: 0;
   }
 
-  .entry img {
-    box-sizing: border-box;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .figBorder {
-    width: calc(100% + 32px);
-  }
-
-  .figBorder img {
-    border-radius: 0;
-  }
-
-  .figbg,
-  .figBorder,
-  .entry-h2 {
-    margin-left: -16px;
-    margin-right: -16px;
-  }
-
   #comments {
     margin: 0;
   }
@@ -380,11 +282,6 @@ a:hover .imgBorder {
 
   #respond {
     border-radius: 0;
-  }
-
-  .entry code {
-    margin-left: -16px;
-    margin-right: -16px;
   }
 
   #author,
