@@ -1,6 +1,3 @@
-<!doctype html>
-
-<html lang="ja">
 <head>
   <meta charset="utf-8">
   <title><?php site_title() ?></title>
@@ -66,55 +63,7 @@
   <link rel="canonical" href="https://mae.chab.in<?php echo $path ?>">
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-5e0d77bdaa2bd7f8edd674c2e7141218.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-64d81fcc7f9d190a4ac927847689cd73.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
 </head>
-
-<body id="TOP">
-  <div id="index">
-
-    <!-- ▼header▼ -->
-    <header id="header_bar" class="header cb-header">
-      <div id="header_bar_inner" class="header__inner">
-
-        <h1 class="header__title">
-          <a href="/"><i style="color:#fff;"></i></a>
-          <a href="/">maesblog</a>
-        </h1>
-
-        <div class="header__search">
-          <form role="search" method="get" id="header__search-form" action="<?php bloginfo('url') ?>" >
-            <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログ記事を検索" class="header__search-text"><button type="submit" class="header__search-button"><i class="fa fa-search"></i></button>
-          </form>
-        </div>
-
-        <div class="header__button_search">
-          <i class="fa fa-search"></i>
-        </div>
-        <div class="header__share">
-          <a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank"><i class="fa fa-rss"></i></a>
-        </div>
-
-      </div>
-    </header>
-    <!-- ▲header▲ -->
-
-    <div class="header__search_mobile <?php if (is_search()) echo 'header__display' ?>">
-      <p class="header__button_back"><i class="fa fa-chevron-left"></i></p>
-      <form role="search" method="get" class="header__search-form_mobile" action="<?php bloginfo('url') ?>" >
-        <input type="text" value="<?php echo get_search_query(); ?>" name="s" placeholder="ブログ記事を検索" class="header__search-text_mobile"><button type="submit" class="header__search-button_mobile"><i class="fa fa-search"></i></button>
-      </form>
-    </div>
-
-    <?php
-    $all = get_category(31)->category_count + get_category(33)->category_count + get_category(32)->category_count;
-    ?>
-    <nav class="category">
-      <ul class="category__list">
-        <li class="<?php echo current_category('all'); ?>"><a href="/">All<span>（<?php echo $all; ?>）</span></a></li>
-        <li class="<?php echo current_category('Web技術'); ?>"><a href="/archives/category/tech">Web技術<span>（<?php echo get_category(31)->category_count; ?>）</span></a></li>
-        <li class="<?php echo current_category('出来事'); ?>"><a href="/archives/category/event">出来事<span>（<?php echo get_category(33)->category_count; ?>）</span></a></li>
-        <li class="<?php echo current_category('所感'); ?>"><a href="/archives/category/impression">所感<span>（<?php echo get_category(32)->category_count; ?>）</span></a></li>
-      </ul>
-    </nav>

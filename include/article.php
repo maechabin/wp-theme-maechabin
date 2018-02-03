@@ -1,5 +1,5 @@
 <!-- ▼article▼ -->
-<article id="article">
+<article class="article">
   <header>
     <nav class="breadcrumb"><?php breadcrumb(); ?></nav>
     <h1 id="post-<?php the_ID(); ?>" class="entry-title"><?php the_title(); ?></h1>
