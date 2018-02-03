@@ -175,4 +175,28 @@
       color: #fff;
     }
   }
+
+  @media screen and (max-width: $_responsive-point) {
+    img {
+      box-sizing: border-box;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .entry-h2,
+    .figbg,
+    .figBorder,
+    code {
+      margin-left: -16px;
+      margin-right: -16px;
+    }
+
+    .figBorder {
+      width: calc(100% + 32px);
+
+      img {
+        border-radius: 0;
+      }
+    }
+  }
 }

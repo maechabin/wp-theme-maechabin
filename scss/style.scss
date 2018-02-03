@@ -344,27 +344,6 @@ a:hover .imgBorder {
     padding-left: 0;
   }
 
-  .entry img {
-    box-sizing: border-box;
-    max-width: 100%;
-    height: auto;
-  }
-
-  .figBorder {
-    width: calc(100% + 32px);
-  }
-
-  .figBorder img {
-    border-radius: 0;
-  }
-
-  .figbg,
-  .figBorder,
-  .entry-h2 {
-    margin-left: -16px;
-    margin-right: -16px;
-  }
-
   #comments {
     margin: 0;
   }
