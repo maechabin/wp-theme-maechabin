@@ -6,14 +6,16 @@ var _jquery = typeof window !== "undefined" ? window['$'] : typeof global !== "u
 
 var _jquery2 = _interopRequireDefault(_jquery);
 
+require('cbslideheader');
+
+require('slideshowad');
+
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : { default: obj };
 }
 
-require('cbslideheader');
-// require('cbsharecount');
-require('slideshowad');
 require('smoothscroll-polyfill').polyfill();
+// require('cbsharecount');
 
 var StickyState = require('sticky-state');
 var maechabin = maechabin || {};
@@ -22,11 +24,6 @@ maechabin.ui = function ($, window, document) {
   var header = $('.header');
   var headerBar = $('#header_bar');
   var div = document.createElement('div');
-  /*
-  const contentWidthSize = 1100 + 80;
-  const w = $(window);
-  let timer = null;
-  */
 
   // Smooth Scroll
   function callSmoothScroll() {
@@ -125,65 +122,6 @@ maechabin.ui = function ($, window, document) {
     });
   }
 
-  /*
-    function resizeSidebarHeight() {
-      const sidebar = $('#sidebar');
-      const sidebarHeight = sidebar.height();
-      const sidebarSub = $('#sidebar_sub');
-      const sidebarSubHeight = sidebarSub.height();
-      const contentHeight = $('#content_border').height();
-  
-      if (sidebarHeight < contentHeight) {
-        if (window.matchMedia(`(max-width: ${contentWidthSize}px)`).matches) {
-          sidebar.css('height', `${sidebarSubHeight}px`);
-          sidebarSub.css('position', 'static');
-        } else {
-          sidebar.css('height', `${contentHeight}px`);
-        }
-      }
-    }
-  
-    function startFunc() {
-      window.clearTimeout(timer);
-      timer = window.setTimeout(() => {
-        resizeSidebarHeight();
-      }, 400);
-    }
-  
-    function checkBrowserSize() {
-      w.on('resize', () => {
-        startFunc();
-      });
-    }
-  
-    // サイドバー固定
-    function fixSidebar() {
-      const contentHeight = $('#content_border').height();
-      const sidebarHeight = $('#sidebar').height();
-  
-      if (sidebarHeight < contentHeight) {
-        const headerbarHeight = headerBar.height();
-        const sidebar = $('#sidebar');
-        const sidebarSub = $('#sidebar_sub');
-        const footerBarHight = 40;
-        const sidebarScrollStart = headerbarHeight + contentHeight + 80 - w.height();
-  
-        sidebar.css('height', `${contentHeight}px`);
-        window.addEventListener('scroll', () => {
-          if (window.matchMedia(`(min-width: ${contentWidthSize}px)`).matches) {
-            if (w.scrollTop() > 107 && w.scrollTop() < sidebarScrollStart) {
-              sidebarSub.css({ position: 'fixed', top: 0 });
-            } else if (w.scrollTop() > sidebarScrollStart) {
-              sidebarSub.css({ position: 'absolute', bottom: 0, top: 'auto' });
-            } else {
-              sidebarSub.css('position', 'static');
-            }
-          }
-        }, { passive: true });
-      }
-    }
-  */
-
   /* === polyfill === */
 
   // ページ上部に戻る押したとき
@@ -219,9 +157,6 @@ maechabin.ui = function ($, window, document) {
       clickHeaderBar();
       backlink();
       clickTopPost();
-      // fixSidebar();
-      // resizeSidebarHeight();
-      // checkBrowserSize();
       contenteditable();
       header.cbSlideUpHeader({
         headroom: true,
@@ -243,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }, false);
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"cbslideheader":2,"slideshowad":10,"smoothscroll-polyfill":12,"sticky-state":13}],2:[function(require,module,exports){
+},{"cbslideheader":2,"slideshowad":9,"smoothscroll-polyfill":12,"sticky-state":13}],2:[function(require,module,exports){
 (function (global){
 "use strict";
 
@@ -494,6 +429,677 @@ var EventDispatcher = function () {
 exports.default = EventDispatcher;
 module.exports = exports["default"];
 },{}],5:[function(require,module,exports){
+'use strict';
+/* eslint-disable no-unused-vars */
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+var propIsEnumerable = Object.prototype.propertyIsEnumerable;
+
+function toObject(val) {
+	if (val === null || val === undefined) {
+		throw new TypeError('Object.assign cannot be called with null or undefined');
+	}
+
+	return Object(val);
+}
+
+function shouldUseNative() {
+	try {
+		if (!Object.assign) {
+			return false;
+		}
+
+		// Detect buggy property enumeration order in older V8 versions.
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
+		var test1 = new String('abc');  // eslint-disable-line
+		test1[5] = 'de';
+		if (Object.getOwnPropertyNames(test1)[0] === '5') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test2 = {};
+		for (var i = 0; i < 10; i++) {
+			test2['_' + String.fromCharCode(i)] = i;
+		}
+		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
+			return test2[n];
+		});
+		if (order2.join('') !== '0123456789') {
+			return false;
+		}
+
+		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
+		var test3 = {};
+		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
+			test3[letter] = letter;
+		});
+		if (Object.keys(Object.assign({}, test3)).join('') !==
+				'abcdefghijklmnopqrst') {
+			return false;
+		}
+
+		return true;
+	} catch (e) {
+		// We don't expect any of the above to throw, but better to be safe.
+		return false;
+	}
+}
+
+module.exports = shouldUseNative() ? Object.assign : function (target, source) {
+	var from;
+	var to = toObject(target);
+	var symbols;
+
+	for (var s = 1; s < arguments.length; s++) {
+		from = Object(arguments[s]);
+
+		for (var key in from) {
+			if (hasOwnProperty.call(from, key)) {
+				to[key] = from[key];
+			}
+		}
+
+		if (Object.getOwnPropertySymbols) {
+			symbols = Object.getOwnPropertySymbols(from);
+			for (var i = 0; i < symbols.length; i++) {
+				if (propIsEnumerable.call(from, symbols[i])) {
+					to[symbols[i]] = from[symbols[i]];
+				}
+			}
+		}
+	}
+
+	return to;
+};
+
+},{}],6:[function(require,module,exports){
+'use strict';
+
+var regex = /(auto|scroll)/;
+
+var hasOverflow = function hasOverflow(element) {
+  var style = window.getComputedStyle(element, null);
+  return regex.test(style.getPropertyValue('overflow') + style.getPropertyValue('overflow-y') + style.getPropertyValue('overflow-x'));
+};
+module.exports = hasOverflow;
+},{}],7:[function(require,module,exports){
+'use strict';
+
+var hasOverflow = require('./has-overflow');
+
+var scrollParent = function scrollParent(element) {
+
+  if (!(element instanceof HTMLElement)) {
+    return window;
+  }
+
+  while (element.parentNode) {
+    if (element.parentNode === document.body) {
+      return window;
+    }
+
+    if (hasOverflow(element.parentNode)) {
+      return element.parentNode;
+    }
+    element = element.parentNode;
+  }
+  return window;
+};
+
+module.exports = scrollParent;
+},{"./has-overflow":6}],8:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _eventdispatcher = require('eventdispatcher');
+
+var _eventdispatcher2 = _interopRequireDefault(_eventdispatcher);
+
+var _scrollParent = require('./scroll-parent');
+
+var _scrollParent2 = _interopRequireDefault(_scrollParent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var unprefixAnimationFrame = function unprefixAnimationFrame() {
+  if (!window.requestAnimationFrame) {
+    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+    window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame;
+  }
+};
+
+var ScrollFeatures = function (_EventDispatcher) {
+  _inherits(ScrollFeatures, _EventDispatcher);
+
+  ScrollFeatures.getInstance = function getInstance(scrollTarget, options) {
+    if (!scrollTarget.scrollFeatures) {
+      return new ScrollFeatures(scrollTarget, options);
+    }
+    return scrollTarget.scrollFeatures;
+  };
+
+  ScrollFeatures.hasInstance = function hasInstance(scrollTarget) {
+    return typeof scrollTarget.scrollFeatures !== 'undefined';
+  };
+
+  ScrollFeatures.getScrollParent = function getScrollParent(element) {
+    return (0, _scrollParent2.default)(element);
+  };
+
+  _createClass(ScrollFeatures, null, [{
+    key: 'windowY',
+    get: function get() {
+      return window.pageYOffset || window.scrollY || 0;
+    }
+  }, {
+    key: 'windowX',
+    get: function get() {
+      return window.pageXOffset || window.scrollX || 0;
+    }
+  }, {
+    key: 'documentHeight',
+    get: function get() {
+      return Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+    }
+  }, {
+    key: 'documentWidth',
+    get: function get() {
+      return Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
+    }
+  }]);
+
+  function ScrollFeatures() {
+    var scrollTarget = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : window;
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    _classCallCheck(this, ScrollFeatures);
+
+    if (ScrollFeatures.hasInstance(scrollTarget)) {
+      var _ret;
+
+      return _ret = ScrollFeatures.getInstance(scrollTarget), _possibleConstructorReturn(_this, _ret);
+    }
+
+    var _this = _possibleConstructorReturn(this, _EventDispatcher.call(this, { target: scrollTarget }));
+
+    _this._scrollTarget = null;
+    _this._y = 0;
+    _this._x = 0;
+    _this._speedY = 0;
+    _this._speedX = 0;
+    _this._lastSpeed = 0;
+    _this._lastDirectionY = ScrollFeatures.direction.none;
+    _this._lastDirectionX = ScrollFeatures.direction.none;
+    _this._stopFrames = 3;
+    _this._currentStopFrames = 0;
+    _this._firstRender = true;
+    _this._directionY = ScrollFeatures.direction.none;
+    _this._directionX = ScrollFeatures.direction.none;
+    _this._scrolling = false;
+    _this._canScrollY = false;
+    _this._canScrollX = false;
+
+
+    scrollTarget.scrollFeatures = _this;
+    _this._scrollTarget = scrollTarget;
+    _this.options = options;
+
+    if (Can.animationFrame) {
+      unprefixAnimationFrame();
+    }
+
+    _this.init();
+    return _this;
+  }
+
+  ScrollFeatures.prototype.init = function init() {
+    var _this2 = this;
+
+    this.getScrollPosition = this._scrollTarget === window ? function () {
+      return { y: ScrollFeatures.windowY, x: ScrollFeatures.windowX };
+    }.bind(this) : function () {
+      return { y: this._scrollTarget.scrollTop, x: this._scrollTarget.scrollLeft };
+    }.bind(this);
+
+    this.onResize = function () {
+      _this2.trigger(ScrollFeatures.events.SCROLL_RESIZE);
+    };
+    this.onScroll = this.onScroll.bind(this);
+    this.onNextFrame = this.onNextFrame.bind(this);
+
+    this.updateScrollPosition();
+
+    if (this._scrollTarget !== window) {
+      var regex = /(auto|scroll)/;
+      var style = window.getComputedStyle(this._scrollTarget, null);
+      this._canScrollY = regex.test(style.getPropertyValue('overflow-y'));
+      this._canScrollX = regex.test(style.getPropertyValue('overflow-x'));
+    } else {
+      this._canScrollY = this.clientHeight < this.scrollHeight;
+      this._canScrollX = this.clientWidth < this.scrollWidth;
+    }
+
+    if (this._scrollTarget.addEventListener) {
+      this._scrollTarget.addEventListener('scroll', this.onScroll, false);
+      this._scrollTarget.addEventListener('resize', this.onResize, false);
+    } else if (this._scrollTarget.attachEvent) {
+      this._scrollTarget.attachEvent('scroll', this.onScroll);
+      this._scrollTarget.attachEvent('resize', this.onResize);
+    }
+  };
+
+  ScrollFeatures.prototype.destroy = function destroy() {
+
+    this._cancelNextFrame();
+
+    _EventDispatcher.prototype.destroy.call(this);
+
+    if (this._scrollTarget) {
+      if (this._scrollTarget.addEventListener) {
+        this._scrollTarget.removeEventListener('scroll', this.onScroll);
+        this._scrollTarget.removeEventListener('resize', this.onResize);
+      } else if (this._scrollTarget.attachEvent) {
+        this._scrollTarget.detachEvent('scroll', this.onScroll);
+        this._scrollTarget.detachEvent('resize', this.onResize);
+      }
+    }
+
+    this.onResize = null;
+    this.onScroll = null;
+    this.getScrollPosition = null;
+    this.onNextFrame = null;
+    delete this._scrollTarget.scrollFeatures;
+    this._scrollTarget = null;
+  };
+
+  ScrollFeatures.prototype.updateScrollPosition = function updateScrollPosition() {
+    this._y = this.y;
+    this._x = this.x;
+  };
+
+  ScrollFeatures.prototype.onScroll = function onScroll() {
+    this._currentStopFrames = 0;
+    if (this._firstRender) {
+      this._firstRender = false;
+      if (this.y > 1 || this.x > 1) {
+        this.updateScrollPosition();
+        this.trigger(ScrollFeatures.events.SCROLL_PROGRESS);
+        return;
+      }
+    }
+
+    if (!this._scrolling) {
+      this._scrolling = true;
+      this._lastDirectionY = ScrollFeatures.direction.none;
+      this._lastDirectionX = ScrollFeatures.direction.none;
+      this.trigger(ScrollFeatures.events.SCROLL_START);
+      if (Can.animationFrame) {
+        this.nextFrameID = window.requestAnimationFrame(this.onNextFrame);
+      } else {
+        this.onNextFrame();
+      }
+    }
+  };
+
+  ScrollFeatures.prototype.onNextFrame = function onNextFrame() {
+    var _this3 = this;
+
+    this._speedY = this._y - this.y;
+    this._speedX = this._x - this.x;
+
+    var speed = +this.speedY + +this.speedX;
+    if (this._scrolling && speed === 0 && this._currentStopFrames++ > this._stopFrames) {
+      this.onScrollStop();
+      return;
+    }
+
+    this.updateScrollPosition();
+
+    if (this._lastDirectionY !== this.directionY) {
+      this.trigger('scroll:' + (this.directionY === ScrollFeatures.direction.down ? 'down' : 'up'));
+    }
+    if (this._lastDirectionX !== this.directionX) {
+      this.trigger('scroll:' + (this.directionX === ScrollFeatures.direction.right ? 'right' : 'left'));
+    }
+
+    this._lastDirectionY = this.directionY;
+    this._lastDirectionX = this.directionX;
+
+    this.trigger(ScrollFeatures.events.SCROLL_PROGRESS);
+
+    if (Can.animationFrame) {
+      this.nextFrameID = window.requestAnimationFrame(this.onNextFrame);
+    } else {
+      this._nextTimeout = setTimeout(function () {
+        _this3.onNextFrame();
+      }, 1000 / 60);
+    }
+  };
+
+  ScrollFeatures.prototype.onScrollStop = function onScrollStop() {
+
+    this._scrolling = false;
+    this.updateScrollPosition();
+
+    this.trigger(ScrollFeatures.events.SCROLL_STOP);
+
+    if (this._canScrollY) {
+      if (this.y <= 0) {
+        this.trigger(ScrollFeatures.events.SCROLL_MIN);
+      } else if (this.y + this.clientHeight >= this.scrollHeight) {
+        this.trigger(ScrollFeatures.events.SCROLL_MAX);
+      }
+    }
+
+    if (this._canScrollX) {
+      if (this.x <= 0) {
+        this.trigger(ScrollFeatures.events.SCROLL_MIN);
+      } else if (this.x + this.clientWidth >= this.scrollWidth) {
+        this.trigger(ScrollFeatures.events.SCROLL_MAX);
+      }
+    }
+
+    this._cancelNextFrame();
+  };
+
+  ScrollFeatures.prototype._cancelNextFrame = function _cancelNextFrame() {
+    this._currentStopFrames = 0;
+    if (Can.animationFrame) {
+      window.cancelAnimationFrame(this.nextFrameID);
+      this.nextFrameID = -1;
+    } else {
+      clearTimeout(this._nextTimeout);
+    }
+  };
+
+  _createClass(ScrollFeatures, [{
+    key: 'scrollPosition',
+    get: function get() {
+      return this.getScrollPosition();
+    }
+  }, {
+    key: 'directionY',
+    get: function get() {
+      if (!this._canScrollY || this.speedY === 0 && !this._scrolling) {
+        this._directionY = ScrollFeatures.direction.none;
+      } else {
+        if (this.speedY > 0) {
+          this._directionY = ScrollFeatures.direction.up;
+        } else if (this.speedY < 0) {
+          this._directionY = ScrollFeatures.direction.down;
+        }
+      }
+      return this._directionY;
+    }
+  }, {
+    key: 'directionX',
+    get: function get() {
+      if (!this._canScrollX || this.speedX === 0 && !this._scrolling) {
+        this._directionX = ScrollFeatures.direction.none;
+      } else {
+        if (this.speedX > 0) {
+          this._directionX = ScrollFeatures.direction.left;
+        } else if (this.speedX < 0) {
+          this._directionX = ScrollFeatures.direction.right;
+        }
+      }
+      return this._directionX;
+    }
+  }, {
+    key: 'scrollTarget',
+    get: function get() {
+      return this._scrollTarget;
+    }
+  }, {
+    key: 'scrolling',
+    get: function get() {
+      return this._scrolling;
+    }
+  }, {
+    key: 'speedY',
+    get: function get() {
+      return this._speedY;
+    }
+  }, {
+    key: 'speedX',
+    get: function get() {
+      return this._speedX;
+    }
+  }, {
+    key: 'canScrollY',
+    get: function get() {
+      return this._canScrollY;
+    }
+  }, {
+    key: 'canScrollX',
+    get: function get() {
+      return this._canScrollX;
+    }
+  }, {
+    key: 'y',
+    get: function get() {
+      return this.scrollPosition.y;
+    }
+  }, {
+    key: 'x',
+    get: function get() {
+      return this.scrollPosition.x;
+    }
+  }, {
+    key: 'clientHeight',
+    get: function get() {
+      return this._scrollTarget === window ? window.innerHeight : this._scrollTarget.clientHeight;
+    }
+  }, {
+    key: 'clientWidth',
+    get: function get() {
+      return this._scrollTarget === window ? window.innerWidth : this._scrollTarget.clientWidth;
+    }
+  }, {
+    key: 'scrollHeight',
+    get: function get() {
+      return this._scrollTarget === window ? ScrollFeatures.documentHeight : this._scrollTarget.scrollHeight;
+    }
+  }, {
+    key: 'scrollWidth',
+    get: function get() {
+      return this._scrollTarget === window ? ScrollFeatures.documentWidth : this._scrollTarget.scrollWidth;
+    }
+  }]);
+
+  return ScrollFeatures;
+}(_eventdispatcher2.default);
+
+ScrollFeatures.direction = {
+  up: -1,
+  down: 1,
+  none: 0,
+  right: 2,
+  left: -2
+};
+ScrollFeatures.events = {
+  SCROLL_PROGRESS: 'scroll:progress',
+  SCROLL_START: 'scroll:start',
+  SCROLL_STOP: 'scroll:stop',
+  SCROLL_DOWN: 'scroll:down',
+  SCROLL_UP: 'scroll:up',
+  SCROLL_MIN: 'scroll:min',
+  SCROLL_MAX: 'scroll:max',
+  SCROLL_RESIZE: 'scroll:resize'
+};
+exports.default = ScrollFeatures;
+
+
+var _animationFrame = null;
+
+var Can = function () {
+  function Can() {
+    _classCallCheck(this, Can);
+  }
+
+  _createClass(Can, null, [{
+    key: 'animationFrame',
+    get: function get() {
+      if (_animationFrame === null) {
+        _animationFrame = !!(window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame);
+      }
+      return _animationFrame;
+    }
+  }]);
+
+  return Can;
+}();
+
+module.exports = exports['default'];
+},{"./scroll-parent":7,"eventdispatcher":4}],9:[function(require,module,exports){
+(function (global){
+"use strict";
+
+var _typeof2 = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol ? "symbol" : typeof obj; };
+
+!function e(t, n, r) {
+  function s(o, u) {
+    if (!n[o]) {
+      if (!t[o]) {
+        var a = "function" == typeof require && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
+      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
+        var n = t[o][1][e];return s(n ? n : e);
+      }, l, l.exports, e, t, n, r);
+    }return n[o].exports;
+  }for (var i = "function" == typeof require && require, o = 0; o < r.length; o++) {
+    s(r[o]);
+  }return s;
+}({ 1: [function (require, module, exports) {
+    (function (global) {
+      "use strict";
+      function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : { "default": obj };
+      }function _defineProperty(obj, key, value) {
+        return key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
+      }function _classCallCheck(instance, Constructor) {
+        if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
+      }Object.defineProperty(exports, "__esModule", { value: !0 });var _createClass = function () {
+        function defineProperties(target, props) {
+          for (var i = 0; i < props.length; i++) {
+            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, descriptor.key, descriptor);
+          }
+        }return function (Constructor, protoProps, staticProps) {
+          return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor;
+        };
+      }(),
+          _jquery = "undefined" != typeof window ? window.$ : "undefined" != typeof global ? global.$ : null,
+          _jquery2 = _interopRequireDefault(_jquery),
+          SlideShowAd = function () {
+        function SlideShowAd(element, options) {
+          _classCallCheck(this, SlideShowAd), this.element = element, this.$element = _jquery2["default"](element), this.linkNumber = 1, this.i = 2, this.setTimer = "", this.adImg = this.$element.find("a").eq(0).find("img").eq(0), this.displayImgFlag = "div1", this.div1 = _jquery2["default"]("<div>"), this.div2 = _jquery2["default"]("<div>"), this.div3 = _jquery2["default"]("<div>").attr("class", "cb-slideshow"), this.link = "", this.conf = {}, this.options = options, this.defaults = { ad: [], width: "", height: "", zIndex: 999, duration: 1e3, interval: 5e3, targetBlank: !1, slideShowType: "fade", backgroundColor: "#f5f5f5" };
+        }return _createClass(SlideShowAd, [{ key: "fadeImg", value: function value(div) {
+            var _this2 = this,
+                d1 = "div1" === div ? "div1" : "div2",
+                d2 = "div1" === div ? "div2" : "div1",
+                d3 = this.div3;this.link = this.conf.ad[this.linkNumber].url, d3.attr("data", this.link), this[d1].animate({ opacity: 0 }, this.conf.duration, function () {
+              _this2[d1].css({ "z-index": 0, "background-image": "url(" + _this2.conf.ad[_this2.i].img + ")" }), _this2.linkNumber++, _this2.i++;
+            }), this[d2].css({ "z-index": 1 }).animate({ opacity: 1 }, this.conf.duration), this.displayImgFlag = d2;
+          } }, { key: "flipImg", value: function value(div, r) {
+            var _this3 = this,
+                d1 = "div1" === div ? "div1" : "div2",
+                d2 = "div1" === div ? "div2" : "div1",
+                d3 = this.div3,
+                deg = "div1" === div ? "180deg" : "0deg",
+                rotate = "";"X" === r && (rotate = "rotateX(" + deg + ")"), "Y" === r && (rotate = "rotateY(" + deg + ")"), this.link = this.conf.ad[this.linkNumber].url, d3.attr("data", this.link), d3.css({ perspective: 0, transition: "1s", transform: rotate, transformStyle: "preserve-3d" }), this[d2].css({ transform: rotate }), setTimeout(function () {
+              _this3[d1].css({ "background-image": "url(" + _this3.conf.ad[_this3.i].img + ")", opacity: 0 }), _this3[d2].css("opacity", 1), _this3.linkNumber++, _this3.i++, _this3.displayImgFlag = d2;
+            }, 300);
+          } }, { key: "slideImg", value: function value(div, d) {
+            var _d2$css,
+                _this4 = this,
+                d1 = "div1" === div ? "div1" : "div2",
+                d2 = "div1" === div ? "div2" : "div1",
+                direction = d,
+                directionValue = "";("left" === d || "right" === d) && (directionValue = this.conf.width), ("top" === d || "bottom" === d) && (directionValue = this.conf.height), this.link = this.conf.ad[this.linkNumber].url, this[d1].css(_defineProperty({ top: "auto", left: "auto" }, direction, 0)), this[d2].css((_d2$css = { top: "auto", left: "auto" }, _defineProperty(_d2$css, direction, "-" + directionValue + "px"), _defineProperty(_d2$css, "opacity", 1), _d2$css)), this[d1].stop().animate(_defineProperty({}, direction, directionValue + "px"), 1e3, function () {
+              _this4[d1].css({ "background-image": "url(" + _this4.conf.ad[_this4.i].img + ")" }), _this4.linkNumber++, _this4.i++, _this4.displayImgFlag = d2;
+            }), this[d2].stop().animate(_defineProperty({}, direction, 0), 1e3);
+          } }, { key: "changeImg", value: function value() {
+            switch (this.linkNumber >= this.conf.ad.length && (this.linkNumber = 0), this.i >= this.conf.ad.length && (this.i = 0), this.conf.slideShowType) {case "fade":
+                return this.fadeImg(this.displayImgFlag);case "flipX":
+                return this.flipImg(this.displayImgFlag, "X");case "flipY":
+                return this.flipImg(this.displayImgFlag, "Y");case "slideLeft":
+                return this.slideImg(this.displayImgFlag, "left");case "slideRight":
+                return this.slideImg(this.displayImgFlag, "right");case "slideTop":
+                return this.slideImg(this.displayImgFlag, "top");case "slideBottom":
+                return this.slideImg(this.displayImgFlag, "bottom");case "none":
+                return this.conf.duration = 0, this.fadeImg(this.displayImgFlag);default:
+                return !1;}
+          } }, { key: "makeBg", value: function value() {
+            var div1DisplayStyle = {},
+                div2DisplayStyle = {};"fade" === this.conf.slideShowType && (div1DisplayStyle = { "z-index": 1 }, div2DisplayStyle = { "z-index": 0 });var divStyle = { "background-size": "contain", "background-repeat": "no-repeat", "background-color": this.conf.backgroundColor, position: "absolute", top: 0, left: 0, width: this.conf.width, height: this.conf.height },
+                div1Style = _jquery2["default"].extend({}, div1DisplayStyle, { "background-image": "url(" + this.conf.ad[0].img + ")", opacity: 1 }),
+                div2Style = _jquery2["default"].extend({}, div2DisplayStyle, { "background-image": "url(" + this.conf.ad[1].img + ")", opacity: 0 }),
+                div3Style = { "z-index": this.conf.zIndex, position: "relative", display: "inline-block", width: this.conf.width, height: this.conf.height, cursor: "pointer", overflow: "hidden" };this.link = this.conf.ad[0].url, this.div1.css(_jquery2["default"].extend({}, divStyle, div1Style)), this.div2.css(_jquery2["default"].extend({}, divStyle, div2Style)), this.div3.append(this.div1, this.div2).css(div3Style).attr("data", this.link), this.$element.after(this.div3);
+          } }, { key: "preloadImg", value: function value() {
+            this.conf.ad.forEach(function (obj) {
+              var imgTag = document.createElement("img");imgTag.src = obj.img;
+            });
+          } }, { key: "getAd", value: function value() {
+            var _this = this;return _this.$element.find("a").each(function () {
+              var $this = _jquery2["default"](this),
+                  adObj = {},
+                  img = $this.find("img").eq(0).attr("src") || "",
+                  url = $this.attr("href") || "",
+                  impimg = $this.children().eq(0).attr("src") || "";adObj = { img: img, url: url, impimg: impimg }, _this.defaults.ad.push(adObj);
+            }), _this.ad;
+          } }, { key: "getImgSize", value: function value() {
+            var imgSize = {};if (this.adImg.attr("width") && this.adImg.attr("height")) this.defaults.width = this.adImg.attr("width"), this.defaults.height = this.adImg.attr("height"), imgSize.width = this.defaults.width, imgSize.height = this.defaults.height;else {
+              var imgObj = new Image();imgObj.src = this.adImg.attr("src"), this.defaults.width = imgObj.width, this.defaults.height = imgObj.height, imgSize.width = this.defaults.width, imgSize.height = this.defaults.height;
+            }return imgSize;
+          } }, { key: "clickAd", value: function value() {
+            var _this5 = this;this.div3.on("click", function (e) {
+              e.preventDefault(), _this5.conf.targetBlank ? window.open(_this5.link) : window.location.href = _this5.link;
+            });
+          } }, { key: "init", value: function value() {
+            var _this6 = this;return this.getAd(), this.getImgSize(), this.conf = _jquery2["default"].extend({}, this.defaults, this.options), this.$element.css({ display: "none", width: this.conf.width, height: this.conf.height }), this.makeBg(), this.conf.ad.length && (this.preloadImg(), this.setTimer = setInterval(function () {
+              _this6.changeImg();
+            }, this.conf.interval)), this.clickAd(), this;
+          } }]), SlideShowAd;
+      }();exports["default"] = SlideShowAd;
+    }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {});
+  }, {}], 2: [function (require, module, exports) {
+    (function (global) {
+      "use strict";
+      function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : { "default": obj };
+      }var _typeof = "function" == typeof Symbol && "symbol" == _typeof2(Symbol.iterator) ? function (obj) {
+        return typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+      } : function (obj) {
+        return obj && "function" == typeof Symbol && obj.constructor === Symbol ? "symbol" : typeof obj === "undefined" ? "undefined" : _typeof2(obj);
+      },
+          _jquery = "undefined" != typeof window ? window.$ : "undefined" != typeof global ? global.$ : null,
+          _jquery2 = _interopRequireDefault(_jquery),
+          _SlideShowAd = require("SlideShowAd"),
+          _SlideShowAd2 = _interopRequireDefault(_SlideShowAd);!function (factory) {
+        "object" === ("undefined" == typeof module ? "undefined" : _typeof(module)) && "object" === _typeof(module.exports) ? module.exports = factory("undefined" != typeof window ? window.$ : "undefined" != typeof global ? global.$ : null, require("SlideShowAd"), window, document) : factory(_jquery2["default"]);
+      }(function ($) {
+        $.extend($.fn, { slideShowAd: function slideShowAd(options) {
+            var _this = this;return this.each(function () {
+              new _SlideShowAd2["default"](_this, options).init();
+            });
+          } });
+      });
+    }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {});
+  }, { SlideShowAd: 1 }] }, {}, [2]);
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"SlideShowAd":11}],10:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v1.12.4
  * http://jquery.com/
@@ -11503,671 +12109,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],6:[function(require,module,exports){
-'use strict';
-/* eslint-disable no-unused-vars */
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-var propIsEnumerable = Object.prototype.propertyIsEnumerable;
-
-function toObject(val) {
-	if (val === null || val === undefined) {
-		throw new TypeError('Object.assign cannot be called with null or undefined');
-	}
-
-	return Object(val);
-}
-
-function shouldUseNative() {
-	try {
-		if (!Object.assign) {
-			return false;
-		}
-
-		// Detect buggy property enumeration order in older V8 versions.
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=4118
-		var test1 = new String('abc');  // eslint-disable-line
-		test1[5] = 'de';
-		if (Object.getOwnPropertyNames(test1)[0] === '5') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test2 = {};
-		for (var i = 0; i < 10; i++) {
-			test2['_' + String.fromCharCode(i)] = i;
-		}
-		var order2 = Object.getOwnPropertyNames(test2).map(function (n) {
-			return test2[n];
-		});
-		if (order2.join('') !== '0123456789') {
-			return false;
-		}
-
-		// https://bugs.chromium.org/p/v8/issues/detail?id=3056
-		var test3 = {};
-		'abcdefghijklmnopqrst'.split('').forEach(function (letter) {
-			test3[letter] = letter;
-		});
-		if (Object.keys(Object.assign({}, test3)).join('') !==
-				'abcdefghijklmnopqrst') {
-			return false;
-		}
-
-		return true;
-	} catch (e) {
-		// We don't expect any of the above to throw, but better to be safe.
-		return false;
-	}
-}
-
-module.exports = shouldUseNative() ? Object.assign : function (target, source) {
-	var from;
-	var to = toObject(target);
-	var symbols;
-
-	for (var s = 1; s < arguments.length; s++) {
-		from = Object(arguments[s]);
-
-		for (var key in from) {
-			if (hasOwnProperty.call(from, key)) {
-				to[key] = from[key];
-			}
-		}
-
-		if (Object.getOwnPropertySymbols) {
-			symbols = Object.getOwnPropertySymbols(from);
-			for (var i = 0; i < symbols.length; i++) {
-				if (propIsEnumerable.call(from, symbols[i])) {
-					to[symbols[i]] = from[symbols[i]];
-				}
-			}
-		}
-	}
-
-	return to;
-};
-
-},{}],7:[function(require,module,exports){
-'use strict';
-
-var regex = /(auto|scroll)/;
-
-var hasOverflow = function hasOverflow(element) {
-  var style = window.getComputedStyle(element, null);
-  return regex.test(style.getPropertyValue('overflow') + style.getPropertyValue('overflow-y') + style.getPropertyValue('overflow-x'));
-};
-module.exports = hasOverflow;
-},{}],8:[function(require,module,exports){
-'use strict';
-
-var hasOverflow = require('./has-overflow');
-
-var scrollParent = function scrollParent(element) {
-
-  if (!(element instanceof HTMLElement)) {
-    return window;
-  }
-
-  while (element.parentNode) {
-    if (element.parentNode === document.body) {
-      return window;
-    }
-
-    if (hasOverflow(element.parentNode)) {
-      return element.parentNode;
-    }
-    element = element.parentNode;
-  }
-  return window;
-};
-
-module.exports = scrollParent;
-},{"./has-overflow":7}],9:[function(require,module,exports){
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _eventdispatcher = require('eventdispatcher');
-
-var _eventdispatcher2 = _interopRequireDefault(_eventdispatcher);
-
-var _scrollParent = require('./scroll-parent');
-
-var _scrollParent2 = _interopRequireDefault(_scrollParent);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var unprefixAnimationFrame = function unprefixAnimationFrame() {
-  if (!window.requestAnimationFrame) {
-    window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-    window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame || window.webkitCancelAnimationFrame || window.msCancelAnimationFrame;
-  }
-};
-
-var ScrollFeatures = function (_EventDispatcher) {
-  _inherits(ScrollFeatures, _EventDispatcher);
-
-  ScrollFeatures.getInstance = function getInstance(scrollTarget, options) {
-    if (!scrollTarget.scrollFeatures) {
-      return new ScrollFeatures(scrollTarget, options);
-    }
-    return scrollTarget.scrollFeatures;
-  };
-
-  ScrollFeatures.hasInstance = function hasInstance(scrollTarget) {
-    return typeof scrollTarget.scrollFeatures !== 'undefined';
-  };
-
-  ScrollFeatures.getScrollParent = function getScrollParent(element) {
-    return (0, _scrollParent2.default)(element);
-  };
-
-  _createClass(ScrollFeatures, null, [{
-    key: 'windowY',
-    get: function get() {
-      return window.pageYOffset || window.scrollY || 0;
-    }
-  }, {
-    key: 'windowX',
-    get: function get() {
-      return window.pageXOffset || window.scrollX || 0;
-    }
-  }, {
-    key: 'documentHeight',
-    get: function get() {
-      return Math.max(document.body.scrollHeight, document.body.offsetHeight, document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
-    }
-  }, {
-    key: 'documentWidth',
-    get: function get() {
-      return Math.max(document.body.scrollWidth, document.body.offsetWidth, document.documentElement.clientWidth, document.documentElement.scrollWidth, document.documentElement.offsetWidth);
-    }
-  }]);
-
-  function ScrollFeatures() {
-    var scrollTarget = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : window;
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    _classCallCheck(this, ScrollFeatures);
-
-    if (ScrollFeatures.hasInstance(scrollTarget)) {
-      var _ret;
-
-      return _ret = ScrollFeatures.getInstance(scrollTarget), _possibleConstructorReturn(_this, _ret);
-    }
-
-    var _this = _possibleConstructorReturn(this, _EventDispatcher.call(this, { target: scrollTarget }));
-
-    _this._scrollTarget = null;
-    _this._y = 0;
-    _this._x = 0;
-    _this._speedY = 0;
-    _this._speedX = 0;
-    _this._lastSpeed = 0;
-    _this._lastDirectionY = ScrollFeatures.direction.none;
-    _this._lastDirectionX = ScrollFeatures.direction.none;
-    _this._stopFrames = 3;
-    _this._currentStopFrames = 0;
-    _this._firstRender = true;
-    _this._directionY = ScrollFeatures.direction.none;
-    _this._directionX = ScrollFeatures.direction.none;
-    _this._scrolling = false;
-    _this._canScrollY = false;
-    _this._canScrollX = false;
-
-
-    scrollTarget.scrollFeatures = _this;
-    _this._scrollTarget = scrollTarget;
-    _this.options = options;
-
-    if (Can.animationFrame) {
-      unprefixAnimationFrame();
-    }
-
-    _this.init();
-    return _this;
-  }
-
-  ScrollFeatures.prototype.init = function init() {
-    var _this2 = this;
-
-    this.getScrollPosition = this._scrollTarget === window ? function () {
-      return { y: ScrollFeatures.windowY, x: ScrollFeatures.windowX };
-    }.bind(this) : function () {
-      return { y: this._scrollTarget.scrollTop, x: this._scrollTarget.scrollLeft };
-    }.bind(this);
-
-    this.onResize = function () {
-      _this2.trigger(ScrollFeatures.events.SCROLL_RESIZE);
-    };
-    this.onScroll = this.onScroll.bind(this);
-    this.onNextFrame = this.onNextFrame.bind(this);
-
-    this.updateScrollPosition();
-
-    if (this._scrollTarget !== window) {
-      var regex = /(auto|scroll)/;
-      var style = window.getComputedStyle(this._scrollTarget, null);
-      this._canScrollY = regex.test(style.getPropertyValue('overflow-y'));
-      this._canScrollX = regex.test(style.getPropertyValue('overflow-x'));
-    } else {
-      this._canScrollY = this.clientHeight < this.scrollHeight;
-      this._canScrollX = this.clientWidth < this.scrollWidth;
-    }
-
-    if (this._scrollTarget.addEventListener) {
-      this._scrollTarget.addEventListener('scroll', this.onScroll, false);
-      this._scrollTarget.addEventListener('resize', this.onResize, false);
-    } else if (this._scrollTarget.attachEvent) {
-      this._scrollTarget.attachEvent('scroll', this.onScroll);
-      this._scrollTarget.attachEvent('resize', this.onResize);
-    }
-  };
-
-  ScrollFeatures.prototype.destroy = function destroy() {
-
-    this._cancelNextFrame();
-
-    _EventDispatcher.prototype.destroy.call(this);
-
-    if (this._scrollTarget) {
-      if (this._scrollTarget.addEventListener) {
-        this._scrollTarget.removeEventListener('scroll', this.onScroll);
-        this._scrollTarget.removeEventListener('resize', this.onResize);
-      } else if (this._scrollTarget.attachEvent) {
-        this._scrollTarget.detachEvent('scroll', this.onScroll);
-        this._scrollTarget.detachEvent('resize', this.onResize);
-      }
-    }
-
-    this.onResize = null;
-    this.onScroll = null;
-    this.getScrollPosition = null;
-    this.onNextFrame = null;
-    delete this._scrollTarget.scrollFeatures;
-    this._scrollTarget = null;
-  };
-
-  ScrollFeatures.prototype.updateScrollPosition = function updateScrollPosition() {
-    this._y = this.y;
-    this._x = this.x;
-  };
-
-  ScrollFeatures.prototype.onScroll = function onScroll() {
-    this._currentStopFrames = 0;
-    if (this._firstRender) {
-      this._firstRender = false;
-      if (this.y > 1 || this.x > 1) {
-        this.updateScrollPosition();
-        this.trigger(ScrollFeatures.events.SCROLL_PROGRESS);
-        return;
-      }
-    }
-
-    if (!this._scrolling) {
-      this._scrolling = true;
-      this._lastDirectionY = ScrollFeatures.direction.none;
-      this._lastDirectionX = ScrollFeatures.direction.none;
-      this.trigger(ScrollFeatures.events.SCROLL_START);
-      if (Can.animationFrame) {
-        this.nextFrameID = window.requestAnimationFrame(this.onNextFrame);
-      } else {
-        this.onNextFrame();
-      }
-    }
-  };
-
-  ScrollFeatures.prototype.onNextFrame = function onNextFrame() {
-    var _this3 = this;
-
-    this._speedY = this._y - this.y;
-    this._speedX = this._x - this.x;
-
-    var speed = +this.speedY + +this.speedX;
-    if (this._scrolling && speed === 0 && this._currentStopFrames++ > this._stopFrames) {
-      this.onScrollStop();
-      return;
-    }
-
-    this.updateScrollPosition();
-
-    if (this._lastDirectionY !== this.directionY) {
-      this.trigger('scroll:' + (this.directionY === ScrollFeatures.direction.down ? 'down' : 'up'));
-    }
-    if (this._lastDirectionX !== this.directionX) {
-      this.trigger('scroll:' + (this.directionX === ScrollFeatures.direction.right ? 'right' : 'left'));
-    }
-
-    this._lastDirectionY = this.directionY;
-    this._lastDirectionX = this.directionX;
-
-    this.trigger(ScrollFeatures.events.SCROLL_PROGRESS);
-
-    if (Can.animationFrame) {
-      this.nextFrameID = window.requestAnimationFrame(this.onNextFrame);
-    } else {
-      this._nextTimeout = setTimeout(function () {
-        _this3.onNextFrame();
-      }, 1000 / 60);
-    }
-  };
-
-  ScrollFeatures.prototype.onScrollStop = function onScrollStop() {
-
-    this._scrolling = false;
-    this.updateScrollPosition();
-
-    this.trigger(ScrollFeatures.events.SCROLL_STOP);
-
-    if (this._canScrollY) {
-      if (this.y <= 0) {
-        this.trigger(ScrollFeatures.events.SCROLL_MIN);
-      } else if (this.y + this.clientHeight >= this.scrollHeight) {
-        this.trigger(ScrollFeatures.events.SCROLL_MAX);
-      }
-    }
-
-    if (this._canScrollX) {
-      if (this.x <= 0) {
-        this.trigger(ScrollFeatures.events.SCROLL_MIN);
-      } else if (this.x + this.clientWidth >= this.scrollWidth) {
-        this.trigger(ScrollFeatures.events.SCROLL_MAX);
-      }
-    }
-
-    this._cancelNextFrame();
-  };
-
-  ScrollFeatures.prototype._cancelNextFrame = function _cancelNextFrame() {
-    this._currentStopFrames = 0;
-    if (Can.animationFrame) {
-      window.cancelAnimationFrame(this.nextFrameID);
-      this.nextFrameID = -1;
-    } else {
-      clearTimeout(this._nextTimeout);
-    }
-  };
-
-  _createClass(ScrollFeatures, [{
-    key: 'scrollPosition',
-    get: function get() {
-      return this.getScrollPosition();
-    }
-  }, {
-    key: 'directionY',
-    get: function get() {
-      if (!this._canScrollY || this.speedY === 0 && !this._scrolling) {
-        this._directionY = ScrollFeatures.direction.none;
-      } else {
-        if (this.speedY > 0) {
-          this._directionY = ScrollFeatures.direction.up;
-        } else if (this.speedY < 0) {
-          this._directionY = ScrollFeatures.direction.down;
-        }
-      }
-      return this._directionY;
-    }
-  }, {
-    key: 'directionX',
-    get: function get() {
-      if (!this._canScrollX || this.speedX === 0 && !this._scrolling) {
-        this._directionX = ScrollFeatures.direction.none;
-      } else {
-        if (this.speedX > 0) {
-          this._directionX = ScrollFeatures.direction.left;
-        } else if (this.speedX < 0) {
-          this._directionX = ScrollFeatures.direction.right;
-        }
-      }
-      return this._directionX;
-    }
-  }, {
-    key: 'scrollTarget',
-    get: function get() {
-      return this._scrollTarget;
-    }
-  }, {
-    key: 'scrolling',
-    get: function get() {
-      return this._scrolling;
-    }
-  }, {
-    key: 'speedY',
-    get: function get() {
-      return this._speedY;
-    }
-  }, {
-    key: 'speedX',
-    get: function get() {
-      return this._speedX;
-    }
-  }, {
-    key: 'canScrollY',
-    get: function get() {
-      return this._canScrollY;
-    }
-  }, {
-    key: 'canScrollX',
-    get: function get() {
-      return this._canScrollX;
-    }
-  }, {
-    key: 'y',
-    get: function get() {
-      return this.scrollPosition.y;
-    }
-  }, {
-    key: 'x',
-    get: function get() {
-      return this.scrollPosition.x;
-    }
-  }, {
-    key: 'clientHeight',
-    get: function get() {
-      return this._scrollTarget === window ? window.innerHeight : this._scrollTarget.clientHeight;
-    }
-  }, {
-    key: 'clientWidth',
-    get: function get() {
-      return this._scrollTarget === window ? window.innerWidth : this._scrollTarget.clientWidth;
-    }
-  }, {
-    key: 'scrollHeight',
-    get: function get() {
-      return this._scrollTarget === window ? ScrollFeatures.documentHeight : this._scrollTarget.scrollHeight;
-    }
-  }, {
-    key: 'scrollWidth',
-    get: function get() {
-      return this._scrollTarget === window ? ScrollFeatures.documentWidth : this._scrollTarget.scrollWidth;
-    }
-  }]);
-
-  return ScrollFeatures;
-}(_eventdispatcher2.default);
-
-ScrollFeatures.direction = {
-  up: -1,
-  down: 1,
-  none: 0,
-  right: 2,
-  left: -2
-};
-ScrollFeatures.events = {
-  SCROLL_PROGRESS: 'scroll:progress',
-  SCROLL_START: 'scroll:start',
-  SCROLL_STOP: 'scroll:stop',
-  SCROLL_DOWN: 'scroll:down',
-  SCROLL_UP: 'scroll:up',
-  SCROLL_MIN: 'scroll:min',
-  SCROLL_MAX: 'scroll:max',
-  SCROLL_RESIZE: 'scroll:resize'
-};
-exports.default = ScrollFeatures;
-
-
-var _animationFrame = null;
-
-var Can = function () {
-  function Can() {
-    _classCallCheck(this, Can);
-  }
-
-  _createClass(Can, null, [{
-    key: 'animationFrame',
-    get: function get() {
-      if (_animationFrame === null) {
-        _animationFrame = !!(window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame);
-      }
-      return _animationFrame;
-    }
-  }]);
-
-  return Can;
-}();
-
-module.exports = exports['default'];
-},{"./scroll-parent":8,"eventdispatcher":4}],10:[function(require,module,exports){
-(function (global){
-"use strict";
-
-!function e(t, n, r) {
-  function s(o, u) {
-    if (!n[o]) {
-      if (!t[o]) {
-        var a = "function" == typeof require && require;if (!u && a) return a(o, !0);if (i) return i(o, !0);var f = new Error("Cannot find module '" + o + "'");throw f.code = "MODULE_NOT_FOUND", f;
-      }var l = n[o] = { exports: {} };t[o][0].call(l.exports, function (e) {
-        var n = t[o][1][e];return s(n ? n : e);
-      }, l, l.exports, e, t, n, r);
-    }return n[o].exports;
-  }for (var i = "function" == typeof require && require, o = 0; o < r.length; o++) {
-    s(r[o]);
-  }return s;
-}({ 1: [function (require, module, exports) {
-    (function (global) {
-      "use strict";
-      function _interopRequireDefault(obj) {
-        return obj && obj.__esModule ? obj : { "default": obj };
-      }function _defineProperty(obj, key, value) {
-        return key in obj ? Object.defineProperty(obj, key, { value: value, enumerable: !0, configurable: !0, writable: !0 }) : obj[key] = value, obj;
-      }function _classCallCheck(instance, Constructor) {
-        if (!(instance instanceof Constructor)) throw new TypeError("Cannot call a class as a function");
-      }Object.defineProperty(exports, "__esModule", { value: !0 });var _createClass = function () {
-        function defineProperties(target, props) {
-          for (var i = 0; i < props.length; i++) {
-            var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || !1, descriptor.configurable = !0, "value" in descriptor && (descriptor.writable = !0), Object.defineProperty(target, descriptor.key, descriptor);
-          }
-        }return function (Constructor, protoProps, staticProps) {
-          return protoProps && defineProperties(Constructor.prototype, protoProps), staticProps && defineProperties(Constructor, staticProps), Constructor;
-        };
-      }(),
-          _jquery = "undefined" != typeof window ? window.$ : "undefined" != typeof global ? global.$ : null,
-          _jquery2 = _interopRequireDefault(_jquery),
-          SlideShowAd = function () {
-        function SlideShowAd(element, options) {
-          _classCallCheck(this, SlideShowAd), this.element = element, this.$element = _jquery2["default"](element), this.linkNumber = 1, this.i = 2, this.setTimer = "", this.adImg = this.$element.find("a").eq(0).find("img").eq(0), this.displayImgFlag = "div1", this.div1 = _jquery2["default"]("<div>"), this.div2 = _jquery2["default"]("<div>"), this.div3 = _jquery2["default"]("<div>").attr("class", "cb-slideshow"), this.link = "", this.conf = {}, this.options = options, this.defaults = { ad: [], width: "", height: "", zIndex: 999, duration: 1e3, interval: 5e3, targetBlank: !1, slideShowType: "fade", backgroundColor: "#f5f5f5" };
-        }return _createClass(SlideShowAd, [{ key: "fadeImg", value: function value(div) {
-            var _this2 = this,
-                d1 = "div1" === div ? "div1" : "div2",
-                d2 = "div1" === div ? "div2" : "div1",
-                d3 = this.div3;this.link = this.conf.ad[this.linkNumber].url, d3.attr("data", this.link), this[d1].animate({ opacity: 0 }, this.conf.duration, function () {
-              _this2[d1].css({ "z-index": 0, "background-image": "url(" + _this2.conf.ad[_this2.i].img + ")" }), _this2.linkNumber++, _this2.i++;
-            }), this[d2].css({ "z-index": 1 }).animate({ opacity: 1 }, this.conf.duration), this.displayImgFlag = d2;
-          } }, { key: "flipImg", value: function value(div, r) {
-            var _this3 = this,
-                d1 = "div1" === div ? "div1" : "div2",
-                d2 = "div1" === div ? "div2" : "div1",
-                d3 = this.div3,
-                deg = "div1" === div ? "180deg" : "0deg",
-                rotate = "";"X" === r && (rotate = "rotateX(" + deg + ")"), "Y" === r && (rotate = "rotateY(" + deg + ")"), this.link = this.conf.ad[this.linkNumber].url, d3.attr("data", this.link), d3.css({ perspective: 0, transition: "1s", transform: rotate, transformStyle: "preserve-3d" }), this[d2].css({ transform: rotate }), setTimeout(function () {
-              _this3[d1].css({ "background-image": "url(" + _this3.conf.ad[_this3.i].img + ")", opacity: 0 }), _this3[d2].css("opacity", 1), _this3.linkNumber++, _this3.i++, _this3.displayImgFlag = d2;
-            }, 300);
-          } }, { key: "slideImg", value: function value(div, d) {
-            var _d2$css,
-                _this4 = this,
-                d1 = "div1" === div ? "div1" : "div2",
-                d2 = "div1" === div ? "div2" : "div1",
-                direction = d,
-                directionValue = "";("left" === d || "right" === d) && (directionValue = this.conf.width), ("top" === d || "bottom" === d) && (directionValue = this.conf.height), this.link = this.conf.ad[this.linkNumber].url, this[d1].css(_defineProperty({ top: "auto", left: "auto" }, direction, 0)), this[d2].css((_d2$css = { top: "auto", left: "auto" }, _defineProperty(_d2$css, direction, "-" + directionValue + "px"), _defineProperty(_d2$css, "opacity", 1), _d2$css)), this[d1].stop().animate(_defineProperty({}, direction, directionValue + "px"), 1e3, function () {
-              _this4[d1].css({ "background-image": "url(" + _this4.conf.ad[_this4.i].img + ")" }), _this4.linkNumber++, _this4.i++, _this4.displayImgFlag = d2;
-            }), this[d2].stop().animate(_defineProperty({}, direction, 0), 1e3);
-          } }, { key: "changeImg", value: function value() {
-            switch (this.linkNumber >= this.conf.ad.length && (this.linkNumber = 0), this.i >= this.conf.ad.length && (this.i = 0), this.conf.slideShowType) {case "fade":
-                return this.fadeImg(this.displayImgFlag);case "flipX":
-                return this.flipImg(this.displayImgFlag, "X");case "flipY":
-                return this.flipImg(this.displayImgFlag, "Y");case "slideLeft":
-                return this.slideImg(this.displayImgFlag, "left");case "slideRight":
-                return this.slideImg(this.displayImgFlag, "right");case "slideTop":
-                return this.slideImg(this.displayImgFlag, "top");case "slideBottom":
-                return this.slideImg(this.displayImgFlag, "bottom");case "none":
-                return this.conf.duration = 0, this.fadeImg(this.displayImgFlag);default:
-                return !1;}
-          } }, { key: "makeBg", value: function value() {
-            var div1DisplayStyle = {},
-                div2DisplayStyle = {};"fade" === this.conf.slideShowType && (div1DisplayStyle = { "z-index": 1 }, div2DisplayStyle = { "z-index": 0 });var divStyle = { "background-size": "contain", "background-repeat": "no-repeat", "background-color": this.conf.backgroundColor, position: "absolute", top: 0, left: 0, width: this.conf.width, height: this.conf.height },
-                div1Style = _jquery2["default"].extend({}, div1DisplayStyle, { "background-image": "url(" + this.conf.ad[0].img + ")", opacity: 1 }),
-                div2Style = _jquery2["default"].extend({}, div2DisplayStyle, { "background-image": "url(" + this.conf.ad[1].img + ")", opacity: 0 }),
-                div3Style = { "z-index": this.conf.zIndex, position: "relative", display: "inline-block", width: this.conf.width, height: this.conf.height, cursor: "pointer", overflow: "hidden" };this.link = this.conf.ad[0].url, this.div1.css(_jquery2["default"].extend({}, divStyle, div1Style)), this.div2.css(_jquery2["default"].extend({}, divStyle, div2Style)), this.div3.append(this.div1, this.div2).css(div3Style).attr("data", this.link), this.$element.after(this.div3);
-          } }, { key: "preloadImg", value: function value() {
-            this.conf.ad.forEach(function (obj) {
-              var imgTag = document.createElement("img");imgTag.src = obj.img;
-            });
-          } }, { key: "getAd", value: function value() {
-            var _this = this;return _this.$element.find("a").each(function () {
-              var $this = _jquery2["default"](this),
-                  adObj = {},
-                  img = $this.find("img").eq(0).attr("src") || "",
-                  url = $this.attr("href") || "",
-                  impimg = $this.children().eq(0).attr("src") || "";adObj = { img: img, url: url, impimg: impimg }, _this.defaults.ad.push(adObj);
-            }), _this.ad;
-          } }, { key: "getImgSize", value: function value() {
-            var imgSize = {};if (this.adImg.attr("width") && this.adImg.attr("height")) this.defaults.width = this.adImg.attr("width"), this.defaults.height = this.adImg.attr("height"), imgSize.width = this.defaults.width, imgSize.height = this.defaults.height;else {
-              var imgObj = new Image();imgObj.src = this.adImg.attr("src"), this.defaults.width = imgObj.width, this.defaults.height = imgObj.height, imgSize.width = this.defaults.width, imgSize.height = this.defaults.height;
-            }return imgSize;
-          } }, { key: "clickAd", value: function value() {
-            var _this5 = this;this.div3.on("click", function (e) {
-              e.preventDefault(), _this5.conf.targetBlank ? window.open(_this5.link) : window.location.href = _this5.link;
-            });
-          } }, { key: "init", value: function value() {
-            var _this6 = this;return this.getAd(), this.getImgSize(), this.conf = _jquery2["default"].extend({}, this.defaults, this.options), this.$element.css({ display: "none", width: this.conf.width, height: this.conf.height }), this.makeBg(), this.conf.ad.length && (this.preloadImg(), this.setTimer = setInterval(function () {
-              _this6.changeImg();
-            }, this.conf.interval)), this.clickAd(), this;
-          } }]), SlideShowAd;
-      }();exports["default"] = SlideShowAd;
-    }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {});
-  }, {}], 2: [function (require, module, exports) {
-    (function (global) {
-      "use strict";
-      function _interopRequireDefault(obj) {
-        return obj && obj.__esModule ? obj : { "default": obj };
-      }var _jquery = "undefined" != typeof window ? window.$ : "undefined" != typeof global ? global.$ : null,
-          _jquery2 = _interopRequireDefault(_jquery),
-          _SlideShowAd = require("SlideShowAd"),
-          _SlideShowAd2 = _interopRequireDefault(_SlideShowAd);!function (factory) {
-        factory(_jquery2["default"]);
-      }(function ($) {
-        $.extend($.fn, { slideShowAd: function slideShowAd(options) {
-            var _this = this;return this.each(function () {
-              new _SlideShowAd2["default"](_this, options).init();
-            });
-          } });
-      });
-    }).call(this, "undefined" != typeof global ? global : "undefined" != typeof self ? self : "undefined" != typeof window ? window : {});
-  }, { SlideShowAd: 1 }] }, {}, [2]);
-
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"SlideShowAd":11}],11:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -12483,56 +12425,69 @@ var SlideShowAd = function () {
 
 exports.default = SlideShowAd;
 
-},{"jquery":5}],12:[function(require,module,exports){
-/*
- * smoothscroll polyfill - v0.3.4
- * https://iamdustan.github.io/smoothscroll
- * 2016 (c) Dustan Kasten, Jeremias Menichelli - MIT License
- */
-
-(function(w, d, undefined) {
+},{"jquery":10}],12:[function(require,module,exports){
+/* smoothscroll v0.4.0 - 2017 - Dustan Kasten, Jeremias Menichelli - MIT License */
+(function () {
   'use strict';
 
   /*
    * aliases
    * w: window global object
    * d: document
-   * undefined: undefined
    */
+  var w = window;
+  var d = document;
 
-  // polyfill
+  /**
+   * indicates if a the current browser is made by Microsoft
+   * @method isMicrosoftBrowser
+   * @param {String} userAgent
+   * @returns {Boolean}
+   */
+  function isMicrosoftBrowser(userAgent) {
+    var userAgentPatterns = ['MSIE ', 'Trident/', 'Edge/'];
+
+    return new RegExp(userAgentPatterns.join('|')).test(userAgent);
+  }
+
+   // polyfill
   function polyfill() {
-    // return when scrollBehavior interface is supported
-    if ('scrollBehavior' in d.documentElement.style) {
+    // return if scroll behavior is supported and polyfill is not forced
+    if ('scrollBehavior' in d.documentElement.style
+      && w.__forceSmoothScrollPolyfill__ !== true) {
       return;
     }
 
-    /*
-     * globals
-     */
+    // globals
     var Element = w.HTMLElement || w.Element;
     var SCROLL_TIME = 468;
 
     /*
-     * object gathering original scroll methods
+     * IE has rounding bug rounding down clientHeight and clientWidth and
+     * rounding up scrollHeight and scrollWidth causing false positives
+     * on hasScrollableSpace
      */
+    var ROUNDING_TOLERANCE = isMicrosoftBrowser(w.navigator.userAgent) ? 1 : 0;
+
+    // object gathering original scroll methods
     var original = {
       scroll: w.scroll || w.scrollTo,
       scrollBy: w.scrollBy,
+      elementScroll: Element.prototype.scroll || scrollElement,
       scrollIntoView: Element.prototype.scrollIntoView
     };
 
-    /*
-     * define timing method
-     */
+    // define timing method
     var now = w.performance && w.performance.now
-      ? w.performance.now.bind(w.performance) : Date.now;
+      ? w.performance.now.bind(w.performance)
+      : Date.now;
 
     /**
      * changes scroll position inside an element
      * @method scrollElement
      * @param {Number} x
      * @param {Number} y
+     * @returns {undefined}
      */
     function scrollElement(x, y) {
       this.scrollLeft = x;
@@ -12552,28 +12507,75 @@ exports.default = SlideShowAd;
     /**
      * indicates if a smooth behavior should be applied
      * @method shouldBailOut
-     * @param {Number|Object} x
+     * @param {Number|Object} firstArg
      * @returns {Boolean}
      */
-    function shouldBailOut(x) {
-      if (typeof x !== 'object'
-            || x === null
-            || x.behavior === undefined
-            || x.behavior === 'auto'
-            || x.behavior === 'instant') {
-        // first arg not an object/null
+    function shouldBailOut(firstArg) {
+      if (firstArg === null
+        || typeof firstArg !== 'object'
+        || firstArg.behavior === undefined
+        || firstArg.behavior === 'auto'
+        || firstArg.behavior === 'instant') {
+        // first argument is not an object/null
         // or behavior is auto, instant or undefined
         return true;
       }
 
-      if (typeof x === 'object'
-            && x.behavior === 'smooth') {
+      if (typeof firstArg === 'object' && firstArg.behavior === 'smooth') {
         // first argument is an object and behavior is smooth
         return false;
       }
 
       // throw error when behavior is not supported
-      throw new TypeError('behavior not valid');
+      throw new TypeError(
+        'behavior member of ScrollOptions '
+        + firstArg.behavior
+        + ' is not a valid value for enumeration ScrollBehavior.'
+      );
+    }
+
+    /**
+     * indicates if an element has scrollable space in the provided axis
+     * @method hasScrollableSpace
+     * @param {Node} el
+     * @param {String} axis
+     * @returns {Boolean}
+     */
+    function hasScrollableSpace(el, axis) {
+      if (axis === 'Y') {
+        return (el.clientHeight + ROUNDING_TOLERANCE) < el.scrollHeight;
+      }
+
+      if (axis === 'X') {
+        return (el.clientWidth + ROUNDING_TOLERANCE) < el.scrollWidth;
+      }
+    }
+
+    /**
+     * indicates if an element has a scrollable overflow property in the axis
+     * @method canOverflow
+     * @param {Node} el
+     * @param {String} axis
+     * @returns {Boolean}
+     */
+    function canOverflow(el, axis) {
+      var overflowValue = w.getComputedStyle(el, null)['overflow' + axis];
+
+      return overflowValue === 'auto' || overflowValue === 'scroll';
+    }
+
+    /**
+     * indicates if an element can be scrolled in either axis
+     * @method isScrollable
+     * @param {Node} el
+     * @param {String} axis
+     * @returns {Boolean}
+     */
+    function isScrollable(el) {
+      var isScrollableY = hasScrollableSpace(el, 'Y') && canOverflow(el, 'Y');
+      var isScrollableX = hasScrollableSpace(el, 'X') && canOverflow(el, 'X');
+
+      return isScrollableY || isScrollableX;
     }
 
     /**
@@ -12584,22 +12586,14 @@ exports.default = SlideShowAd;
      */
     function findScrollableParent(el) {
       var isBody;
-      var hasScrollableSpace;
-      var hasVisibleOverflow;
 
       do {
         el = el.parentNode;
 
-        // set condition variables
         isBody = el === d.body;
-        hasScrollableSpace =
-          el.clientHeight < el.scrollHeight ||
-          el.clientWidth < el.scrollWidth;
-        hasVisibleOverflow =
-          w.getComputedStyle(el, null).overflow === 'visible';
-      } while (!isBody && !(hasScrollableSpace && !hasVisibleOverflow));
+      } while (isBody === false && isScrollable(el) === false);
 
-      isBody = hasScrollableSpace = hasVisibleOverflow = null;
+      isBody = null;
 
       return el;
     }
@@ -12608,11 +12602,9 @@ exports.default = SlideShowAd;
      * self invoked function that, given a context, steps through scrolling
      * @method step
      * @param {Object} context
+     * @returns {undefined}
      */
     function step(context) {
-      // call method again on next available frame
-      context.frame = w.requestAnimationFrame(step.bind(w, context));
-
       var time = now();
       var value;
       var currentX;
@@ -12630,19 +12622,19 @@ exports.default = SlideShowAd;
 
       context.method.call(context.scrollable, currentX, currentY);
 
-      // return when end points have been reached
-      if (currentX === context.x && currentY === context.y) {
-        w.cancelAnimationFrame(context.frame);
-        return;
+      // scroll more if we have not reached our destination
+      if (currentX !== context.x || currentY !== context.y) {
+        w.requestAnimationFrame(step.bind(w, context));
       }
     }
 
     /**
-     * scrolls window with a smooth behavior
+     * scrolls window or element with a smooth behavior
      * @method smoothScroll
      * @param {Object|Node} el
      * @param {Number} x
      * @param {Number} y
+     * @returns {undefined}
      */
     function smoothScroll(el, x, y) {
       var scrollable;
@@ -12650,7 +12642,6 @@ exports.default = SlideShowAd;
       var startY;
       var method;
       var startTime = now();
-      var frame;
 
       // define scroll context
       if (el === d.body) {
@@ -12665,11 +12656,6 @@ exports.default = SlideShowAd;
         method = scrollElement;
       }
 
-      // cancel frame when a scroll event's happening
-      if (frame) {
-        w.cancelAnimationFrame(frame);
-      }
-
       // scroll looping over a frame
       step({
         scrollable: scrollable,
@@ -12678,24 +12664,35 @@ exports.default = SlideShowAd;
         startX: startX,
         startY: startY,
         x: x,
-        y: y,
-        frame: frame
+        y: y
       });
     }
 
-    /*
-     * ORIGINAL METHODS OVERRIDES
-     */
-
+    // ORIGINAL METHODS OVERRIDES
     // w.scroll and w.scrollTo
     w.scroll = w.scrollTo = function() {
+      // avoid action when no arguments are passed
+      if (arguments[0] === undefined) {
+        return;
+      }
+
       // avoid smooth behavior if not required
-      if (shouldBailOut(arguments[0])) {
+      if (shouldBailOut(arguments[0]) === true) {
         original.scroll.call(
           w,
-          arguments[0].left || arguments[0],
-          arguments[0].top || arguments[1]
+          arguments[0].left !== undefined
+            ? arguments[0].left
+            : typeof arguments[0] !== 'object'
+              ? arguments[0]
+              : (w.scrollX || w.pageXOffset),
+          // use top prop, second argument if present or fallback to scrollY
+          arguments[0].top !== undefined
+            ? arguments[0].top
+            : arguments[1] !== undefined
+              ? arguments[1]
+              : (w.scrollY || w.pageYOffset)
         );
+
         return;
       }
 
@@ -12703,20 +12700,38 @@ exports.default = SlideShowAd;
       smoothScroll.call(
         w,
         d.body,
-        ~~arguments[0].left,
-        ~~arguments[0].top
+        arguments[0].left !== undefined
+          ? ~~arguments[0].left
+          : (w.scrollX || w.pageXOffset),
+        arguments[0].top !== undefined
+          ? ~~arguments[0].top
+          : (w.scrollY || w.pageYOffset)
       );
     };
 
     // w.scrollBy
     w.scrollBy = function() {
+      // avoid action when no arguments are passed
+      if (arguments[0] === undefined) {
+        return;
+      }
+
       // avoid smooth behavior if not required
       if (shouldBailOut(arguments[0])) {
         original.scrollBy.call(
           w,
-          arguments[0].left || arguments[0],
-          arguments[0].top || arguments[1]
+          arguments[0].left !== undefined
+            ? arguments[0].left
+            : typeof arguments[0] !== 'object'
+              ? arguments[0]
+              : 0,
+          arguments[0].top !== undefined
+            ? arguments[0].top
+            : arguments[1] !== undefined
+             ? arguments[1]
+             : 0
         );
+
         return;
       }
 
@@ -12729,11 +12744,91 @@ exports.default = SlideShowAd;
       );
     };
 
+    // Element.prototype.scroll and Element.prototype.scrollTo
+    Element.prototype.scroll = Element.prototype.scrollTo = function() {
+      // avoid action when no arguments are passed
+      if (arguments[0] === undefined) {
+        return;
+      }
+
+      // avoid smooth behavior if not required
+      if (shouldBailOut(arguments[0]) === true) {
+        // if one number is passed, throw error to match Firefox implementation
+        if (typeof arguments[0] === 'number' && arguments[1] === undefined) {
+          throw new SyntaxError('Value couldn\'t be converted');
+        }
+
+        original.elementScroll.call(
+          this,
+          // use left prop, first number argument or fallback to scrollLeft
+          arguments[0].left !== undefined
+            ? ~~arguments[0].left
+            : typeof arguments[0] !== 'object'
+              ? ~~arguments[0]
+              : this.scrollLeft,
+          // use top prop, second argument or fallback to scrollTop
+          arguments[0].top !== undefined
+            ? ~~arguments[0].top
+            : arguments[1] !== undefined
+              ? ~~arguments[1]
+              : this.scrollTop
+        );
+
+        return;
+      }
+
+      var left = arguments[0].left;
+      var top = arguments[0].top;
+
+      // LET THE SMOOTHNESS BEGIN!
+      smoothScroll.call(
+        this,
+        this,
+        typeof left === 'undefined' ? this.scrollLeft : ~~left,
+        typeof top === 'undefined' ? this.scrollTop : ~~top
+      );
+    };
+
+    // Element.prototype.scrollBy
+    Element.prototype.scrollBy = function() {
+      // avoid action when no arguments are passed
+      if (arguments[0] === undefined) {
+        return;
+      }
+
+      // avoid smooth behavior if not required
+      if (shouldBailOut(arguments[0]) === true) {
+        original.elementScroll.call(
+          this,
+          arguments[0].left !== undefined
+            ? ~~arguments[0].left + this.scrollLeft
+            : ~~arguments[0] + this.scrollLeft,
+          arguments[0].top !== undefined
+            ? ~~arguments[0].top + this.scrollTop
+            : ~~arguments[1] + this.scrollTop
+        );
+
+        return;
+      }
+
+      this.scroll({
+        left: ~~arguments[0].left + this.scrollLeft,
+        top: ~~arguments[0].top + this.scrollTop,
+        behavior: arguments[0].behavior
+      });
+    };
+
     // Element.prototype.scrollIntoView
     Element.prototype.scrollIntoView = function() {
       // avoid smooth behavior if not required
-      if (shouldBailOut(arguments[0])) {
-        original.scrollIntoView.call(this, arguments[0] || true);
+      if (shouldBailOut(arguments[0]) === true) {
+        original.scrollIntoView.call(
+          this,
+          arguments[0] === undefined
+            ? true
+            : arguments[0]
+        );
+
         return;
       }
 
@@ -12750,12 +12845,15 @@ exports.default = SlideShowAd;
           scrollableParent.scrollLeft + clientRects.left - parentRects.left,
           scrollableParent.scrollTop + clientRects.top - parentRects.top
         );
-        // reveal parent in viewport
-        w.scrollBy({
-          left: parentRects.left,
-          top: parentRects.top,
-          behavior: 'smooth'
-        });
+
+        // reveal parent in viewport unless is fixed
+        if (w.getComputedStyle(scrollableParent).position !== 'fixed') {
+          w.scrollBy({
+            left: parentRects.left,
+            top: parentRects.top,
+            behavior: 'smooth'
+          });
+        }
       } else {
         // reveal element in viewport
         w.scrollBy({
@@ -12774,7 +12872,8 @@ exports.default = SlideShowAd;
     // global
     polyfill();
   }
-})(window, document);
+
+}());
 
 },{}],13:[function(require,module,exports){
 'use strict';
@@ -13418,4 +13517,4 @@ var StickyStateCollection = function (_EventDispatcher2) {
 
 exports.default = StickyState;
 module.exports = exports['default'];
-},{"classstring":3,"eventdispatcher":4,"object-assign":6,"scrollfeatures":9}]},{},[1]);
+},{"classstring":3,"eventdispatcher":4,"object-assign":5,"scrollfeatures":8}]},{},[1]);
