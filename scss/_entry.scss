@@ -28,9 +28,17 @@
     line-height: 2.2;
   }
 
+  dd {
+    margin-bottom: 1em;
+
+    &:last-child {
+      margin-bottom: 36px !important;
+    }
+  }
+
   img {
     box-sizing: border-box;
-    max-width: 728px;
+    max-width: 100%;
     height: auto;
   }
 
@@ -52,6 +60,15 @@
     display: block;
     font-size: 16px;
     font-style: italic;
+  }
+
+  hr {
+    background-color: #ccc;
+    border: 0;
+    clear: both;
+    height: 1px;
+    width: 400px;
+    margin: 3.2em auto;
   }
 
   .intro {
@@ -94,6 +111,22 @@
     font-weight: bold;
   }
 
+  .blockBorder {
+    padding: 16px;
+    border: 1px solid #dcedc8;
+    background-color: #f1f8e9;
+    border-radius: 1px;
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    q {
+      margin-left: 0 !important;
+    }
+  }
+
   .figBorder {
     width: 100%;
     padding: 8px 0;
@@ -121,6 +154,38 @@
   .figbg {
     background-color: #eee;
     padding: 4px 8px;
+  }
+
+  .ol-type {
+    list-style-type: decimal;
+    padding-left: 1.5em;
+  }
+
+  .outside {
+    text-indent: -1em;
+    margin-left: 1em;
+  }
+
+  .li-disc {
+    margin-left: 1em;
+    list-style-type: disc;
+  }
+
+  .mark {
+    color: #424242;
+    vertical-align: 2px;
+    font-size: 88%;
+    border: 1px solid #e0e0e0;
+    background-color: #f1f1f1;
+    padding: 2px 4px;
+    border-radius: 2px;
+    line-height: 1;
+  }
+
+  .sample {
+    padding: 14px;
+    overflow: hidden;
+    border: 1px dashed #ccc;
   }
 
   .top_0 {
