@@ -114,11 +114,11 @@ module.exports = (grunt) => {
       },
       css: {
         files: ['css/index.css', 'css/single.css', 'css/style.css', 'css/sidebar.css'],
-        tasks: ['cssmin', 'clean:css', 'md5:css', 'replace:css']
+        tasks: ['cssmin', 'clean:css', 'md5:css', 'replace:css'],
       },
       js: {
         files: ['js/main.js'],
-        tasks: ['browserify', 'uglify', 'clean:js', 'md5:js', 'replace:js']
+        tasks: ['browserify', 'uglify', 'clean:js', 'md5:js', 'replace:js'],
       },
     },
   });
