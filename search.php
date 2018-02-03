@@ -2,9 +2,9 @@
 
 <html lang="ja">
   <?php get_header(); ?>
-  <?php include('include/content_header.php'); ?>
 
   <body id="TOP">
+    <?php include('include/content_header.php'); ?>
     <div class="content">
       <main class="main">
         <?php
