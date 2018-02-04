@@ -1,12 +1,13 @@
 .DS_Store
 nbproject/
 node_modules/
+css/style.css
+css/style.css.map
 css/footer.css.map
 css/header.css.map
 css/index.css.map
 css/sidebar.css.map
 css/single.css.map
-css/style.css.map
 css/reset.css.map
 css/settings.css.map
 css/nav.css.map
