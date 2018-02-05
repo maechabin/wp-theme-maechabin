@@ -13,11 +13,11 @@
           ?>
             <!-- ▼article▼ -->
             <article class="article">
-              <header>
-                <h1 id="post-<?php the_ID(); ?>" class="entry-title"><?php the_title(); ?></h1>
-                <ul class="entry-meta">
-                  <li class="entry-meta-li"><time pubdate><?php the_date() ?></time></li>
-                  <li class="entry-meta-li"><a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><img src="http://www.google.com/images/icons/ui/gprofile_button-16.png" width="16" height="16" alt="Google+プロフィールへ"></a></li>
+              <header class="article__header">
+                <h1 class="article__title" id="post-<?php the_ID(); ?>"><?php the_title(); ?></h1>
+                <ul class="article__meta">
+                  <li class="article__meta-li"><i class="fa fa-calendar" aria-hidden="true"></i> <time pubdate><?php the_date('Y年m月d日'); ?></time></li>
+                  <li class="article__meta-li"><i class="fa fa-pencil" aria-hidden="true"></i> <a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><i class="fa fa-google-plus" style="color: #db4437;"></i></a></li>
                 </ul>
               </header>
 

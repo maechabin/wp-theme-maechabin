@@ -1,0 +1,31 @@
+.content {
+  z-index: 2;
+  background-color: #fff;
+  border-top: 1px solid #cfd8dc;
+  width: calc(100% - 80px);
+  padding-right: 80px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  padding-left: calc((100% - 1100px) / 2);
+  width: $_entry-width;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: $_responsive-point) {
+  .content {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    padding-right: 0;
+  }
+
+  .main {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+  }
+}

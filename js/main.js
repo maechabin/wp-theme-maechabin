@@ -56,7 +56,7 @@ maechabin.ui = (($, window, document) => {
 
   // トップページのポストをクリックした時
   function clickTopPost() {
-    const index = $('.post-box');
+    const index = $('.post');
     index.each(function () {
       const $this = $(this);
       $this.on('click', (e) => {

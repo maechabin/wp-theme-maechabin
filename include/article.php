@@ -1,12 +1,14 @@
 <!-- ▼article▼ -->
 <article class="article">
-  <header>
-    <nav class="breadcrumb"><?php breadcrumb(); ?></nav>
-    <h1 id="post-<?php the_ID(); ?>" class="entry-title"><?php the_title(); ?></h1>
-    <ul class="entry-meta">
-      <li class="entry-meta-li"><i class="fa fa-calendar" aria-hidden="true"></i> <time pubdate><?php the_date('Y年m月d日'); ?></time></li>
-      <li class="entry-meta-li"><i class="fa fa-pencil" aria-hidden="true"></i> <a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><i class="fa fa-google-plus" style="color: #db4437;"></i></a></li>
-      <li class="entry-meta-li"><?php the_tags('#', ', #'); ?></li>
+  <header class="article__header">
+    <nav class="article__breadcrumb"><?php breadcrumb(); ?></nav>
+    <h1 class="article__title" id="post-<?php the_ID(); ?>">
+      <?php the_title(); ?>
+    </h1>
+    <ul class="article__meta">
+      <li class="article__meta-li"><i class="fa fa-calendar" aria-hidden="true"></i> <time pubdate><?php the_date('Y年m月d日'); ?></time></li>
+      <li class="article__meta-li"><i class="fa fa-pencil" aria-hidden="true"></i> <a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><i class="fa fa-google-plus" style="color: #db4437;"></i></a></li>
+      <li class="article__meta-li"><?php the_tags('#', ', #'); ?></li>
     </ul>
     <?php mc_social_button(); ?>
   </header>
@@ -41,7 +43,7 @@
     <?php the_content(); ?>
   </div>
 
-  <div id="linkpages">
+  <div class="article__linkpages">
     <?php //wp_link_pages('before=&after=&next_or_number=next&previouspagelink=<span class="pre">前へ</span>&nextpagelink=<span class="next">次へ</span>'); ?>
     <?php wp_link_pages('before=&after=&next_or_number=number&pagelink=%'); ?>
   </div>
@@ -73,16 +75,16 @@
     </script>
   </div>
 
-  <ul class="postmetadata">
-    <li class="postmetadata-li">カテゴリー: <?php the_category(', '); ?></li>
-    <li class="postmetadata-li"><?php the_tags(); ?></li>
+  <ul class="article__meta">
+    <li class="article__meta-li">カテゴリー: <?php the_category(', '); ?></li>
+    <li class="article__meta-li"><?php the_tags(); ?></li>
   </ul>
 
   <?php mc_social_button(); ?>
 
-  <ul id="nav-below" class="navigation">
-    <li class="nav-previous"><?php previous_post_link('%link','<span class="meta-nav">←</span> %title'); ?></li>
-    <li class="nav-next"><?php next_post_link('%link','%title <span class="meta-nav">→</span>'); ?></li>
+  <ul class="article__nav" id="nav-below">
+    <li class="article__nav-previous"><?php previous_post_link('%link','<span class="meta-nav">←</span> %title'); ?></li>
+    <li class="article__nav-next"><?php next_post_link('%link','%title <span class="meta-nav">→</span>'); ?></li>
   </ul>
 </article>
 <!-- ▲article▲ -->
