@@ -1,0 +1,122 @@
+.article {
+  margin: 0 16px;
+
+  &__header {
+    padding: 16px 0;
+  }
+
+  &__title {
+    color: #212121;
+    margin-bottom: 4px;
+    font-size: 36px;
+    line-height: 1.4;
+  }
+
+  /* breadcrumb */
+  &__breadcrumb {
+    color: #757575;
+    margin-bottom: 4px;
+
+    a,
+    a i {
+      color: #757575;
+    }
+  }
+
+  &__meta {
+    &-li {
+      display: inline-block;
+      line-height: 1.6;
+      font-size: 14px;
+      color: #757575;
+      margin-right: 16px;
+
+      a {
+        color: #757575;
+      }
+    }
+  }
+
+  /** 記事内ページング */
+  &__linkpages {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  /** 次のページへ　前のページへ */
+  &__nav {
+    margin: 16px 0 0;
+    font-size: 14px;
+    background-color: #f7f7f7;
+    display: flex;
+
+    &-previous {
+      padding: 16px;
+      flex: 1;
+    }
+
+    &-next {
+      padding: 16px;
+      flex: 1;
+      text-align: right;
+    }
+  }
+
+  /** sharebutton */
+  &__share {
+    @mixin button {
+      margin: 16px auto 0;
+      display: inline-block;
+      width: calc(100% / 4);
+      text-align: center;
+
+      a {
+        color: #fff;
+        width: 100%;
+        text-decoration: none;
+        font-weight: bold;
+        display: inline-block;
+        padding: 4px 0;
+        transition: 0.3s;
+
+        &:hover {
+          opacity: 0.5;
+        }
+
+        i {
+          color: #fff;
+        }
+      }
+
+      span {
+        font-weight: normal;
+      }
+    }
+
+    &-button {
+      &_hatena {
+        @include button;
+
+        background: #008ce1;
+      }
+
+      &_twitter {
+        @include button;
+
+        background: #55acee;
+      }
+
+      &_facebook {
+        @include button;
+
+        background: #3864a3;
+      }
+
+      &_pocket {
+        @include button;
+
+        background: #ef4357;
+      }
+    }
+  }
+}
