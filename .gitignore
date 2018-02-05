@@ -12,6 +12,9 @@ css/reset.css.map
 css/settings.css.map
 css/nav.css.map
 css/navi.css.map
+js/function.js
+js/function.min.js
+js/meltdown/
 .sass-cache
 npm-debug.log
 ads.txt
