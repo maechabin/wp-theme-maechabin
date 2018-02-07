@@ -32,7 +32,7 @@
       weight: normal;
     }
 
-    a {
+    > a {
       color: $_theme-color !important;
       text-decoration: none;
       line-height: $height;
@@ -132,7 +132,7 @@
       right: 56px;
       width: 40px;
 
-      i {
+      > .fa {
         font-size: 24px;
         color: #fafafa;
         cursor: pointer;
@@ -150,7 +150,7 @@
       left: 16px;
       width: 40px;
 
-      i {
+      > .fa {
         font-size: 24px;
         color: #111;
         cursor: pointer;
@@ -166,7 +166,7 @@
     top: 4px;
     right: 16px;
 
-    a i {
+    > a > .fa {
       font-size: 24px;
       color: #fafafa;
       margin-left: 8px;
