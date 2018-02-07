@@ -37,7 +37,7 @@
       transition: all 0.8s ease 0s;
     }
 
-    .fa {
+    i {
       color: $font-color;
       margin: 0;
     }
@@ -128,7 +128,7 @@
       text-decoration: none;
     }
 
-    &-link > a > .fa {
+    &-link a i {
       font-size: 28px;
       line-height: 1;
       display: block;
@@ -173,7 +173,7 @@
         }
       }
 
-      &-link > a > .fa {
+      &-link a i {
         font-size: 20px;
         margin-bottom: 0;
       }
