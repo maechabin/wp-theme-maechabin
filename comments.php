@@ -86,7 +86,7 @@
 
   <?php if ( comments_open() ) : ?>
     <?php do_action( 'comment_form_before' ); ?>
-    <div class="respond">
+    <div class="respond" id="respond">
       <!--<h4 id="reply-title">
       <?php comment_form_title( $args['title_reply'], $args['title_reply_to'] ); ?>
       </h4>-->
@@ -115,7 +115,7 @@
           <p class="form-submit">
             <input class="respond__form-submit" name="submit" type="submit" id="<?php echo esc_attr( $args['id_submit'] ); ?>" value="コメントする" /><?php comment_id_fields(); ?>
           </p>
-          <p class="cancel-comment-reply-link">
+          <p class="respond__form-cancel">
             <?php cancel_comment_reply_link( $args['cancel_reply_link'] ); ?>
           </p>
           <?php do_action( 'comment_form', $post_id); ?>
