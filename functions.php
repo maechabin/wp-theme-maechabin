@@ -1,6 +1,6 @@
 <?php
-remove_action('wp_head','wp_generator');
-remove_action('wp_head','index_rel_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'index_rel_link');
 
 # アイキャッチ対応
 add_theme_support('post-thumbnails');
@@ -24,7 +24,7 @@ if (function_exists('register_sidebar')) {
 # タイトル
 function site_title() {
   //Print the <title> tag based on what is being viewed.
-  global $page,$paged;
+  global $page, $paged;
   wp_title('|', true, 'right');
 
   // Add the blog name.
@@ -34,12 +34,12 @@ function site_title() {
   $site_description = get_bloginfo('description', 'display');
 
   if ($site_description && (is_home() || is_front_page())) {
-    echo(' | $site_description');
+    echo(' | ' . $site_description);
   }
 
   // Add a page number if necessary:
   if ($paged >= 2 || $page >= 2) {
-    echo(' | ' . sprintf(__('Page %s', 'twentyten'), max($paged,$page)));
+    echo(' | ' . sprintf(__('Page %s', 'twentyten'), max($paged, $page)));
   }
 }
 
