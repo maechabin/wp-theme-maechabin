@@ -3,6 +3,14 @@
   padding-top: 16px;
   margin: 8px 0 0;
 
+  a > .fa {
+    font-size: 80%;
+    margin: {
+      left: 18px;
+      right: 0.5em;
+    }
+  }
+
   div {
     margin-bottom: 40px;
   }
@@ -74,10 +82,11 @@
     padding: 0 0 16px;
     border-bottom: 8px solid #424242;
 
-    p {
-      font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
+    > p {
+      font-family: "San Francisco", BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
       font-size: 18px;
       line-height: 2;
+      margin-bottom: 0;
     }
   }
 
@@ -89,7 +98,7 @@
     background-size: 3px 3px;
     border-top: 4px solid #424242;
     border-bottom: 4px solid #424242;
-    color: #212121;
+    color: $_text-color;
     font-size: 32px;
     margin: 64px auto 32px;
   }
@@ -98,23 +107,22 @@
   .entry-h3 {
     font-size: 26px;
     font-weight: bold;
-    color: #424242;
+    color: $_text-color;
     margin: 48px auto 24px;
   }
 
-  .entry-h4,
   h4,
-  h5 {
+  h5,
+  .entry-h4 {
     line-height: 1.8em;
     font-size: 18px;
     font-weight: bold;
   }
 
   .blockBorder {
-    padding: 16px;
-    border: 1px solid #dcedc8;
+    padding: 40px 24px;
     background-color: #f1f8e9;
-    border-radius: 1px;
+    border-radius: 8px;
 
     p {
       line-height: 1.8;
@@ -153,6 +161,10 @@
   .figbg {
     background-color: #eee;
     padding: 4px 8px;
+    margin: {
+      left: 8px;
+      right: 8px;
+    }
   }
 
   .ol-type {
@@ -179,6 +191,10 @@
     padding: 2px 4px;
     border-radius: 2px;
     line-height: 1;
+    margin: {
+      left: 2px;
+      right: 2px;
+    }
   }
 
   .text-center {
@@ -191,28 +207,32 @@
     border: 1px dashed #ccc;
   }
 
-  .top_0 {
-    margin-top: 0;
+  .top {
+    &_0 {
+      margin-top: 0;
+    }
+
+    &_1 {
+      margin-top: 24px;
+    }
+
+    &_2 {
+      margin-top: 32px;
+    }
   }
 
-  .top_1 {
-    margin-top: 24px;
-  }
+  .bottom {
+    &_0 {
+      margin-bottom: 0;
+    }
 
-  .top_2 {
-    margin-top: 32px;
-  }
+    &_1 {
+      margin-bottom: 32px;
+    }
 
-  .bottom_0 {
-    margin-bottom: 0;
-  }
-
-  .bottom_1 {
-    margin-bottom: 32px;
-  }
-
-  .bottom_2 {
-    margin-bottom: 40px;
+    &_2 {
+      margin-bottom: 40px;
+    }
   }
 
   .btn-github {
@@ -246,12 +266,18 @@
 
   @media screen and (max-width: $_responsive-point) {
     h2,
+    code,
     .entry-h2,
+    .blockBorder,
     .figbg,
-    .figBorder,
-    code {
+    .figBorder {
       margin-left: -16px;
       margin-right: -16px;
+    }
+
+    .blockBorder,
+    code {
+      border-radius: 0 !important;
     }
 
     .figBorder {

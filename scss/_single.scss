@@ -2,12 +2,11 @@
 code {
   position: relative;
   box-sizing: border-box;
-  background-color: #282828;
-  border-radius: 1px !important;
+  background-color: #394034;
   color: #f8f8f2 !important;
   display: block;
   line-height: 1.4;
-  padding: 16px;
+  padding: 40px 24px;
   text-align: left;
   overflow: auto;
   resize: horizontal;
@@ -28,12 +27,12 @@ code {
       style: normal;
     }
     margin: {
-      left: -16px;
-      right: -16px;
+      left: -24px;
+      right: -24px;
     }
     padding: {
-      left: 16px;
-      right: 16px;
+      left: 24px;
+      right: 24px;
     }
 
     background-color: #424242;
@@ -56,7 +55,7 @@ code {
     &.L7,
     &.L8,
     &.L9 {
-      padding-left: 16px;
+      padding-left: 24px;
       border-left: 1px solid #75715e;
       margin-left: 36px;
       line-height: 1.4;
@@ -110,23 +109,38 @@ code {
 
 /* item */
 .item {
-  border: 1px solid #ccc;
+  position: relative;
   text-align: center;
-  background-color: #fafafa;
+  background-color: #e3f2fd;
   box-sizing: border-box;
-  padding: 16px 8px;
+
+  &::after {
+    content: 'Amazonアソシエイト';
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 10px;
+    padding: 2px 8px;
+    background-color: #64b5f6;
+    color: #fff;
+  }
+
+  &__image {
+    display: block;
+    margin-top: 32px;
+  }
 
   &__info {
     text-align: center !important;
-    margin-bottom: 0 !important;
+    margin: 0 24px !important;
 
     li {
-      font-size: 16px;
+      font-size: 14px;
       line-height: 1.4;
     }
 
     strong {
-      font-size: 20px;
+      font-size: 18px;
     }
   }
 
@@ -135,20 +149,19 @@ code {
     font-weight: bold;
     box-sizing: border-box;
     padding: 16px 8px;
-    border-radius: 2px;
+    border-radius: 4px;
     max-width: 300px;
     width: 100%;
     border: none;
     cursor: pointer;
-    box-shadow: 0 1px 2px #757575;
+    margin: 16px auto 32px;
 
     &:active {
       box-shadow: none;
     }
 
     &--orange {
-      margin: 16px auto 8px;
-      background-color: #f57f17;
+      background-color: #ff9801;
       color: #fff;
       transition: 0.2s;
 
