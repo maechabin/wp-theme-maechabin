@@ -100,13 +100,15 @@ function breadcrumb() {
 
 # ソーシャルボタン
 function mc_social_button() {
+  $the_title = get_the_title();
+  $permalink = get_permalink();
   $social_button = 
 <<<EOM
-<ul class="article__share-button cb-share" title="<?php the_permalink(); ?>">
-  <li class="article__share-button_twitter cb-tw"><a href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinから" target="_blank"><i class="fa fa-twitter"></i> <span></span></a></li><li
-    class="article__share-button_facebook cb-fb"><a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>', 'new', 'width=500,height=300');return false;"><i class="fa fa-facebook"></i> <span></span></a></li><li
-    class="article__share-button_hatena cb-hb"><a href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>" target="_blank"><b>B!</b> <span></span></a></li><li
-    class="article__share-button_pocket cb-pk"><a href="//getpocket.com/edit?url=<?php the_permalink(); ?>" target="_blank"><i class="fa fa-get-pocket"></i> <span></span></a></li>
+<ul class="article__share-button cb-share" title="{$permalink}">
+  <li class="article__share-button_twitter cb-tw"><a href="//twitter.com/intent/tweet?text={$the_title} {$permalink} @maechabinから" target="_blank"><i class="fa fa-twitter"></i> <span></span></a></li><li
+    class="article__share-button_facebook cb-fb"><a href="//www.facebook.com/sharer/sharer.php?u={$permalink}" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={$permalink}, 'new', 'width=500,height=300');return false;"><i class="fa fa-facebook"></i> <span></span></a></li><li
+    class="article__share-button_hatena cb-hb"><a href="//b.hatena.ne.jp/entry/{$permalink}" target="_blank"><b>B!</b> <span></span></a></li><li
+    class="article__share-button_pocket cb-pk"><a href="//getpocket.com/edit?url={$permalink}" target="_blank"><i class="fa fa-get-pocket"></i> <span></span></a></li>
 </ul>
 EOM;
   echo $social_button;
