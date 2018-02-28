@@ -13,6 +13,7 @@ remove_action( 'wp_print_styles', 'print_emoji_styles', 10 );
 if (function_exists('register_sidebar')) {
   register_sidebar(
     array(
+      'id' => 'sidebar-1',
       'before_widget' => '',
       'after_widget' => '',
       'before_title' => '<div class="title">',
