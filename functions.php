@@ -115,8 +115,12 @@ EOM;
   echo $social_button;
 }
 
-if ( function_exists('register_sidebar_widget')) {
-  register_sidebar_widget(__('Search'), 'widget_mytheme_search');
+/**
+ *  任意のウィジェットを登録するための関数
+ */
+/*
+if ( function_exists('wp_register_sidebar_widget')) {
+  wp_register_sidebar_widget(__('Search'), 'widget_mytheme_search');
 }
 */
 
@@ -189,22 +193,3 @@ function my_replace_amp($content) {
     return str_replace('&#038;', '&', $content);
 }
 add_filter( 'the_content', 'my_replace_amp' );
-
-
-function replace_header() {
-  /*
-  ob_start();
-  include 'header.php'; // PATH
-  $data = ob_get_clean();
-  $data = str_replace(array('http:\/\/', 'http://'), '//', $data); // REGEX
-  echo $data;
-
-  $fp = fopen('/wp-content/themes/chabin/header.php', 'w');
-  echo $fp;
-  fwrite($fp, $data);
-  fclose($fp);
-  */
-
-
-}
-// replace_header();
