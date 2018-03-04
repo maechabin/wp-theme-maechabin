@@ -60,11 +60,15 @@
 
   q {
     background-color: #efebe9;
-    font-weight: bold;
-    padding-left: 2em;
-    padding-right: 8px;
+    padding: 24px 24px 24px 40px;
     display: block;
-    font-style: italic;
+    border-radius: 8px;
+    text-indent: -1em;
+    font: {
+      weight: 700;
+      size: 16px;
+      style: italic;
+    }
   }
 
   hr {
@@ -85,6 +89,12 @@
       font-size: 18px;
       line-height: 2;
       margin-bottom: 0;
+    }
+  }
+
+  .agenda {
+    > ul {
+      margin-left: 16px;
     }
   }
 
