@@ -6,8 +6,8 @@ module.exports = (grunt) => {
     file: {
       get_name(dir) {
         const fs = require('fs');
-        const regexpCss = /^style\-[0-9a-z]{32}\.css$/;
-        const regexpJs = /^function\.min\-[0-9a-z]{32}\.js$/;
+        const regexpCss = /^style-[0-9a-z]{32}\.css$/;
+        const regexpJs = /^function\.min-[0-9a-z]{32}\.js$/;
         const list = fs.readdirSync('assets/');
         const regexp = (dir === 'css') ? regexpCss : regexpJs;
 
@@ -16,6 +16,7 @@ module.exports = (grunt) => {
             return list[i].match(regexp).input;
           }
         }
+        return null;
       },
     },
 
@@ -77,7 +78,7 @@ module.exports = (grunt) => {
         src: ['header.php'],
         overwrite: true,
         replacements: [{
-          from: /\/wp-content\/themes\/chabin\/assets\/style\-[0-9a-z]{32}\.css/g,
+          from: /\/wp-content\/themes\/chabin\/assets\/style-[0-9a-z]{32}\.css/g,
           to: '/wp-content/themes/chabin/assets/<%= file.get_name("css") %>',
         }],
       },
@@ -85,7 +86,7 @@ module.exports = (grunt) => {
         src: ['footer.php'],
         overwrite: true,
         replacements: [{
-          from: /\/wp-content\/themes\/chabin\/assets\/function\.min\-[0-9a-z]{32}\.js/g,
+          from: /\/wp-content\/themes\/chabin\/assets\/function\.min-[0-9a-z]{32}\.js/g,
           to: '/wp-content/themes/chabin/assets/<%= file.get_name("js") %>',
         }],
       },

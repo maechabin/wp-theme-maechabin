@@ -49,7 +49,7 @@
   </div>
 
   <div class="ad-single2">
-    <div class="sd-single2__banner">
+    <div class="ad-single2__banner">
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <ins class="adsbygoogle"
            style="display:block"

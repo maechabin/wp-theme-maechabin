@@ -1,6 +1,6 @@
 <?php
-remove_action('wp_head','wp_generator');
-remove_action('wp_head','index_rel_link');
+remove_action('wp_head', 'wp_generator');
+remove_action('wp_head', 'index_rel_link');
 
 # アイキャッチ対応
 add_theme_support('post-thumbnails');
@@ -13,6 +13,7 @@ remove_action( 'wp_print_styles', 'print_emoji_styles', 10 );
 if (function_exists('register_sidebar')) {
   register_sidebar(
     array(
+      'id' => 'sidebar-1',
       'before_widget' => '',
       'after_widget' => '',
       'before_title' => '<div class="title">',
@@ -24,7 +25,7 @@ if (function_exists('register_sidebar')) {
 # タイトル
 function site_title() {
   //Print the <title> tag based on what is being viewed.
-  global $page,$paged;
+  global $page, $paged;
   wp_title('|', true, 'right');
 
   // Add the blog name.
@@ -34,12 +35,12 @@ function site_title() {
   $site_description = get_bloginfo('description', 'display');
 
   if ($site_description && (is_home() || is_front_page())) {
-    echo(' | $site_description');
+    echo(' | ' . $site_description);
   }
 
   // Add a page number if necessary:
   if ($paged >= 2 || $page >= 2) {
-    echo(' | ' . sprintf(__('Page %s', 'twentyten'), max($paged,$page)));
+    echo(' | ' . sprintf(__('Page %s', 'twentyten'), max($paged, $page)));
   }
 }
 
@@ -114,13 +115,16 @@ EOM;
   echo $social_button;
 }
 
-if ( function_exists('register_sidebar_widget')) {
-  register_sidebar_widget(__('Search'), 'widget_mytheme_search');
+/**
+ *  任意のウィジェットを登録するための関数
+ */
+/*
+if ( function_exists('wp_register_sidebar_widget')) {
+  wp_register_sidebar_widget(__('Search'), 'widget_mytheme_search');
 }
-?>
+*/
 
-<?php if (!function_exists('chabin_comment')): ?>
-  <?php
+if (!function_exists('chabin_comment')):
   /**
    * Template for comments and pingbacks.
    *
@@ -178,10 +182,8 @@ if ( function_exists('register_sidebar_widget')) {
       break;
     endswitch;
   }
-  ?>
-<?php endif; ?>
+endif;
 
-<?php
 remove_filter('the_content', 'wpautop');
 
 //category-templete.php→163行　$rel=""
@@ -191,22 +193,3 @@ function my_replace_amp($content) {
     return str_replace('&#038;', '&', $content);
 }
 add_filter( 'the_content', 'my_replace_amp' );
-
-
-function replace_header() {
-  /*
-  ob_start();
-  include 'header.php'; // PATH
-  $data = ob_get_clean();
-  $data = str_replace(array('http:\/\/', 'http://'), '//', $data); // REGEX
-  echo $data;
-
-  $fp = fopen('/wp-content/themes/chabin/header.php', 'w');
-  echo $fp;
-  fwrite($fp, $data);
-  fclose($fp);
-  */
-
-
-}
-// replace_header();
