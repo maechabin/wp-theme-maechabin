@@ -1,7 +1,7 @@
 import jQuery from 'jquery';
 import 'cbslideheader';
 // require('cbsharecount');
-import 'slideshowad';
+// import 'slideshowad';
 require('smoothscroll-polyfill').polyfill();
 
 const StickyState = require('sticky-state');
@@ -30,9 +30,9 @@ maechabin.ui = (($, window, document) => {
   }
 
   function backlink() {
-    const url = location.href;
-    const domain = location.host;
-    const search = location.search || '';
+    const url = window.location.href;
+    const domain = window.location.host;
+    const search = window.location.search || '';
     // const port = location.port ? ":" + location.port : "";
     const regexp1 = new RegExp(`^https?://${domain}/archives/[0-9]+$`, 'ig');
     const regexp2 = new RegExp(`^https?://${domain}`, 'ig');
@@ -117,7 +117,7 @@ maechabin.ui = (($, window, document) => {
         const regexp = new RegExp('#.*$', 'ig');
         const target = href.match(regexp);
         const targetElem = document.querySelector(target[0]);
-        const position = targetElem.getBoundingClientRect().top + window.pageYOffset - 56;
+        const position = (targetElem.getBoundingClientRect().top + window.pageYOffset) - 56;
         return callback(position);
       }, false);
     });
