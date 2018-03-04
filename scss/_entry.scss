@@ -180,6 +180,21 @@
     list-style-type: disc;
   }
 
+  .quote {
+    &:lang(en) {
+      background-color: #efebe9;
+      margin-bottom: 4px !important;
+      line-height: 1.6;
+      font-size: 12px;
+      font-weight: normal;
+      color: #888;
+      border-left: 8px solid #ddd;
+      margin-left: 0;
+      padding: 24px;
+      border-radius: 8px;
+      text-indent: -0.5em;
+    }
+  }
   code,
   .mark {
     color: #424242;
@@ -332,6 +347,7 @@
     .entry-h2,
     .blockBorder,
     .note,
+    .quote:lang(en),
     .figbg,
     .figBorder {
       margin-left: -16px;
