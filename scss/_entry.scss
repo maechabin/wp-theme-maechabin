@@ -180,6 +180,7 @@
     list-style-type: disc;
   }
 
+  code,
   .mark {
     color: #424242;
     vertical-align: 2px;
@@ -195,21 +196,77 @@
     }
   }
 
-  .note {
-    background-color: #ffebee;
+  .code {
+    margin: auto;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #394034;
+    color: #f8f8f2 !important;
+    display: block;
+    line-height: 1.4;
     padding: 40px 24px;
+    text-align: left;
+    overflow: auto;
+    resize: horizontal;
+    z-index: 500;
+    border: 0;
     border-radius: 8px;
-    color: #b71c1c;
-  }
+    vertical-align: 0;
+    font: {
+      family: Consolas, 'Courier New', Courier, Monaco, monospace;
+      family: Menlo, Consolas, 'DejaVu Sans Mono', monospace !important;
+      size: 14px !important;
+      weight: bold;
+    }
 
-  .text-center {
-    text-align: center;
-  }
+    div {
+      margin: 0 !important;
+      padding: 0;
+    }
 
-  .sample {
-    padding: 14px;
-    overflow: hidden;
-    border: 1px dashed #ccc;
+    em {
+      font: {
+        style: normal;
+      }
+      margin: {
+        left: -24px;
+        right: -24px;
+      }
+      padding: {
+        left: 24px;
+        right: 24px;
+      }
+
+      background-color: #555;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .update {
+      background-color: #e91e63 !important;
+    }
+
+    li {
+      &.L0,
+      &.L1,
+      &.L2,
+      &.L3,
+      &.L4,
+      &.L5,
+      &.L6,
+      &.L7,
+      &.L8,
+      &.L9 {
+        padding-left: 24px;
+        border-left: 1px solid #75715e;
+        margin-left: 36px;
+        line-height: 1.4;
+        list-style-type: decimal !important;
+        list-style-position: outside;
+        background-color: #272822;
+        font-size: 14px;
+      }
+    }
   }
 
   .top {
@@ -271,7 +328,7 @@
 
   @media screen and (max-width: $_responsive-point) {
     h2,
-    code,
+    .code,
     .entry-h2,
     .blockBorder,
     .note,
@@ -283,7 +340,8 @@
 
     .blockBorder,
     .note,
-    code {
+    .quote:lang(en),
+    .code {
       border-radius: 0 !important;
     }
 
