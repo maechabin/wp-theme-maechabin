@@ -121,9 +121,12 @@
     padding: 40px 24px;
     background-color: #f1f8e9;
     border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.7;
 
     p {
-      line-height: 1.8;
+      font-size: inherit;
+      line-height: inherit;
       margin-bottom: 24px;
     }
 
@@ -180,6 +183,20 @@
     list-style-type: disc;
   }
 
+  .note {
+    font-size: 16px;
+    background-color: #ffebee;
+    padding: 40px 24px;
+    border-radius: 8px;
+    color: #b71c1c;
+    line-height: 1.7;
+
+    p {
+      line-height: inherit;
+      font-size: inherit;
+    }
+  }
+
   .quote {
     &:lang(en) {
       background-color: #efebe9;
@@ -195,6 +212,17 @@
       text-indent: -0.5em;
     }
   }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .sample {
+    padding: 14px;
+    overflow: hidden;
+    border: 1px dashed #ccc;
+  }
+
   code,
   .mark {
     color: #424242;
@@ -209,6 +237,10 @@
       left: 2px;
       right: 2px;
     }
+  }
+
+  .update {
+    background-color: #ffebee;
   }
 
   .code {
