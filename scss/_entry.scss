@@ -3,10 +3,16 @@
   padding-top: 16px;
   margin: 8px 0 0;
 
+  a > .fa {
+    font-size: 80%;
+    margin-right: 0.5em;
+  }
+
   div {
     margin-bottom: 40px;
   }
 
+  div,
   p,
   dl,
   ul,
@@ -54,11 +60,15 @@
 
   q {
     background-color: #efebe9;
-    font-weight: bold;
-    padding-left: 2em;
-    padding-right: 8px;
+    padding: 24px 24px 24px 40px;
     display: block;
-    font-style: italic;
+    border-radius: 8px;
+    text-indent: -1em;
+    font: {
+      weight: 700;
+      size: 16px;
+      style: italic;
+    }
   }
 
   hr {
@@ -74,10 +84,17 @@
     padding: 0 0 16px;
     border-bottom: 8px solid #424242;
 
-    p {
-      font-family: -apple-system, BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
+    > p {
+      font-family: "San Francisco", BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
       font-size: 18px;
       line-height: 2;
+      margin-bottom: 0;
+    }
+  }
+
+  .agenda {
+    > ul {
+      margin-left: 16px;
     }
   }
 
@@ -89,7 +106,7 @@
     background-size: 3px 3px;
     border-top: 4px solid #424242;
     border-bottom: 4px solid #424242;
-    color: #212121;
+    color: $_text-color;
     font-size: 32px;
     margin: 64px auto 32px;
   }
@@ -98,26 +115,28 @@
   .entry-h3 {
     font-size: 26px;
     font-weight: bold;
-    color: #424242;
+    color: $_text-color;
     margin: 48px auto 24px;
   }
 
-  .entry-h4,
   h4,
-  h5 {
+  h5,
+  .entry-h4 {
     line-height: 1.8em;
     font-size: 18px;
     font-weight: bold;
   }
 
   .blockBorder {
-    padding: 16px;
-    border: 1px solid #dcedc8;
+    padding: 40px 24px;
     background-color: #f1f8e9;
-    border-radius: 1px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 1.7;
 
     p {
-      line-height: 1.8;
+      font-size: inherit;
+      line-height: inherit;
       margin-bottom: 24px;
     }
 
@@ -153,6 +172,10 @@
   .figbg {
     background-color: #eee;
     padding: 4px 8px;
+    margin: {
+      left: 8px;
+      right: 8px;
+    }
   }
 
   .ol-type {
@@ -170,15 +193,34 @@
     list-style-type: disc;
   }
 
-  .mark {
-    color: #424242;
-    vertical-align: 2px;
-    font-size: 88%;
-    border: 1px solid #e0e0e0;
-    background-color: #f1f1f1;
-    padding: 2px 4px;
-    border-radius: 2px;
-    line-height: 1;
+  .note {
+    font-size: 16px;
+    background-color: #ffebee;
+    padding: 40px 24px;
+    border-radius: 8px;
+    color: #b71c1c;
+    line-height: 1.7;
+
+    p {
+      line-height: inherit;
+      font-size: inherit;
+    }
+  }
+
+  .quote {
+    &:lang(en) {
+      background-color: #efebe9;
+      margin-bottom: 4px !important;
+      line-height: 1.6;
+      font-size: 12px;
+      font-weight: normal;
+      color: #888;
+      border-left: 8px solid #ddd;
+      margin-left: 0;
+      padding: 24px;
+      border-radius: 8px;
+      text-indent: -0.5em;
+    }
   }
 
   .text-center {
@@ -191,28 +233,125 @@
     border: 1px dashed #ccc;
   }
 
-  .top_0 {
-    margin-top: 0;
+  code,
+  .mark {
+    color: #424242;
+    vertical-align: 2px;
+    font-size: 88%;
+    border: 1px solid #e0e0e0;
+    background-color: #f1f1f1;
+    padding: 2px 4px;
+    border-radius: 2px;
+    line-height: 1;
+    margin: {
+      left: 2px;
+      right: 2px;
+    }
   }
 
-  .top_1 {
-    margin-top: 24px;
+  .update {
+    background-color: #ffebee;
   }
 
-  .top_2 {
-    margin-top: 32px;
+  .code {
+    margin: auto;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #394034;
+    color: #f8f8f2 !important;
+    display: block;
+    line-height: 1.4;
+    padding: 40px 24px;
+    text-align: left;
+    overflow: auto;
+    resize: horizontal;
+    z-index: 500;
+    border: 0;
+    border-radius: 8px;
+    vertical-align: 0;
+    font: {
+      family: Consolas, 'Courier New', Courier, Monaco, monospace;
+      family: Menlo, Consolas, 'DejaVu Sans Mono', monospace !important;
+      size: 14px !important;
+      weight: bold;
+    }
+
+    div {
+      margin: 0 !important;
+      padding: 0;
+    }
+
+    em {
+      font: {
+        style: normal;
+      }
+      margin: {
+        left: -24px;
+        right: -24px;
+      }
+      padding: {
+        left: 24px;
+        right: 24px;
+      }
+
+      background-color: #555;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .update {
+      background-color: #e91e63 !important;
+    }
+
+    li {
+      &.L0,
+      &.L1,
+      &.L2,
+      &.L3,
+      &.L4,
+      &.L5,
+      &.L6,
+      &.L7,
+      &.L8,
+      &.L9 {
+        padding-left: 24px;
+        border-left: 1px solid #75715e;
+        margin-left: 36px;
+        line-height: 1.4;
+        list-style-type: decimal !important;
+        list-style-position: outside;
+        background-color: #272822;
+        font-size: 14px;
+      }
+    }
   }
 
-  .bottom_0 {
-    margin-bottom: 0;
+  .top {
+    &_0 {
+      margin-top: 0;
+    }
+
+    &_1 {
+      margin-top: 24px;
+    }
+
+    &_2 {
+      margin-top: 32px;
+    }
   }
 
-  .bottom_1 {
-    margin-bottom: 32px;
-  }
+  .bottom {
+    &_0 {
+      margin-bottom: 0;
+    }
 
-  .bottom_2 {
-    margin-bottom: 40px;
+    &_1 {
+      margin-bottom: 32px;
+    }
+
+    &_2 {
+      margin-bottom: 40px;
+    }
   }
 
   .btn-github {
@@ -246,12 +385,22 @@
 
   @media screen and (max-width: $_responsive-point) {
     h2,
+    .code,
     .entry-h2,
+    .blockBorder,
+    .note,
+    .quote:lang(en),
     .figbg,
-    .figBorder,
-    code {
+    .figBorder {
       margin-left: -16px;
       margin-right: -16px;
+    }
+
+    .blockBorder,
+    .note,
+    .quote:lang(en),
+    .code {
+      border-radius: 0 !important;
     }
 
     .figBorder {

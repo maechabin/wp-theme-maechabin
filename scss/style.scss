@@ -11,6 +11,7 @@ Author URI: http://mae.chab.in/
 
 @import "reset";
 @import "settings";
+@import "sticky";
 @import "layout";
 @import "header";
 @import "search";
@@ -22,11 +23,10 @@ Author URI: http://mae.chab.in/
 @import "post";
 
 /** single */
-@import "single";
 @import "article";
 @import "entry";
 @import "comment";
+@import "single";
 
 /** プラグイン */
-@import "sticky";
 @import "plugin";

@@ -17,7 +17,7 @@
 }
 
 .comment {
-  padding: 16px 16px 8px;
+  padding: 16px;
   overflow: hidden;
   clear: both;
   background-color: #f1f8e1;
@@ -48,6 +48,7 @@
   &__meta {
     color: #757575;
     font-size: 12px;
+    margin-bottom: 8px;
   }
 
   &__author {
@@ -101,7 +102,7 @@
   box-sizing: border-box;
   clear: both;
   padding: 24px 16px;
-  background-color: #eceff1;
+  background-color: rgba(#eceff1, 0.8);
   margin-bottom: 24px;
   text-align: center;
   font-size: 12px;
@@ -128,10 +129,13 @@
     &-email,
     &-url,
     &-comment {
-      clear: both;
-      overflow: hidden;
       margin-bottom: 8px;
       text-align: left;
+    }
+
+    &-cancel {
+      font-size: 14px;
+      margin-top: 16px;
     }
 
     &-author,

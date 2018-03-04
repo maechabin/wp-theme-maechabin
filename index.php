@@ -64,7 +64,7 @@
                     </a>
                   </li>
                   <li class="post__socialbtn-li cb-hb">
-                    <a href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>" target="_blank">
+                    <a href="//b.hatena.ne.jp/entry/<?php the_permalink(); ?>" target="_blank">
                       <b>B!</b> <span></span>
                     </a>
                   </li>
