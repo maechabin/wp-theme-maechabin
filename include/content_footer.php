@@ -3,22 +3,22 @@
     <div id="footer_sub" class="footer__sub">
       <ul class="footer__share-button">
         <li class="footer__share-button--list">
-          <a href="https://github.com/maechabin" target="_blank" class="footer__share-button--gh">
+          <a href="https://github.com/maechabin" target="_blank" class="footer__share-button--gh" rel="noopener">
             <i class="fa fa-github"></i>
           </a>
         <li>
         <li class="footer__share-button--list">
-          <a href="https://twitter.com/maechabin" target="_blank" class="footer__share-button--tw">
+          <a href="https://twitter.com/maechabin" target="_blank" class="footer__share-button--tw" rel="noopener">
             <i class="fa fa-twitter"></i>
           </a>
         </li>
         <li class="footer__share-button--list">
-          <a href="https://www.facebook.com/maechabin" target="_blank" class="footer__share-button--fb">
+          <a href="https://www.facebook.com/maechabin" target="_blank" class="footer__share-button--fb" rel="noopener">
             <i class="fa fa-facebook"></i>
           </a>
         </li>
         <li class="footer__share-button--list">
-          <a href="https://plus.google.com/105642680110503345013?rel=author" target="_blank" class="footer__share-button--gp">
+          <a href="https://plus.google.com/105642680110503345013?rel=author" target="_blank" class="footer__share-button--gp" rel="noopener">
             <i class="fa fa-google-plus"></i>
           </a>
         </li>
