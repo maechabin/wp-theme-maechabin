@@ -4,7 +4,7 @@
   <meta http-equiv="default-style" content="<?php bloginfo('stylesheet_url'); ?>">
   <meta name="description" content="JavaScript、Reactなどのフロントエンド関連のWeb技術の話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
   <meta name="keywords" content="JavaScript, Raect, HTML5, wordpress, apple">
-  <meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="google-site-verification" content="auMacOLlBwYsiL4oZPE_McmHLAHEb6_T8FnBMaC69Dw">
 
   <!-- OGP -->
