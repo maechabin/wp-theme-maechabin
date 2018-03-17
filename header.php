@@ -11,7 +11,7 @@
   <?php if(is_home()): ?>
   <meta property="og:type" content="website">
   <meta property="og:title" content="<?php bloginfo('name'); ?>">
-  <meta property="og:url" content="http://mae.chab.in/">
+  <meta property="og:url" content="https://mae.chab.in/">
   <meta property="og:description" content="<?php bloginfo('description'); ?>">
   <meta property="og:image" content="/wp-content/uploads/2015/11/maechabin_400.png">
 
@@ -55,7 +55,7 @@
   <?php if(is_single() && has_post_thumbnail() ): ?>
   <meta name="twitter:image:src" content="<?php echo $image_url[0] ?>">
   <?php elseif(!is_home() && !is_page() ): ?>
-  <meta name="twitter:image:src" content="http://mae.chab.in/wp-content/uploads/2015/11/maechabin_400.png">
+  <meta name="twitter:image:src" content="https://mae.chab.in/wp-content/uploads/2015/11/maechabin_400.png">
   <?php endif; ?>
   <!-- Twitter Card -->
 
