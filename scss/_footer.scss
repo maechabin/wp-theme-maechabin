@@ -2,28 +2,23 @@
   $font-color: #fff;
 
   color: $font-color;
-  overflow: hidden;
-  clear: both;
   background-color: #424242;
   width: 100%;
   box-sizing: border-box;
-
-  &__sub {
-    padding: 48px 0 48px;
-  }
+  padding: 48px 0 48px;
 
   &__share-button {
-    overflow: hidden;
     text-align: center;
-    width: 288px;
-    margin: 0 auto 16px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto 32px;
 
     &--list {
       width: 56px;
-      float: left;
       margin: {
-        left: 8px;
-        right: 8px;
+        left: 16px;
+        right: 16px;
       }
     }
 
@@ -148,6 +143,8 @@
   }
 
   @media screen and (max-width: $_responsive-point) {
+    padding-bottom: 88px;
+
     &__bar {
       opacity: 0.9;
       width: 100%;
