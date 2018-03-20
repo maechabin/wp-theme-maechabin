@@ -2,12 +2,12 @@
   margin: 0 16px;
 
   &__header {
-    padding: 16px 0;
+    padding: 24px 0;
   }
 
   &__title {
     color: $_text-color;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
     font-size: 36px;
     line-height: 1.4;
   }
@@ -15,11 +15,18 @@
   /* breadcrumb */
   &__breadcrumb {
     color: #757575;
-    margin-bottom: 4px;
+    margin-bottom: 16px;
 
     a,
     a i {
       color: #757575;
+    }
+  }
+
+  &__author {
+    &_link {
+      font-size: 16px;
+      margin-left: 4px;
     }
   }
 
@@ -29,10 +36,26 @@
       line-height: 1.6;
       font-size: 14px;
       color: #757575;
-      margin-right: 16px;
+      margin: {
+        right: 16px;
+      }
+    }
+
+    &-tag {
+      display: flex;
+      flex-wrap: wrap;
 
       a {
-        color: #757575;
+        background-color: #eee;
+        padding: 4px 16px;
+        border-radius: 4px;
+        text-decoration: none;
+        color: #616161;
+        margin: 8px 8px 4px 0;
+
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -76,7 +99,7 @@
         text-decoration: none;
         font-weight: bold;
         display: inline-block;
-        padding: 4px 0;
+        padding: 8px 0;
         transition: 0.3s;
 
         &:hover {
