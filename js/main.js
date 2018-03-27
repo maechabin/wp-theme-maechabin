@@ -3,8 +3,11 @@ import 'cbslideheader';
 // require('cbsharecount');
 // import 'slideshowad';
 require('smoothscroll-polyfill').polyfill();
-
+const Turbolinks = require('turbolinks');
 const StickyState = require('sticky-state');
+
+Turbolinks.start();
+
 const maechabin = maechabin || {};
 
 maechabin.ui = (($, window, document) => {

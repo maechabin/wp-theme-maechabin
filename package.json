@@ -45,6 +45,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-md5": "^0.1.11",
     "grunt-text-replace": "^0.4.0",
+    "parcel-bundler": "^1.6.2",
     "stylelint": "^7.13.0",
     "stylelint-config-standard": "^18.0.0",
     "stylelint-scss": "^2.2.0"
@@ -55,6 +56,7 @@
     "jquery": "^3.3.1",
     "slideshowad": "^1.4.0",
     "smoothscroll-polyfill": "^0.4.0",
-    "sticky-state": "^2.4.1"
+    "sticky-state": "^2.4.1",
+    "turbolinks": "^5.1.1"
   }
 }
