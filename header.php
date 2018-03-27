@@ -68,7 +68,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
     <?php endif; ?>
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-0a7a68f7aa15c145a6773b040e732ef4.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-d6085e16766e625a9909233d5ef4262f.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
   <?php wp_head(); ?>
 </head>

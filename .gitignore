@@ -16,5 +16,6 @@ js/function.js
 js/function.min.js
 js/meltdown/
 .sass-cache
+.cache
 npm-debug.log
 ads.txt
