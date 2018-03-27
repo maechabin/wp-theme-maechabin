@@ -49,9 +49,34 @@
                 <?php endif ?>
               </ul>
               <ul class="search__box_share" title="<?php the_permalink(); ?>">
-                <li class="cb-hb"><a href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>" target="_blank"><b>B!</b> <span></span></a></li>
-                <li class="cb-tw"><a href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinさんから" target="_blank"><i class="fa fa-twitter"></i><span></span></a></li>
-                <li class="cb-fb"><a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>', 'new', 'width=500,height=300');return false;"><i class="fa fa-facebook"></i><span></span></a></li>
+                <li class="cb-hb">
+                  <a
+                    href="//b.hatena.ne.jp/entry/mae.chab.in/archives/<?php the_ID(); ?>"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <b>B!</b> <span></span>
+                  </a>
+                </li>
+                <li class="cb-tw">
+                  <a
+                    href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinさんから"
+                    target="_blank"
+                    rel="noopener"
+                  >
+                    <i class="fa fa-twitter"></i><span></span>
+                  </a>
+                </li>
+                <li class="cb-fb">
+                  <a
+                    href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"
+                    target="_blank"
+                    rel="noopener"
+                    onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>', 'new', 'width=500,height=300');return false;"
+                  >
+                    <i class="fa fa-facebook"></i><span></span>
+                  </a>
+                </li>
               </ul>
             </section>
             <!-- ▲section▲ -->

@@ -17,7 +17,7 @@
                 <h1 class="article__title" id="post-<?php the_ID(); ?>"><?php the_title(); ?></h1>
                 <ul class="article__meta">
                   <li class="article__meta-li"><i class="fa fa-calendar" aria-hidden="true"></i> <time pubdate><?php the_date('Y年m月d日'); ?></time></li>
-                  <li class="article__meta-li"><i class="fa fa-pencil" aria-hidden="true"></i> <a rel="author" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><i class="fa fa-google-plus" style="color: #db4437;"></i></a></li>
+                  <li class="article__meta-li"><i class="fa fa-pencil" aria-hidden="true"></i> <a rel="author noopener" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a> <a rel="author noopener" title="⇒Google+プロフィールへ" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank"><i class="fa fa-google-plus" style="color: #db4437;"></i></a></li>
                 </ul>
               </header>
 

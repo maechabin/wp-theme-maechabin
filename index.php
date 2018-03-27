@@ -54,22 +54,39 @@
                 <ul class="post__socialbtn-ul cb-share" title="<?php the_permalink(); ?>">
                   <?php /*<li><i class="fa fa-comments-o"></i> <?php comments_popup_link('0','1','%'); ?></li>*/ ?>
                   <li class="post__socialbtn-li cb-tw">
-                    <a href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinさんから" target="_blank">
+                    <a
+                      href="//twitter.com/intent/tweet?text=<?php the_title(); ?> <?php the_permalink(); ?> @maechabinさんから"
+                      target="_blank"
+                      rel="noopener"
+                    >
                       <i class="fa fa-twitter"></i> <span></span>
                     </a>
                   </li>
                   <li class="post__socialbtn-li cb-fb">
-                    <a href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>', 'new', 'width=500,height=300');return false;">
+                    <a
+                      href="//www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>"
+                      target="_blank"
+                      rel="noopener"
+                      onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=<?php the_permalink(); ?>', 'new', 'width=500,height=300');return false;"
+                    >
                       <i class="fa fa-facebook"></i><span></span>
                     </a>
                   </li>
                   <li class="post__socialbtn-li cb-hb">
-                    <a href="//b.hatena.ne.jp/entry/<?php the_permalink(); ?>" target="_blank">
+                    <a
+                      href="//b.hatena.ne.jp/entry/<?php the_permalink(); ?>"
+                      target="_blank"
+                      rel="noopener"
+                    >
                       <b>B!</b> <span></span>
                     </a>
                   </li>
                   <li class="post__socialbtn-li cb-pk">
-                    <a href="//getpocket.com/edit?url=<?php the_permalink(); ?>" target="_blank">
+                    <a
+                      href="//getpocket.com/edit?url=<?php the_permalink(); ?>"
+                      target="_blank"
+                      rel="noopener"
+                    >
                       <i class="fa fa-get-pocket"></i> <span></span>
                     </a>
                   </li>
