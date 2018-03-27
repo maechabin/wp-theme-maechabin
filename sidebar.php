@@ -4,7 +4,7 @@
     <div class="sidebar__box">
       <div class="sidebar__author">
         <figure class="sidebar__author-photo">
-          <img src="/wp-content/uploads/2015/11/maechabin_400.png" width="128" height="128" alt="maechabin / Takanori Maeda">
+          <img src="/wp-content/uploads/2018/03/maechabin.png" width="128" height="128" alt="maechabin / Takanori Maeda">
         </figure>
         <p class="sidebar__author-name">Takanori Maeda</p>
         <p class="sidebar__author-description">フロントエンドエンジニア / JavaScipt / React / Angular。趣味はカメラ、読書、英語、作曲。</p>
