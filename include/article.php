@@ -11,10 +11,7 @@
       </li>
       <li class="article__meta-li">
         <i class="fa fa-pencil" aria-hidden="true"></i>
-        <a rel="author noopener" href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a>
-        <a rel="author noopener" title="Google Plus" href="https://plus.google.com/u/0/105642680110503345013/posts" target="_blank" class="article__author_link">
-          <i class="fa fa-google-plus" style="color: #db4437;"></i>
-        </a>
+        <a href="<?php echo get_page_link(5); ?>"><?php the_author(); ?></a>
       </li>
       <li class="article__meta-li">
         <?php the_tags('<span class="article__meta-tag">', '', '</span>'); ?>
