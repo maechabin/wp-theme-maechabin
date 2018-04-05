@@ -1,6 +1,5 @@
 <div id="sidebar" class="sidebar">
   <div id="sidebar_sub" class="sidebar__sub">
-
     <div class="sidebar__box">
       <div class="sidebar__author">
         <figure class="sidebar__author-photo">
@@ -29,7 +28,6 @@
         (adsbygoogle = window.adsbygoogle || []).push({});
         </script>
       </div>
-
     </div>
 
     <div class="mobile_only">
@@ -50,6 +48,5 @@
         </script>
       </div>
     </div>
-
   </div><!-- #sidebar_sub -->
 </div><!-- #sidebar -->
