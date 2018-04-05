@@ -65,10 +65,21 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 
   <?php if(is_home()): ?> 
     <link rel="canonical" href="https://mae.chab.in<?php echo $path ?>">
-    <?php endif; ?>
+  <?php endif; ?>
+
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-d6085e16766e625a9909233d5ef4262f.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
+
   <?php wp_head(); ?>
+
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-d6085e16766e625a9909233d5ef4262f.css" media="all">
+
+  <?php if (is_single()): ?>
+    <script src="/wp-includes/js/comment-reply.js?ver=20090102" asyncr></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css" async></script>
+  <?php endif ?>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+  <script src="/wp-content/themes/chabin/assets/function.min-c2bcc658158a1d563c8afed74bed7ecc.js" defer></script>
 </head>

@@ -3,24 +3,27 @@ import 'cbslideheader';
 // require('cbsharecount');
 // import 'slideshowad';
 require('smoothscroll-polyfill').polyfill();
+
 const Turbolinks = require('turbolinks');
 const StickyState = require('sticky-state');
 
-Turbolinks.start();
+window.maechabin = window.maechabin || {};
 
-const maechabin = maechabin || {};
-
-maechabin.ui = (($, window, document) => {
+window.maechabin.ui = (($, window, document) => {
   const header = $('.header');
   const headerBar = $('#header_bar');
   const div = document.createElement('div');
 
-  // Smooth Scroll
+  /**
+   * スムーズスクロール
+   */
   function callSmoothScroll(position = 0) {
     return window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
   }
 
-  // ヘッダーバーをクリックした時
+  /**
+   * ヘッダーバーをクリックした時にトップに戻る
+   */
   function clickHeaderBar() {
     headerBar.on('click', (e) => {
       const element = $(e.target).attr('id');
@@ -60,14 +63,18 @@ maechabin.ui = (($, window, document) => {
   // トップページのポストをクリックした時
   function clickTopPost() {
     const index = $('.post');
-    index.each(function () {
+    index.each(function visitToLink() {
       const $this = $(this);
       $this.on('click', (e) => {
         const element = e.target.nodeName;
         if (element === 'SECTION' || element === 'H1' || element === 'UL') {
           const link = this.getElementsByTagName('a')[0];
           const href = link.getAttribute('href');
-          window.location.assign(href);
+          if (Turbolinks.supported) {
+            Turbolinks.visit(href);
+          } else {
+            window.location.assign(href);
+          }
         }
       });
     });
@@ -91,12 +98,12 @@ maechabin.ui = (($, window, document) => {
   }
 
   function showAgendaLink() {
-    const agenda = $('#agenda');
-    const agendaLink = $('#footer__bar__agenda-link');
+    const agenda = document.querySelector('#agenda');
+    const agendaLink = document.querySelector('#footer__bar__agenda-link');
 
-    if (agenda[0]) {
-      agendaLink.addClass('footer__style--show');
-      agendaLink.removeClass('footer__style--hidden');
+    if (agenda) {
+      agendaLink.classList.add('footer__style--show');
+      agendaLink.classList.remove('footer__style--hidden');
     }
   }
 
@@ -159,8 +166,42 @@ maechabin.ui = (($, window, document) => {
   };
 })(jQuery, window, document);
 
-document.addEventListener(
-  'DOMContentLoaded',
-  () => maechabin.ui.init(),
-  false
-);
+if (Turbolinks.supported) {
+  Turbolinks.start();
+  document.addEventListener(
+    'turbolinks:load',
+    () => {
+      window.maechabin.ui.init();
+
+      const links = document.querySelectorAll('a');
+      const html = document.querySelector('html');
+      links.forEach((link) => {
+        link.addEventListener(
+          'click',
+          (e) => {
+            if (link.href && link.href.match(/[#]/)) {
+              html.setAttribute('style', 'scroll-behavior: smooth;');
+              e.target.setAttribute('data-turbolinks', 'false');
+            } else {
+              html.setAttribute('style', 'scroll-behavior: auto;');
+            }
+          }, false
+        );
+      });
+    },
+    false
+  );
+
+  document.addEventListener(
+    'turbolinks:before-visit',
+    (e) => {
+
+    }, false
+  );
+} else {
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => window.maechabin.ui.init(),
+    false
+  );
+}
