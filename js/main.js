@@ -1,4 +1,4 @@
-import jQuery from 'jquery';
+import $ from 'jquery';
 import 'cbslideheader';
 // require('cbsharecount');
 // import 'slideshowad';
@@ -11,7 +11,6 @@ window.maechabin = window.maechabin || {};
 
 window.maechabin.ui = (($, window, document) => {
   const header = $('.header');
-  const headerBar = $('#header_bar');
   const div = document.createElement('div');
 
   /**
@@ -25,9 +24,10 @@ window.maechabin.ui = (($, window, document) => {
    * ヘッダーバーをクリックした時にトップに戻る
    */
   function clickHeaderBar() {
-    headerBar.on('click', (e) => {
-      const element = $(e.target).attr('id');
+    const headerBar = document.querySelector('#header_bar');
 
+    headerBar.addEventListener('click', (event) => {
+      const element = event.target.id;
       if (element === 'header_bar' || element === 'header_bar_inner') {
         return callSmoothScroll(0);
       }
@@ -43,32 +43,33 @@ window.maechabin.ui = (($, window, document) => {
     const regexp1 = new RegExp(`^https?://${domain}/archives/[0-9]+$`, 'ig');
     const regexp2 = new RegExp(`^https?://${domain}`, 'ig');
     const regexp3 = new RegExp('/?s=.+?', 'ig');
-    const blogTitle = $('.header__title').eq(0);
-    const blogTitleLink = blogTitle.find('a').eq(0);
-    const blogTitleIcon = blogTitle.find('i').eq(0);
+    const blogTitle = document.querySelector('.header__title');
+    const blogTitleLink = blogTitle.querySelector('a');
+    const blogTitleIcon = blogTitle.querySelector('i');
     const referrer = document.referrer || '';
 
     if (url.match(regexp1) && referrer.match(regexp2) && !referrer.match(regexp1)) {
-      blogTitleIcon.attr('class', 'fa fa-chevron-left');
-      blogTitleLink.attr('href', referrer);
+      blogTitleIcon.setAttribute('class', 'fa fa-chevron-left');
+      blogTitleLink.setAttribute('href', referrer);
     } else if (search !== '' && search.match(regexp3)) {
-      blogTitleIcon.attr('class', 'fa fa-chevron-left');
-      blogTitleLink.attr('href', referrer);
+      blogTitleIcon.setAttribute('class', 'fa fa-chevron-left');
+      blogTitleLink.setAttribute('href', referrer);
     } else {
       // blogTitleIcon.attr("class", "fa fa-medium");
-      blogTitleLink.attr('href', '/');
+      blogTitleLink.setAttribute('href', '/');
     }
   }
 
   // トップページのポストをクリックした時
   function clickTopPost() {
-    const index = $('.post');
-    index.each(function visitToLink() {
-      const $this = $(this);
-      $this.on('click', (e) => {
-        const element = e.target.nodeName;
-        if (element === 'SECTION' || element === 'H1' || element === 'UL') {
-          const link = this.getElementsByTagName('a')[0];
+  clickTopPost() {
+    const posts = document.querySelectorAll('.post');
+
+    posts.forEach((post) => {
+      post.addEventListener('click', (event) => {
+        const element = event.target.nodeName;
+        if (element === 'SECTION' || element === 'H1' || element === 'UL' || element === 'LI') {
+          const link = post.getElementsByTagName('a')[0];
           const href = link.getAttribute('href');
           if (Turbolinks.supported) {
             Turbolinks.visit(href);
@@ -76,7 +77,7 @@ window.maechabin.ui = (($, window, document) => {
             window.location.assign(href);
           }
         }
-      });
+      }, false);
     });
   }
 
@@ -121,8 +122,8 @@ window.maechabin.ui = (($, window, document) => {
   function getTargetPosition(callback) {
     const elem = document.querySelectorAll('a[href^="#"]');
     return Array.prototype.forEach.call(elem, (a) => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
+      a.addEventListener('click', (event) => {
+        event.preventDefault();
         const href = a.getAttribute('href');
         const regexp = new RegExp('#.*$', 'ig');
         const target = href.match(regexp);
