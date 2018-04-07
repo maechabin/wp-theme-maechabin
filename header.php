@@ -80,6 +80,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
     <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css" async></script>
   <?php endif ?>
   <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async></script>
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" async></script>
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
   <script src="/wp-content/themes/chabin/assets/function.min-c2bcc658158a1d563c8afed74bed7ecc.js" defer></script>
 </head>

@@ -158,6 +158,21 @@ class Maechabin {
       }
     }
   }
+
+  static callAnalytics() {
+    const path = window.location.pathname;
+    const params = window.location.search;
+    const dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    // UA-16293533-1
+    // UA-44221308-1
+    gtag('config', 'UA-16293533-1', { page_path: path + params });
+  }
+
   init() {
     Maechabin.showAgendaLink();
     Maechabin.clickHeaderBar();
@@ -165,6 +180,7 @@ class Maechabin {
     this.clickTopPost();
     Maechabin.contenteditable();
     Maechabin.callAdSense();
+    Maechabin.callAnalytics();
     this.header.cbSlideUpHeader({
       headroom: true,
       slidePoint: 64,
