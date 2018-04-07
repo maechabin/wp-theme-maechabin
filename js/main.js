@@ -145,13 +145,26 @@ class Maechabin {
     return new StickyState(document.querySelectorAll('.sticky'));
   }
 
+  static callAdSense() {
+    const ads = document.querySelectorAll('.adsbygoogle');
+    if (ads.length > 0) {
+      try {
+        ads.forEach(() => {
+          const adsbygoogle = window.adsbygoogle || [];
+          adsbygoogle.push({});
+        });
+      } catch (error) {
+        console.error(error);
       }
+    }
+  }
   init() {
     Maechabin.showAgendaLink();
     Maechabin.clickHeaderBar();
     Maechabin.backlink();
     this.clickTopPost();
     Maechabin.contenteditable();
+    Maechabin.callAdSense();
     this.header.cbSlideUpHeader({
       headroom: true,
       slidePoint: 64,

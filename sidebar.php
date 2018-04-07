@@ -18,15 +18,11 @@
       </div>
 
       <div class="sidebar__widget_ad sidebar__ad1">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- maesblog（サイドバー上） -->
         <ins class="adsbygoogle"
              style="display:inline-block;width:300px;height:250px"
              data-ad-client="ca-pub-6331923403728737"
              data-ad-slot="3530398982"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
     </div>
 
@@ -36,16 +32,12 @@
 
       <div class="sidebar__widget_ad sidebar__ad2">
         <div>スポンサードリンク</div>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- maesblog（サイドバー下レスポンシブ） -->
         <ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-6331923403728737"
              data-ad-slot="1831090771"
              data-ad-format="auto"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
       </div>
     </div>
   </div><!-- #sidebar_sub -->
