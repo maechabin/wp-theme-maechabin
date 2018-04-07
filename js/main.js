@@ -7,35 +7,36 @@ require('smoothscroll-polyfill').polyfill();
 const Turbolinks = require('turbolinks');
 const StickyState = require('sticky-state');
 
-window.maechabin = window.maechabin || {};
 
-window.maechabin.ui = (($, window, document) => {
-  const header = $('.header');
-  const div = document.createElement('div');
+class Maechabin {
+  constructor(options) {
+    this.header = $('.header');
+    this.div = document.createElement('div');
+  }
 
   /**
    * スムーズスクロール
    */
-  function callSmoothScroll(position = 0) {
+  static callSmoothScroll(position = 0) {
     return window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
   }
 
   /**
    * ヘッダーバーをクリックした時にトップに戻る
    */
-  function clickHeaderBar() {
+  static clickHeaderBar() {
     const headerBar = document.querySelector('#header_bar');
 
     headerBar.addEventListener('click', (event) => {
       const element = event.target.id;
       if (element === 'header_bar' || element === 'header_bar_inner') {
-        return callSmoothScroll(0);
+        return Maechabin.callSmoothScroll(0);
       }
       return true;
     });
   }
 
-  function backlink() {
+  static backlink() {
     const url = window.location.href;
     const domain = window.location.host;
     const search = window.location.search || '';
@@ -61,7 +62,6 @@ window.maechabin.ui = (($, window, document) => {
   }
 
   // トップページのポストをクリックした時
-  function clickTopPost() {
   clickTopPost() {
     const posts = document.querySelectorAll('.post');
 
@@ -81,7 +81,7 @@ window.maechabin.ui = (($, window, document) => {
     });
   }
 
-  function displayMobileSearch() {
+  static displayMobileSearch() {
     const searchMobile = $('.header__search_mobile');
     const buttonSearch = $('.header__button_search');
     const buttonBack = $('.header__button_back');
@@ -98,7 +98,7 @@ window.maechabin.ui = (($, window, document) => {
     });
   }
 
-  function showAgendaLink() {
+  static showAgendaLink() {
     const agenda = document.querySelector('#agenda');
     const agendaLink = document.querySelector('#footer__bar__agenda-link');
 
@@ -108,7 +108,7 @@ window.maechabin.ui = (($, window, document) => {
     }
   }
 
-  function contenteditable() {
+  static contenteditable() {
     const code = $('.prettyprint');
     code.attr({
       contenteditable: true,
@@ -119,7 +119,7 @@ window.maechabin.ui = (($, window, document) => {
   /* === polyfill === */
 
   // ページ上部に戻る押したとき
-  function getTargetPosition(callback) {
+  static getTargetPosition(callback) {
     const elem = document.querySelectorAll('a[href^="#"]');
     return Array.prototype.forEach.call(elem, (a) => {
       a.addEventListener('click', (event) => {
@@ -134,45 +134,43 @@ window.maechabin.ui = (($, window, document) => {
     });
   }
 
-  function detectSticky() {
-    div.style.position = 'sticky';
-    return div.style.position.indexOf('sticky') !== -1;
+  detectSticky() {
+    this.div.style.position = 'sticky';
+    return this.div.style.position.indexOf('sticky') !== -1;
   }
 
-  function callStickyState() {
+  static callStickyState() {
     const sidebarBox = document.querySelector('.sidebar__box');
     sidebarBox.setAttribute('class', 'sidebar__box sticky');
     return new StickyState(document.querySelectorAll('.sticky'));
   }
 
-  return {
-    init() {
-      showAgendaLink();
-      clickHeaderBar();
-      backlink();
-      clickTopPost();
-      contenteditable();
-      header.cbSlideUpHeader({
-        headroom: true,
-        slidePoint: 64,
-      });
-      displayMobileSearch();
-      if (!('scroll-behavior' in div.style)) {
-        getTargetPosition(callSmoothScroll);
       }
-      if (!detectSticky()) {
-        callStickyState();
-      }
-    },
-  };
-})(jQuery, window, document);
+  init() {
+    Maechabin.showAgendaLink();
+    Maechabin.clickHeaderBar();
+    Maechabin.backlink();
+    this.clickTopPost();
+    Maechabin.contenteditable();
+    this.header.cbSlideUpHeader({
+      headroom: true,
+      slidePoint: 64,
+    });
+    Maechabin.displayMobileSearch();
+    if (!('scroll-behavior' in this.div.style)) {
+      this.getTargetPosition(this.callSmoothScroll);
+    }
+    if (!this.detectSticky()) {
+      this.callStickyState();
+    }
+  }
+}
 
 if (Turbolinks.supported) {
   Turbolinks.start();
   document.addEventListener(
     'turbolinks:load',
     () => {
-      window.maechabin.ui.init();
 
       const links = document.querySelectorAll('a');
       const html = document.querySelector('html');
@@ -199,10 +197,13 @@ if (Turbolinks.supported) {
 
     }, false
   );
+    new Maechabin({
+      allowTurbolinks,
+    }).init();
 } else {
   document.addEventListener(
     'DOMContentLoaded',
-    () => window.maechabin.ui.init(),
     false
   );
+    new Maechabin().init();
 }
