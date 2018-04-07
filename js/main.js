@@ -75,6 +75,7 @@ class Maechabin {
           const href = link.getAttribute('href');
 
           if (Turbolinks.supported && this.allowTurbolinks) {
+            event.preventDefault();
             Turbolinks.visit(href);
           } else {
             window.location.assign(href);
@@ -200,42 +201,31 @@ class Maechabin {
 
 if (Turbolinks.supported && allowTurbolinks) {
   Turbolinks.start();
-  document.addEventListener(
-    'turbolinks:load',
-    () => {
 
-      const links = document.querySelectorAll('a');
-      const html = document.querySelector('html');
-      links.forEach((link) => {
-        link.addEventListener(
-          'click',
-          (e) => {
-            if (link.href && link.href.match(/[#]/)) {
-              html.setAttribute('style', 'scroll-behavior: smooth;');
-              e.target.setAttribute('data-turbolinks', 'false');
-            } else {
-              html.setAttribute('style', 'scroll-behavior: auto;');
-            }
-          }, false
-        );
-      });
-    },
-    false
-  );
-
-  document.addEventListener(
-    'turbolinks:before-visit',
-    (e) => {
-
-    }, false
-  );
+  document.addEventListener('turbolinks:load', () => {
     new Maechabin({
       allowTurbolinks,
     }).init();
+
+    const links = document.querySelectorAll('a');
+    const html = document.querySelector('html');
+    links.forEach((link) => {
+      link.addEventListener('click', (e) => {
+        if (link.href && link.href.match(/[#]/)) {
+          html.setAttribute('style', 'scroll-behavior: smooth;');
+          e.target.setAttribute('data-turbolinks', 'false');
+        } else {
+          html.setAttribute('style', 'scroll-behavior: auto;');
+        }
+      }, false);
+    });
+  }, false);
+
+  document.addEventListener('turbolinks:before-visit', () => {
+    //
+  }, false);
 } else {
-  document.addEventListener(
-    'DOMContentLoaded',
-    false
-  );
+  document.addEventListener('DOMContentLoaded', () => {
     new Maechabin().init();
+  }, false);
 }
