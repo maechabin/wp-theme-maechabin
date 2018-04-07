@@ -7,11 +7,13 @@ require('smoothscroll-polyfill').polyfill();
 const Turbolinks = require('turbolinks');
 const StickyState = require('sticky-state');
 
+const allowTurbolinks = true;
 
 class Maechabin {
   constructor(options) {
     this.header = $('.header');
     this.div = document.createElement('div');
+    this.allowTurbolinks = options.allowTurbolinks || false;
   }
 
   /**
@@ -71,7 +73,8 @@ class Maechabin {
         if (element === 'SECTION' || element === 'H1' || element === 'UL' || element === 'LI') {
           const link = post.getElementsByTagName('a')[0];
           const href = link.getAttribute('href');
-          if (Turbolinks.supported) {
+
+          if (Turbolinks.supported && this.allowTurbolinks) {
             Turbolinks.visit(href);
           } else {
             window.location.assign(href);
@@ -195,7 +198,7 @@ class Maechabin {
   }
 }
 
-if (Turbolinks.supported) {
+if (Turbolinks.supported && allowTurbolinks) {
   Turbolinks.start();
   document.addEventListener(
     'turbolinks:load',
