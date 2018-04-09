@@ -17,12 +17,13 @@
         </p>
       </div>
 
-      <div class="sidebar__widget_ad sidebar__ad1">
+      <div class="sidebar__widget_ad">
         <!-- maesblog（サイドバー上） -->
         <ins class="adsbygoogle"
-             style="display:inline-block;width:300px;height:250px"
+             style="display:block;"
              data-ad-client="ca-pub-6331923403728737"
-             data-ad-slot="3530398982"></ins>
+             data-ad-slot="1831090771"
+             data-ad-format="auto"></ins>
       </div>
     </div>
 
@@ -30,15 +31,13 @@
       <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar() ): ?>
       <?php endif; ?>
 
-      <div class="sidebar__widget_ad sidebar__ad2">
-        <div>スポンサードリンク</div>
         <!-- maesblog（サイドバー下レスポンシブ） -->
-        <ins class="adsbygoogle"
+        <!--<ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-6331923403728737"
              data-ad-slot="1831090771"
              data-ad-format="auto"></ins>
-      </div>
+        -->
     </div>
   </div><!-- #sidebar_sub -->
 </div><!-- #sidebar -->

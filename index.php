@@ -7,16 +7,6 @@
     <?php include('include/content_header.php'); ?>
     <div class="content">
       <main class="main">
-        <div class="ad-index1">
-          <div class="ad-index1__banner">
-            <!-- maesblog（記事上モバイルバナー） -->
-            <ins class="adsbygoogle"
-                style="display:inline-block;width:320px;height:100px"
-                data-ad-client="ca-pub-6331923403728737"
-                data-ad-slot="7675360770"></ins>
-          </div>
-        </div>
-
         <?php if(have_posts()): ?>
           <?php
             while(have_posts()):the_post();
