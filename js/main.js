@@ -163,12 +163,15 @@ class Maechabin {
     }
   }
 
+  /**
+   * Google Analyticsにトラフィックを送信する
+   */
   static callAnalytics() {
     const path = window.location.pathname;
     const params = window.location.search;
-    const dataLayer = window.dataLayer || [];
+    window.dataLayer = window.dataLayer || [];
     function gtag() {
-      dataLayer.push(arguments);
+      window.dataLayer.push(arguments);
     }
     gtag('js', new Date());
 
@@ -181,10 +184,10 @@ class Maechabin {
     Maechabin.showAgendaLink();
     Maechabin.clickHeaderBar();
     Maechabin.backlink();
+    Maechabin.callAnalytics();
     this.clickTopPost();
     Maechabin.contenteditable();
     Maechabin.callAdSense();
-    Maechabin.callAnalytics();
     this.header.cbSlideUpHeader({
       headroom: true,
       slidePoint: 64,
