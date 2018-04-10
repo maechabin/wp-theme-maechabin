@@ -59,7 +59,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
   <?php if(is_single() && has_post_thumbnail() ): ?>
     <meta name="twitter:image:src" content="<?php echo $image_url[0] ?>">
   <?php elseif(!is_home() && !is_page() ): ?>
-    <meta name="twitter:image:src" content="https://mae.chab.in/wp-content/uploads/2015/11/maechabin_400.png">
+    <meta name="twitter:image:src" content="/wp-content/uploads/2015/11/maechabin_400.png">
   <?php endif; ?>
   <!-- Twitter Card -->
 

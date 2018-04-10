@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import 'cbslideheader';
 import smoothscroll from 'smoothscroll-polyfill';
+import Turbolinks from 'turbolinks';
 // require('cbsharecount');
 // import 'slideshowad';
 
-const Turbolinks = require('turbolinks');
 const StickyState = require('sticky-state');
 
 const allowTurbolinks = true;
@@ -57,7 +57,6 @@ class Maechabin {
       blogTitleIcon.setAttribute('class', 'fa fa-chevron-left');
       blogTitleLink.setAttribute('href', referrer);
     } else {
-      // blogTitleIcon.attr("class", "fa fa-medium");
       blogTitleLink.setAttribute('href', '/');
     }
   }
@@ -101,7 +100,7 @@ class Maechabin {
     });
   }
 
-  static showAgendaLink() {
+  static displayAgendaLink() {
     const agenda = document.querySelector('#agenda');
     const agendaLink = document.querySelector('#footer__bar__agenda-link');
 
@@ -187,7 +186,7 @@ class Maechabin {
   }
 
   init() {
-    Maechabin.showAgendaLink();
+    Maechabin.displayAgendaLink();
     Maechabin.clickHeaderBar();
     Maechabin.backlink();
     Maechabin.callAnalytics();
@@ -202,14 +201,17 @@ class Maechabin {
       smoothscroll.polyfill();
     }
     if (!this.detectSticky()) {
-      this.callStickyState();
+      Maechabin.callStickyState();
     }
   }
 }
 
 if (Turbolinks.supported && allowTurbolinks) {
-  Turbolinks.start();
   let shouldAdSense = true;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    Turbolinks.start();
+  }, false);
 
   document.addEventListener('turbolinks:load', () => {
     new Maechabin({
@@ -232,10 +234,10 @@ if (Turbolinks.supported && allowTurbolinks) {
     const links = document.querySelectorAll('a');
     const html = document.querySelector('html');
     links.forEach((link) => {
-      link.addEventListener('click', (e) => {
+      link.addEventListener('click', (event) => {
         if (link.href && link.href.match(/[#]/)) {
           html.setAttribute('style', 'scroll-behavior: smooth;');
-          e.target.setAttribute('data-turbolinks', 'false');
+          event.target.setAttribute('data-turbolinks', 'false');
         } else {
           html.setAttribute('style', 'scroll-behavior: auto;');
         }
