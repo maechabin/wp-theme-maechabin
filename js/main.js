@@ -148,13 +148,20 @@ class Maechabin {
     return new StickyState(document.querySelectorAll('.sticky'));
   }
 
+  /**
+   * Google AdSenseの広告を表示する
+   */
   static callAdSense() {
     const ads = document.querySelectorAll('.adsbygoogle');
+    ads.forEach((ad) => {
+      if (ad.firstChild) ad.removeChild(ad.firstChild);
+    });
+
     if (ads.length > 0) {
       try {
         ads.forEach(() => {
-          const adsbygoogle = window.adsbygoogle || [];
-          adsbygoogle.push({});
+          window.adsbygoogle = window.adsbygoogle || [];
+          window.adsbygoogle.push({});
         });
       } catch (error) {
         console.error(error);
@@ -186,7 +193,6 @@ class Maechabin {
     Maechabin.callAnalytics();
     this.clickTopPost();
     Maechabin.contenteditable();
-    Maechabin.callAdSense();
     this.header.cbSlideUpHeader({
       headroom: true,
       slidePoint: 64,
@@ -203,11 +209,17 @@ class Maechabin {
 
 if (Turbolinks.supported && allowTurbolinks) {
   Turbolinks.start();
+  let shouldAdSense = true;
 
   document.addEventListener('turbolinks:load', () => {
     new Maechabin({
       allowTurbolinks,
     }).init();
+
+    if (shouldAdSense) {
+      Maechabin.callAdSense();
+      shouldAdSense = false;
+    }
 
     const links = document.querySelectorAll('a');
     const html = document.querySelector('html');
@@ -223,8 +235,13 @@ if (Turbolinks.supported && allowTurbolinks) {
     });
   }, false);
 
-  document.addEventListener('turbolinks:before-visit', () => {
+  document.addEventListener('turbolinks:before-cache', () => {
     //
+  }, false);
+
+  document.addEventListener('turbolinks:before-visit', () => {
+    window.referrer = window.location.href;
+    shouldAdSense = true;
   }, false);
 } else {
   document.addEventListener('DOMContentLoaded', () => {
