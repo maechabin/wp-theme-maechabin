@@ -37,7 +37,7 @@
         </a>
       </li>
       <li class="footer__bar-link footer__bar-link--right">
-        <a href="#TOP" data-turbolinks="false">
+        <a href="#TOP">
           <i class="fa fa-chevron-circle-up"></i>トップ
         </a>
       </li>

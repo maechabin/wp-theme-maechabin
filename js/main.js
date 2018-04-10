@@ -1,8 +1,8 @@
 import $ from 'jquery';
 import 'cbslideheader';
+import smoothscroll from 'smoothscroll-polyfill';
 // require('cbsharecount');
 // import 'slideshowad';
-require('smoothscroll-polyfill').polyfill();
 
 const Turbolinks = require('turbolinks');
 const StickyState = require('sticky-state');
@@ -20,7 +20,7 @@ class Maechabin {
    * スムーズスクロール
    */
   static callSmoothScroll(position = 0) {
-    return window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
+    window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
   }
 
   /**
@@ -32,10 +32,9 @@ class Maechabin {
     headerBar.addEventListener('click', (event) => {
       const element = event.target.id;
       if (element === 'header_bar' || element === 'header_bar_inner') {
-        return Maechabin.callSmoothScroll(0);
+        Maechabin.callSmoothScroll(0);
       }
-      return true;
-    });
+    }, false);
   }
 
   static backlink() {
@@ -194,7 +193,7 @@ class Maechabin {
     });
     Maechabin.displayMobileSearch();
     if (!('scroll-behavior' in this.div.style)) {
-      this.getTargetPosition(this.callSmoothScroll);
+      smoothscroll.polyfill();
     }
     if (!this.detectSticky()) {
       this.callStickyState();
