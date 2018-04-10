@@ -48,7 +48,7 @@ class Maechabin {
     const blogTitle = document.querySelector('.header__title');
     const blogTitleLink = blogTitle.querySelector('a');
     const blogTitleIcon = blogTitle.querySelector('i');
-    const referrer = document.referrer || '';
+    const referrer = window.referrer || '';
 
     if (url.match(regexp1) && referrer.match(regexp2) && !referrer.match(regexp1)) {
       blogTitleIcon.setAttribute('class', 'fa fa-chevron-left');
