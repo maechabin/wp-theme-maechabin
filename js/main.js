@@ -221,6 +221,14 @@ if (Turbolinks.supported && allowTurbolinks) {
       shouldAdSense = false;
     }
 
+    const header = document.querySelector('.header');
+    const category = document.querySelector('.category');
+    const sidebar = document.querySelector('.sidebar');
+    const footer = document.querySelector('.footer');
+    [header, category, sidebar, footer].forEach((elem) => {
+      elem.setAttribute('data-turbolinks-permanent', true);
+    });
+
     const links = document.querySelectorAll('a');
     const html = document.querySelector('html');
     links.forEach((link) => {
