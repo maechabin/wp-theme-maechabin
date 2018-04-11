@@ -9,7 +9,7 @@
   &__sub {
     box-sizing: border-box;
     width: 332px;
-    padding: 16px 8px;
+    padding: 16px 8px 0;
   }
 
   &__box {
@@ -20,7 +20,7 @@
     position: -webkit-sticky;
     position: sticky;
     top: 56px;
-    height: calc(100vh - 40px);
+    height: calc(100vh - 56px);
   }
 
   &__title,
@@ -82,25 +82,17 @@
   }
 
   &__widget {
-    &_twitter {
-      height: 600px;
-    }
-
     &_ad {
       text-align: center;
+      width: 300px;
+      height: 250px;
+
+      @media screen and (min-width: 640px) {
+        width: 100%;
+        max-height: 300px;
+        height: 100%;
+      }
     }
-  }
-
-  &__ad1 {
-    display: none;
-
-    @media screen and (min-width: 640px) {
-      display: block;
-    }
-  }
-
-  &__ad2 {
-    margin-top: 32px;
   }
 
   img,
@@ -122,7 +114,6 @@
   @media screen and (max-width: $_responsive-point) {
     width: 100%;
     max-width: 100%;
-    padding-bottom: 48px;
 
     &__sub {
       width: 100%;

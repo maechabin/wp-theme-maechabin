@@ -59,16 +59,24 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
   <?php if(is_single() && has_post_thumbnail() ): ?>
     <meta name="twitter:image:src" content="<?php echo $image_url[0] ?>">
   <?php elseif(!is_home() && !is_page() ): ?>
-    <meta name="twitter:image:src" content="https://mae.chab.in/wp-content/uploads/2015/11/maechabin_400.png">
+    <meta name="twitter:image:src" content="/wp-content/uploads/2015/11/maechabin_400.png">
   <?php endif; ?>
   <!-- Twitter Card -->
 
   <?php if(is_home()): ?> 
     <link rel="canonical" href="https://mae.chab.in<?php echo $path ?>">
-    <?php endif; ?>
+  <?php endif; ?>
+
   <link rel="shortcut icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
   <link rel="icon" type="image/vnd.microsoft.icon" href="/wp-content/themes/chabin/favicon.ico">
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-d6085e16766e625a9909233d5ef4262f.css" media="all">
   <link rel="alternate" type="application/rss+xml" title="RSS" href="<?php bloginfo('rdf_url'); ?>">
+
   <?php wp_head(); ?>
+
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-f0edac309146b0bfed5a2ec12b9b5644.css" media="all">
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
+  <script src="/wp-content/themes/chabin/assets/function.min-92130aba297f2d8c5d4bd2a88906341e.js" defer></script>
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" defer></script>
 </head>

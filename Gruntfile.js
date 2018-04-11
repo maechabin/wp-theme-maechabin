@@ -83,7 +83,7 @@ module.exports = (grunt) => {
         }],
       },
       js: {
-        src: ['footer.php'],
+        src: ['header.php'],
         overwrite: true,
         replacements: [{
           from: /\/wp-content\/themes\/chabin\/assets\/function\.min-[0-9a-z]{32}\.js/g,
