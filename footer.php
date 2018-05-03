@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <?php wp_footer(); ?>
 <?php get_template_part('footer-custom-field'); ?>
-<script src="/wp-content/themes/chabin/assets/function.min-ecd9a9567f734506cbe6c5abe72a9c7c.js" defer></script>
+<script src="/wp-content/themes/chabin/assets/function.min-be29f674f1317d3885f674ff74477b1b.js" defer></script>
 
 <?php if (is_single()): ?>
 	<script src="/wp-includes/js/comment-reply.js?ver=20090102" defer></script>
