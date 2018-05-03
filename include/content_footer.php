@@ -1,5 +1,5 @@
 <footer>
-  <div class="footer">
+  <div id="footer" class="footer">
     <ul class="footer__share-button">
       <li class="footer__share-button--list">
         <a href="https://github.com/maechabin" target="_blank" class="footer__share-button--gh" rel="noopener">
