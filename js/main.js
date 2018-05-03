@@ -1,38 +1,43 @@
-import jQuery from 'jquery';
+import $ from 'jquery';
 import 'cbslideheader';
+import smoothscroll from 'smoothscroll-polyfill';
+import Turbolinks from 'turbolinks';
 // require('cbsharecount');
 // import 'slideshowad';
-require('smoothscroll-polyfill').polyfill();
-const Turbolinks = require('turbolinks');
+
 const StickyState = require('sticky-state');
 
-Turbolinks.start();
+const allowTurbolinks = true;
 
-const maechabin = maechabin || {};
-
-maechabin.ui = (($, window, document) => {
-  const header = $('.header');
-  const headerBar = $('#header_bar');
-  const div = document.createElement('div');
-
-  // Smooth Scroll
-  function callSmoothScroll(position = 0) {
-    return window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
+class Maechabin {
+  constructor(options) {
+    this.header = $('.header');
+    this.div = document.createElement('div');
+    this.allowTurbolinks = options.allowTurbolinks || false;
   }
 
-  // ヘッダーバーをクリックした時
-  function clickHeaderBar() {
-    headerBar.on('click', (e) => {
-      const element = $(e.target).attr('id');
+  /**
+   * スムーズスクロール
+   */
+  static callSmoothScroll(position = 0) {
+    window.scrollTo({ top: position, left: 0, behavior: 'smooth' });
+  }
 
+  /**
+   * ヘッダーバーをクリックした時にトップに戻る
+   */
+  static clickHeaderBar() {
+    const headerBar = document.querySelector('#header_bar');
+
+    headerBar.addEventListener('click', (event) => {
+      const element = event.target.id;
       if (element === 'header_bar' || element === 'header_bar_inner') {
-        return callSmoothScroll(0);
+        Maechabin.callSmoothScroll(0);
       }
-      return true;
-    });
+    }, false);
   }
 
-  function backlink() {
+  static backlink() {
     const url = window.location.href;
     const domain = window.location.host;
     const search = window.location.search || '';
@@ -40,40 +45,45 @@ maechabin.ui = (($, window, document) => {
     const regexp1 = new RegExp(`^https?://${domain}/archives/[0-9]+$`, 'ig');
     const regexp2 = new RegExp(`^https?://${domain}`, 'ig');
     const regexp3 = new RegExp('/?s=.+?', 'ig');
-    const blogTitle = $('.header__title').eq(0);
-    const blogTitleLink = blogTitle.find('a').eq(0);
-    const blogTitleIcon = blogTitle.find('i').eq(0);
-    const referrer = document.referrer || '';
+    const blogTitle = document.querySelector('.header__title');
+    const blogTitleLink = blogTitle.querySelector('a');
+    const blogTitleIcon = blogTitle.querySelector('i');
+    const referrer = window.referrer || '';
 
     if (url.match(regexp1) && referrer.match(regexp2) && !referrer.match(regexp1)) {
-      blogTitleIcon.attr('class', 'fa fa-chevron-left');
-      blogTitleLink.attr('href', referrer);
+      blogTitleIcon.setAttribute('class', 'fa fa-chevron-left');
+      blogTitleLink.setAttribute('href', referrer);
     } else if (search !== '' && search.match(regexp3)) {
-      blogTitleIcon.attr('class', 'fa fa-chevron-left');
-      blogTitleLink.attr('href', referrer);
+      blogTitleIcon.setAttribute('class', 'fa fa-chevron-left');
+      blogTitleLink.setAttribute('href', referrer);
     } else {
-      // blogTitleIcon.attr("class", "fa fa-medium");
-      blogTitleLink.attr('href', '/');
+      blogTitleLink.setAttribute('href', '/');
     }
   }
 
   // トップページのポストをクリックした時
-  function clickTopPost() {
-    const index = $('.post');
-    index.each(function () {
-      const $this = $(this);
-      $this.on('click', (e) => {
-        const element = e.target.nodeName;
-        if (element === 'SECTION' || element === 'H1' || element === 'UL') {
-          const link = this.getElementsByTagName('a')[0];
+  clickTopPost() {
+    const posts = document.querySelectorAll('.post');
+
+    posts.forEach((post) => {
+      post.addEventListener('click', (event) => {
+        const element = event.target.nodeName;
+        if (element === 'SECTION' || element === 'H1' || element === 'UL' || element === 'LI') {
+          const link = post.getElementsByTagName('a')[0];
           const href = link.getAttribute('href');
-          window.location.assign(href);
+
+          if (Turbolinks.supported && this.allowTurbolinks) {
+            event.preventDefault();
+            Turbolinks.visit(href);
+          } else {
+            window.location.assign(href);
+          }
         }
-      });
+      }, false);
     });
   }
 
-  function displayMobileSearch() {
+  static displayMobileSearch() {
     const searchMobile = $('.header__search_mobile');
     const buttonSearch = $('.header__button_search');
     const buttonBack = $('.header__button_back');
@@ -90,17 +100,17 @@ maechabin.ui = (($, window, document) => {
     });
   }
 
-  function showAgendaLink() {
-    const agenda = $('#agenda');
-    const agendaLink = $('#footer__bar__agenda-link');
+  static displayAgendaLink() {
+    const agenda = document.querySelector('#agenda');
+    const agendaLink = document.querySelector('#footer__bar__agenda-link');
 
-    if (agenda[0]) {
-      agendaLink.addClass('footer__style--show');
-      agendaLink.removeClass('footer__style--hidden');
+    if (agenda) {
+      agendaLink.classList.add('footer__style--show');
+      agendaLink.classList.remove('footer__style--hidden');
     }
   }
 
-  function contenteditable() {
+  static contenteditable() {
     const code = $('.prettyprint');
     code.attr({
       contenteditable: true,
@@ -111,11 +121,11 @@ maechabin.ui = (($, window, document) => {
   /* === polyfill === */
 
   // ページ上部に戻る押したとき
-  function getTargetPosition(callback) {
+  static getTargetPosition(callback) {
     const elem = document.querySelectorAll('a[href^="#"]');
     return Array.prototype.forEach.call(elem, (a) => {
-      a.addEventListener('click', (e) => {
-        e.preventDefault();
+      a.addEventListener('click', (event) => {
+        event.preventDefault();
         const href = a.getAttribute('href');
         const regexp = new RegExp('#.*$', 'ig');
         const target = href.match(regexp);
@@ -126,41 +136,125 @@ maechabin.ui = (($, window, document) => {
     });
   }
 
-  function detectSticky() {
-    div.style.position = 'sticky';
-    return div.style.position.indexOf('sticky') !== -1;
+  detectSticky() {
+    this.div.style.position = 'sticky';
+    return this.div.style.position.indexOf('sticky') !== -1;
   }
 
-  function callStickyState() {
+  static callStickyState() {
     const sidebarBox = document.querySelector('.sidebar__box');
     sidebarBox.setAttribute('class', 'sidebar__box sticky');
     return new StickyState(document.querySelectorAll('.sticky'));
   }
 
-  return {
-    init() {
-      showAgendaLink();
-      clickHeaderBar();
-      backlink();
-      clickTopPost();
-      contenteditable();
-      header.cbSlideUpHeader({
-        headroom: true,
-        slidePoint: 64,
-      });
-      displayMobileSearch();
-      if (!('scroll-behavior' in div.style)) {
-        getTargetPosition(callSmoothScroll);
-      }
-      if (!detectSticky()) {
-        callStickyState();
-      }
-    },
-  };
-})(jQuery, window, document);
+  /**
+   * Google AdSenseの広告を表示する
+   */
+  static callAdSense() {
+    const ads = document.querySelectorAll('.adsbygoogle');
+    ads.forEach((ad) => {
+      if (ad.firstChild) ad.removeChild(ad.firstChild);
+    });
 
-document.addEventListener(
-  'DOMContentLoaded',
-  () => maechabin.ui.init(),
-  false
-);
+    if (ads.length > 0) {
+      try {
+        ads.forEach(() => {
+          window.adsbygoogle = window.adsbygoogle || [];
+          window.adsbygoogle.push({});
+        });
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  }
+
+  /**
+   * Google Analyticsにトラフィックを送信する
+   */
+  static callAnalytics() {
+    const path = window.location.pathname;
+    const params = window.location.search;
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      window.dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+
+    // UA-16293533-1
+    // UA-44221308-1
+    gtag('config', 'UA-16293533-1', { page_path: path + params });
+  }
+
+  init() {
+    Maechabin.displayAgendaLink();
+    Maechabin.clickHeaderBar();
+    Maechabin.backlink();
+    Maechabin.callAnalytics();
+    this.clickTopPost();
+    Maechabin.contenteditable();
+    this.header.cbSlideUpHeader({
+      headroom: true,
+      slidePoint: 64,
+    });
+    Maechabin.displayMobileSearch();
+    if (!('scroll-behavior' in this.div.style)) {
+      smoothscroll.polyfill();
+    }
+    if (!this.detectSticky()) {
+      Maechabin.callStickyState();
+    }
+  }
+}
+
+if (Turbolinks.supported && allowTurbolinks) {
+  let shouldAdSense = true;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    Turbolinks.start();
+  }, false);
+
+  document.addEventListener('turbolinks:load', () => {
+    new Maechabin({
+      allowTurbolinks,
+    }).init();
+
+    if (shouldAdSense) {
+      Maechabin.callAdSense();
+      shouldAdSense = false;
+    }
+
+    const header = document.querySelector('.header');
+    const category = document.querySelector('.category');
+    const sidebar = document.querySelector('.sidebar');
+    const footer = document.querySelector('.footer');
+    [header, category, sidebar, footer].forEach((elem) => {
+      elem.setAttribute('data-turbolinks-permanent', true);
+    });
+
+    const links = document.querySelectorAll('a');
+    const html = document.querySelector('html');
+    links.forEach((link) => {
+      link.addEventListener('click', (event) => {
+        if (link.href && link.href.match(/[#]/)) {
+          html.setAttribute('style', 'scroll-behavior: smooth;');
+          event.target.setAttribute('data-turbolinks', 'false');
+        } else {
+          html.setAttribute('style', 'scroll-behavior: auto;');
+        }
+      }, false);
+    });
+  }, false);
+
+  document.addEventListener('turbolinks:before-cache', () => {
+    //
+  }, false);
+
+  document.addEventListener('turbolinks:before-visit', () => {
+    window.referrer = window.location.href;
+    shouldAdSense = true;
+  }, false);
+} else {
+  document.addEventListener('DOMContentLoaded', () => {
+    new Maechabin().init();
+  }, false);
+}

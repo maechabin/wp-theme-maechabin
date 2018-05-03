@@ -1,6 +1,5 @@
 <div id="sidebar" class="sidebar">
   <div id="sidebar_sub" class="sidebar__sub">
-
     <div class="sidebar__box">
       <div class="sidebar__author">
         <figure class="sidebar__author-photo">
@@ -18,38 +17,27 @@
         </p>
       </div>
 
-      <div class="sidebar__widget_ad sidebar__ad1">
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <div class="sidebar__widget_ad">
         <!-- maesblog（サイドバー上） -->
         <ins class="adsbygoogle"
-             style="display:inline-block;width:300px;height:250px"
+             style="display:block;"
              data-ad-client="ca-pub-6331923403728737"
-             data-ad-slot="3530398982"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
+             data-ad-slot="1831090771"
+             data-ad-format="auto"></ins>
       </div>
-
     </div>
 
     <div class="mobile_only">
       <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar() ): ?>
       <?php endif; ?>
 
-      <div class="sidebar__widget_ad sidebar__ad2">
-        <div>スポンサードリンク</div>
-        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <!-- maesblog（サイドバー下レスポンシブ） -->
-        <ins class="adsbygoogle"
+        <!--<ins class="adsbygoogle"
              style="display:block"
              data-ad-client="ca-pub-6331923403728737"
              data-ad-slot="1831090771"
              data-ad-format="auto"></ins>
-        <script>
-        (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-      </div>
+        -->
     </div>
-
   </div><!-- #sidebar_sub -->
 </div><!-- #sidebar -->

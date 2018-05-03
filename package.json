@@ -1,6 +1,6 @@
 {
   "name": "wp-theme-maechabin",
-  "version": "2.6.4",
+  "version": "2.7.0",
   "description": "WordPress Original Theme",
   "main": "./main.js",
   "repository": {
@@ -55,7 +55,7 @@
     "cbslideheader": "^0.3.8",
     "jquery": "^3.3.1",
     "slideshowad": "^1.4.0",
-    "smoothscroll-polyfill": "^0.4.0",
+    "smoothscroll-polyfill": "^0.4.3",
     "sticky-state": "^2.4.1",
     "turbolinks": "^5.1.1"
   }
