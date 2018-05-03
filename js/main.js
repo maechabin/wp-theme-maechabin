@@ -110,11 +110,11 @@ class Maechabin {
     }
   }
 
-  static contenteditable() {
-    const code = $('.prettyprint');
-    code.attr({
-      contenteditable: true,
-      spellcheck: false,
+  static makeContentEditable() {
+    const codes = document.querySelectorAll('.code');
+    codes.forEach((code) => {
+      code.setAttribute('contenteditable', true);
+      code.setAttribute('soellcheck', false);
     });
   }
 
@@ -191,7 +191,7 @@ class Maechabin {
     Maechabin.backlink();
     Maechabin.callAnalytics();
     this.clickTopPost();
-    Maechabin.contenteditable();
+    Maechabin.makeContentEditable();
     this.header.cbSlideUpHeader({
       headroom: true,
       slidePoint: 64,
