@@ -1,7 +1,7 @@
 <div id="sidebar" class="sidebar">
   <div id="sidebar_sub" class="sidebar__sub">
     <div class="sidebar__box">
-      <div class="sidebar__author">
+      <div  id="sidebar-author" class="sidebar__author">
         <figure class="sidebar__author-photo">
           <img src="/wp-content/uploads/2018/03/maechabin.png" width="128" height="128" alt="maechabin / Takanori Maeda">
         </figure>
@@ -26,18 +26,10 @@
              data-ad-format="auto"></ins>
       </div>
     </div>
-
+    
     <div class="mobile_only">
       <?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar() ): ?>
       <?php endif; ?>
-
-        <!-- maesblog（サイドバー下レスポンシブ） -->
-        <!--<ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-6331923403728737"
-             data-ad-slot="1831090771"
-             data-ad-format="auto"></ins>
-        -->
     </div>
   </div><!-- #sidebar_sub -->
 </div><!-- #sidebar -->
