@@ -84,20 +84,22 @@ class Maechabin {
   }
 
   static displayMobileSearch() {
-    const searchMobile = $('.header__search_mobile');
-    const buttonSearch = $('.header__button_search');
-    const buttonBack = $('.header__button_back');
+    const searchMobile = document.querySelector('.header__search_mobile');
+    const buttonSearch = document.querySelector('.header__button_search');
+    const buttonBack = document.querySelector('.header__button_back');
 
-    buttonSearch.on('click', () => {
-      searchMobile.stop().animate({
-        left: 0,
-      }, 500, 'swing');
-    });
-    buttonBack.on('click', () => {
-      searchMobile.stop().animate({
-        left: '100vw',
-      }, 300, 'linear');
-    });
+    buttonSearch.addEventListener('click', () => {
+      searchMobile.setAttribute('style', `
+        transition: transform 500ms ease-in-out;
+        transform: translate3d(-100vw, 0, 0);
+      `);
+    }, false);
+    buttonBack.addEventListener('click', () => {
+      searchMobile.setAttribute('style', `
+        transition: transform 300ms linear;
+        transform: translate3d(100vw, 0, 0);
+      `);
+    }, false);
   }
 
   static displayAgendaLink() {
