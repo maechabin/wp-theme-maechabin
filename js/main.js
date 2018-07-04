@@ -1,17 +1,12 @@
-import $ from 'jquery';
-import 'cbslideheader';
 import smoothscroll from 'smoothscroll-polyfill';
 import Turbolinks from 'turbolinks';
-// require('cbsharecount');
-// import 'slideshowad';
-
-const StickyState = require('sticky-state');
+import { SlideHeader } from 'slideheader';
 
 const allowTurbolinks = true;
+const StickyState = require('sticky-state');
 
 class Maechabin {
   constructor(options) {
-    this.header = $('.header');
     this.div = document.createElement('div');
     this.allowTurbolinks = options.allowTurbolinks || false;
   }
@@ -194,10 +189,10 @@ class Maechabin {
     Maechabin.callAnalytics();
     this.clickTopPost();
     Maechabin.makeContentEditable();
-    this.header.cbSlideUpHeader({
-      headroom: true,
+    new SlideHeader('.cb-header', {
+      isHeadroom: true,
       slidePoint: 64,
-    });
+    }).init('slideUp');
     Maechabin.displayMobileSearch();
     if (!('scroll-behavior' in this.div.style)) {
       smoothscroll.polyfill();

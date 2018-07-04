@@ -11,9 +11,9 @@
     "wordpress"
   ],
   "browser": {
-    "cbslideheader": "./node_modules/cbslideheader/dist/jquery.cbslideheader.min.js",
     "cbsharecount": "./node_modules/cbsharecount/dist/jquery.cbsharecount.js",
-    "slideshowad": "./node_modules/slideshowad/dist/jquery.slideshowad.js"
+    "slideshowad": "./node_modules/slideshowad/dist/jquery.slideshowad.js",
+    "slideHeader": "./node_modules/slideheader/dist/slideheader.min.js"
   },
   "browserify-shim": {
     "jquery": "global:$"
@@ -37,7 +37,7 @@
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
     "grunt": "^1.0.1",
-    "grunt-browserify": "^5.2.0",
+    "grunt-browserify": "^5.3.0",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-cssmin": "^0.11.0",
     "grunt-contrib-sass": "^0.9.2",
@@ -45,15 +45,14 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-md5": "^0.1.11",
     "grunt-text-replace": "^0.4.0",
-    "parcel-bundler": "^1.6.2",
     "stylelint": "^7.13.0",
     "stylelint-config-standard": "^18.0.0",
     "stylelint-scss": "^2.2.0"
   },
   "dependencies": {
     "cbsharecount": "^2.1.2",
-    "cbslideheader": "^0.3.8",
     "jquery": "^3.3.1",
+    "slideheader": "^0.9.8",
     "slideshowad": "^1.4.0",
     "smoothscroll-polyfill": "^0.4.3",
     "sticky-state": "^2.4.1",
