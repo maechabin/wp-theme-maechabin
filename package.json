@@ -10,17 +10,8 @@
   "keywords": [
     "wordpress"
   ],
-  "browser": {
-    "cbsharecount": "./node_modules/cbsharecount/dist/jquery.cbsharecount.js",
-    "slideshowad": "./node_modules/slideshowad/dist/jquery.slideshowad.js",
-    "slideHeader": "./node_modules/slideheader/dist/slideheader.min.js"
-  },
-  "browserify-shim": {
-    "jquery": "global:$"
-  },
   "browserify": {
     "transform": [
-      "browserify-shim",
       "babelify"
     ]
   },
@@ -28,8 +19,8 @@
   "license": "MIT",
   "homepage": "https://mae.chab.in/",
   "devDependencies": {
-    "babel-plugin-array-includes": "^2.0.3",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "babelify": "^8.0.0",
     "browserify": "^15.2.0",
     "browserify-shim": "^3.8.14",
@@ -51,7 +42,6 @@
   },
   "dependencies": {
     "cbsharecount": "^2.1.2",
-    "jquery": "^3.3.1",
     "slideheader": "^0.9.8",
     "slideshowad": "^1.4.0",
     "smoothscroll-polyfill": "^0.4.3",
