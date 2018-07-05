@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "cbsharecount": "^2.1.2",
-    "slideheader": "^0.9.8",
+    "slideheader": "^0.9.9",
     "slideshowad": "^1.4.0",
     "smoothscroll-polyfill": "^0.4.3",
     "sticky-state": "^2.4.1",

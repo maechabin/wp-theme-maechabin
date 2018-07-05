@@ -1,6 +1,6 @@
 import smoothscroll from 'smoothscroll-polyfill';
 import Turbolinks from 'turbolinks';
-import { SlideHeader } from 'slideheader';
+import SlideHeader from 'slideheader';
 
 const allowTurbolinks = true;
 const StickyState = require('sticky-state');
