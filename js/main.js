@@ -24,12 +24,16 @@ class Maechabin {
   static clickHeaderBar() {
     const headerBar = document.querySelector('#header_bar');
 
-    headerBar.addEventListener('click', (event) => {
-      const element = event.target.id;
-      if (element === 'header_bar' || element === 'header_bar_inner') {
-        Maechabin.callSmoothScroll(0);
-      }
-    }, false);
+    headerBar.addEventListener(
+      'click',
+      (event) => {
+        const element = event.target.id;
+        if (element === 'header_bar' || element === 'header_bar_inner') {
+          Maechabin.callSmoothScroll(0);
+        }
+      },
+      false,
+    );
   }
 
   static backlink() {
@@ -61,20 +65,24 @@ class Maechabin {
     const posts = document.querySelectorAll('.post');
 
     posts.forEach((post) => {
-      post.addEventListener('click', (event) => {
-        const element = event.target.nodeName;
-        if (element === 'SECTION' || element === 'H1' || element === 'UL' || element === 'LI') {
-          const link = post.getElementsByTagName('a')[0];
-          const href = link.getAttribute('href');
+      post.addEventListener(
+        'click',
+        (event) => {
+          const element = event.target.nodeName;
+          if (element === 'SECTION' || element === 'H1' || element === 'UL' || element === 'LI') {
+            const link = post.getElementsByTagName('a')[0];
+            const href = link.getAttribute('href');
 
-          if (Turbolinks.supported && this.allowTurbolinks) {
-            event.preventDefault();
-            Turbolinks.visit(href);
-          } else {
-            window.location.assign(href);
+            if (Turbolinks.supported && this.allowTurbolinks) {
+              event.preventDefault();
+              Turbolinks.visit(href);
+            } else {
+              window.location.assign(href);
+            }
           }
-        }
-      }, false);
+        },
+        false,
+      );
     });
   }
 
@@ -83,18 +91,32 @@ class Maechabin {
     const buttonSearch = document.querySelector('.header__button_search');
     const buttonBack = document.querySelector('.header__button_back');
 
-    buttonSearch.addEventListener('click', () => {
-      searchMobile.setAttribute('style', `
+    buttonSearch.addEventListener(
+      'click',
+      () => {
+        searchMobile.setAttribute(
+          'style',
+          `
         transition: transform 500ms ease-in-out;
         transform: translate3d(-100vw, 0, 0);
-      `);
-    }, false);
-    buttonBack.addEventListener('click', () => {
-      searchMobile.setAttribute('style', `
+      `,
+        );
+      },
+      false,
+    );
+    buttonBack.addEventListener(
+      'click',
+      () => {
+        searchMobile.setAttribute(
+          'style',
+          `
         transition: transform 300ms linear;
         transform: translate3d(100vw, 0, 0);
-      `);
-    }, false);
+      `,
+        );
+      },
+      false,
+    );
   }
 
   static displayAgendaLink() {
@@ -121,15 +143,19 @@ class Maechabin {
   static getTargetPosition(callback) {
     const elem = document.querySelectorAll('a[href^="#"]');
     return Array.prototype.forEach.call(elem, (a) => {
-      a.addEventListener('click', (event) => {
-        event.preventDefault();
-        const href = a.getAttribute('href');
-        const regexp = new RegExp('#.*$', 'ig');
-        const target = href.match(regexp);
-        const targetElem = document.querySelector(target[0]);
-        const position = (targetElem.getBoundingClientRect().top + window.pageYOffset) - 56;
-        return callback(position);
-      }, false);
+      a.addEventListener(
+        'click',
+        (event) => {
+          event.preventDefault();
+          const href = a.getAttribute('href');
+          const regexp = new RegExp('#.*$', 'ig');
+          const target = href.match(regexp);
+          const targetElem = document.querySelector(target[0]);
+          const position = targetElem.getBoundingClientRect().top + window.pageYOffset;
+          return callback(position - 56);
+        },
+        false,
+      );
     });
   }
 
@@ -150,7 +176,9 @@ class Maechabin {
   static callAdSense() {
     const ads = document.querySelectorAll('.adsbygoogle');
     ads.forEach((ad) => {
-      if (ad.firstChild) ad.removeChild(ad.firstChild);
+      if (ad.firstChild) {
+        ad.removeChild(ad.firstChild);
+      }
     });
 
     if (ads.length > 0) {
@@ -190,7 +218,7 @@ class Maechabin {
     this.clickTopPost();
     Maechabin.makeContentEditable();
     new SlideHeader('.cb-header', {
-      isHeadroom: true,
+      headroom: true,
       slidePoint: 64,
     }).init('slideUp');
     Maechabin.displayMobileSearch();
@@ -206,49 +234,73 @@ class Maechabin {
 if (Turbolinks.supported && allowTurbolinks) {
   let shouldAdSense = true;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const sidebar = document.querySelector('.sidebar__author');
-    const footer = document.querySelector('.footer');
-    [sidebar, footer].forEach((elem) => {
-      elem.setAttribute('data-turbolinks-permanent', true);
-    });
-    Turbolinks.start();
-  }, false);
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      const sidebar = document.querySelector('.sidebar__author');
+      const footer = document.querySelector('.footer');
+      [sidebar, footer].forEach((elem) => {
+        elem.setAttribute('data-turbolinks-permanent', true);
+      });
+      Turbolinks.start();
+    },
+    false,
+  );
 
-  document.addEventListener('turbolinks:load', () => {
-    new Maechabin({
-      allowTurbolinks,
-    }).init();
+  document.addEventListener(
+    'turbolinks:load',
+    () => {
+      new Maechabin({
+        allowTurbolinks,
+      }).init();
 
-    if (shouldAdSense) {
-      Maechabin.callAdSense();
-      shouldAdSense = false;
-    }
+      if (shouldAdSense) {
+        Maechabin.callAdSense();
+        shouldAdSense = false;
+      }
 
-    const links = document.querySelectorAll('a');
-    const html = document.querySelector('html');
-    links.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        if (link.href && link.href.match(/[#]/)) {
-          html.setAttribute('style', 'scroll-behavior: smooth;');
-          event.target.setAttribute('data-turbolinks', 'false');
-        } else {
-          html.setAttribute('style', 'scroll-behavior: auto;');
-        }
-      }, false);
-    });
-  }, false);
+      const links = document.querySelectorAll('a');
+      const html = document.querySelector('html');
+      links.forEach((link) => {
+        link.addEventListener(
+          'click',
+          (event) => {
+            if (link.href && link.href.match(/[#]/)) {
+              html.setAttribute('style', 'scroll-behavior: smooth;');
+              event.target.setAttribute('data-turbolinks', 'false');
+            } else {
+              html.setAttribute('style', 'scroll-behavior: auto;');
+            }
+          },
+          false,
+        );
+      });
+    },
+    false,
+  );
 
-  document.addEventListener('turbolinks:before-cache', () => {
-    //
-  }, false);
+  document.addEventListener(
+    'turbolinks:before-cache',
+    () => {
+      //
+    },
+    false,
+  );
 
-  document.addEventListener('turbolinks:before-visit', () => {
-    window.referrer = window.location.href;
-    shouldAdSense = true;
-  }, false);
+  document.addEventListener(
+    'turbolinks:before-visit',
+    () => {
+      window.referrer = window.location.href;
+      shouldAdSense = true;
+    },
+    false,
+  );
 } else {
-  document.addEventListener('DOMContentLoaded', () => {
-    new Maechabin().init();
-  }, false);
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      new Maechabin().init();
+    },
+    false,
+  );
 }
