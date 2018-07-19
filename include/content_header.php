@@ -16,7 +16,7 @@
       <i class="fa fa-search"></i>
     </div>
     <div class="header__share">
-      <a href="//cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Fmae.chab.in%2Ffeed" target="_blank" rel="noopener"><i class="fa fa-rss"></i></a>
+      <a href="https://feedly.com/i/subscription/feed/https://mae.chab.in/feed" target="_blank" rel="noopener"><i class="fa fa-rss"></i></a>
     </div>
 
   </div>

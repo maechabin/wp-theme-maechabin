@@ -1,17 +1,12 @@
-import $ from 'jquery';
-import 'cbslideheader';
 import smoothscroll from 'smoothscroll-polyfill';
 import Turbolinks from 'turbolinks';
-// require('cbsharecount');
-// import 'slideshowad';
-
-const StickyState = require('sticky-state');
+import SlideHeader from 'slideheader';
 
 const allowTurbolinks = true;
+const StickyState = require('sticky-state');
 
 class Maechabin {
   constructor(options) {
-    this.header = $('.header');
     this.div = document.createElement('div');
     this.allowTurbolinks = options.allowTurbolinks || false;
   }
@@ -29,12 +24,16 @@ class Maechabin {
   static clickHeaderBar() {
     const headerBar = document.querySelector('#header_bar');
 
-    headerBar.addEventListener('click', (event) => {
-      const element = event.target.id;
-      if (element === 'header_bar' || element === 'header_bar_inner') {
-        Maechabin.callSmoothScroll(0);
-      }
-    }, false);
+    headerBar.addEventListener(
+      'click',
+      (event) => {
+        const element = event.target.id;
+        if (element === 'header_bar' || element === 'header_bar_inner') {
+          Maechabin.callSmoothScroll(0);
+        }
+      },
+      false,
+    );
   }
 
   static backlink() {
@@ -66,38 +65,58 @@ class Maechabin {
     const posts = document.querySelectorAll('.post');
 
     posts.forEach((post) => {
-      post.addEventListener('click', (event) => {
-        const element = event.target.nodeName;
-        if (element === 'SECTION' || element === 'H1' || element === 'UL' || element === 'LI') {
-          const link = post.getElementsByTagName('a')[0];
-          const href = link.getAttribute('href');
+      post.addEventListener(
+        'click',
+        (event) => {
+          const element = event.target.nodeName;
+          if (element === 'SECTION' || element === 'H1' || element === 'UL' || element === 'LI') {
+            const link = post.getElementsByTagName('a')[0];
+            const href = link.getAttribute('href');
 
-          if (Turbolinks.supported && this.allowTurbolinks) {
-            event.preventDefault();
-            Turbolinks.visit(href);
-          } else {
-            window.location.assign(href);
+            if (Turbolinks.supported && this.allowTurbolinks) {
+              event.preventDefault();
+              Turbolinks.visit(href);
+            } else {
+              window.location.assign(href);
+            }
           }
-        }
-      }, false);
+        },
+        false,
+      );
     });
   }
 
   static displayMobileSearch() {
-    const searchMobile = $('.header__search_mobile');
-    const buttonSearch = $('.header__button_search');
-    const buttonBack = $('.header__button_back');
+    const searchMobile = document.querySelector('.header__search_mobile');
+    const buttonSearch = document.querySelector('.header__button_search');
+    const buttonBack = document.querySelector('.header__button_back');
 
-    buttonSearch.on('click', () => {
-      searchMobile.stop().animate({
-        left: 0,
-      }, 500, 'swing');
-    });
-    buttonBack.on('click', () => {
-      searchMobile.stop().animate({
-        left: '100vw',
-      }, 300, 'linear');
-    });
+    buttonSearch.addEventListener(
+      'click',
+      () => {
+        searchMobile.setAttribute(
+          'style',
+          `
+        transition: transform 500ms ease-in-out;
+        transform: translate3d(-100vw, 0, 0);
+      `,
+        );
+      },
+      false,
+    );
+    buttonBack.addEventListener(
+      'click',
+      () => {
+        searchMobile.setAttribute(
+          'style',
+          `
+        transition: transform 300ms linear;
+        transform: translate3d(100vw, 0, 0);
+      `,
+        );
+      },
+      false,
+    );
   }
 
   static displayAgendaLink() {
@@ -110,11 +129,11 @@ class Maechabin {
     }
   }
 
-  static contenteditable() {
-    const code = $('.prettyprint');
-    code.attr({
-      contenteditable: true,
-      spellcheck: false,
+  static makeContentEditable() {
+    const codes = document.querySelectorAll('.code');
+    codes.forEach((code) => {
+      code.setAttribute('contenteditable', true);
+      code.setAttribute('soellcheck', false);
     });
   }
 
@@ -124,15 +143,19 @@ class Maechabin {
   static getTargetPosition(callback) {
     const elem = document.querySelectorAll('a[href^="#"]');
     return Array.prototype.forEach.call(elem, (a) => {
-      a.addEventListener('click', (event) => {
-        event.preventDefault();
-        const href = a.getAttribute('href');
-        const regexp = new RegExp('#.*$', 'ig');
-        const target = href.match(regexp);
-        const targetElem = document.querySelector(target[0]);
-        const position = (targetElem.getBoundingClientRect().top + window.pageYOffset) - 56;
-        return callback(position);
-      }, false);
+      a.addEventListener(
+        'click',
+        (event) => {
+          event.preventDefault();
+          const href = a.getAttribute('href');
+          const regexp = new RegExp('#.*$', 'ig');
+          const target = href.match(regexp);
+          const targetElem = document.querySelector(target[0]);
+          const position = targetElem.getBoundingClientRect().top + window.pageYOffset;
+          return callback(position - 56);
+        },
+        false,
+      );
     });
   }
 
@@ -153,7 +176,9 @@ class Maechabin {
   static callAdSense() {
     const ads = document.querySelectorAll('.adsbygoogle');
     ads.forEach((ad) => {
-      if (ad.firstChild) ad.removeChild(ad.firstChild);
+      if (ad.firstChild) {
+        ad.removeChild(ad.firstChild);
+      }
     });
 
     if (ads.length > 0) {
@@ -191,11 +216,11 @@ class Maechabin {
     Maechabin.backlink();
     Maechabin.callAnalytics();
     this.clickTopPost();
-    Maechabin.contenteditable();
-    this.header.cbSlideUpHeader({
+    Maechabin.makeContentEditable();
+    new SlideHeader('.cb-header', {
       headroom: true,
       slidePoint: 64,
-    });
+    }).init('slideUp');
     Maechabin.displayMobileSearch();
     if (!('scroll-behavior' in this.div.style)) {
       smoothscroll.polyfill();
@@ -209,52 +234,73 @@ class Maechabin {
 if (Turbolinks.supported && allowTurbolinks) {
   let shouldAdSense = true;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    Turbolinks.start();
-  }, false);
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      const sidebar = document.querySelector('.sidebar__author');
+      const footer = document.querySelector('.footer');
+      [sidebar, footer].forEach((elem) => {
+        elem.setAttribute('data-turbolinks-permanent', true);
+      });
+      Turbolinks.start();
+    },
+    false,
+  );
 
-  document.addEventListener('turbolinks:load', () => {
-    new Maechabin({
-      allowTurbolinks,
-    }).init();
+  document.addEventListener(
+    'turbolinks:load',
+    () => {
+      new Maechabin({
+        allowTurbolinks,
+      }).init();
 
-    if (shouldAdSense) {
-      Maechabin.callAdSense();
-      shouldAdSense = false;
-    }
+      if (shouldAdSense) {
+        Maechabin.callAdSense();
+        shouldAdSense = false;
+      }
 
-    const header = document.querySelector('.header');
-    const category = document.querySelector('.category');
-    const sidebar = document.querySelector('.sidebar');
-    const footer = document.querySelector('.footer');
-    [header, category, sidebar, footer].forEach((elem) => {
-      elem.setAttribute('data-turbolinks-permanent', true);
-    });
+      const links = document.querySelectorAll('a');
+      const html = document.querySelector('html');
+      links.forEach((link) => {
+        link.addEventListener(
+          'click',
+          (event) => {
+            if (link.href && link.href.match(/[#]/)) {
+              html.setAttribute('style', 'scroll-behavior: smooth;');
+              event.target.setAttribute('data-turbolinks', 'false');
+            } else {
+              html.setAttribute('style', 'scroll-behavior: auto;');
+            }
+          },
+          false,
+        );
+      });
+    },
+    false,
+  );
 
-    const links = document.querySelectorAll('a');
-    const html = document.querySelector('html');
-    links.forEach((link) => {
-      link.addEventListener('click', (event) => {
-        if (link.href && link.href.match(/[#]/)) {
-          html.setAttribute('style', 'scroll-behavior: smooth;');
-          event.target.setAttribute('data-turbolinks', 'false');
-        } else {
-          html.setAttribute('style', 'scroll-behavior: auto;');
-        }
-      }, false);
-    });
-  }, false);
+  document.addEventListener(
+    'turbolinks:before-cache',
+    () => {
+      //
+    },
+    false,
+  );
 
-  document.addEventListener('turbolinks:before-cache', () => {
-    //
-  }, false);
-
-  document.addEventListener('turbolinks:before-visit', () => {
-    window.referrer = window.location.href;
-    shouldAdSense = true;
-  }, false);
+  document.addEventListener(
+    'turbolinks:before-visit',
+    () => {
+      window.referrer = window.location.href;
+      shouldAdSense = true;
+    },
+    false,
+  );
 } else {
-  document.addEventListener('DOMContentLoaded', () => {
-    new Maechabin().init();
-  }, false);
+  document.addEventListener(
+    'DOMContentLoaded',
+    () => {
+      new Maechabin().init();
+    },
+    false,
+  );
 }

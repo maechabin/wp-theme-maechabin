@@ -73,10 +73,9 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 
   <?php wp_head(); ?>
 
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-f0edac309146b0bfed5a2ec12b9b5644.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-8d9fb797a02029895ec65371887dcce3.css" media="all">
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js" defer></script>
-  <script src="/wp-content/themes/chabin/assets/function.min-92130aba297f2d8c5d4bd2a88906341e.js" defer></script>
+  <script src="/wp-content/themes/chabin/assets/function.min-5f7582c954ef8f13241ba01219cfae7f.js" defer></script>
   <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" defer></script>
 </head>
