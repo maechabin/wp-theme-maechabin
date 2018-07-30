@@ -1,6 +1,6 @@
-import smoothscroll from 'smoothscroll-polyfill';
 import Turbolinks from 'turbolinks';
-import SlideHeader from 'slideheader';
+// import SlideHeader from 'slideheader';
+// import smoothscroll from 'smoothscroll-polyfill';
 
 const allowTurbolinks = true;
 const StickyState = require('sticky-state');
@@ -217,14 +217,14 @@ class Maechabin {
     Maechabin.callAnalytics();
     this.clickTopPost();
     Maechabin.makeContentEditable();
-    new SlideHeader('.cb-header', {
-      headroom: true,
-      slidePoint: 64,
-    }).init('slideUp');
+    // new SlideHeader('.cb-header', {
+    //   headroom: true,
+    //   slidePoint: 64,
+    // }).init('slideUp');
     Maechabin.displayMobileSearch();
-    if (!('scroll-behavior' in this.div.style)) {
-      smoothscroll.polyfill();
-    }
+    // if (!('scroll-behavior' in this.div.style)) {
+    //   smoothscroll.polyfill();
+    // }
     if (!this.detectSticky()) {
       Maechabin.callStickyState();
     }
