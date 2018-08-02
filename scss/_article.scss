@@ -7,8 +7,12 @@
 
   &__title {
     color: $_text-color;
-    margin-bottom: 16px;
-    font-size: 36px;
+    margin-bottom: 32px;
+    font: {
+      size: 36px;
+      weight: normal;
+    }
+
     line-height: 1.4;
   }
 
