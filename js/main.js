@@ -28,7 +28,7 @@ class Maechabin {
       'click',
       (event) => {
         const element = event.target.id;
-        if (element === 'header_bar' || element === 'header_bar_inner') {
+        if (element === 'header_bar') {
           Maechabin.callSmoothScroll(0);
         }
       },
@@ -204,9 +204,6 @@ class Maechabin {
       window.dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
-    // UA-16293533-1
-    // UA-44221308-1
     gtag('config', 'UA-16293533-1', { page_path: path + params });
   }
 

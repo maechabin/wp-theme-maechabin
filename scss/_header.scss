@@ -1,42 +1,23 @@
 .header {
   $height: 64px;
 
-  vertical-align: middle;
-  width: 100%;
-  background: -webkit-linear-gradient(#111 50%, #000 50%, #000);
-  background: linear-gradient(#111 50%, #000 50%, #000);
-  background-color: #000;
-  line-height: $height;
-  height: $height;
-  position: absolute;
-  z-index: 1000;
-
-  &__inner {
-    position: relative;
-    line-height: $height;
-    margin: 0 auto;
-    overflow: hidden;
-    text-align: center;
-  }
-
   &__title {
     margin-top: -2px;
     position: absolute;
     left: 16px;
-    z-index: 30;
+
     font: {
-      family: "Myriad Set Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      family: 'Myriad Set Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       size: 28px;
       weight: normal;
     }
 
-    > a {
+    &_link {
       color: $_theme-color !important;
       text-decoration: none;
       line-height: $height;
 
       &:hover {
-        color: $_theme-color !important;
         text-shadow: 0 0 20px #fff;
       }
     }
@@ -59,11 +40,13 @@
     }
 
     @mixin -text {
+      vertical-align: middle;
       box-sizing: border-box;
       color: #fff;
       font-size: 18px;
       background-color: #424242;
       height: 44px;
+      border: 0;
       padding: 0 6px;
       border-radius: 2px 0 0 2px;
       margin-top: -2px;
@@ -124,7 +107,6 @@
 
   &__button {
     &_search {
-      outline: none;
       position: absolute;
       top: 4px;
       right: 56px;
@@ -142,6 +124,7 @@
     }
 
     &_back {
+      margin: 0;
       outline: none;
       position: absolute;
       top: 6px;
@@ -164,7 +147,7 @@
     top: 4px;
     right: 16px;
 
-    > a > .fa {
+    .fa {
       font-size: 24px;
       color: #fafafa;
       margin-left: 8px;
