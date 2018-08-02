@@ -3,7 +3,7 @@
   <header class="article__header">
     <nav class="article__breadcrumb"><?php breadcrumb(); ?></nav>
     <h1 class="article__title" id="post-<?php the_ID(); ?>">
-      <?php the_title(); ?>
+      <?php the_title(); ?> <?php edit_post_link('編集'); ?>
     </h1>
     <ul class="article__meta">
       <li class="article__meta-li">
