@@ -20,13 +20,14 @@
     <?php mc_social_button(); ?>
   </header>
 
-  <div class="ad-single1">
-    <!-- maesblog（記事上レスポンシブ） -->
+  <!--
+  <div class="ad-space">
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-6331923403728737"
          data-ad-slot="3040249173"
          data-ad-format="auto"></ins>
+-->
     <?php
       $iPod    = stripos($_SERVER['HTTP_USER_AGENT'], "iPod");
       $iPhone  = stripos($_SERVER['HTTP_USER_AGENT'], "iPhone");
@@ -40,7 +41,7 @@
         /** iOS以外の広告 */
       }
     ?>
-  </div>
+  <!--</div>-->
 
   <div class="entry">
     <?php the_content(); ?>
@@ -51,23 +52,13 @@
     <?php wp_link_pages('before=&after=&next_or_number=number&pagelink=%'); ?>
   </div>
 
-  <div class="ad-single2">
-    <div class="ad-single2__banner">
-      <ins class="adsbygoogle"
-           style="display:block"
-           data-ad-format="autorelaxed"
-           data-ad-client="ca-pub-6331923403728737"
-           data-ad-slot="3210202778"></ins>
-    </div>
-  </div>
-
-  <div class="ad-single2">
-    <!-- maesblog（記事下レスポンシブ） -->
+  <div class="ad__space ad__space_bottom">
+    <!-- maesblog（記事下関連記事） -->
     <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-6331923403728737"
-         data-ad-slot="7877624377"
-         data-ad-format="auto"></ins>
+          style="display:block"
+          data-ad-format="autorelaxed"
+          data-ad-client="ca-pub-6331923403728737"
+          data-ad-slot="3210202778"></ins>
   </div>
 
   <ul class="article__meta">
