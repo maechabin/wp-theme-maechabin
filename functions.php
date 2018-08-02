@@ -9,6 +9,14 @@ add_theme_support('post-thumbnails');
 remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 remove_action( 'wp_print_styles', 'print_emoji_styles', 10 );
 
+# 出力される全てのEmbed系のタグを削除
+remove_action('wp_head','rest_output_link_wp_head');
+remove_action('wp_head','wp_oembed_add_discovery_links');
+remove_action('wp_head','wp_oembed_add_host_js');
+
+# HTTPレスポンスから外す
+remove_action('template_redirect', 'rest_output_link_header', 11 );
+
 # 動的サイドバーを必要としていることをプラグインに伝える
 if (function_exists('register_sidebar')) {
   register_sidebar(
