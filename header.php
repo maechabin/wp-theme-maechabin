@@ -74,8 +74,66 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
   <?php wp_head(); ?>
 
   <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-8d9fb797a02029895ec65371887dcce3.css" media="all">
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
   <script src="/wp-content/themes/chabin/assets/function.min-5f7582c954ef8f13241ba01219cfae7f.js" defer></script>
   <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" defer></script>
+  .header {
+    width: 100%;
+    overflow: hidden;
+    background-color: #191919;
+    line-height: 64px;
+    height: 64px;
+    position: absolute;
+    z-index: 1000;
+  }
+
+  .content {
+    z-index: 2;
+    background-color: #fff;
+    border-top: 1px solid #cfd8dc;
+    width: calc(100% - 80px);
+    padding-right: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main {
+    padding-top: 16px;
+    padding-left: calc((100% - 1100px) / 2);
+    width: 760px;
+    margin-bottom: 0;
+  }
+
+  .category {
+    padding-top: 72px;
+    width: 100%;
+    background-color: #eceff1;
+  }
+
+  @media screen and (max-width: 1179px) {
+    .content {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      padding-right: 0;
+    }
+
+    .main {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 0;
+    }
+
+    .category {
+      max-width: 100%;
+    }
+  }
+  </style>
 </head>
