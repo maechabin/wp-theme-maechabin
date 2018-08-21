@@ -11,7 +11,7 @@
         >
       </figure>
       <p class="sidebar__author_name">Takanori Maeda</p>
-      <p class="sidebar__author_description">フロントエンドエンジニア / JavaScipt / React / Angular。趣味はカメラ、読書、英語、作曲。</p>
+      <p class="sidebar__author_description">Frontend Engineer. TypeScript, React, Angular<br>趣味はカメラ、読書、英語、作曲。</p>
       <p class="sidebar__author_social">
         <a
           class="sidebar__author_link"
