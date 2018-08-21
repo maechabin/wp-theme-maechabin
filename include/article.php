@@ -52,14 +52,19 @@
     <?php wp_link_pages('before=&after=&next_or_number=number&pagelink=%'); ?>
   </div>
 
-  <div class="ad__space ad__space_bottom">
-    <!-- maesblog（記事下関連記事） -->
-    <ins class="adsbygoogle"
-          style="display:block"
-          data-ad-format="autorelaxed"
-          data-ad-client="ca-pub-6331923403728737"
-          data-ad-slot="3210202778"></ins>
-  </div>
+  <section class="article__related">
+    <h1 class="article__related_title">
+      <i class="fa fa-files-o"></i> 関連記事
+    </h1>
+    <div class="ad__space ad__space_bottom">
+      <!-- maesblog（記事下関連記事） -->
+      <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-format="autorelaxed"
+            data-ad-client="ca-pub-6331923403728737"
+            data-ad-slot="3210202778"></ins>
+    </div>
+  </section>
 
   <ul class="article__meta">
     <li class="article__meta-li">カテゴリー: <?php the_category(', '); ?></li>
