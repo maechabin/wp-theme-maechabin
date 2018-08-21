@@ -46,6 +46,6 @@
     "slideshowad": "^1.4.0",
     "smoothscroll-polyfill": "^0.4.3",
     "sticky-state": "^2.4.1",
-    "turbolinks": "^5.1.1"
+    "turbolinks": "^5.2.0"
   }
 }
