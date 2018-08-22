@@ -29,7 +29,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
     <meta property="og:type" content="article">
     <meta property="og:title" content="<?php the_title(); ?>">
     <meta property="og:url" content="<?php echo get_permalink(); ?>">
-    <meta property="og:description" content="<?php echo mb_substr(str_replace(array("rn", "r", "n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
+    <meta property="og:description" content="<?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
   <?php endif; ?>
 
   <?php if(is_single() && has_post_thumbnail() ): ?>
@@ -53,7 +53,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
     <meta name="twitter:image:src" content="/wp-content/uploads/2015/11/maechabin_400.png">
   <?php else: ?> <!-- ←上記の条件にもれたページ（記事ページ） -->
     <meta name="twitter:title" content="<?php the_title(); ?>">
-    <meta name="twitter:description" content="<?php echo mb_substr(str_replace(array("rn", "r", "n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
+    <meta name="twitter:description" content="<?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
   <?php endif; ?>
 
   <?php if(is_single() && has_post_thumbnail() ): ?>
