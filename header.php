@@ -6,6 +6,19 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 <head>
   <meta charset="utf-8">
   <title><?php site_title() ?></title>
+
+  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <!--
+  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.eot" as="font" type="application/vnd.ms-fontobject" crossorigin="anonymous">
+  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.woff" as="font" type="font/woff" crossorigin="anonymous">
+  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.svg" as="font" type="image/svg+xml" crossorigin="anonymous">
+  -->
+  <link rel="preload" href="/wp-content/themes/chabin/assets/style-a69e09f57ae54b8b1becdfa333d68bd1.css" as="style">
+  <link rel="preload" href="/wp-content/themes/chabin/assets/function.min-d56aab9f7bf22be2b4f953afbdaccacb.js" as="script">
+
+  <link rel="preload" href="/wp-content/uploads/2018/03/maechabin.png" as="image">
+
   <meta http-equiv="default-style" content="<?php bloginfo('stylesheet_url'); ?>">
   <meta name="description" content="JavaScript、Reactなどのフロントエンド関連のWeb技術の話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
   <meta name="keywords" content="JavaScript, Raect, Angular, css, wordpress, apple">
@@ -73,16 +86,12 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 
   <?php wp_head(); ?>
 
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-8d9fb797a02029895ec65371887dcce3.css" media="all">
   <style>
   body {
     margin: 0;
     padding: 0;
   }
 
-  <script src="/wp-content/themes/chabin/assets/function.min-5f7582c954ef8f13241ba01219cfae7f.js" defer></script>
-  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
-  <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" defer></script>
   .header {
     width: 100%;
     overflow: hidden;
@@ -136,4 +145,12 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
     }
   }
   </style>
+
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-a69e09f57ae54b8b1becdfa333d68bd1.css" media="all">
+
+  <script src="/wp-content/themes/chabin/assets/function.min-d56aab9f7bf22be2b4f953afbdaccacb.js" defer></script>
+  <script src="/wp-includes/js/comment-reply.min.js" defer></script>
+  <!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css" defer></script>-->
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async data-turbolinks-eval="false"></script>
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" async data-turbolinks-eval="false"></script>
 </head>
