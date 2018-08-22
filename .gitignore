@@ -15,6 +15,9 @@ css/navi.css.map
 js/function.js
 js/function.min.js
 js/meltdown/
+js/lang-css.js
+js/run_prettify.js
+js/comment-reply.js
 .sass-cache
 .cache
 npm-debug.log

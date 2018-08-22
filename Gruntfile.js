@@ -100,7 +100,7 @@ module.exports = (grunt) => {
           ],
         },
         files: {
-          'js/function.js': ['js/main.js'],
+          'js/function.js': ['js/app.js', 'js/prettify.js'],
         },
       },
     },
