@@ -2,14 +2,13 @@ module.exports = (grunt) => {
   const pkg = grunt.file.readJSON('package.json');
 
   grunt.initConfig({
-
     file: {
       get_name(dir) {
         const fs = require('fs');
         const regexpCss = /^style-[0-9a-z]{32}\.css$/;
         const regexpJs = /^function\.min-[0-9a-z]{32}\.js$/;
         const list = fs.readdirSync('assets/');
-        const regexp = (dir === 'css') ? regexpCss : regexpJs;
+        const regexp = dir === 'css' ? regexpCss : regexpJs;
 
         for (let i = 0; i < list.length; i++) {
           if (list[i].match(regexp)) {
@@ -25,24 +24,22 @@ module.exports = (grunt) => {
         options: {
           style: 'expanded',
         },
-        files: [{
-          expand: true,
-          cwd: 'scss',
-          src: ['*.scss', '*.sass'],
-          dest: 'css',
-          ext: '.css',
-        }],
+        files: [
+          {
+            expand: true,
+            cwd: 'scss',
+            src: ['*.scss', '*.sass'],
+            dest: 'css',
+            ext: '.css',
+          },
+        ],
       },
     },
 
     cssmin: {
       minify: {
         files: {
-          'style.css': [
-            'css/style.css',
-            'css/prettify.min.css',
-            'css/font-awesome.min.css',
-          ],
+          'style.css': ['css/style.css', 'css/prettify.min.css', 'css/font-awesome.min.css'],
         },
       },
     },
@@ -77,27 +74,29 @@ module.exports = (grunt) => {
       css: {
         src: ['header.php'],
         overwrite: true,
-        replacements: [{
-          from: /\/wp-content\/themes\/chabin\/assets\/style-[0-9a-z]{32}\.css/g,
-          to: '/wp-content/themes/chabin/assets/<%= file.get_name("css") %>',
-        }],
+        replacements: [
+          {
+            from: /\/wp-content\/themes\/chabin\/assets\/style-[0-9a-z]{32}\.css/g,
+            to: '/wp-content/themes/chabin/assets/<%= file.get_name("css") %>',
+          },
+        ],
       },
       js: {
         src: ['header.php'],
         overwrite: true,
-        replacements: [{
-          from: /\/wp-content\/themes\/chabin\/assets\/function\.min-[0-9a-z]{32}\.js/g,
-          to: '/wp-content/themes/chabin/assets/<%= file.get_name("js") %>',
-        }],
+        replacements: [
+          {
+            from: /\/wp-content\/themes\/chabin\/assets\/function\.min-[0-9a-z]{32}\.js/g,
+            to: '/wp-content/themes/chabin/assets/<%= file.get_name("js") %>',
+          },
+        ],
       },
     },
 
     browserify: {
       dist: {
         options: {
-          transform: [
-            ['babelify'],
-          ],
+          transform: [['babelify']],
         },
         files: {
           'js/function.js': ['js/app.js', 'js/prettify.js'],
@@ -115,7 +114,7 @@ module.exports = (grunt) => {
         tasks: ['cssmin', 'clean:css', 'md5:css', 'replace:css'],
       },
       js: {
-        files: ['js/main.js'],
+        files: ['js/*.js'],
         tasks: ['browserify', 'uglify', 'clean:js', 'md5:js', 'replace:js'],
       },
     },
