@@ -1,5 +1,8 @@
 .DS_Store
-nbproject/
+.cache/
+.sass-cache/
+
+assets/
 node_modules/
 css/style.css
 css/style.css.map
@@ -18,7 +21,7 @@ js/meltdown/
 js/lang-css.js
 js/run_prettify.js
 js/comment-reply.js
-.sass-cache
-.cache
+style.css
+
 npm-debug.log
 ads.txt
