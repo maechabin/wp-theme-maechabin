@@ -6,17 +6,8 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 <head>
   <meta charset="utf-8">
   <title><?php site_title() ?></title>
-
-  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.woff2" as="font" type="font/woff2" crossorigin="anonymous">
-  <!--
-  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.eot" as="font" type="application/vnd.ms-fontobject" crossorigin="anonymous">
-  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.woff" as="font" type="font/woff" crossorigin="anonymous">
-  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.ttf" as="font" type="font/ttf" crossorigin="anonymous">
-  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.svg" as="font" type="image/svg+xml" crossorigin="anonymous">
-  -->
-  <link rel="preload" href="/wp-content/themes/chabin/assets/style-a69e09f57ae54b8b1becdfa333d68bd1.css" as="style">
-  <link rel="preload" href="/wp-content/themes/chabin/assets/function.min-d56aab9f7bf22be2b4f953afbdaccacb.js" as="script">
-
+  
+  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.woff2?v=4.6.1" as="font" type="font/woff2" crossorigin="anonymous">
   <link rel="preload" href="/wp-content/uploads/2018/03/maechabin.png" as="image">
 
   <meta http-equiv="default-style" content="<?php bloginfo('stylesheet_url'); ?>">

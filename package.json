@@ -41,7 +41,6 @@
     "stylelint-scss": "^2.2.0"
   },
   "dependencies": {
-    "cbsharecount": "^2.1.2",
     "slideheader": "^0.10.3",
     "slideshowad": "^1.4.0",
     "smoothscroll-polyfill": "^0.4.3",
