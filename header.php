@@ -137,7 +137,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
   }
   </style>
 
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-a69e09f57ae54b8b1becdfa333d68bd1.css" media="all">
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-1ef5077ddde274b2ebb9ea7b55c7e775.css" media="all">
 
   <script src="/wp-content/themes/chabin/assets/function.min-d56aab9f7bf22be2b4f953afbdaccacb.js" defer></script>
   <script src="/wp-includes/js/comment-reply.min.js" defer></script>
