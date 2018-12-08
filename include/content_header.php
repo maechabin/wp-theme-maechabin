@@ -28,13 +28,14 @@
 <!-- ▲header▲ -->
 
 <?php
-  $all = get_category(31)->category_count + get_category(33)->category_count + get_category(32)->category_count;
+  $count_posts = wp_count_posts();
+  $all_posts = $count_posts->publish;
 ?>
 <nav class="category">
   <ul class="category__list">
     <li class="category__list_li <?php echo current_category('all'); ?>">
       <a class="category__link" href="/">All
-        <span class="category__name">（<?php echo $all; ?>）</span>
+        <span class="category__name">（<?php echo $all_posts; ?>）</span>
       </a>
     </li>
     <li class="category__list_li <?php echo current_category('Web技術'); ?>">
@@ -42,14 +43,14 @@
         <span class="category__name">（<?php echo get_category(31)->category_count; ?>）</span>
       </a>
     </li>
-    <li class="category__list_li <?php echo current_category('出来事'); ?>">
-      <a class="category__link"  href="/archives/category/event">出来事
-        <span class="category__name">（<?php echo get_category(33)->category_count; ?>）</span>
-      </a>
-    </li>
     <li class="category__list_li <?php echo current_category('所感'); ?>">
       <a class="category__link"  href="/archives/category/impression">所感
         <span class="category__name">（<?php echo get_category(32)->category_count; ?>）</span>
+      </a>
+    </li>
+    <li class="category__list_li <?php echo current_category('出来事'); ?>">
+      <a class="category__link"  href="/archives/category/event">出来事
+        <span class="category__name">（<?php echo get_category(33)->category_count; ?>）</span>
       </a>
     </li>
   </ul>
