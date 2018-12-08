@@ -4,10 +4,6 @@
     font-size: 16px;
     text-align: center;
     border-bottom: 1px solid #eee;
-
-    strong {
-      font-size: 24px;
-    }
   }
 
   &__box {
@@ -15,14 +11,16 @@
     padding: 16px;
 
     &_title {
-      font-size: 20px;
+      font: {
+        size: 22px;
+        weight: normal;
+      }
+
+      margin-bottom: 0;
     }
 
     &_date {
       color: #757575;
-    }
-
-    p {
       margin: 4px auto;
       font-size: 14px;
     }
@@ -31,38 +29,19 @@
       font-size: 14px;
       margin-bottom: 8px;
 
-      li {
+      &-list {
         display: inline-block;
         margin-right: 16px;
-      }
-    }
-
-    &_share {
-      border-radius: 2px;
-      background-color: #efebe9;
-      padding: 4px 16px;
-
-      li {
-        width: 64px;
-        display: inline-block;
-        font-size: 14px;
-
-        span {
-          margin: 0 8px 0 0;
-        }
-      }
-
-      a,
-      .fa {
-        vertical-align: baseline;
-        color: #263238;
-        text-decoration: none;
       }
     }
   }
 
   &__display {
     display: inline;
+
+    &_big {
+      font-size: 24px;
+    }
   }
 
   @media screen and (max-width: $_responsive-point) {

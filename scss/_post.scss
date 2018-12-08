@@ -13,12 +13,16 @@
   }
 
   &__title {
-    font-size: 24px;
+    font: {
+      size: 24px;
+      weight: normal;
+    }
+
     line-height: 1.4;
     padding-top: 8px;
     margin: 0 16px;
 
-    a {
+    &_link {
       color: #111;
       text-decoration: none;
     }
@@ -28,7 +32,7 @@
     vertical-align: middle;
     font-size: 14px;
 
-    a {
+    &_link {
       text-decoration: none;
       color: #616161;
     }
@@ -50,66 +54,25 @@
       font-size: 14px;
       line-height: 1em;
       margin-right: 16px;
-
-      i {
-        vertical-align: baseline;
-        color: #616161;
-        text-decoration: none;
-      }
-    }
-  }
-
-  &__socialbtn {
-    &-ul {
-      display: flex;
-      flex: 1;
-      text-align: right;
     }
 
-    &-li {
-      flex: 1;
-      text-align: center;
-      font-size: 14px;
-
-      span {
-        margin: 0 4px 0 0;
-      }
-
-      &:last-child span {
-        margin: 0;
-      }
-
-      a,
-      .fa {
-        vertical-align: baseline;
-        color: #616161;
-        text-decoration: none;
-      }
+    &-li > .fa {
+      vertical-align: baseline;
+      color: #616161;
+      text-decoration: none;
     }
   }
 
   @media screen and (max-width: $_responsive-point) {
     &__meta {
-      display: block;
-
       &-ul {
         text-align: center;
         width: 100%;
         display: block;
-        margin-bottom: 16px;
       }
 
       &-li {
         display: inline;
-      }
-    }
-
-    &__socialbtn {
-      &-ul {
-        text-align: center;
-        position: static;
-        margin-right: 16px;
-        padding-bottom: 8px;
       }
     }
   }

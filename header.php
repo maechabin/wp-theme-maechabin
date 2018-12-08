@@ -6,6 +6,10 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 <head>
   <meta charset="utf-8">
   <title><?php site_title() ?></title>
+  
+  <link rel="preload" href="/wp-content/themes/chabin/fonts/fontawesome-webfont.woff2?v=4.6.1" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/wp-content/uploads/2018/03/maechabin.png" as="image">
+
   <meta http-equiv="default-style" content="<?php bloginfo('stylesheet_url'); ?>">
   <meta name="description" content="JavaScript、Reactなどのフロントエンド関連のWeb技術の話題から、Apple製品のこと、音楽（ピアノ、作曲）のことなどを書いています。">
   <meta name="keywords" content="JavaScript, Raect, Angular, css, wordpress, apple">
@@ -29,7 +33,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
     <meta property="og:type" content="article">
     <meta property="og:title" content="<?php the_title(); ?>">
     <meta property="og:url" content="<?php echo get_permalink(); ?>">
-    <meta property="og:description" content="<?php echo mb_substr(str_replace(array("rn", "r", "n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
+    <meta property="og:description" content="<?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
   <?php endif; ?>
 
   <?php if(is_single() && has_post_thumbnail() ): ?>
@@ -53,7 +57,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
     <meta name="twitter:image:src" content="/wp-content/uploads/2015/11/maechabin_400.png">
   <?php else: ?> <!-- ←上記の条件にもれたページ（記事ページ） -->
     <meta name="twitter:title" content="<?php the_title(); ?>">
-    <meta name="twitter:description" content="<?php echo mb_substr(str_replace(array("rn", "r", "n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
+    <meta name="twitter:description" content="<?php echo mb_substr(str_replace(array("\r\n", "\r", "\n"), '', strip_tags($post-> post_content)), 0, 100).'...'; ?>">
   <?php endif; ?>
 
   <?php if(is_single() && has_post_thumbnail() ): ?>
@@ -73,9 +77,71 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 
   <?php wp_head(); ?>
 
-  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-8d9fb797a02029895ec65371887dcce3.css" media="all">
+  <style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
 
-  <script src="/wp-content/themes/chabin/assets/function.min-5f7582c954ef8f13241ba01219cfae7f.js" defer></script>
-  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" defer></script>
-  <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" defer></script>
+  .header {
+    width: 100%;
+    overflow: hidden;
+    background-color: #191919;
+    line-height: 64px;
+    height: 64px;
+    position: absolute;
+    z-index: 1000;
+  }
+
+  .content {
+    z-index: 2;
+    background-color: #fff;
+    border-top: 1px solid #cfd8dc;
+    width: calc(100% - 80px);
+    padding-right: 80px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main {
+    padding-top: 16px;
+    padding-left: calc((100% - 1100px) / 2);
+    width: 760px;
+    margin-bottom: 0;
+  }
+
+  .category {
+    padding-top: 72px;
+    width: 100%;
+    background-color: #eceff1;
+  }
+
+  @media screen and (max-width: 1179px) {
+    .content {
+      display: block;
+      max-width: 100%;
+      width: 100%;
+      padding-right: 0;
+    }
+
+    .main {
+      width: 100%;
+      max-width: 100%;
+      padding-left: 0;
+    }
+
+    .category {
+      max-width: 100%;
+    }
+  }
+  </style>
+
+  <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-1ef5077ddde274b2ebb9ea7b55c7e775.css" media="all">
+
+  <script src="/wp-content/themes/chabin/assets/function.min-d56aab9f7bf22be2b4f953afbdaccacb.js" defer></script>
+  <script src="/wp-includes/js/comment-reply.min.js" defer></script>
+  <!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css" defer></script>-->
+  <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async data-turbolinks-eval="false"></script>
+  <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" async data-turbolinks-eval="false"></script>
 </head>

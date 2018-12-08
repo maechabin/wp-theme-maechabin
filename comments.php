@@ -1,13 +1,12 @@
 <!-- ▼#comments▼ -->
 <section class="comments">
   <?php if(post_password_required()): ?>
-    <?php /* ▼パスワード制限がある場合▼ */ ?>
-    <p class="nopassword"><?php _e( 'コメントを閲覧するには、パスワードの入力が必要です。', 'maechabin'); ?></p>
+    <p class="nopassword">コメントを閲覧するには、パスワードの入力が必要です。</p>
     <?php return; ?>
   <?php endif; ?>
 
   <h1 class="comments__title">
-    <i class="fa fa-comments"></i> コメント <?php /** comments_number('0','1','%'); */ ?>
+    <i class="fa fa-comments"></i> コメント
   </h1>
   <?php if(have_comments()): ?>
     <?php if(get_comment_pages_count() > 1 && get_option('page_comments')): // Are there comments to navigate through? ?>
@@ -60,12 +59,16 @@
     $aria_req = ( $req ? " aria-required='true'" : '' );
 
     $fields =  array(
-      'author' => '<li class="respond__form-author">' . '<label for="author" class="respond__form-label">' . __( 'Name' ) . '</label> ' . ( $req ? '<span class="respond__form-required">必須</span>' : '' ) .
-      '<input class="respond__form-input" id="author" name="author" type="text" value="' . esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . ' /></li>',
-      'email'  => '<li class="respond__form-email"><label for="email" class="respond__form-label">' . __( 'Email' ) . '</label> ' . ( $req ? '<span class="respond__form-required">必須</span>　※公開されません' : '' ) .
-      '<input class="respond__form-input" id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . ' /></li>',
-      'url'    => '<li class="respond__form-url"><label for="url" class="respond__form-label">' . __( 'Website' ) . '</label>' .
-      '<input class="respond__form-input" id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30" /></li>',
+      'author' =>
+        '<li class="respond__form-author">' .
+        '<label for="author" class="respond__form-label">お名前</label> ' .
+        ( $req ? '<span class="respond__form-required">必須</span>' : '' ) .
+        '<input class="respond__form-input" id="author" name="author" type="text" value="' .
+        esc_attr( $commenter['comment_author'] ) . '" size="30"' . $aria_req . '></li>',
+      'email'  => '<li class="respond__form-email"><label for="email" class="respond__form-label">メールアドレス</label> ' . ( $req ? '<span class="respond__form-required">必須</span>　※公開されません' : '' ) .
+        '<input class="respond__form-input" id="email" name="email" type="text" value="' . esc_attr(  $commenter['comment_author_email'] ) . '" size="30"' . $aria_req . '></li>',
+      'url'    => '<li class="respond__form-url"><label for="url" class="respond__form-label">URL</label>' .
+        '<input class="respond__form-input" id="url" name="url" type="text" value="' . esc_attr( $commenter['comment_author_url'] ) . '" size="30"></li>',
     );
 
     $required_text = sprintf( ' ' . __('Required fields are marked %s'), '<span class="required">*</span>' );

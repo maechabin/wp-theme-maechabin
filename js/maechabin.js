@@ -1,11 +1,10 @@
-import smoothscroll from 'smoothscroll-polyfill';
 import Turbolinks from 'turbolinks';
-import SlideHeader from 'slideheader';
 
-const allowTurbolinks = true;
 const StickyState = require('sticky-state');
+// import SlideHeader from 'slideheader';
+// import smoothscroll from 'smoothscroll-polyfill';
 
-class Maechabin {
+export default class Maechabin {
   constructor(options) {
     this.div = document.createElement('div');
     this.allowTurbolinks = options.allowTurbolinks || false;
@@ -28,7 +27,7 @@ class Maechabin {
       'click',
       (event) => {
         const element = event.target.id;
-        if (element === 'header_bar' || element === 'header_bar_inner') {
+        if (element === 'header_bar') {
           Maechabin.callSmoothScroll(0);
         }
       },
@@ -204,9 +203,6 @@ class Maechabin {
       window.dataLayer.push(arguments);
     }
     gtag('js', new Date());
-
-    // UA-16293533-1
-    // UA-44221308-1
     gtag('config', 'UA-16293533-1', { page_path: path + params });
   }
 
@@ -217,90 +213,17 @@ class Maechabin {
     Maechabin.callAnalytics();
     this.clickTopPost();
     Maechabin.makeContentEditable();
-    new SlideHeader('.cb-header', {
-      headroom: true,
-      slidePoint: 64,
-    }).init('slideUp');
+    // new SlideHeader('.cb-header', {
+    //   headroom: true,
+    //   slidePoint: 64,
+    // }).init('slideUp');
     Maechabin.displayMobileSearch();
-    if (!('scroll-behavior' in this.div.style)) {
-      smoothscroll.polyfill();
-    }
+    // if (!('scroll-behavior' in this.div.style)) {
+    //   smoothscroll.polyfill();
+    // }
     if (!this.detectSticky()) {
       Maechabin.callStickyState();
     }
+    PR.prettyPrint();
   }
-}
-
-if (Turbolinks.supported && allowTurbolinks) {
-  let shouldAdSense = true;
-
-  document.addEventListener(
-    'DOMContentLoaded',
-    () => {
-      const sidebar = document.querySelector('.sidebar__author');
-      const footer = document.querySelector('.footer');
-      [sidebar, footer].forEach((elem) => {
-        elem.setAttribute('data-turbolinks-permanent', true);
-      });
-      Turbolinks.start();
-    },
-    false,
-  );
-
-  document.addEventListener(
-    'turbolinks:load',
-    () => {
-      new Maechabin({
-        allowTurbolinks,
-      }).init();
-
-      if (shouldAdSense) {
-        Maechabin.callAdSense();
-        shouldAdSense = false;
-      }
-
-      const links = document.querySelectorAll('a');
-      const html = document.querySelector('html');
-      links.forEach((link) => {
-        link.addEventListener(
-          'click',
-          (event) => {
-            if (link.href && link.href.match(/[#]/)) {
-              html.setAttribute('style', 'scroll-behavior: smooth;');
-              event.target.setAttribute('data-turbolinks', 'false');
-            } else {
-              html.setAttribute('style', 'scroll-behavior: auto;');
-            }
-          },
-          false,
-        );
-      });
-    },
-    false,
-  );
-
-  document.addEventListener(
-    'turbolinks:before-cache',
-    () => {
-      //
-    },
-    false,
-  );
-
-  document.addEventListener(
-    'turbolinks:before-visit',
-    () => {
-      window.referrer = window.location.href;
-      shouldAdSense = true;
-    },
-    false,
-  );
-} else {
-  document.addEventListener(
-    'DOMContentLoaded',
-    () => {
-      new Maechabin().init();
-    },
-    false,
-  );
 }
