@@ -141,7 +141,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 
   <script src="/wp-content/themes/chabin/assets/function.min-d56aab9f7bf22be2b4f953afbdaccacb.js" defer></script>
   <script src="/wp-includes/js/comment-reply.min.js" defer></script>
-  <!--<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js?lang=css" defer></script>-->
+  <!--<script src="https://cdn.jsdelivr.net/gh/google/code-prettify/loader/run_prettify.js?lang=css" defer></script>-->
   <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async data-turbolinks-eval="false"></script>
   <script src="https://www.googletagmanager.com/gtag/js?id=UA-44221308-1" async data-turbolinks-eval="false"></script>
 </head>
