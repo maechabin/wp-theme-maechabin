@@ -23,7 +23,7 @@
 
               <div class="entry">
                 <?php the_content(); ?>
-                <div style="text-align:center;">
+                <div class="ad__space ad__space_bottom">
                   <!-- maesblog（Page用） -->
                   <ins class="adsbygoogle"
                       style="display:inline-block;width:468px;height:60px"

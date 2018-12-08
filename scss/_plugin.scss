@@ -2,47 +2,6 @@
   display: none !important;
 }
 
-/* ▽関連記事▽ */
-#related-posts {
-  &-title {
-    clear: both;
-    color: #fff;
-    padding: 24px 0;
-    background-color: $_theme-color;
-    font-size: 24px;
-    font-weight: normal;
-    text-align: center;
-    margin-bottom: 24px;
-    border-radius: 2px;
-  }
-}
-
-.related-posts {
-  &-li {
-    text-align: left;
-    text-indent: -7px;
-    margin-bottom: 16px;
-    padding-bottom: 16px;
-    line-height: 1.2 !important;
-    padding-left: 16px;
-    border-bottom: 1px dotted #e0e0e0;
-    font-size: 15px;
-
-    .fa {
-      font-size: 12px;
-      color: #bdbdbd;
-    }
-
-    a {
-      text-decoration: underline !important;
-
-      &:hover {
-        text-decoration: none !important;
-      }
-    }
-  }
-}
-
 .wp-pagenavi {
   @mixin navi {
     display: inline-block;
