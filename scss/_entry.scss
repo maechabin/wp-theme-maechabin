@@ -8,8 +8,9 @@
     margin-right: 0.5em;
   }
 
-  div {
-    margin-bottom: 40px;
+  figure {
+    margin: 0;
+    padding: 0;
   }
 
   div,
@@ -43,6 +44,7 @@
   }
 
   img {
+    vertical-align: middle;
     box-sizing: border-box;
     max-width: 100%;
     height: auto;
@@ -84,10 +86,15 @@
     border-bottom: 8px solid #424242;
 
     > p {
-      font-family: "San Francisco", BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
-      font-size: 18px;
+      font: {
+        family: 'San Francisco', BlinkMacSystemFont, 游ゴシック, 'Yu Gothic', YuGothic,
+          'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo, 'Noto Sans Japanese',
+          'Noto Sans CJK JP', sans-serif;
+        size: 18px;
+      }
+
       line-height: 2;
-      margin-bottom: 0;
+      margin: 0;
     }
   }
 
@@ -100,13 +107,35 @@
   h2,
   .entry-h2 {
     padding: 32px 16px;
-    background: linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
-    background: -webkit-linear-gradient(-45deg, #e0e0e0 25%, transparent 25%, transparent 50%, #e0e0e0 50%, #e0e0e0 75%, transparent 75%, transparent);
+    background: linear-gradient(
+      -45deg,
+      #e0e0e0 25%,
+      transparent 25%,
+      transparent 50%,
+      #e0e0e0 50%,
+      #e0e0e0 75%,
+      transparent 75%,
+      transparent
+    );
+    background: -webkit-linear-gradient(
+      -45deg,
+      #e0e0e0 25%,
+      transparent 25%,
+      transparent 50%,
+      #e0e0e0 50%,
+      #e0e0e0 75%,
+      transparent 75%,
+      transparent
+    );
     background-size: 3px 3px;
     border-top: 4px solid #424242;
     border-bottom: 4px solid #424242;
     color: $_text-color;
-    font-size: 32px;
+    font: {
+      size: 32px;
+      weight: normal;
+    }
+
     margin: 64px auto 32px;
   }
 
@@ -245,6 +274,10 @@
     border: 1px dashed #ccc;
   }
 
+  pre {
+    margin: 0;
+  }
+
   code,
   .mark {
     color: #424242;
@@ -282,8 +315,7 @@
     border-radius: 8px;
     vertical-align: 0;
     font: {
-      family: Consolas, 'Courier New', Courier, Monaco, monospace;
-      family: Menlo, Consolas, 'DejaVu Sans Mono', monospace !important;
+      family: Menlo, Consolas, 'DejaVu Sans Mono', monospace;
       size: 14px !important;
       weight: bold;
     }

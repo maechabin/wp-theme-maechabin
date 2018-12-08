@@ -12,8 +12,8 @@ $_sidebar-width: calc(((100% - 1100px) / 2) + 332px);
 $_responsive-point: $_content-width + 80px;
 
 @font-face {
-  font-family: "Yu Gothic";
-  src: local("Yu Gothic Medium");
+  font-family: 'Yu Gothic';
+  src: local('Yu Gothic Medium');
   font-weight: 400;
 }
 
@@ -24,8 +24,13 @@ html {
 
 body {
   /*  font-family: "Segoe UI", "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, Osaka, 'ＭＳ Ｐゴシック', sans-serif; */
-  font-family: "San Francisco", BlinkMacSystemFont, 游ゴシック, "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic ProN", メイリオ, Meiryo, "Noto Sans Japanese", "Noto Sans CJK JP", sans-serif;
-  font-size: 16px;
+  font: {
+    family: 'San Francisco', BlinkMacSystemFont, 游ゴシック, 'Yu Gothic', YuGothic,
+      'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo, 'Noto Sans Japanese',
+      'Noto Sans CJK JP', sans-serif;
+    size: 16px;
+  }
+
   color: $_text-color;
   background-color: #fff;
   -webkit-font-smoothing: antialiased;
@@ -45,6 +50,15 @@ a > .fa {
   vertical-align: -1px;
   color: $_text-color;
   text-decoration: none;
+}
+
+dl,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  list-style-type: none;
 }
 
 pre {
@@ -67,5 +81,21 @@ pre {
 
   .mobile_only {
     display: block;
+  }
+}
+
+/* 広告 */
+.ad {
+  &__space {
+    text-align: center;
+
+    &_bottom {
+      margin-bottom: 32px;
+    }
+
+    &_sidebar {
+      width: 300px;
+      max-height: 250px;
+    }
   }
 }

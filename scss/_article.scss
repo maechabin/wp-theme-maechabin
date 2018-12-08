@@ -7,8 +7,12 @@
 
   &__title {
     color: $_text-color;
-    margin-bottom: 16px;
-    font-size: 36px;
+    margin-bottom: 32px;
+    font: {
+      size: 36px;
+      weight: normal;
+    }
+
     line-height: 1.4;
   }
 
@@ -64,6 +68,21 @@
   &__linkpages {
     text-align: center;
     font-size: 14px;
+  }
+
+  /* ▽関連記事▽ */
+  &__related {
+    &_title {
+      clear: both;
+      color: #fff;
+      padding: 24px 0;
+      background-color: $_theme-color;
+      font-size: 24px;
+      font-weight: normal;
+      text-align: center;
+      margin-bottom: 24px;
+      border-radius: 2px;
+    }
   }
 
   /** 次のページへ　前のページへ */
@@ -139,6 +158,16 @@
         @include button;
 
         background: #ef4357;
+      }
+    }
+  }
+
+  @media screen and (max-width: $_responsive-point) {
+    &__related {
+      &_title {
+        border-radius: 0;
+        margin-left: -16px;
+        margin-right: -16px;
       }
     }
   }
