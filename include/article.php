@@ -17,7 +17,6 @@
         <?php the_tags('<span class="article__meta-tag">', '', '</span>'); ?>
       </li>
     </ul>
-    <?php mc_social_button(); ?>
   </header>
 
   <!--
@@ -72,8 +71,6 @@
       <?php the_tags('<span class="article__meta-tag">', '', '</span>'); ?>
     </li>
   </ul>
-
-  <?php mc_social_button(); ?>
 
   <ul class="article__nav" id="nav-below">
     <li class="article__nav-previous"><?php previous_post_link('%link','<span class="meta-nav">←</span> %title'); ?></li>

@@ -63,49 +63,16 @@
     }
   }
 
-  &__socialbtn {
-    &-ul {
-      display: flex;
-      flex: 1;
-      text-align: right;
-    }
-
-    &-li {
-      flex: 1;
-      text-align: center;
-      font-size: 14px;
-    }
-
-    &-link,
-    &-link > .fa {
-      vertical-align: baseline;
-      color: #616161;
-      text-decoration: none;
-    }
-  }
-
   @media screen and (max-width: $_responsive-point) {
     &__meta {
-      display: block;
-
       &-ul {
         text-align: center;
         width: 100%;
         display: block;
-        margin-bottom: 16px;
       }
 
       &-li {
         display: inline;
-      }
-    }
-
-    &__socialbtn {
-      &-ul {
-        text-align: center;
-        position: static;
-        margin-right: 16px;
-        padding-bottom: 8px;
       }
     }
   }
