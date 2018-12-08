@@ -17,7 +17,7 @@
           class="sidebar__author_link"
           href="https://github.com/maechabin"
           target="_blank" onclick="ga('send', 'event', 'sidebar', 'click', 'about-github');" rel="noopener"
-        ><i class="fa fa-github-alt"></i></a>
+        ><i class="fa fa-github"></i></a>
         <a
           class="sidebar__author_link"
           href="https://twitter.com/maechabin"
