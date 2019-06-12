@@ -18,6 +18,8 @@ services:
     environment:
       WORDPRESS_DB_HOST: db:3306
     env_file: .env
+    volumes:
+      - ./:/var/www/html/wp-content/themes/chabin
 
 volumes:
   db_data: {}
