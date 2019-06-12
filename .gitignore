@@ -27,3 +27,5 @@ npm-debug.log
 ads.txt
 
 .env
+
+mysql.chabin.sql
