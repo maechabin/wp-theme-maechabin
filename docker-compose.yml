@@ -5,7 +5,7 @@ services:
     image: mysql:5.7
     volumes:
       - db_data:/var/lib/mysql
-      - ./mysql.chabin.sql:/docker-entrypoint-initdb.d/install_wordpress.sql
+      - ./src/mysql.chabin.sql:/docker-entrypoint-initdb.d/install_wordpress.sql
     restart: always
     env_file: .env
 
@@ -14,13 +14,13 @@ services:
       - db
     image: wordpress:latest
     ports:
-      - '9000:80'
+      - '8888:80'
     restart: always
     environment:
       WORDPRESS_DB_HOST: db:3306
     env_file: .env
     volumes:
-      - ./:/var/www/html/wp-content/themes/chabin
+      - ./src:/var/www/html/wp-content/themes/chabin
 
 volumes:
   db_data: {}
