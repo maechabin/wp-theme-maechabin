@@ -7,8 +7,8 @@ module.exports = (grunt) => {
         const fs = require('fs');
         const regexpCss = /^style-[0-9a-z]{32}\.css$/;
         const regexpJs = /^function\.min-[0-9a-z]{32}\.js$/;
-        const list = fs.readdirSync('assets/');
-        const regexp = dir === 'css' ? regexpCss : regexpJs;
+        const list = fs.readdirSync('src/assets/');
+        const regexp = dir === 'src/css' ? regexpCss : regexpJs;
 
         for (let i = 0; i < list.length; i++) {
           if (list[i].match(regexp)) {
@@ -27,9 +27,9 @@ module.exports = (grunt) => {
         files: [
           {
             expand: true,
-            cwd: 'scss',
+            cwd: 'src/scss',
             src: ['*.scss', '*.sass'],
-            dest: 'css',
+            dest: 'src/css',
             ext: '.css',
           },
         ],
@@ -39,7 +39,11 @@ module.exports = (grunt) => {
     cssmin: {
       minify: {
         files: {
-          'style.css': ['css/style.css', 'css/prettify.min.css', 'css/font-awesome.min.css'],
+          'src/style.css': [
+            'src/css/style.css',
+            'src/css/prettify.min.css',
+            'src/css/font-awesome.min.css',
+          ],
         },
       },
     },
@@ -47,32 +51,32 @@ module.exports = (grunt) => {
     uglify: {
       dist: {
         files: {
-          'js/function.min.js': 'js/function.js',
+          'src/js/function.min.js': 'src/js/function.js',
         },
       },
     },
 
     clean: {
-      css: ['assets/*.css'],
-      js: ['assets/*.js'],
+      css: ['src/assets/*.css'],
+      js: ['src/assets/*.js'],
     },
 
     md5: {
       css: {
         files: {
-          'assets/': 'style.css',
+          'src/assets/': 'src/style.css',
         },
       },
       js: {
         files: {
-          'assets/': 'js/function.min.js',
+          'src/assets/': 'src/js/function.min.js',
         },
       },
     },
 
     replace: {
       css: {
-        src: ['header.php'],
+        src: ['src/header.php'],
         overwrite: true,
         replacements: [
           {
@@ -82,7 +86,7 @@ module.exports = (grunt) => {
         ],
       },
       js: {
-        src: ['header.php'],
+        src: ['src/header.php'],
         overwrite: true,
         replacements: [
           {
@@ -99,22 +103,22 @@ module.exports = (grunt) => {
           transform: [['babelify']],
         },
         files: {
-          'js/function.js': ['js/app.js', 'js/prettify.js'],
+          'src/js/function.js': ['src/js/app.js', 'src/js/prettify.js'],
         },
       },
     },
 
     watch: {
       sass: {
-        files: ['scss/*.scss', 'scss/*.sass'],
+        files: ['src/scss/*.scss', 'src/scss/*.sass'],
         tasks: ['sass'],
       },
       css: {
-        files: ['css/index.css', 'css/single.css', 'css/style.css', 'css/sidebar.css'],
+        files: ['src/css/index.css', 'src/css/single.css', 'src/css/style.css', 'css/sidebar.css'],
         tasks: ['cssmin', 'clean:css', 'md5:css', 'replace:css'],
       },
       js: {
-        files: ['js/*.js'],
+        files: ['src/js/*.js'],
         tasks: ['browserify', 'uglify', 'clean:js', 'md5:js', 'replace:js'],
       },
     },
