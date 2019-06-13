@@ -7,7 +7,7 @@ module.exports = (grunt) => {
         const fs = require('fs');
         const regexpCss = /^style-[0-9a-z]{32}\.css$/;
         const regexpJs = /^function\.min-[0-9a-z]{32}\.js$/;
-        const list = fs.readdirSync('src/assets/');
+        const list = fs.readdirSync('src/app/assets/');
         const regexp = dir === 'src/css' ? regexpCss : regexpJs;
 
         for (let i = 0; i < list.length; i++) {
@@ -57,19 +57,19 @@ module.exports = (grunt) => {
     },
 
     clean: {
-      css: ['src/assets/*.css'],
-      js: ['src/assets/*.js'],
+      css: ['src/app/assets/*.css'],
+      js: ['src/app/assets/*.js'],
     },
 
     md5: {
       css: {
         files: {
-          'src/assets/': 'src/style.css',
+          'src/app/assets/': 'src/style.css',
         },
       },
       js: {
         files: {
-          'src/assets/': 'src/js/function.min.js',
+          'src/app/assets/': 'src/js/function.min.js',
         },
       },
     },

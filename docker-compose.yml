@@ -20,7 +20,7 @@ services:
       WORDPRESS_DB_HOST: db:3306
     env_file: .env
     volumes:
-      - ./src:/var/www/html/wp-content/themes/chabin
+      - ./src/app:/var/www/html/wp-content/themes/chabin
 
 volumes:
   db_data: {}
