@@ -39,7 +39,7 @@ module.exports = (grunt) => {
     cssmin: {
       minify: {
         files: {
-          'src/style.css': [
+          'src/app/style.css': [
             'src/css/style.css',
             'src/css/prettify.min.css',
             'src/css/font-awesome.min.css',
@@ -76,7 +76,7 @@ module.exports = (grunt) => {
 
     replace: {
       css: {
-        src: ['src/header.php'],
+        src: ['src/app/header.php'],
         overwrite: true,
         replacements: [
           {
@@ -86,7 +86,7 @@ module.exports = (grunt) => {
         ],
       },
       js: {
-        src: ['src/header.php'],
+        src: ['src/app/header.php'],
         overwrite: true,
         replacements: [
           {

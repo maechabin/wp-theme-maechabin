@@ -1,8 +1,8 @@
 {
-  "name": "wp-theme-maechabin",
+  "name": "maechabin-ui",
   "version": "2.9.0",
-  "description": "WordPress Original Theme",
-  "main": "./main.js",
+  "description": "The UI for WordPress Original Theme 'cahbin'",
+  "main": "./src/js/app.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/maechabin/mae.chab.in.git"
@@ -19,7 +19,8 @@
   "license": "MIT",
   "homepage": "https://mae.chab.in/",
   "scripts": {
-    "start": "docker-compose up -d && grunt watch"
+    "start": "docker-compose up -d && grunt watch",
+    "stop": "docker-compose down --volumes"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",

@@ -4,6 +4,8 @@
 .env
 
 node_modules/
+
+src/app/style.css
 src/assets/
 src/css/style.css
 src/css/style.css.map
@@ -22,8 +24,4 @@ src/js/meltdown/
 src/js/lang-css.js
 src/js/run_prettify.js
 src/js/comment-reply.js
-src/style.css
 src/mysql.chabin.sql
-
-npm-debug.log
-ads.txt
