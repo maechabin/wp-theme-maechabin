@@ -139,7 +139,7 @@ $path = htmlspecialchars($_SERVER['REQUEST_URI'], ENT_QUOTES);
 
   <link rel="stylesheet" href="/wp-content/themes/chabin/assets/style-1ef5077ddde274b2ebb9ea7b55c7e775.css" media="all">
 
-  <script src="/wp-content/themes/chabin/assets/function.min-d56aab9f7bf22be2b4f953afbdaccacb.js" defer></script>
+  <script src="/wp-content/themes/chabin/assets/function.min-9f10d194222754e8ab3161c38f598edb.js" defer></script>
   <script src="/wp-includes/js/comment-reply.min.js" defer></script>
   <!--<script src="https://cdn.jsdelivr.net/gh/google/code-prettify/loader/run_prettify.js?lang=css" defer></script>-->
   <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js" async data-turbolinks-eval="false"></script>
