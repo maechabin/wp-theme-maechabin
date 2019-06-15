@@ -1,6 +1,6 @@
 {
   "name": "wp-theme-maechabin",
-  "version": "2.8.0",
+  "version": "2.9.0",
   "description": "WordPress Original Theme",
   "main": "./main.js",
   "repository": {
@@ -18,6 +18,9 @@
   "author": "@maechabin mail@chab.in https://mae.chab.in/",
   "license": "MIT",
   "homepage": "https://mae.chab.in/",
+  "scripts": {
+    "start": "docker-compose up -d && grunt watch"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
